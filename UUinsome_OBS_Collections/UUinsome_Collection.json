@@ -46,14 +46,14 @@
             "name": "Slide Notes Text",
             "monitor": -1,
             "type": 0,
-            "geometry": "AdnQywADAAAAAAvi////UgAADcEAAAB+AAAL4v///3EAAA3BAAAAfgAAAAEAAAAADXAAAAvi////cQAADcEAAAB+",
+            "geometry": "AdnQywADAAAAAAvi////VQAADcEAAAB+AAAL4v///3EAAA3BAAAAfgAAAAEAAAAADXAAAAvi////cQAADcEAAAB+",
             "alwaysOnTopOverridden": false
         },
         {
             "name": "Slide Notes",
             "monitor": -1,
             "type": 1,
-            "geometry": "AdnQywADAAAAAAKAAAAAHAAABPEAAAHAAAACgAAAADsAAATxAAABwAAAAAAAAAAAB4AAAAKAAAAAOwAABPEAAAHA",
+            "geometry": "AdnQywADAAAAAAUNAAAAZAAAB34AAAIFAAAFDQAAAIAAAAd+AAACBQAAAAAAAAAAB4AAAAUNAAAAgAAAB34AAAIF",
             "alwaysOnTop": true,
             "alwaysOnTopOverridden": true
         }
@@ -69,41 +69,6 @@
         "type2": 3
     },
     "modules": {
-        "source-dock": {
-            "docks": [],
-            "windows": [],
-            "corner_tl": false,
-            "corner_tr": false,
-            "corner_br": false,
-            "corner_bl": false
-        },
-        "copyTransformHotkey": [],
-        "pasteTransformHotkey": [],
-        "scripts-tool": [],
-        "output-timer": {
-            "streamTimerHours": 0,
-            "streamTimerMinutes": 0,
-            "streamTimerSeconds": 30,
-            "recordTimerHours": 0,
-            "recordTimerMinutes": 0,
-            "recordTimerSeconds": 30,
-            "autoStartStreamTimer": false,
-            "autoStartRecordTimer": false,
-            "pauseRecordTimer": true
-        },
-        "auto-scene-switcher": {
-            "interval": 300,
-            "non_matching_scene": "",
-            "switch_if_not_matching": false,
-            "active": false,
-            "switches": []
-        },
-        "captions": {
-            "source": "",
-            "enabled": false,
-            "lang_id": 1033,
-            "provider": "mssapi"
-        },
         "advanced-scene-switcher": {
             "sceneGroups": [],
             "macros": [
@@ -131,18 +96,18 @@
                     },
                     "macroActionConditionSplitterPosition": [
                         {
-                            "pos": 235
+                            "pos": 214
                         },
                         {
-                            "pos": 479
+                            "pos": 435
                         }
                     ],
                     "macroElseActionSplitterPosition": [
                         {
-                            "pos": 286
+                            "pos": 258
                         },
                         {
-                            "pos": 161
+                            "pos": 145
                         }
                     ],
                     "registerHotkeys": false,
@@ -205,8 +170,7 @@
                             "tempVar": {
                                 "type": 0,
                                 "idx": -1,
-                                "id": "",
-                                "version": 1
+                                "id": ""
                             },
                             "settings": "",
                             "deinterlaceMode": 0,
@@ -314,8 +278,7 @@
                             "tempVar": {
                                 "type": 0,
                                 "idx": -1,
-                                "id": "",
-                                "version": 1
+                                "id": ""
                             },
                             "settings": "",
                             "deinterlaceMode": 0,
@@ -440,8 +403,7 @@
                             "tempVar": {
                                 "type": 0,
                                 "idx": -1,
-                                "id": "",
-                                "version": 1
+                                "id": ""
                             },
                             "sceneItemIndex": {
                                 "value": 1,
@@ -480,8 +442,7 @@
                             "tempVar": {
                                 "type": 0,
                                 "idx": -1,
-                                "id": "",
-                                "version": 1
+                                "id": ""
                             },
                             "settings": "",
                             "deinterlaceMode": 0,
@@ -606,8 +567,7 @@
                             "tempVar": {
                                 "type": 0,
                                 "idx": -1,
-                                "id": "",
-                                "version": 1
+                                "id": ""
                             },
                             "sceneItemIndex": {
                                 "value": 1,
@@ -646,8 +606,7 @@
                             "tempVar": {
                                 "type": 0,
                                 "idx": -1,
-                                "id": "",
-                                "version": 1
+                                "id": ""
                             },
                             "settings": "",
                             "deinterlaceMode": 0,
@@ -772,8 +731,7 @@
                             "tempVar": {
                                 "type": 0,
                                 "idx": -1,
-                                "id": "",
-                                "version": 1
+                                "id": ""
                             },
                             "sceneItemIndex": {
                                 "value": 1,
@@ -812,8 +770,7 @@
                             "tempVar": {
                                 "type": 0,
                                 "idx": -1,
-                                "id": "",
-                                "version": 1
+                                "id": ""
                             },
                             "settings": "",
                             "sourceSettingButton": {
@@ -941,8 +898,7 @@
                             "tempVar": {
                                 "type": 0,
                                 "idx": -1,
-                                "id": "",
-                                "version": 1
+                                "id": ""
                             },
                             "sceneItemIndex": {
                                 "value": 1,
@@ -981,8 +937,7 @@
                             "tempVar": {
                                 "type": 0,
                                 "idx": -1,
-                                "id": "",
-                                "version": 1
+                                "id": ""
                             },
                             "settings": "",
                             "sourceSettingButton": {
@@ -1123,8 +1078,7 @@
                             "tempVar": {
                                 "type": 0,
                                 "idx": -1,
-                                "id": "",
-                                "version": 1
+                                "id": ""
                             },
                             "settings": "",
                             "sourceSettingButton": {
@@ -1176,8 +1130,7 @@
                             "tempVar": {
                                 "type": 0,
                                 "idx": -1,
-                                "id": "",
-                                "version": 1
+                                "id": ""
                             },
                             "sceneItemIndex": {
                                 "value": 1,
@@ -1322,8 +1275,7 @@
                             "tempVar": {
                                 "type": 0,
                                 "idx": -1,
-                                "id": "",
-                                "version": 1
+                                "id": ""
                             },
                             "settings": "",
                             "sourceSettingButton": {
@@ -1375,8 +1327,7 @@
                             "tempVar": {
                                 "type": 0,
                                 "idx": -1,
-                                "id": "",
-                                "version": 1
+                                "id": ""
                             },
                             "sceneItemIndex": {
                                 "value": 1,
@@ -1511,8 +1462,7 @@
                             "tempVar": {
                                 "type": 1,
                                 "idx": 0,
-                                "id": "message",
-                                "version": 1
+                                "id": "message"
                             },
                             "sceneItemIndex": {
                                 "value": 1,
@@ -1568,8 +1518,7 @@
                             "tempVar": {
                                 "type": 1,
                                 "idx": 0,
-                                "id": "message",
-                                "version": 1
+                                "id": "message"
                             },
                             "sceneItemIndex": {
                                 "value": 1,
@@ -1625,8 +1574,7 @@
                             "tempVar": {
                                 "type": 0,
                                 "idx": -1,
-                                "id": "setting",
-                                "version": 1
+                                "id": "setting"
                             },
                             "sceneItemIndex": {
                                 "value": 1,
@@ -1665,8 +1613,7 @@
                             "tempVar": {
                                 "type": 0,
                                 "idx": -1,
-                                "id": "",
-                                "version": 1
+                                "id": ""
                             },
                             "settings": "",
                             "deinterlaceMode": 0,
@@ -1698,8 +1645,7 @@
                             "tempVar": {
                                 "type": 0,
                                 "idx": -1,
-                                "id": "",
-                                "version": 1
+                                "id": ""
                             },
                             "settings": "",
                             "sourceSettingButton": {
@@ -1761,8 +1707,7 @@
                             "tempVar": {
                                 "type": 0,
                                 "idx": -1,
-                                "id": "",
-                                "version": 1
+                                "id": ""
                             },
                             "settings": "",
                             "sourceSettingButton": {
@@ -1770,6 +1715,202 @@
                                 "description": ""
                             },
                             "version": 1
+                        }
+                    ],
+                    "elseActions": [],
+                    "inputVariables": []
+                },
+                {
+                    "name": "clipboard changed ppt Next",
+                    "pause": true,
+                    "parallel": false,
+                    "onChange": false,
+                    "skipExecOnStart": false,
+                    "stopActionsIfNotDone": false,
+                    "group": false,
+                    "dockSettings": {
+                        "register": false,
+                        "hasRunButton": true,
+                        "hasPauseButton": true,
+                        "hasStatusLabel": false,
+                        "highlightIfConditionsTrue": false,
+                        "runButtonText": "Run",
+                        "pauseButtonText": "Pause",
+                        "unpauseButtonText": "Unpause",
+                        "conditionsTrueStatusText": "Conditions are true.",
+                        "conditionsFalseStatusText": "Conditions are false.",
+                        "dockId": "advss-macro-dock-a120d849-f186-4519-8ba9-91b4b9c6d476",
+                        "version": 1
+                    },
+                    "macroActionConditionSplitterPosition": [
+                        {
+                            "pos": 465
+                        },
+                        {
+                            "pos": 463
+                        }
+                    ],
+                    "macroElseActionSplitterPosition": [
+                        {
+                            "pos": 431
+                        },
+                        {
+                            "pos": 0
+                        }
+                    ],
+                    "registerHotkeys": false,
+                    "pauseHotkey": [],
+                    "unpauseHotkey": [],
+                    "togglePauseHotkey": [],
+                    "conditions": [
+                        {
+                            "segmentSettings": {
+                                "collapsed": false,
+                                "useCustomLabel": false,
+                                "customLabel": "My label"
+                            },
+                            "id": "clipboard",
+                            "logic": 0,
+                            "durationModifier": {
+                                "time_constraint": 0,
+                                "seconds": {
+                                    "value": {
+                                        "value": 0.0,
+                                        "type": 0
+                                    },
+                                    "unit": 0,
+                                    "version": 1
+                                }
+                            },
+                            "condition": 4,
+                            "text": "\"actionName\":\"ppt_Next\"",
+                            "regexConfig": {
+                                "enable": true,
+                                "partial": true,
+                                "options": 0
+                            }
+                        }
+                    ],
+                    "actions": [
+                        {
+                            "segmentSettings": {
+                                "collapsed": false,
+                                "useCustomLabel": false,
+                                "customLabel": "My label"
+                            },
+                            "id": "log",
+                            "enabled": true,
+                            "logMessage": "My log message!"
+                        },
+                        {
+                            "segmentSettings": {
+                                "collapsed": false,
+                                "useCustomLabel": false,
+                                "customLabel": "My label"
+                            },
+                            "id": "clipboard",
+                            "enabled": true,
+                            "action": 0,
+                            "text": "",
+                            "url": "Enter direct image URL"
+                        }
+                    ],
+                    "elseActions": [],
+                    "inputVariables": []
+                },
+                {
+                    "name": "clipboard changed PPT Previous",
+                    "pause": true,
+                    "parallel": false,
+                    "onChange": false,
+                    "skipExecOnStart": false,
+                    "stopActionsIfNotDone": false,
+                    "group": false,
+                    "dockSettings": {
+                        "register": false,
+                        "hasRunButton": true,
+                        "hasPauseButton": true,
+                        "hasStatusLabel": false,
+                        "highlightIfConditionsTrue": false,
+                        "runButtonText": "Run",
+                        "pauseButtonText": "Pause",
+                        "unpauseButtonText": "Unpause",
+                        "conditionsTrueStatusText": "Conditions are true.",
+                        "conditionsFalseStatusText": "Conditions are false.",
+                        "dockId": "advss-macro-dock-bda82ab4-ac3d-4b98-8919-248f72e45962",
+                        "version": 1
+                    },
+                    "macroActionConditionSplitterPosition": [
+                        {
+                            "pos": 332
+                        },
+                        {
+                            "pos": 331
+                        }
+                    ],
+                    "macroElseActionSplitterPosition": [
+                        {
+                            "pos": 299
+                        },
+                        {
+                            "pos": 0
+                        }
+                    ],
+                    "registerHotkeys": false,
+                    "pauseHotkey": [],
+                    "unpauseHotkey": [],
+                    "togglePauseHotkey": [],
+                    "conditions": [
+                        {
+                            "segmentSettings": {
+                                "collapsed": false,
+                                "useCustomLabel": false,
+                                "customLabel": "My label"
+                            },
+                            "id": "clipboard",
+                            "logic": 0,
+                            "durationModifier": {
+                                "time_constraint": 0,
+                                "seconds": {
+                                    "value": {
+                                        "value": 0.0,
+                                        "type": 0
+                                    },
+                                    "unit": 0,
+                                    "version": 1
+                                }
+                            },
+                            "condition": 4,
+                            "text": "\"actionName\":\"ppt_Previous\"",
+                            "regexConfig": {
+                                "enable": true,
+                                "partial": true,
+                                "options": 0
+                            }
+                        }
+                    ],
+                    "actions": [
+                        {
+                            "segmentSettings": {
+                                "collapsed": false,
+                                "useCustomLabel": false,
+                                "customLabel": "My label"
+                            },
+                            "id": "log",
+                            "enabled": true,
+                            "logMessage": "My log message!"
+                        },
+                        {
+                            "segmentSettings": {
+                                "collapsed": false,
+                                "useCustomLabel": false,
+                                "customLabel": "My label"
+                            },
+                            "id": "clipboard",
+                            "enabled": true,
+                            "action": 0,
+                            "text": "",
+                            "url": "Enter direct image URL"
                         }
                     ],
                     "elseActions": [],
@@ -1798,11 +1939,51 @@
                 {
                     "name": "Teleprompter Play Pause Toggle",
                     "saveAction": 1,
-                    "value": "1",
+                    "value": "0",
                     "defaultValue": ""
                 },
                 {
                     "name": "slideNotes",
+                    "saveAction": 0,
+                    "defaultValue": ""
+                },
+                {
+                    "name": "Nose",
+                    "saveAction": 0,
+                    "defaultValue": ""
+                },
+                {
+                    "name": "wrist",
+                    "saveAction": 0,
+                    "defaultValue": ""
+                },
+                {
+                    "name": "NoseY",
+                    "saveAction": 0,
+                    "defaultValue": ""
+                },
+                {
+                    "name": "OSCdata",
+                    "saveAction": 0,
+                    "defaultValue": ""
+                },
+                {
+                    "name": "Util",
+                    "saveAction": 0,
+                    "defaultValue": ""
+                },
+                {
+                    "name": "test",
+                    "saveAction": 0,
+                    "defaultValue": ""
+                },
+                {
+                    "name": "zoom",
+                    "saveAction": 0,
+                    "defaultValue": ""
+                },
+                {
+                    "name": "localVocalText",
                     "saveAction": 0,
                     "defaultValue": ""
                 }
@@ -1960,10 +2141,10 @@
                     "sceneTriggerTab": 17
                 },
                 {
-                    "websocketConnectionTab": 18
+                    "twitchConnectionTab": 18
                 },
                 {
-                    "twitchConnectionTab": 19
+                    "websocketConnectionTab": 19
                 },
                 {
                     "variableTab": 20
@@ -1973,23 +2154,81 @@
                 }
             ],
             "saveWindowGeo": false,
-            "windowPosX": 1969,
-            "windowPosY": -151,
-            "windowWidth": 1326,
-            "windowHeight": 1114,
+            "windowPosX": 2451,
+            "windowPosY": -30,
+            "windowWidth": 1920,
+            "windowHeight": 1172,
             "macroListMacroEditSplitterPosition": [
                 {
-                    "pos": 355
+                    "pos": 430
                 },
                 {
-                    "pos": 944
+                    "pos": 1443
                 }
             ],
-            "version": "b561a20ddeca3e3e922ec1bf427ff811c2bf18f1",
-            "websocketConnections": [],
+            "version": "510f83246ea264f56def58187bd9537b7c93b988",
             "twitchConnections": [],
+            "websocketConnections": [],
             "actionQueues": []
-        }
+        },
+        "auto-scene-switcher": {
+            "interval": 300,
+            "non_matching_scene": "",
+            "switch_if_not_matching": false,
+            "active": false,
+            "switches": []
+        },
+        "captions": {
+            "enabled": false,
+            "lang_id": 1033,
+            "provider": "mssapi",
+            "source": ""
+        },
+        "copyTransformHotkey": [],
+        "output-timer": {
+            "streamTimerHours": 0,
+            "streamTimerMinutes": 0,
+            "streamTimerSeconds": 30,
+            "recordTimerHours": 0,
+            "recordTimerMinutes": 0,
+            "recordTimerSeconds": 30,
+            "autoStartStreamTimer": false,
+            "autoStartRecordTimer": false,
+            "pauseRecordTimer": true
+        },
+        "pasteTransformHotkey": [],
+        "scripts-tool": [],
+        "source-dock": {
+            "docks": [],
+            "windows": [],
+            "corner_tl": false,
+            "corner_tr": false,
+            "corner_br": false,
+            "corner_bl": false
+        },
+        "transition-table": {
+            "transitions": [],
+            "enable_hotkey": [],
+            "disable_hotkey": []
+        },
+        "downstream_keyers_channel": 7,
+        "downstream_keyers": [
+            {
+                "name": "DSK 1",
+                "transition": "",
+                "transition_duration": 300,
+                "show_transition": "",
+                "show_transition_duration": 300,
+                "hide_transition": "",
+                "hide_transition_duration": 300,
+                "scenes": [],
+                "scene": "",
+                "null_hotkey": [],
+                "enable_tie_hotkey": [],
+                "disable_tie_hotkey": [],
+                "exclude_scenes": []
+            }
+        ]
     },
     "resolution": {
         "x": 1920,
@@ -2000,21 +2239,21 @@
             "prev_ver": 503447555,
             "name": "Navigation Text",
             "uuid": "d19f8913-1e20-4546-98ea-5b9b693cb050",
-            "id": "text_gdiplus",
-            "versioned_id": "text_gdiplus_v3",
+            "id": "text_ft2_source",
+            "versioned_id": "text_ft2_source_v2",
             "settings": {
-                "extents": false,
                 "chatlog": false,
-                "outline": true,
-                "font": {
-                    "face": "Arial",
-                    "style": "Regular",
-                    "size": 72,
-                    "flags": 0
-                },
+                "extents": false,
                 "extents_cx": 1920,
                 "extents_cy": 5000,
-                "text": ""
+                "text": "",
+                "font": {
+                    "face": "Arial",
+                    "flags": 0,
+                    "size": 72,
+                    "style": "Regular"
+                },
+                "outline": true
             },
             "mixers": 0,
             "sync": 0,
@@ -2040,11 +2279,11 @@
             "id": "window_capture",
             "versioned_id": "window_capture",
             "settings": {
-                "window": "Presentation 17 - PowerPoint:PPTFrameClass:POWERPNT.EXE",
+                "client_area": true,
                 "cursor": false,
-                "client_area": true
+                "window": "Presentation 17 - PowerPoint:PPTFrameClass:POWERPNT.EXE"
             },
-            "mixers": 255,
+            "mixers": 0,
             "sync": 0,
             "flags": 0,
             "volume": 1.0,
@@ -2057,9 +2296,9 @@
             "push-to-talk-delay": 0,
             "hotkeys": {
                 "libobs.mute": [],
-                "libobs.unmute": [],
                 "libobs.push-to-mute": [],
-                "libobs.push-to-talk": []
+                "libobs.push-to-talk": [],
+                "libobs.unmute": []
             },
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
@@ -2073,8 +2312,8 @@
             "id": "scene",
             "versioned_id": "scene",
             "settings": {
-                "id_counter": 1,
                 "custom_size": false,
+                "id_counter": 1,
                 "items": [
                     {
                         "name": "PPT Window Capture",
@@ -2145,8 +2384,8 @@
             "id": "scene",
             "versioned_id": "scene",
             "settings": {
-                "id_counter": 2,
                 "custom_size": false,
+                "id_counter": 2,
                 "items": [
                     {
                         "name": "Video Capture Device",
@@ -2241,10 +2480,10 @@
             "push-to-talk-delay": 0,
             "hotkeys": {
                 "OBSBasic.SelectScene": [],
-                "libobs.show_scene_item.1": [],
-                "libobs.hide_scene_item.1": [],
                 "libobs.show_scene_item.2": [],
-                "libobs.hide_scene_item.2": []
+                "libobs.hide_scene_item.2": [],
+                "libobs.show_scene_item.1": [],
+                "libobs.hide_scene_item.1": []
             },
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
@@ -2258,8 +2497,8 @@
             "id": "scene",
             "versioned_id": "scene",
             "settings": {
-                "id_counter": 1,
                 "custom_size": false,
+                "id_counter": 1,
                 "items": [
                     {
                         "name": "Navigation Text",
@@ -2330,8 +2569,8 @@
             "id": "scene",
             "versioned_id": "scene",
             "settings": {
-                "id_counter": 1,
                 "custom_size": false,
+                "id_counter": 1,
                 "items": [
                     {
                         "name": "Slide Notes Text",
@@ -2399,23 +2638,23 @@
             "prev_ver": 503447555,
             "name": "Slide Notes Text",
             "uuid": "b8872ef2-9342-430a-8cbe-462c6a04fa45",
-            "id": "text_gdiplus",
-            "versioned_id": "text_gdiplus_v3",
+            "id": "text_ft2_source",
+            "versioned_id": "text_ft2_source_v2",
             "settings": {
-                "extents": true,
-                "vertical": false,
                 "chatlog": false,
+                "extents": true,
+                "extents_cx": 300,
+                "extents_cy": 8000,
+                "extents_wrap": true,
+                "text": "no notes",
+                "vertical": false,
                 "font": {
                     "face": "Arial",
                     "flags": 0,
                     "size": 30,
                     "style": "Regular"
                 },
-                "extents_wrap": true,
-                "extents_cx": 300,
-                "extents_cy": 8000,
-                "antialiasing": true,
-                "text": "no notes"
+                "antialiasing": true
             },
             "mixers": 0,
             "sync": 0,
@@ -2441,10 +2680,10 @@
                     "id": "scroll_filter",
                     "versioned_id": "scroll_filter",
                     "settings": {
-                        "speed_y": 20.0,
                         "limit_cx": true,
-                        "speed_x": 0.0,
                         "limit_cy": false,
+                        "speed_x": 0,
+                        "speed_y": 1,
                         "cx": 300,
                         "cy": 100,
                         "loop": false
@@ -2498,11 +2737,11 @@
             "prev_ver": 503447555,
             "name": "Video Capture Device",
             "uuid": "927de411-c388-4edf-8d7d-1279f3165b6d",
-            "id": "dshow_input",
-            "versioned_id": "dshow_input",
+            "id": "av_capture_input",
+            "versioned_id": "av_capture_input_v2",
             "settings": {
-                "video_device_id": "HP Wide Vision HD Camera:\\\\?\\usb#22vid_04f2&pid_b627&mi_00#226&3a511a87&0&0000#22{65e8773d-8f56-11d0-a3b9-00a0c9223196}\\global",
-                "last_video_device_id": "HP Wide Vision HD Camera:\\\\?\\usb#22vid_04f2&pid_b627&mi_00#226&3a511a87&0&0000#22{65e8773d-8f56-11d0-a3b9-00a0c9223196}\\global"
+                "last_video_device_id": "HP Wide Vision HD Camera:\\\\?\\usb#22vid_04f2&pid_b627&mi_00#226&3a511a87&0&0000#22{65e8773d-8f56-11d0-a3b9-00a0c9223196}\\global",
+                "video_device_id": "HP Wide Vision HD Camera:\\\\?\\usb#22vid_04f2&pid_b627&mi_00#226&3a511a87&0&0000#22{65e8773d-8f56-11d0-a3b9-00a0c9223196}\\global"
             },
             "mixers": 255,
             "sync": 0,
