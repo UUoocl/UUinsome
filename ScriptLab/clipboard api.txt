@@ -4,13 +4,10 @@ host: POWERPOINT
 api_set: {}
 script:
   content: >
-    // A script to control Open Broadcast Studio (OBS) with PowerPoint Slides
-    // Add shapes with the prefix "obs-"
-    //
-    // The shape Name and Text will be sent to OBS.
-    //
-    // NOTE: this script only works on Windows or Mac.  Online PowerPoint is not
-    supported
+    // A script to control Open Broadcast Studio (OBS) with PowerPoint Slides //
+    Add shapes with the prefix "obs-" // // The shape Name and Text will be sent
+    to OBS. // // NOTE: this script only works on Windows or Mac.  Online
+    PowerPoint is not supported
 
 
     $("#get-slide-metadata").on("click", currentSlide);
@@ -33,25 +30,30 @@ script:
           //console.log(JSON.stringify(asyncResult.value, null, 4));
           let result = asyncResult.value;
           result = result.slides[0].index;
-          if (direction === "next") {
-            goToNextSlide(result);
+          //console.log(`slide index = ${result}`);
+          if (direction[0] === "next") {
+              await getNotesForOBS(result-1,"exit").then((pptData) => {
+                saveText(JSON.stringify(pptData))
+                getNotesForOBS(result,"entrance");
+            })
           }
-          if (direction === "previous") {
-            result = result - 2;
-            goToPreviousSlide(result);
+          if (direction[0] === "previous") {
+            await getNotesForOBS(result - 2, "current").then((pptData) => {
+              saveText(JSON.stringify(pptData))
+              getNotesForOBS(result, "entrance");
+              })
           }
-          if (direction === "current") {
-            result = result - 1;
-            results = await getNotesForOBS(result).then((obj) => {
+          if (direction[0] === "current") {
+            await getNotesForOBS(result-1,"current").then((obj) => {
               console.log("then");
               stringResult = JSON.stringify(obj);
-              console.log(stringResult);
+              console.log(`get notes results: ${stringResult}`);
               saveText(stringResult);
-              return obj;
+              return;
             });
-            console.log("results", results);
-            document.getElementById("clipboard").click()
-            return;
+            //console.log("results", results);
+            //document.getElementById("clipboard").click();
+            //return;
           }
         }
       });
@@ -60,31 +62,26 @@ script:
 
     document.getElementById("clipboard").addEventListener("click", async (event)
     => {
-      console.log("bttn")
+      console.log("bttn");
       await navigator.clipboard.writeText(`${stringResult}`);
       const clipboardContents = await navigator.clipboard.readText();
       console.log(clipboardContents);
-    })
+    });
 
 
     document.addEventListener("keypress", async (event) => {
-      console.log("bttn")
+      console.log("bttn");
       await navigator.clipboard.writeText(`${stringResult}`);
       const clipboardContents = await navigator.clipboard.readText();
       console.log(clipboardContents);
-    })
-
-
+    });
 
 
     async function saveText(message) {
-      console.log("hi");
-      const text = new ClipboardItem({
-        "text/plain": "Hellow World"
-      });
-      navigator.clipboard.writeText(text);
+      console.log("write to clipboard");
+      navigator.clipboard.writeText(message);
       const clipboardContents = await navigator.clipboard.readText();
-      console.log(clipboardContents);
+      console.log(`clipboard contents:${clipboardContents}`);
     }
 
 
@@ -107,19 +104,19 @@ script:
 
 
     async function currentSlide() {
-      await getSlideMetadata("current");
-      console.log("returned");
+      await getSlideMetadata(["current"])
       //saveText()
     }
 
 
-    function goToNextSlideByIndex() {
-      getSlideMetadata("next");
+    async function goToNextSlideByIndex() {
+      await getSlideMetadata(["current", "Next"]);
+      
     }
 
 
     function goToPreviousSlideByIndex() {
-      getSlideMetadata("previous");
+      getSlideMetadata(["current","previous"]);
     }
 
 
@@ -155,8 +152,8 @@ script:
     // get the "obs-" shapes' Names and Text from the current slide.
 
 
-    async function getNotesForOBS(slideIndex) {
-      var pptData = {},
+    async function getNotesForOBS(slideIndex, action) {
+      var pptData = { actionName: `slide_${action}` },
         found = 0;
       const indexArray = [];
       let result = await PowerPoint.run(async (context) => {
@@ -168,46 +165,70 @@ script:
         await context.sync();
 
         const shapeNames = [];
-        // find the "obs-" shapes index
+        // find the "|||" shapes index
         await shapes.items.forEach(async (shape, index) => {
-          if (shape.name.startsWith("obs-")) {
-            found = 1;
-            console.log(`index: ${index}, ID: ${shape.id}, Name: ${shape.name}`);
-            indexArray.push(index);
-            shapeNames.push(shape.name);
-          }
-        });
+           //console.log(shape.name);
+           if (shape.name.startsWith("obs-")) {
+             found = 1;
+             //console.log(`index: ${index}, ID: ${shape.id}, Name: ${shape.name}`);
+             indexArray.push(index);
+             shapeNames.push(shape.name);
+           }
+         });
 
-        //get Shape Text
-        const shapeTextRanges = [];
-        if (found) {
-          //load text
-          for (let i = 0; i < indexArray.length; i++) {
-            const shapeTextRange: PowerPoint.TextRange = shapes.getItemAt(indexArray[i]).textFrame.textRange;
-            shapeTextRanges.push(shapeTextRange);
-            shapeTextRanges[i].load("text");
-          }
-
+         //get Shape Text
+         const shapeTextRanges = [];
+         const shapeFills = [];
+         if (found) {
+           //load text
+           for (let i = 0; i < indexArray.length; i++) {
+             const shapeTextRange: PowerPoint.TextRange = shapes.getItemAt(indexArray[i]).textFrame.textRange;
+             const shapeFill: PowerPoint.ShapeFill = shapes.getItemAt(indexArray[i]).fill;
+             shapeTextRanges.push(shapeTextRange);
+             shapeTextRanges[i].load("text");
+             shapeFills.push(shapeFill);
+             shapeFills[i].load("transparency");
+           }
+         }
           await context.sync();
 
+          //Action to Transparency value
+          let actionCode;
+          switch(action){
+            case 'next' || 'previous': actionCode = 0; break; //Entrance
+            case 'current': actionCode = 0.01; break;  //Exit
+          }
           //build the message
           for (let i = 0; i < shapeTextRanges.length; i++) {
-            //console.log(shapeTextRanges[i]._T);
-            pptData[shapeNames[i]] = shapeTextRanges[i].text;
+            //console.log(shapeNames[i])
+            if (shapeTextRanges[i].text.includes("|||") && shapeFills[i].transparency == actionCode){
+            const keyValue = shapeTextRanges[i].text.split("|||");
+            //console.log(`tag: ${shapeTextRanges[i].text} ActionCode: ${actionCode} transparecy ${shapeFills[i].transparency === actionCode}`)
+            pptData[keyValue[0]] = keyValue[1];
+            }
+            if(shapeNames[i] === "obs-Notes"){
+              pptData['notes'] = shapeTextRanges[i].text;
+
+            }
+
           }
-          pptData.slidePosition = slideIndex + 1;
-          //console.log("index length", pptData)
+          //pptData.slidePosition = slideIndex + 1;
+          console.log( pptData)
 
           return pptData;
-        }
-      });
 
-      return pptData;
-      console.log("result", result);
-      let pptstring = JSON.stringify(pptData);
-      console.log("pptstring", JSON.stringify(pptData));
-      console.log("pptdata", pptData);
+    })
+
+    return result
+
     }
+      //});
+
+      // return pptData;
+      // console.log("result", result);
+      // let pptstring = JSON.stringify(pptData);
+      // console.log("pptstring", JSON.stringify(pptData));
+      // console.log("pptdata", pptData);
 
 
     //general Office.initialize function. Fires on load of the add-in.
