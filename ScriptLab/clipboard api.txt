@@ -31,19 +31,32 @@ script:
           let result = asyncResult.value;
           result = result.slides[0].index;
           //console.log(`slide index = ${result}`);
-          if (direction[0] === "next") {
-              await getNotesForOBS(result-1,"exit").then((pptData) => {
-                saveText(JSON.stringify(pptData))
-                getNotesForOBS(result,"entrance");
-            })
+          if (direction === "next") {
+            await getNotesForOBS(result - 1, "exit").then((pptData) => {
+              saveText(JSON.stringify(pptData));
+            }).then(() =>{
+              goToNextSlide()
+            }).then(() => {
+              getNotesForOBS(result, "entrance")
+            }).then((pptData) => {
+                saveText(JSON.stringify(pptData));
+            });
+            
           }
-          if (direction[0] === "previous") {
-            await getNotesForOBS(result - 2, "current").then((pptData) => {
-              saveText(JSON.stringify(pptData))
-              getNotesForOBS(result, "entrance");
-              })
+          if (direction === "previous") {
+            await getNotesForOBS(result - 2, "exit").then((pptData) => {
+              saveText(JSON.stringify(pptData));
+            }).then(() => {
+              goToPreviousSlide()
+            }).then(() => {
+              getNotesForOBS(result, "entrance")
+            }).then((pptData) => {
+              saveText(JSON.stringify(pptData));
+            });
           }
-          if (direction[0] === "current") {
+
+
+          if (direction === "current") {
             await getNotesForOBS(result-1,"current").then((obj) => {
               console.log("then");
               stringResult = JSON.stringify(obj);
@@ -104,33 +117,33 @@ script:
 
 
     async function currentSlide() {
-      await getSlideMetadata(["current"])
+      await getSlideMetadata("current")
       //saveText()
     }
 
 
     async function goToNextSlideByIndex() {
-      await getSlideMetadata(["current", "Next"]);
+      await getSlideMetadata("next");
       
     }
 
 
     function goToPreviousSlideByIndex() {
-      getSlideMetadata(["current","previous"]);
+      getSlideMetadata("previous");
     }
 
 
     //change slide
 
 
-    function goToNextSlide(slideIndex) {
+    async function goToNextSlide(slideIndex) {
       const goToNext = Office.Index.Next;
       Office.context.document.goToByIdAsync(goToNext, Office.GoToType.Slide, function(asyncResult) {
         if (asyncResult.status == "failed") {
           console.log("Action failed with error: " + asyncResult.error.message);
         } else {
           console.log(`Navigation successful, slide index, ${slideIndex}`);
-          getNotesForOBS(slideIndex);
+          //getNotesForOBS(slideIndex);
         }
       });
     }
@@ -195,7 +208,7 @@ script:
           //Action to Transparency value
           let actionCode;
           switch(action){
-            case 'next' || 'previous': actionCode = 0; break; //Entrance
+            case 'entrance' || 'exit': actionCode = 0; break; //Entrance
             case 'current': actionCode = 0.01; break;  //Exit
           }
           //build the message
