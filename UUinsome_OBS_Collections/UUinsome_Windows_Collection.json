@@ -1,24 +1,24 @@
 {
-    "current_scene": "Scene - Full Screen Slide UR",
-    "current_program_scene": "Scene - Full Screen Slide UR",
+    "current_scene": "scene|||Full Screen Slide",
+    "current_program_scene": "scene|||Full Screen Slide",
     "scene_order": [
         {
-            "name": "Scene - Over the Shoulder"
+            "name": "scene|||Over the Shoulder"
         },
         {
-            "name": "Scene - Full Screen Slide UL"
+            "name": "scene|||Full Screen Slide UL"
         },
         {
-            "name": "Scene - Full Screen Slide UR"
+            "name": "scene|||Full Screen Slide UR"
         },
         {
-            "name": "Scene - Full Screen Slide LR"
+            "name": "scene|||Full Screen Slide LR"
         },
         {
-            "name": "Scene - Full Screen Slide LL"
+            "name": "scene|||Full Screen Slide LL"
         },
         {
-            "name": "Scene - Full Screen Slide"
+            "name": "scene|||Full Screen Slide"
         },
         {
             "name": "Camera"
@@ -34,80 +34,7 @@
     "groups": [
         {
             "prev_ver": 503447555,
-            "name": "Group Camera Close UP",
-            "uuid": "b877eb46-e758-454c-80ef-c3141a1d1b5a",
-            "id": "group",
-            "versioned_id": "group",
-            "settings": {
-                "id_counter": 0,
-                "custom_size": true,
-                "cx": 1920,
-                "cy": 1080,
-                "items": [
-                    {
-                        "name": "Camera Wide",
-                        "source_uuid": "6851ffdd-74e7-46b7-ad70-79a395c4c5a2",
-                        "visible": true,
-                        "locked": false,
-                        "rot": 0.0,
-                        "pos": {
-                            "x": 0.0,
-                            "y": 0.0
-                        },
-                        "scale": {
-                            "x": 1.5,
-                            "y": 1.4999997615814209
-                        },
-                        "align": 5,
-                        "bounds_type": 0,
-                        "bounds_align": 0,
-                        "bounds_crop": false,
-                        "bounds": {
-                            "x": 0.0,
-                            "y": 0.0
-                        },
-                        "crop_left": 0,
-                        "crop_top": 0,
-                        "crop_right": 0,
-                        "crop_bottom": 0,
-                        "id": 5,
-                        "group_item_backup": false,
-                        "scale_filter": "disable",
-                        "blend_method": "default",
-                        "blend_type": "normal",
-                        "show_transition": {
-                            "duration": 0
-                        },
-                        "hide_transition": {
-                            "duration": 0
-                        },
-                        "private_settings": {}
-                    }
-                ]
-            },
-            "mixers": 0,
-            "sync": 0,
-            "flags": 0,
-            "volume": 1.0,
-            "balance": 0.5,
-            "enabled": true,
-            "muted": false,
-            "push-to-mute": false,
-            "push-to-mute-delay": 0,
-            "push-to-talk": false,
-            "push-to-talk-delay": 0,
-            "hotkeys": {
-                "libobs.show_scene_item.5": [],
-                "libobs.hide_scene_item.5": []
-            },
-            "deinterlace_mode": 0,
-            "deinterlace_field_order": 0,
-            "monitoring_type": 0,
-            "private_settings": {}
-        },
-        {
-            "prev_ver": 503447555,
-            "name": "Group Camera Medium",
+            "name": "Medium",
             "uuid": "a0a528e8-e657-48d2-8686-5fb23504dd82",
             "id": "group",
             "versioned_id": "group",
@@ -118,7 +45,7 @@
                 "cy": 1080,
                 "items": [
                     {
-                        "name": "Camera Wide",
+                        "name": "Wide",
                         "source_uuid": "6851ffdd-74e7-46b7-ad70-79a395c4c5a2",
                         "visible": true,
                         "locked": false,
@@ -177,6 +104,79 @@
             "deinterlace_field_order": 0,
             "monitoring_type": 0,
             "private_settings": {}
+        },
+        {
+            "prev_ver": 503447555,
+            "name": "Close Up",
+            "uuid": "b877eb46-e758-454c-80ef-c3141a1d1b5a",
+            "id": "group",
+            "versioned_id": "group",
+            "settings": {
+                "id_counter": 0,
+                "custom_size": true,
+                "cx": 1920,
+                "cy": 1080,
+                "items": [
+                    {
+                        "name": "Wide",
+                        "source_uuid": "6851ffdd-74e7-46b7-ad70-79a395c4c5a2",
+                        "visible": true,
+                        "locked": false,
+                        "rot": 0.0,
+                        "pos": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "scale": {
+                            "x": 1.5,
+                            "y": 1.4999995231628418
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 5,
+                        "group_item_backup": false,
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
+                    }
+                ]
+            },
+            "mixers": 0,
+            "sync": 0,
+            "flags": 0,
+            "volume": 1.0,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": false,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {
+                "libobs.show_scene_item.5": [],
+                "libobs.hide_scene_item.5": []
+            },
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
+            "private_settings": {}
         }
     ],
     "quick_transitions": [
@@ -208,7 +208,7 @@
             "name": "Slide Notes",
             "monitor": -1,
             "type": 1,
-            "geometry": "AdnQywADAAAAAALYAAAAIQAABLcAAAFNAAAC2AAAAEAAAAS3AAABTQAAAAAAAAAAB4AAAALYAAAAQAAABLcAAAFN",
+            "geometry": "AdnQywADAAAAAAO5AAABJwAABbAAAAJPAAADuQAAAUYAAAWwAAACTwAAAAAAAAAAB4AAAAO5AAABRgAABbAAAAJP",
             "alwaysOnTop": true,
             "alwaysOnTopOverridden": true
         }
@@ -217,9 +217,9 @@
     "transition_duration": 300,
     "preview_locked": false,
     "scaling_enabled": true,
-    "scaling_level": -9,
-    "scaling_off_x": -180.21371459960938,
-    "scaling_off_y": -27.627141952514648,
+    "scaling_level": -2,
+    "scaling_off_x": 35.341091156005859,
+    "scaling_off_y": -10.358880043029785,
     "virtual-camera": {
         "type2": 3
     },
@@ -286,18 +286,18 @@
                     },
                     "macroActionConditionSplitterPosition": [
                         {
-                            "pos": 324
+                            "pos": 201
                         },
                         {
-                            "pos": 661
+                            "pos": 409
                         }
                     ],
                     "macroElseActionSplitterPosition": [
                         {
-                            "pos": 402
+                            "pos": 241
                         },
                         {
-                            "pos": 227
+                            "pos": 136
                         }
                     ],
                     "registerHotkeys": false,
@@ -395,15 +395,15 @@
                     },
                     "macroActionConditionSplitterPosition": [
                         {
-                            "pos": 359
+                            "pos": 222
                         },
                         {
-                            "pos": 626
+                            "pos": 388
                         }
                     ],
                     "macroElseActionSplitterPosition": [
                         {
-                            "pos": 594
+                            "pos": 356
                         },
                         {
                             "pos": 0
@@ -504,15 +504,15 @@
                     },
                     "macroActionConditionSplitterPosition": [
                         {
-                            "pos": 329
+                            "pos": 204
                         },
                         {
-                            "pos": 656
+                            "pos": 406
                         }
                     ],
                     "macroElseActionSplitterPosition": [
                         {
-                            "pos": 624
+                            "pos": 374
                         },
                         {
                             "pos": 0
@@ -670,15 +670,15 @@
                     },
                     "macroActionConditionSplitterPosition": [
                         {
-                            "pos": 329
+                            "pos": 204
                         },
                         {
-                            "pos": 656
+                            "pos": 406
                         }
                     ],
                     "macroElseActionSplitterPosition": [
                         {
-                            "pos": 624
+                            "pos": 374
                         },
                         {
                             "pos": 0
@@ -836,15 +836,15 @@
                     },
                     "macroActionConditionSplitterPosition": [
                         {
-                            "pos": 329
+                            "pos": 204
                         },
                         {
-                            "pos": 656
+                            "pos": 406
                         }
                     ],
                     "macroElseActionSplitterPosition": [
                         {
-                            "pos": 624
+                            "pos": 374
                         },
                         {
                             "pos": 0
@@ -1005,15 +1005,15 @@
                     },
                     "macroActionConditionSplitterPosition": [
                         {
-                            "pos": 329
+                            "pos": 204
                         },
                         {
-                            "pos": 656
+                            "pos": 406
                         }
                     ],
                     "macroElseActionSplitterPosition": [
                         {
-                            "pos": 624
+                            "pos": 374
                         },
                         {
                             "pos": 0
@@ -1174,15 +1174,15 @@
                     },
                     "macroActionConditionSplitterPosition": [
                         {
-                            "pos": 426
+                            "pos": 264
                         },
                         {
-                            "pos": 559
+                            "pos": 346
                         }
                     ],
                     "macroElseActionSplitterPosition": [
                         {
-                            "pos": 527
+                            "pos": 314
                         },
                         {
                             "pos": 0
@@ -1373,15 +1373,15 @@
                     },
                     "macroActionConditionSplitterPosition": [
                         {
-                            "pos": 364
+                            "pos": 312
                         },
                         {
-                            "pos": 621
+                            "pos": 298
                         }
                     ],
                     "macroElseActionSplitterPosition": [
                         {
-                            "pos": 589
+                            "pos": 266
                         },
                         {
                             "pos": 0
@@ -1572,15 +1572,15 @@
                     },
                     "macroActionConditionSplitterPosition": [
                         {
-                            "pos": 308
+                            "pos": 293
                         },
                         {
-                            "pos": 663
+                            "pos": 631
                         }
                     ],
                     "macroElseActionSplitterPosition": [
                         {
-                            "pos": 631
+                            "pos": 599
                         },
                         {
                             "pos": 0
@@ -1954,15 +1954,15 @@
                     },
                     "macroActionConditionSplitterPosition": [
                         {
-                            "pos": 308
+                            "pos": 190
                         },
                         {
-                            "pos": 663
+                            "pos": 409
                         }
                     ],
                     "macroElseActionSplitterPosition": [
                         {
-                            "pos": 631
+                            "pos": 377
                         },
                         {
                             "pos": 0
@@ -2125,6 +2125,63 @@
                                 "useCustomLabel": false,
                                 "customLabel": "My label"
                             },
+                            "id": "variable",
+                            "enabled": true,
+                            "variableName": "programScene",
+                            "variable2Name": "Invalid varialbe selection",
+                            "strValue": "scene|||${programScene}",
+                            "numValue": 0.0,
+                            "condition": 0,
+                            "segmentIdx": -1,
+                            "subStringStart": 0,
+                            "subStringSize": 0,
+                            "regexPattern": ".*",
+                            "regexMatchIdx": 0,
+                            "findRegex": {
+                                "enable": false,
+                                "partial": false,
+                                "options": 0
+                            },
+                            "findStr": "Text to find",
+                            "replaceStr": "Text to replace with",
+                            "regexConfig": {
+                                "enable": false,
+                                "partial": true,
+                                "options": 0
+                            },
+                            "mathExpression": "( 1 + 2 * 3 ) / 4",
+                            "useCustomPrompt": false,
+                            "inputPrompt": "Assign value to variable:",
+                            "useInputPlaceholder": false,
+                            "inputPlaceholder": "--enter text--",
+                            "environmentVariableName": "USERPROFILE",
+                            "sceneSelection": {
+                                "type": 0,
+                                "name": ""
+                            },
+                            "tempVar": {
+                                "type": 0,
+                                "idx": -1,
+                                "id": "",
+                                "version": 1
+                            },
+                            "sceneItemIndex": {
+                                "value": 1,
+                                "type": 0
+                            },
+                            "direction": 0,
+                            "stringLength": {
+                                "value": 1,
+                                "type": 0
+                            },
+                            "paddingChar": 48
+                        },
+                        {
+                            "segmentSettings": {
+                                "collapsed": false,
+                                "useCustomLabel": false,
+                                "customLabel": "My label"
+                            },
                             "id": "scene_switch",
                             "enabled": true,
                             "sceneSelection": {
@@ -2171,15 +2228,15 @@
                     },
                     "macroActionConditionSplitterPosition": [
                         {
-                            "pos": 287
+                            "pos": 167
                         },
                         {
-                            "pos": 684
+                            "pos": 432
                         }
                     ],
                     "macroElseActionSplitterPosition": [
                         {
-                            "pos": 652
+                            "pos": 400
                         },
                         {
                             "pos": 0
@@ -2230,7 +2287,7 @@
                             },
                             "id": "variable",
                             "enabled": true,
-                            "variableName": "programScene",
+                            "variableName": "sceneCamera",
                             "variable2Name": "Invalid varialbe selection",
                             "strValue": "",
                             "numValue": 0.0,
@@ -2287,7 +2344,7 @@
                             },
                             "id": "variable",
                             "enabled": true,
-                            "variableName": "programScene",
+                            "variableName": "sceneCamera",
                             "variable2Name": "Invalid varialbe selection",
                             "strValue": "camera",
                             "numValue": 0.0,
@@ -2352,7 +2409,7 @@
                                 "type": 1,
                                 "idxType": 0,
                                 "idx": 0,
-                                "item": "programScene"
+                                "item": "sceneCamera"
                             },
                             "action": 2,
                             "position": 0
@@ -2372,13 +2429,13 @@
                 {
                     "name": "Teleprompter Font Size",
                     "saveAction": 1,
-                    "value": "50",
+                    "value": "25",
                     "defaultValue": ""
                 },
                 {
                     "name": "Teleprompter Speed",
                     "saveAction": 1,
-                    "value": "15",
+                    "value": "35",
                     "defaultValue": ""
                 },
                 {
@@ -2394,6 +2451,11 @@
                 },
                 {
                     "name": "programScene",
+                    "saveAction": 0,
+                    "defaultValue": ""
+                },
+                {
+                    "name": "sceneCamera",
                     "saveAction": 0,
                     "defaultValue": ""
                 }
@@ -2564,16 +2626,16 @@
                 }
             ],
             "saveWindowGeo": false,
-            "windowPosX": 2067,
-            "windowPosY": 141,
-            "windowWidth": 1633,
-            "windowHeight": 1072,
+            "windowPosX": 323,
+            "windowPosY": 130,
+            "windowWidth": 1398,
+            "windowHeight": 800,
             "macroListMacroEditSplitterPosition": [
                 {
-                    "pos": 221
+                    "pos": 268
                 },
                 {
-                    "pos": 1385
+                    "pos": 1103
                 }
             ],
             "version": "b561a20ddeca3e3e922ec1bf427ff811c2bf18f1",
@@ -2598,7 +2660,46 @@
                 "custom_size": false,
                 "items": [
                     {
-                        "name": "Camera Wide",
+                        "name": "Wide",
+                        "source_uuid": "6851ffdd-74e7-46b7-ad70-79a395c4c5a2",
+                        "visible": true,
+                        "locked": false,
+                        "rot": 0.0,
+                        "pos": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "scale": {
+                            "x": 1.5,
+                            "y": 1.5
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 1,
+                        "group_item_backup": false,
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
+                    },
+                    {
+                        "name": "Wide",
                         "source_uuid": "6851ffdd-74e7-46b7-ad70-79a395c4c5a2",
                         "visible": true,
                         "locked": false,
@@ -2609,7 +2710,7 @@
                         },
                         "scale": {
                             "x": 2.94140625,
-                            "y": 2.9416661262512207
+                            "y": 2.9416656494140625
                         },
                         "align": 5,
                         "bounds_type": 0,
@@ -2637,7 +2738,7 @@
                         "private_settings": {}
                     },
                     {
-                        "name": "Group Camera Close UP",
+                        "name": "Close Up",
                         "source_uuid": "b877eb46-e758-454c-80ef-c3141a1d1b5a",
                         "visible": true,
                         "locked": false,
@@ -2678,7 +2779,7 @@
                         }
                     },
                     {
-                        "name": "Camera Wide",
+                        "name": "Wide",
                         "source_uuid": "6851ffdd-74e7-46b7-ad70-79a395c4c5a2",
                         "visible": true,
                         "locked": false,
@@ -2717,7 +2818,7 @@
                         "private_settings": {}
                     },
                     {
-                        "name": "Group Camera Medium",
+                        "name": "Medium",
                         "source_uuid": "a0a528e8-e657-48d2-8686-5fb23504dd82",
                         "visible": true,
                         "locked": false,
@@ -2756,45 +2857,6 @@
                         "private_settings": {
                             "collapsed": true
                         }
-                    },
-                    {
-                        "name": "Camera Wide",
-                        "source_uuid": "6851ffdd-74e7-46b7-ad70-79a395c4c5a2",
-                        "visible": true,
-                        "locked": false,
-                        "rot": 0.0,
-                        "pos": {
-                            "x": 0.0,
-                            "y": 0.0
-                        },
-                        "scale": {
-                            "x": 1.5,
-                            "y": 1.5
-                        },
-                        "align": 5,
-                        "bounds_type": 0,
-                        "bounds_align": 0,
-                        "bounds_crop": false,
-                        "bounds": {
-                            "x": 0.0,
-                            "y": 0.0
-                        },
-                        "crop_left": 0,
-                        "crop_top": 0,
-                        "crop_right": 0,
-                        "crop_bottom": 0,
-                        "id": 1,
-                        "group_item_backup": false,
-                        "scale_filter": "disable",
-                        "blend_method": "default",
-                        "blend_type": "normal",
-                        "show_transition": {
-                            "duration": 0
-                        },
-                        "hide_transition": {
-                            "duration": 0
-                        },
-                        "private_settings": {}
                     }
                 ]
             },
@@ -2811,47 +2873,12 @@
             "push-to-talk-delay": 0,
             "hotkeys": {
                 "OBSBasic.SelectScene": [],
-                "libobs.show_scene_item.1": [],
-                "libobs.hide_scene_item.1": [],
+                "libobs.show_scene_item.4": [],
+                "libobs.hide_scene_item.4": [],
                 "libobs.show_scene_item.2": [],
                 "libobs.hide_scene_item.2": [],
-                "libobs.show_scene_item.4": [],
-                "libobs.hide_scene_item.4": []
-            },
-            "deinterlace_mode": 0,
-            "deinterlace_field_order": 0,
-            "monitoring_type": 0,
-            "private_settings": {}
-        },
-        {
-            "prev_ver": 503447555,
-            "name": "Camera Wide",
-            "uuid": "6851ffdd-74e7-46b7-ad70-79a395c4c5a2",
-            "id": "dshow_input",
-            "versioned_id": "dshow_input",
-            "settings": {
-                "video_device_id": "HP Wide Vision HD Camera:\\\\?\\usb#22vid_04f2&pid_b627&mi_00#226&3a511a87&0&0000#22{65e8773d-8f56-11d0-a3b9-00a0c9223196}\\global",
-                "last_video_device_id": "HP Wide Vision HD Camera:\\\\?\\usb#22vid_04f2&pid_b627&mi_00#226&3a511a87&0&0000#22{65e8773d-8f56-11d0-a3b9-00a0c9223196}\\global",
-                "res_type": 1,
-                "resolution": "1280x720",
-                "last_resolution": "1280x720"
-            },
-            "mixers": 255,
-            "sync": 0,
-            "flags": 0,
-            "volume": 1.0,
-            "balance": 0.5,
-            "enabled": true,
-            "muted": false,
-            "push-to-mute": false,
-            "push-to-mute-delay": 0,
-            "push-to-talk": false,
-            "push-to-talk-delay": 0,
-            "hotkeys": {
-                "libobs.mute": [],
-                "libobs.unmute": [],
-                "libobs.push-to-mute": [],
-                "libobs.push-to-talk": []
+                "libobs.show_scene_item.1": [],
+                "libobs.hide_scene_item.1": []
             },
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
@@ -2902,9 +2929,9 @@
             "id": "window_capture",
             "versioned_id": "window_capture",
             "settings": {
-                "window": "Presentation 17 - PowerPoint:PPTFrameClass:POWERPNT.EXE",
                 "cursor": false,
-                "client_area": true
+                "client_area": true,
+                "window": "UUinsomeAlley-Example - PowerPoint:PPTFrameClass:POWERPNT.EXE"
             },
             "mixers": 255,
             "sync": 0,
@@ -2930,7 +2957,7 @@
         },
         {
             "prev_ver": 503447555,
-            "name": "Scene - Full Screen Slide",
+            "name": "scene|||Full Screen Slide",
             "uuid": "812ed50c-07ed-44ee-ab0b-cade2a85f24f",
             "id": "scene",
             "versioned_id": "scene",
@@ -3043,7 +3070,7 @@
         },
         {
             "prev_ver": 503447555,
-            "name": "Scene - Full Screen Slide LL",
+            "name": "scene|||Full Screen Slide LL",
             "uuid": "e964ed13-e5c3-42e6-81cb-7507796a2729",
             "id": "scene",
             "versioned_id": "scene",
@@ -3156,7 +3183,7 @@
         },
         {
             "prev_ver": 503447555,
-            "name": "Scene - Full Screen Slide LR",
+            "name": "scene|||Full Screen Slide LR",
             "uuid": "75c16937-63d5-4985-8c1d-1aedcebc2458",
             "id": "scene",
             "versioned_id": "scene",
@@ -3269,7 +3296,7 @@
         },
         {
             "prev_ver": 503447555,
-            "name": "Scene - Full Screen Slide UL",
+            "name": "scene|||Full Screen Slide UL",
             "uuid": "4d20726d-6012-4ee1-87ab-942f46f6aa5e",
             "id": "scene",
             "versioned_id": "scene",
@@ -3382,7 +3409,7 @@
         },
         {
             "prev_ver": 503447555,
-            "name": "Scene - Full Screen Slide UR",
+            "name": "scene|||Full Screen Slide UR",
             "uuid": "d9505044-dc67-4430-9425-c6fa7c207440",
             "id": "scene",
             "versioned_id": "scene",
@@ -3495,7 +3522,7 @@
         },
         {
             "prev_ver": 503447555,
-            "name": "Scene - Over the Shoulder",
+            "name": "scene|||Over the Shoulder",
             "uuid": "67862399-6c4e-4c56-965c-c02a74334b20",
             "id": "scene",
             "versioned_id": "scene",
@@ -3596,10 +3623,10 @@
             "push-to-talk-delay": 0,
             "hotkeys": {
                 "OBSBasic.SelectScene": [],
-                "libobs.show_scene_item.1": [],
-                "libobs.hide_scene_item.1": [],
                 "libobs.show_scene_item.3": [],
-                "libobs.hide_scene_item.3": []
+                "libobs.hide_scene_item.3": [],
+                "libobs.show_scene_item.1": [],
+                "libobs.hide_scene_item.1": []
             },
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
@@ -3763,14 +3790,14 @@
                 "font": {
                     "face": "Arial",
                     "flags": 0,
-                    "size": 50,
+                    "size": 25,
                     "style": "Regular"
                 },
                 "extents_wrap": true,
                 "extents_cx": 300,
                 "extents_cy": 8000,
                 "antialiasing": true,
-                "text": "\"List 22\nThe boy was there when the sun rose.\nA rod is used to catch pink salmon.\nThe source of the huge river is the clear spring.\nKick the ball straight and follow through.\nHelp the woman get back to her feet.\nA pot of tea helps to pass the evening.\nSmoky fires lack flame and heat.\nThe soft cushion broke the man's fall.\nThe salt breeze came across from the sea.\nThe girl at the booth sold fifty bonds.\""
+                "text": "\"1 List 1\n1. The birch canoe slid on the smooth planks.\n2. Glue the sheet to the dark blue background.\n3. It's easy to tell the depth of a well.\n4. These days a chicken leg is a rare dish.\n5. Rice is often served in round bowls.\n6. The juice of lemons makes fine punch.\n7. The box was thrown beside the parked truck.\n8. The hogs were fed chopped corn and garbage.\n9. Four hours of steady work faced us.\n10. A large size in stockings is hard to sell.\n\n 2 List 1\n1. The birch canoe slid on the smooth planks.\n2. Glue the sheet to the dark blue background.\n3. It's easy to tell the depth of a well.\n4. These days a chicken leg is a rare dish.\n5. Rice is often served in round bowls.\n6. The juice of lemons makes fine punch.\n7. The box was thrown beside the parked truck.\n8. The hogs were fed chopped corn and garbage.\n9. Four hours of steady work faced us.\n10. A large size in stockings is hard to sell.\n\n3 List 1\n1. The birch canoe slid on the smooth planks.\n2. Glue the sheet to the dark blue background.\n3. It's easy to tell the depth of a well.\n4. These days a chicken leg is a rare dish.\n5. Rice is often served in round bowls.\n6. The juice of lemons makes fine punch.\n7. The box was thrown beside the parked truck.\n8. The hogs were fed chopped corn and garbage.\n9. Four hours of steady work faced us.\n10. A large size in stockings is hard to sell.\n4 List 1\n1. The birch canoe slid on the smooth planks.\n2. Glue the sheet to the dark blue background.\n3. It's easy to tell the depth of a well.\n4. These days a chicken leg is a rare dish.\n5. Rice is often served in round bowls.\n6. The juice of lemons makes fine punch.\n7. The box was thrown beside the parked truck.\n8. The hogs were fed chopped corn and garbage.\n9. Four hours of steady work faced us.\n10. A large size in stockings is hard to sell.\n\""
             },
             "mixers": 0,
             "sync": 0,
@@ -3796,7 +3823,7 @@
                     "id": "scroll_filter",
                     "versioned_id": "scroll_filter",
                     "settings": {
-                        "speed_y": 15.0,
+                        "speed_y": 1.0,
                         "limit_cx": true,
                         "speed_x": 0.0,
                         "limit_cy": false,
@@ -3848,6 +3875,41 @@
                     "private_settings": {}
                 }
             ]
+        },
+        {
+            "prev_ver": 503447555,
+            "name": "Wide",
+            "uuid": "6851ffdd-74e7-46b7-ad70-79a395c4c5a2",
+            "id": "dshow_input",
+            "versioned_id": "dshow_input",
+            "settings": {
+                "video_device_id": "HP Wide Vision HD Camera:\\\\?\\usb#22vid_04f2&pid_b627&mi_00#226&3a511a87&0&0000#22{65e8773d-8f56-11d0-a3b9-00a0c9223196}\\global",
+                "last_video_device_id": "HP Wide Vision HD Camera:\\\\?\\usb#22vid_04f2&pid_b627&mi_00#226&3a511a87&0&0000#22{65e8773d-8f56-11d0-a3b9-00a0c9223196}\\global",
+                "resolution": "1280x720",
+                "last_resolution": "1280x720",
+                "res_type": 1
+            },
+            "mixers": 255,
+            "sync": 0,
+            "flags": 0,
+            "volume": 1.0,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": false,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {
+                "libobs.mute": [],
+                "libobs.unmute": [],
+                "libobs.push-to-mute": [],
+                "libobs.push-to-talk": []
+            },
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
+            "private_settings": {}
         }
     ]
 }

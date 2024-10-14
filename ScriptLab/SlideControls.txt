@@ -8,26 +8,132 @@ description: >-
 host: POWERPOINT
 api_set: {}
 script:
-  content: |-
+  content: >
     // A script to control Open Broadcast Studio (OBS) with PowerPoint Slides
+
     // Add a Textbox to each slide and enter an OBS scene name.
-    // Name the text box "obs-"
+
+    // Name the text box "obsScene"
+
     //
-    // When the slide changes a websocket message with the slide detail is sent to OBS.
+
+    // The OBS scene will change when the slide changes.
+
     //
+
     // NOTE: this script only works in 'window slide show mode'
 
+
     $("#get-slide-metadata").on("click", currentSlide);
+
     $("#previous-slide").on("click", goToPreviousSlideByIndex);
+
     $("#next-slide").on("click", goToNextSlideByIndex);
+
     $("#connect-to-OBS").on("click", connectToOBS);
+
+    $("#add-to-all-slides").on("click", addToAllSlides);
+
+    $("#add-to-slide").on("click", addToSelectedSlide);
+
+
+    async function addToSelectedSlide() {
+      await PowerPoint.run(async (context) => {
+        context.presentation.load("slides");
+        await context.sync();
+        let selectedSlideMetadata = await getSelectedSlideMetadata();
+        console.log(`current slide metadata, ${JSON.stringify(selectedSlideMetadata)}`);
+        //convert JSON to javaScript object
+        selectedSlideMetadata = JSON.parse(JSON.stringify(selectedSlideMetadata));
+        // Decrement because the getSelectedSlideByIndex method is 1-based,
+        // but the getItemAt method is 0-based.
+        selectedSlideMetadata.index = selectedSlideMetadata.index - 1;
+
+        let i = selectedSlideMetadata.index;
+        makeShapes(context, i, -260, 0, 270, 250, "D5F4DD", 0, "obs-Entrance-BG", "");
+        makeShapes(context, i, -235, 5, 25, 200, "9CD3D9", 0, "obs-Entrance-title", "Entrance");
+        makeShapes(context, i, -255, 35, 25, 240, "9CD3D9", 0, "obs-Entrance-Scene", "scene");
+        makeShapes(context, i, -255, 65, 25, 240, "9CD3D9", 0, "obs-Entrance-camera", "camera");
+        makeShapes(context, i, -255, 95, 25, 240, "9CD3D9", 0, "obs-Entrance", "");
+        makeShapes(context, i, -255, 125, 25, 240, "9CD3D9", 0, "obs-Entrance", "");
+        makeShapes(context, i, -255, 155, 25, 240, "9CD3D9", 0, "obs-Entrance", "");
+        makeShapes(context, i, -260, 270, 270, 250, "EFB8B6", 0, "obs-Exit-BG", "");
+        makeShapes(context, i, -235, 275, 25, 200, "FFA99B", 0, "obs-Exit-title", "Exit");
+        makeShapes(context, i, -255, 305, 25, 240, "FFA99B", 0.01, "obs-Exit-Scene", "scene");
+        makeShapes(context, i, -255, 335, 25, 240, "FFA99B", 0.01, "obs-Exit-camera", "camera");
+        makeShapes(context, i, -255, 365, 25, 240, "FFA99B", 0.01, "obs-Exit", "");
+        makeShapes(context, i, -255, 395, 25, 240, "FFA99B", 0.01, "obs-Exit", "");
+        makeShapes(context, i, -255, 425, 25, 240, "FFA99B", 0.01, "obs-Exit", "");
+        makeShapes(context, i, 0, -275, 270, 700, "FFFFFF", 0.0, "obs-Notes", "Enter Notes");
+      });
+    }
+
+
+    async function addToAllSlides() {
+      // add UUinsome tags to each slide
+      await PowerPoint.run(async (context) => {
+        context.presentation.load("slides");
+
+        await context.sync();
+        const allSlidesCount = context.presentation.slides.getCount();
+        // context.presentation.slides.load("items");
+        await context.sync();
+        for (let i = 0; i < allSlidesCount.value; i++) {
+          makeShapes(context, i, -260, 0, 270, 250, "D5F4DD", 0, "obs-Entrance-BG", "");
+          makeShapes(context, i, -235, 5, 25, 200, "9CD3D9", 0, "obs-Entrance-title", "Entrance");
+          makeShapes(context, i, -255, 35, 25, 240, "9CD3D9", 0, "obs-Entrance-Scene", "scene");
+          makeShapes(context, i, -255, 65, 25, 240, "9CD3D9", 0, "obs-Entrance-camera", "camera");
+          makeShapes(context, i, -255, 95, 25, 240, "9CD3D9", 0, "obs-Entrance", "");
+          makeShapes(context, i, -255, 125, 25, 240, "9CD3D9", 0, "obs-Entrance", "");
+          makeShapes(context, i, -255, 155, 25, 240, "9CD3D9", 0, "obs-Entrance", "");
+          makeShapes(context, i, -260, 270, 270, 250, "EFB8B6", 0, "obs-Exit-BG", "");
+          makeShapes(context, i, -235, 275, 25, 200, "FFA99B", 0, "obs-Exit-title", "Exit");
+          makeShapes(context, i, -255, 305, 25, 240, "FFA99B", 0.01, "obs-Exit-Scene", "scene");
+          makeShapes(context, i, -255, 335, 25, 240, "FFA99B", 0.01, "obs-Exit-camera", "camera");
+          makeShapes(context, i, -255, 365, 25, 240, "FFA99B", 0.01, "obs-Exit", "");
+          makeShapes(context, i, -255, 395, 25, 240, "FFA99B", 0.01, "obs-Exit", "");
+          makeShapes(context, i, -255, 425, 25, 240, "FFA99B", 0.01, "obs-Exit", "");
+          makeShapes(context, i, 0, -275, 270, 700, "FFFFFF", 0.0, "obs-Notes", "Enter Notes");
+        }
+        // let allSlideItems: PowerPoint.Slide[] = context.presentation.slides.items;
+        // allSlideItems.map((slide, index) => {
+        //   allSlidesList[slide.id] = `Slide ${index + 1}`;
+        // });
+      });
+    }
+
+
+    async function makeShapes(context, i, left, top, height, width, color,
+    transparency, name, text) {
+      const shapes: PowerPoint.ShapeCollection = context.presentation.slides.getItemAt(i).shapes;
+      const shapeOptions: PowerPoint.ShapeAddOptions = {
+        left: left,
+        top: top,
+        height: height,
+        width: width
+      };
+      const newShape: PowerPoint.Shape = shapes.addGeometricShape(
+        PowerPoint.GeometricShapeType.roundRectangle,
+        shapeOptions
+      );
+      newShape.name = name;
+      newShape.fill.foregroundColor = color;
+      newShape.fill.transparency = transparency;
+      newShape.textFrame.textRange.font.color = "black";
+      newShape.textFrame.textRange.text = text;
+      if (name === "obs-Notes") {
+        newShape.textFrame.verticalAlignment = "Bottom";
+        newShape.textFrame.autoSizeSetting = "AutoSizeShapeToFitText";
+      }
+    }
+
 
     function getSelectedSlideMetadata() {
       // Wrap a call of one of the Common APIs in a Promise-returning
       // function, so that it can be easily called within a run() function
       // of an application-specific API.
-      return new OfficeExtension.Promise<any>(function (resolve, reject) {
-        Office.context.document.getSelectedDataAsync(Office.CoercionType.SlideRange, function (asyncResult) {
+      return new OfficeExtension.Promise<any>(function(resolve, reject) {
+        Office.context.document.getSelectedDataAsync(Office.CoercionType.SlideRange, function(asyncResult) {
           try {
             if (asyncResult.status === Office.AsyncResultStatus.Failed) {
               reject(console.error(asyncResult.error.message));
@@ -42,150 +148,143 @@ script:
       });
     }
 
+
     //Button triggers
+
     async function currentSlide() {
       //Get Current Slide Title and Index
       let selectedSlideMetadata = await getSelectedSlideMetadata();
-      console.log(`current slide metadata, ${JSON.stringify(selectedSlideMetadata)}`)
+      //console.log(`current slide metadata, ${JSON.stringify(selectedSlideMetadata)}`);
 
       //convert JSON to javaScript object
       selectedSlideMetadata = JSON.parse(JSON.stringify(selectedSlideMetadata));
       // Decrement because the getSelectedSlideByIndex method is 1-based,
       // but the getItemAt method is 0-based.
       selectedSlideMetadata.index = selectedSlideMetadata.index - 1;
-      console.log(`current slide metadata, ${JSON.stringify(selectedSlideMetadata)}`)
+      //console.log(`current slide metadata, ${JSON.stringify(selectedSlideMetadata)}`);
 
       //get current slide entrance data
-      let pptData = await getNotesForOBS(selectedSlideMetadata.index, "entrance")
-      pptData["slideTitle"] = selectedSlideMetadata.title
-      console.log(`pptData returned ${JSON.stringify(pptData)}`)
+      let pptData = await getNotesForOBS(selectedSlideMetadata.index, "entrance");
+      pptData["slideTitle"] = selectedSlideMetadata.title;
+      //console.log(`pptData returned ${JSON.stringify(pptData)}`);
 
       await sendWebsocketMessageToOBS(pptData);
     }
 
+
     async function goToNextSlideByIndex() {
       //getSlideMetadata("next");
 
-      await PowerPoint.run(async function (context) {
+      await PowerPoint.run(async function(context) {
         //Get Current Slide Title and Index
         let selectedSlideMetadata = await getSelectedSlideMetadata();
-        console.log(`current slide metadata, ${JSON.stringify(selectedSlideMetadata)}`)
+        //console.log(`current slide metadata, ${JSON.stringify(selectedSlideMetadata)}`);
 
         //convert JSON to javaScript object
         selectedSlideMetadata = JSON.parse(JSON.stringify(selectedSlideMetadata));
         // Decrement because the getSelectedSlideByIndex method is 1-based,
         // but the getItemAt method is 0-based.
         selectedSlideMetadata.index = selectedSlideMetadata.index - 1;
-        console.log(`current slide metadata, ${JSON.stringify(selectedSlideMetadata)}`)
+        //console.log(`current slide metadata, ${JSON.stringify(selectedSlideMetadata)}`);
 
         //get current slide exit data
-        let pptData = await getNotesForOBS(selectedSlideMetadata.index, "exit")
-        pptData["slideTitle"] = selectedSlideMetadata.title
-        console.log(`pptData returned ${JSON.stringify(pptData)}`)  
+        let pptData = await getNotesForOBS(selectedSlideMetadata.index, "exit");
+        pptData["slideTitle"] = selectedSlideMetadata.title;
+        //console.log(`pptData returned ${JSON.stringify(pptData)}`);
 
         //send slide data to OBS
         await sendWebsocketMessageToOBS(pptData);
 
         //get the next slide
-        await goToNextSlide()
-        
-        //Get Current Slide Title and Index
-        //let nextSlideMetadata = await getSelectedSlideMetadata();
-        //console.log(`current slide metadata, ${JSON.stringify(nextSlideMetadata)}`)
-        //nextSlideMetadata = JSON.parse(JSON.stringify(nextSlideMetadata));
-        //nextSlideMetadata.index = nextSlideMetadata.index - 1;
-        //console.log(`current slide metadata, ${JSON.stringify(nextSlideMetadata)}`)
-            
+        await goToNextSlide();
+
         //get current slide entrance data
-        pptData = await getNotesForOBS(selectedSlideMetadata.index + 1, "entrance")
-        console.log(`pptData Entrance returned ${JSON.stringify(pptData)}`)
+        pptData = await getNotesForOBS(selectedSlideMetadata.index + 1, "entrance");
+        //console.log(`pptData Entrance returned ${JSON.stringify(pptData)}`);
 
         //send slide data to OBS
         await sendWebsocketMessageToOBS(pptData);
-        console.log("done")  
-      })
+      });
     }
+
 
     async function goToPreviousSlideByIndex() {
       //getSlideMetadata("previous");
 
-      await PowerPoint.run(async function (context) {
+      await PowerPoint.run(async function(context) {
         //Get Current Slide Title and Index
         let selectedSlideMetadata = await getSelectedSlideMetadata();
-        console.log(`current slide metadata, ${JSON.stringify(selectedSlideMetadata)}`)
+        //console.log(`current slide metadata, ${JSON.stringify(selectedSlideMetadata)}`);
 
         //convert JSON to javaScript object
         selectedSlideMetadata = JSON.parse(JSON.stringify(selectedSlideMetadata));
         // Decrement because the getSelectedSlideByIndex method is 1-based,
         // but the getItemAt method is 0-based.
         selectedSlideMetadata.index = selectedSlideMetadata.index - 1;
-        console.log(`current slide metadata, ${JSON.stringify(selectedSlideMetadata)}`)
+        //console.log(`current slide metadata, ${JSON.stringify(selectedSlideMetadata)}`);
 
         //get current slide exit data
-        let pptData = await getNotesForOBS(selectedSlideMetadata.index, "exit")
-        pptData["slideTitle"] = selectedSlideMetadata.title
-        console.log(`pptData returned ${JSON.stringify(pptData)}`)
+        let pptData = await getNotesForOBS(selectedSlideMetadata.index, "exit");
+        pptData["slideTitle"] = selectedSlideMetadata.title;
+        //console.log(`pptData returned ${JSON.stringify(pptData)}`);
 
         await sendWebsocketMessageToOBS(pptData);
 
         //get the next slide
-        await goToPreviousSlide()
-
-        //Get Current Slide Title and Index
-        //selectedSlideMetadata = await getSelectedSlideMetadata();
-        //console.log(`current slide metadata, ${JSON.stringify(selectedSlideMetadata)}`)
-        //selectedSlideMetadata = JSON.parse(JSON.stringify(selectedSlideMetadata));
-        //selectedSlideMetadata.index = selectedSlideMetadata.index - 1;
-        //console.log(`current slide metadata, ${JSON.stringify(selectedSlideMetadata)}`)
+        await goToPreviousSlide();
 
         //get current slide entrance data
-        pptData = await getNotesForOBS(selectedSlideMetadata.index - 1, "entrance")
-        console.log(`pptData Entrance returned ${JSON.stringify(pptData)}`)
+        pptData = await getNotesForOBS(selectedSlideMetadata.index - 1, "entrance");
+        //console.log(`pptData Entrance returned ${JSON.stringify(pptData)}`);
 
         //send slide data to OBS
         await sendWebsocketMessageToOBS(pptData);
-        console.log("done")
-      })
+      });
     }
+
 
     //change slide
+
     async function goToNextSlide() {
-      return new OfficeExtension.Promise<any>(function (resolve, reject) {
-      const goToNext = Office.Index.Next;
-      Office.context.document.goToByIdAsync(goToNext, Office.GoToType.Index, function(asyncResult) {
-      try{
-        if (asyncResult.status == "failed") {
-          console.log("Action failed with error: " + asyncResult.error.message);
-        } else {
-          console.log(`Navigation successful`);
-          resolve();
-        }
-      } catch (error){
-          reject(console.log(error));
-      }
+      return new OfficeExtension.Promise<any>(function(resolve, reject) {
+        const goToNext = Office.Index.Next;
+        Office.context.document.goToByIdAsync(goToNext, Office.GoToType.Index, function(asyncResult) {
+          try {
+            if (asyncResult.status == "failed") {
+              console.log("Action failed with error: " + asyncResult.error.message);
+            } else {
+              //console.log(`Navigation successful`);
+              resolve();
+            }
+          } catch (error) {
+            reject(console.log(error));
+          }
+        });
       });
-      })
     }
+
 
     async function goToPreviousSlide() {
-      return new OfficeExtension.Promise<any>(function (resolve, reject) {
+      return new OfficeExtension.Promise<any>(function(resolve, reject) {
         const goToPrevious = Office.Index.Previous;
         Office.context.document.goToByIdAsync(goToPrevious, Office.GoToType.Index, function(asyncResult) {
-        try{
-          if (asyncResult.status == "failed") {
-            console.log("Action failed with error: " + asyncResult.error.message);
-          } else {
-            console.log(`Navigation successful`);
-            resolve();
+          try {
+            if (asyncResult.status == "failed") {
+              console.log("Action failed with error: " + asyncResult.error.message);
+            } else {
+              //console.log(`Navigation successful`);
+              resolve();
+            }
+          } catch (error) {
+            reject(console.log(error));
           }
-        } catch (error){
-          reject(console.log(error));
-        }
+        });
       });
-      })
     }
 
+
     // get the shapes where the name begins with "obs-" on the current slide.
+
     async function getNotesForOBS(slideIndex, action) {
       var pptData = { actionName: `slide_${action}` },
         found = 0;
@@ -205,15 +304,14 @@ script:
             found = 1;
             indexArray.push(index);
             shapeNames.push(shape.name);
-            console.log(`index: ${index}, ID: ${shape.id}, Name: ${shape.name}`);
+            //    console.log(`index: ${index}, ID: ${shape.id}, Name: ${shape.name}`);
           }
         });
         //get Shape Text
         const shapeTextRanges = [];
         const shapeFills = [];
         if (found) {
-          //load text
-          console.log(indexArray.length);
+          //load text console.log(indexArray.length);
           for (let i = 0; i < indexArray.length; i++) {
             const shapeTextRange: PowerPoint.TextRange = shapes.getItemAt(indexArray[i]).textFrame.textRange;
             const shapeFill: PowerPoint.ShapeFill = shapes.getItemAt(indexArray[i]).fill;
@@ -222,7 +320,7 @@ script:
             shapeFills.push(shapeFill);
             shapeFills[i].load("transparency");
           }
-          console.log(shapeTextRanges, shapeFills);
+          //console.log(shapeTextRanges, shapeFills);
         }
         await context.sync();
 
@@ -236,7 +334,7 @@ script:
             actionCode = 0.01;
             break; //Exit
         }
-        console.log(`action ${action} actionscode ${actionCode}`);
+        //console.log(`action ${action} actionscode ${actionCode}`);
         //build the message
         for (let i = 0; i < shapeTextRanges.length; i++) {
           if (shapeTextRanges[i].text.includes("|||") && shapeFills[i].transparency == actionCode) {
@@ -249,15 +347,16 @@ script:
           }
         }
         pptData.slidePosition = slideIndex;
-        //pptData.slideTitle = slideTitle;
-        console.log("pptData in function", pptData);
-        
+        //console.log("pptData in function", pptData);
+
         //await sendWebsocketMessageToOBS(pptData);
       });
-        return pptData 
+      return pptData;
     }
 
+
     var obs = new OBSWebSocket();
+
     async function connectToOBS() {
       //connect to OBS Websocket localhost
       //Get websocket connection info
@@ -270,7 +369,7 @@ script:
       //Enter the OBS websocket server password
       const websocketPassword = document.getElementById("PW").value;
 
-      console.log(`ws://${websocketIP}:${websocketPort}`);
+      //console.log(`ws://${websocketIP}:${websocketPort}`);
       // connect to OBS websocket
       try {
         const { obsWebSocketVersion, negotiatedRpcVersion } = await obs.connect(
@@ -280,7 +379,10 @@ script:
             rpcVersion: 1
           }
         );
-        console.log(`Connected to server ${obsWebSocketVersion} (using RPC ${negotiatedRpcVersion})`);
+        //console.log(`Connected to server ${obsWebSocketVersion} (using RPC ${negotiatedRpcVersion})`);
+        document.getElementById("connectToOBS").style.display = "none";
+        document.getElementById("tagList").style.display = "block";
+        getSceneList();
       } catch (error) {
         console.error("Failed to connect", error.code, error.message);
       }
@@ -289,13 +391,56 @@ script:
       });
     }
 
+
+    async function getSceneList() {
+      const sceneList = await obs.call("GetSceneList");
+      sceneList.scenes.forEach((scene, index) => {
+        // find scenes starting with "Scene"
+        if (scene.sceneName.startsWith("scene|||")) {
+          document.getElementById("sceneList").innerHTML =
+            document.getElementById("sceneList").innerHTML + `<li class="ms-Button">${scene.sceneName}</li>`;
+        }
+        if (scene.sceneName === "Camera") {
+          getCameraList();
+        }
+      });
+      addListItemClickListener();
+    }
+
+
+    async function getCameraList() {
+      let cameraSources = await obs.call("GetSceneItemList", { sceneName: "Camera" });
+      cameraSources.sceneItems.forEach((source, index) => {
+        document.getElementById("cameraList").innerHTML =
+          document.getElementById("cameraList").innerHTML + `<li class="ms-Button">camera||| ${source.sourceName}</li>`;
+      });
+      addListItemClickListener();
+    }
+
+
+    async function addListItemClickListener() {
+      //add a click listener to each list item
+      const listItems = document.querySelectorAll("li");
+      listItems.forEach((item) => {
+        item.addEventListener("click", async function(event) {
+          await PowerPoint.run(async (context) => {
+            const shapes: PowerPoint.ShapeScopedCollection = context.presentation.getSelectedShapes();
+            await context.sync();
+            shapes.load("items");
+            await context.sync();
+            shapes.items[0].textFrame.textRange.text = event.target.textContent;
+          });
+        });
+      });
+    }
+
+
     obs.on("InputSettingsChanged", async function(event) {
-      console.log(`OBS source setting changed, ${event}`);
+      //console.log(`OBS source setting changed, ${event}`);
       //if ppt scriptlab text source
       if (event.inputName === "Navigation Text") {
         //get the message
         const navigate = event.inputSettings.text;
-        console.log(navigate);
         //if next
         if (navigate === "Next") {
           goToNextSlideByIndex();
@@ -314,7 +459,9 @@ script:
       }
     });
 
+
     //clear text source
+
     async function clearNavigateRequest() {
       await obs.call("SetInputSettings", {
         inputName: "Navigation Text",
@@ -324,10 +471,12 @@ script:
       });
     }
 
+
     //return Slide details to OBS
+
     async function sendWebsocketMessageToOBS(pptSlideDetails) {
       //send slide details to OBS Browser
-      console.log(`slide websocket message| ${JSON.stringify(pptSlideDetails)}`);
+      //console.log(`slide websocket message| ${JSON.stringify(pptSlideDetails)}`);
       await obs.call("CallVendorRequest", {
         vendorName: "obs-browser",
         requestType: "emit_event",
@@ -346,10 +495,12 @@ script:
         }
       });
 
-      return
+      return;
     }
 
+
     //general Office.initialize function. Fires on load of the add-in.
+
     Office.initialize = function() {
       //var Globals = { activeViewHandler: 0, firstSlideId: 0 };
 
@@ -364,6 +515,7 @@ script:
       //....
     };
 
+
     function getActiveFileView() {
       Office.context.document.getActiveViewAsync(function(asyncResult) {
         if (asyncResult.status == "failed") {
@@ -373,6 +525,7 @@ script:
         }
       });
     }
+
 
     function registerActiveViewChanged() {
       Globals.activeViewHandler = function(args) {
@@ -391,20 +544,33 @@ script:
     }
   language: typescript
 template:
-  content: "<section class=\"ms-font-m\">\n\t<p class=\"ms-font-m\">Connect PowerPoint to OBS</p>\n\t<p class=\"ms-font-m\">Navigate the presentation.</p>\n</section>\n\n<button id=\"get-slide-metadata\" class=\"ms-Button\">\n    <span class=\"ms-Button-label\">Get current slide notes</span>\n</button>\n\n<button id=\"next-slide\" class=\"ms-Button\">\n    <span class=\"ms-Button-label\">Next slide</span>\n</button>\n\n<button id=\"previous-slide\" class=\"ms-Button\">\n    <span class=\"ms-Button-label\">Previous slide</span>\n</button>\n\n\n<section class=\"setup ms-font-m\">\n\t<h3>OBS WebSocket Server Settings</h3>\n\t<span class=\"ms-Button-label\">Enter WebSocket Server IP Address</span>\n\t<Input id=\"IP\" class=\"ms-Button\" value=\"localhost\"></Input>\n\t<span class=\"ms-Button-label\">Enter WebSocket Server Port</span><br>\n\t<Input id=\"Port\" class=\"ms-Button\" value=\"4455\"></Input>\n\t<span class=\"ms-Button-label\">Enter WebSocket Server Password</span><br>\n\t<Input type=\"password\" id=\"PW\" class=\"ms-Button\"></Input>\n\t<button id=\"connect-to-OBS\" class=\"ms-Button\">\n\t      <span class=\"ms-Button-label\">Connect to OBS WebSocket Server</span>\n    </button>\n</section>"
+  content: "<section class=\"ms-font-m\">\n\t<p class=\"ms-font-m\">Add UUinsome controls</p>\n\n\t<button id=\"add-to-slide\" class=\"ms-Button\">\n\t\t\t<span class=\"ms-Button-label\">Add to selected slide</span>\n\t</button>\n\n\t<button id=\"add-to-all-slides\" class=\"ms-Button\">\n\t\t\t<span class=\"ms-Button-label\">Add to all alides</span>\n\t</button>\n\n</section>\n<section class=\"ms-font-m\">\n\t<p class=\"ms-font-m\">Navigate the presentation.</p>\n</section>\n\n<button id=\"get-slide-metadata\" class=\"ms-Button\">\n    <span class=\"ms-Button-label\">Get current slide notes</span>\n</button>\n\n<button id=\"next-slide\" class=\"ms-Button\">\n    <span class=\"ms-Button-label\">Next slide</span>\n</button>\n\n<button id=\"previous-slide\" class=\"ms-Button\">\n    <span class=\"ms-Button-label\">Previous slide</span>\n</button>\n\n\n<section id=\"connectToOBS\" class=\"setup ms-font-m\">\n\t<h3>OBS WebSocket Server Settings</h3>\n\t<p class=\"ms-font-m\">Connect PowerPoint to OBS</p>\n\t<span class=\"ms-Button-label\">Enter WebSocket Server IP Address</span>\n\t<Input id=\"IP\" class=\"ms-Button\" value=\"localhost\"></Input>\n\t<span class=\"ms-Button-label\">Enter WebSocket Server Port</span><br>\n\t<Input id=\"Port\" class=\"ms-Button\" value=\"4455\"></Input>\n\t<span class=\"ms-Button-label\">Enter WebSocket Server Password</span><br>\n\t<Input type=\"password\" id=\"PW\" class=\"ms-Button\"></Input>\n\t<button id=\"connect-to-OBS\" class=\"ms-Button\">\n\t      <span class=\"ms-Button-label\">Connect to OBS WebSocket Server</span>\n    </button>\n</section>\n\n<section id=\"tagList\" class=\"setup ms-font-m\" hidden>\n\t<h3>Scenes</h3>\n\t<span class=\"ms-Button-label\">Select a Shape, then click a value below to set the Shape's text</span>\n\n\t\t<ul id=sceneList>\n\t\t</ul>\n\n\t\t<h3>Camera</h3>\n\t\t<ul id=cameraList>\n\t\t</ul>\n\t<p>Shapes that indicate an Entrance or Exit tag include the text \"|||\" <br>\n\t\tShapes that indicate an Entrance tag have 0% Transparency.<br>\n\t\tShapes that indicate an Exit tag have 1% Transparency.</p>\n</section>"
   language: html
 style:
-  content: |-
+  content: |
     section.samples {
         margin-top: 20px;
     }
 
     section.samples .ms-Button, section.setup .ms-Button {
-        display: block;
-        margin-bottom: 5px;
-        margin-left: 20px;
-        min-width: 80px;
-    }  
+      display: block;
+      margin-bottom: 5px;
+      margin-left: 0px;
+      min-width: 80px;
+    }
+
+    ul, .ms-Button{
+      padding: 0;
+      list-style-type: none;
+      margin: 0;
+      margin-bottom: 2px;
+      margin-left: 0px;
+    }
+
+    p {
+       font-size: smaller;
+       line-height: normal;
+    }
   language: css
 libraries: |-
   https://appsforoffice.microsoft.com/lib/1/hosted/office.js
