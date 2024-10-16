@@ -36,6 +36,8 @@ script:
 
     $("#add-to-slide").on("click", addToSelectedSlide);
 
+    $("#make-tag-list").on("click", makeScenetags);
+
 
     async function addToSelectedSlide() {
       await PowerPoint.run(async (context) => {
@@ -178,7 +180,7 @@ script:
       await PowerPoint.run(async function(context) {
         //Get Current Slide Title and Index
         let selectedSlideMetadata = await getSelectedSlideMetadata();
-        //console.log(`current slide metadata, ${JSON.stringify(selectedSlideMetadata)}`);
+        console.log(`current slide metadata, ${JSON.stringify(selectedSlideMetadata)}`);
 
         //convert JSON to javaScript object
         selectedSlideMetadata = JSON.parse(JSON.stringify(selectedSlideMetadata));
@@ -190,11 +192,14 @@ script:
         //get current slide exit data
         let pptData = await getNotesForOBS(selectedSlideMetadata.index, "exit");
         pptData["slideTitle"] = selectedSlideMetadata.title;
-        //console.log(`pptData returned ${JSON.stringify(pptData)}`);
+        console.log(`pptData returned ${JSON.stringify(pptData)}`);
 
         //send slide data to OBS
-        await sendWebsocketMessageToOBS(pptData);
+        if (platform != "Mac") {
+          await sendWebsocketMessageToOBS(pptData);
+        }
 
+        console.log("skipped");
         //get the next slide
         await goToNextSlide();
 
@@ -203,7 +208,9 @@ script:
         //console.log(`pptData Entrance returned ${JSON.stringify(pptData)}`);
 
         //send slide data to OBS
-        await sendWebsocketMessageToOBS(pptData);
+        if (platformType != "Mac") {
+          await sendWebsocketMessageToOBS(pptData);
+        }
       });
     }
 
@@ -499,6 +506,45 @@ script:
     }
 
 
+    var platform;
+
+    function getPlatform() {
+      const contextInfo = Office.context.diagnostics;
+      const platformType: Office.PlatformType = contextInfo.platform;
+      console.log("Platform: " + platformType);
+      platform = platformType;
+      if (platformType === "Mac") {
+        document.getElementById("connectToOBS").style.display = "none";
+      }
+    }
+
+
+    getPlatform();
+
+
+    function makeScenetags() {
+      document.getElementById("pasteOBSscenes").style.display = "none";
+      document.getElementById("tagList").style.display = "block";
+      let sceneInput = document.getElementById("obsScenes").value;
+      sceneInput = JSON.parse(sceneInput);
+      console.log(sceneInput, typeof sceneInput);
+      sceneInput.scenes.forEach((scene, index) => {
+        // find scenes starting with "Scene"
+        if (scene.sceneName.startsWith("scene|||")) {
+          document.getElementById("sceneList").innerHTML =
+            document.getElementById("sceneList").innerHTML + `<li class="ms-Button">${scene.sceneName}</li>`;
+        }
+        if (scene.sceneName === "Camera") {
+          scene.sources.forEach((source, index) => {
+            document.getElementById("cameraList").innerHTML =
+              document.getElementById("cameraList").innerHTML + `<li class="ms-Button">camera||| ${source}</li>`;
+          });
+        }
+      });
+      addListItemClickListener();
+    }
+
+
     //general Office.initialize function. Fires on load of the add-in.
 
     Office.initialize = function() {
@@ -544,7 +590,7 @@ script:
     }
   language: typescript
 template:
-  content: "<section class=\"ms-font-m\">\n\t<p class=\"ms-font-m\">Add UUinsome controls</p>\n\n\t<button id=\"add-to-slide\" class=\"ms-Button\">\n\t\t\t<span class=\"ms-Button-label\">Add to selected slide</span>\n\t</button>\n\n\t<button id=\"add-to-all-slides\" class=\"ms-Button\">\n\t\t\t<span class=\"ms-Button-label\">Add to all alides</span>\n\t</button>\n\n</section>\n<section class=\"ms-font-m\">\n\t<p class=\"ms-font-m\">Navigate the presentation.</p>\n</section>\n\n<button id=\"get-slide-metadata\" class=\"ms-Button\">\n    <span class=\"ms-Button-label\">Get current slide notes</span>\n</button>\n\n<button id=\"next-slide\" class=\"ms-Button\">\n    <span class=\"ms-Button-label\">Next slide</span>\n</button>\n\n<button id=\"previous-slide\" class=\"ms-Button\">\n    <span class=\"ms-Button-label\">Previous slide</span>\n</button>\n\n\n<section id=\"connectToOBS\" class=\"setup ms-font-m\">\n\t<h3>OBS WebSocket Server Settings</h3>\n\t<p class=\"ms-font-m\">Connect PowerPoint to OBS</p>\n\t<span class=\"ms-Button-label\">Enter WebSocket Server IP Address</span>\n\t<Input id=\"IP\" class=\"ms-Button\" value=\"localhost\"></Input>\n\t<span class=\"ms-Button-label\">Enter WebSocket Server Port</span><br>\n\t<Input id=\"Port\" class=\"ms-Button\" value=\"4455\"></Input>\n\t<span class=\"ms-Button-label\">Enter WebSocket Server Password</span><br>\n\t<Input type=\"password\" id=\"PW\" class=\"ms-Button\"></Input>\n\t<button id=\"connect-to-OBS\" class=\"ms-Button\">\n\t      <span class=\"ms-Button-label\">Connect to OBS WebSocket Server</span>\n    </button>\n</section>\n\n<section id=\"tagList\" class=\"setup ms-font-m\" hidden>\n\t<h3>Scenes</h3>\n\t<span class=\"ms-Button-label\">Select a Shape, then click a value below to set the Shape's text</span>\n\n\t\t<ul id=sceneList>\n\t\t</ul>\n\n\t\t<h3>Camera</h3>\n\t\t<ul id=cameraList>\n\t\t</ul>\n\t<p>Shapes that indicate an Entrance or Exit tag include the text \"|||\" <br>\n\t\tShapes that indicate an Entrance tag have 0% Transparency.<br>\n\t\tShapes that indicate an Exit tag have 1% Transparency.</p>\n</section>"
+  content: "<section class=\"ms-font-m\">\n\t<p class=\"ms-font-m\">Add UUinsome controls</p>\n\n\t<button id=\"add-to-slide\" class=\"ms-Button\">\n\t\t\t<span class=\"ms-Button-label\">Add to selected slide</span>\n\t</button>\n\n\t<button id=\"add-to-all-slides\" class=\"ms-Button\">\n\t\t\t<span class=\"ms-Button-label\">Add to all alides</span>\n\t</button>\n\n</section>\n<section class=\"ms-font-m\">\n\t<p class=\"ms-font-m\">Navigate the presentation.</p>\n</section>\n\n<button id=\"get-slide-metadata\" class=\"ms-Button\">\n    <span class=\"ms-Button-label\">Get current slide notes</span>\n</button>\n\n<button id=\"next-slide\" class=\"ms-Button\">\n    <span class=\"ms-Button-label\">Next slide</span>\n</button>\n\n<button id=\"previous-slide\" class=\"ms-Button\">\n    <span class=\"ms-Button-label\">Previous slide</span>\n</button>\n\n\n<section id=\"connectToOBS\" class=\"setup ms-font-m\">\n\t<h3>OBS WebSocket Server Settings</h3>\n\t<p class=\"ms-font-m\">Connect PowerPoint to OBS</p>\n\t<span class=\"ms-Button-label\">Enter WebSocket Server IP Address</span>\n\t<Input id=\"IP\" class=\"ms-Button\" value=\"localhost\"></Input>\n\t<span class=\"ms-Button-label\">Enter WebSocket Server Port</span><br>\n\t<Input id=\"Port\" class=\"ms-Button\" value=\"4455\"></Input>\n\t<span class=\"ms-Button-label\">Enter WebSocket Server Password</span><br>\n\t<Input type=\"password\" id=\"PW\" class=\"ms-Button\"></Input>\n\t<button id=\"connect-to-OBS\" class=\"ms-Button\">\n\t      <span class=\"ms-Button-label\">Connect to OBS WebSocket Server</span>\n    </button>\n</section>\n\n<section id=\"pasteOBSscenes\" class=\"setup ms-font-m\">\n\t<h3>Manually enter OBS scenes</h3>\n\t<p class=\"ms-font-m\">Use the Get User Media,<b> https://uuoocl.github.io/GUM/</b>, Github page to create a list of\n\t\tyour OBS Scenes and Sources. Copy and paste the list</p>\n\t<span class=\"ms-Button-label\">Enter Scenes and Sources</span>\n\t<Input id=\"obsScenes\" class=\"ms-Button\"></Input>\n\t<button id=\"make-tag-list\" class=\"ms-Button\">\n\t  <span class=\"ms-Button-label\">Make a list tags</span>\n  </button>\n</section>\n\n\n<section id=\"tagList\" class=\"setup ms-font-m\" hidden>\n\t<h3>Scenes</h3>\n\t<span class=\"ms-Button-label\">Select a Shape, then click a value below to set the Shape's text</span>\n\n\t<ul id=sceneList>\n\t</ul>\n\n\t<h3>Camera</h3>\n\t<ul id=cameraList>\n\t</ul>\n\t<p>Shapes that indicate an Entrance or Exit tag include the text \"|||\" <br>\n\t\tShapes that indicate an Entrance tag have 0% Transparency.<br>\n\t\tShapes that indicate an Exit tag have 1% Transparency.</p>\n</section>"
   language: html
 style:
   content: |
