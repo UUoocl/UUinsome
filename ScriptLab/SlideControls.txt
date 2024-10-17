@@ -208,7 +208,7 @@ script:
         //console.log(`pptData Entrance returned ${JSON.stringify(pptData)}`);
 
         //send slide data to OBS
-        if (platformType != "Mac") {
+        if (platform != "Mac") {
           await sendWebsocketMessageToOBS(pptData);
         }
       });
@@ -245,7 +245,9 @@ script:
         //console.log(`pptData Entrance returned ${JSON.stringify(pptData)}`);
 
         //send slide data to OBS
+        if (platform != "Mac") {
         await sendWebsocketMessageToOBS(pptData);
+        }
       });
     }
 
@@ -335,7 +337,7 @@ script:
         let actionCode;
         switch (action) {
           case "entrance" || "current":
-            actionCode = '\\\\\\';
+            actionCode = "\\\\\\";
             break; //Entrance
           case "exit":
             actionCode = "///";
@@ -344,7 +346,7 @@ script:
         //console.log(`action ${action} actionscode ${actionCode}`);
         //build the message
         for (let i = 0; i < shapeTextRanges.length; i++) {
-          if (shapeTextRanges[i].text.includes(actionCode)){
+          if (shapeTextRanges[i].text.includes(actionCode)) {
             const keyValue = shapeTextRanges[i].text.split(actionCode);
             //console.log(`tag: ${shapeTextRanges[i].text} ActionCode: ${actionCode} transparecy ${shapeFills[i].transparency === actionCode}`)
             pptData[keyValue[0].trim()] = keyValue[1].trim();
@@ -435,12 +437,12 @@ script:
             await context.sync();
             shapes.load("items");
             await context.sync();
-            shapes.items[0].load()
+            shapes.items[0].load();
             const shapeFill: PowerPoint.ShapeFill = shapes.items[0].fill;
             shapeFill.load("transparency");
             await context.sync();
-            const tagType = shapeFill.transparency === 0 ? '\\\\\\':"///"
-            shapes.items[0].textFrame.textRange.text = event.target.textContent.replace('|||', tagType);
+            const tagType = shapeFill.transparency === 0 ? "\\\\\\" : "///";
+            shapes.items[0].textFrame.textRange.text = event.target.textContent.replace("|||", tagType);
           });
         });
       });
@@ -516,10 +518,11 @@ script:
     function getPlatform() {
       const contextInfo = Office.context.diagnostics;
       const platformType: Office.PlatformType = contextInfo.platform;
-      console.log("Platform: " + platformType);
       platform = platformType;
       if (platformType === "Mac") {
         document.getElementById("connectToOBS").style.display = "none";
+      }else{
+        document.getElementById("pasteOBSscenes").style.display = "none";
       }
     }
 
