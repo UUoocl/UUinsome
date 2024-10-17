@@ -44,7 +44,7 @@ script:
         context.presentation.load("slides");
         await context.sync();
         let selectedSlideMetadata = await getSelectedSlideMetadata();
-        console.log(`current slide metadata, ${JSON.stringify(selectedSlideMetadata)}`);
+        //console.log(`current slide metadata, ${JSON.stringify(selectedSlideMetadata)}`);
         //convert JSON to javaScript object
         selectedSlideMetadata = JSON.parse(JSON.stringify(selectedSlideMetadata));
         // Decrement because the getSelectedSlideByIndex method is 1-based,
@@ -52,20 +52,20 @@ script:
         selectedSlideMetadata.index = selectedSlideMetadata.index - 1;
 
         let i = selectedSlideMetadata.index;
-        makeShapes(context, i, -260, 0, 270, 250, "D5F4DD", 0, "obs-Entrance-BG", "");
-        makeShapes(context, i, -235, 5, 25, 200, "9CD3D9", 0, "obs-Entrance-title", "Entrance");
-        makeShapes(context, i, -255, 35, 25, 240, "9CD3D9", 0, "obs-Entrance-Scene", "scene");
-        makeShapes(context, i, -255, 65, 25, 240, "9CD3D9", 0, "obs-Entrance-camera", "camera");
-        makeShapes(context, i, -255, 95, 25, 240, "9CD3D9", 0, "obs-Entrance", "");
-        makeShapes(context, i, -255, 125, 25, 240, "9CD3D9", 0, "obs-Entrance", "");
-        makeShapes(context, i, -255, 155, 25, 240, "9CD3D9", 0, "obs-Entrance", "");
-        makeShapes(context, i, -260, 270, 270, 250, "EFB8B6", 0, "obs-Exit-BG", "");
-        makeShapes(context, i, -235, 275, 25, 200, "FFA99B", 0, "obs-Exit-title", "Exit");
-        makeShapes(context, i, -255, 305, 25, 240, "FFA99B", 0.01, "obs-Exit-Scene", "scene");
-        makeShapes(context, i, -255, 335, 25, 240, "FFA99B", 0.01, "obs-Exit-camera", "camera");
-        makeShapes(context, i, -255, 365, 25, 240, "FFA99B", 0.01, "obs-Exit", "");
-        makeShapes(context, i, -255, 395, 25, 240, "FFA99B", 0.01, "obs-Exit", "");
-        makeShapes(context, i, -255, 425, 25, 240, "FFA99B", 0.01, "obs-Exit", "");
+        makeShapes(context, i, -360, 0, 270, 350, "D5F4DD", 0, "obs-Entrance-BG", "");
+        makeShapes(context, i, -335, 5, 25, 300, "9CD3D9", 0, "obs-Entrance-title", "Entrance");
+        makeShapes(context, i, -355, 35, 25, 340, "9CD3D9", 0, "obs-Entrance-Scene", "scene");
+        makeShapes(context, i, -355, 65, 25, 340, "9CD3D9", 0, "obs-Entrance-camera", "camera");
+        makeShapes(context, i, -355, 95, 25, 340, "9CD3D9", 0, "obs-Entrance", "");
+        makeShapes(context, i, -355, 125, 25, 340, "9CD3D9", 0, "obs-Entrance", "");
+        makeShapes(context, i, -355, 155, 25, 340, "9CD3D9", 0, "obs-Entrance", "");
+        makeShapes(context, i, -360, 270, 270, 350, "EFB8B6", 0, "obs-Exit-BG", "");
+        makeShapes(context, i, -335, 275, 25, 300, "FFA99B", 0, "obs-Exit-title", "Exit");
+        makeShapes(context, i, -355, 305, 25, 340, "FFA99B", 0.01, "obs-Exit-Scene", "scene");
+        makeShapes(context, i, -355, 335, 25, 340, "FFA99B", 0.01, "obs-Exit-camera", "camera");
+        makeShapes(context, i, -355, 365, 25, 340, "FFA99B", 0.01, "obs-Exit", "");
+        makeShapes(context, i, -355, 395, 25, 340, "FFA99B", 0.01, "obs-Exit", "");
+        makeShapes(context, i, -355, 425, 25, 340, "FFA99B", 0.01, "obs-Exit", "");
         makeShapes(context, i, 0, -275, 270, 700, "FFFFFF", 0.0, "obs-Notes", "Enter Notes");
       });
     }
@@ -81,20 +81,20 @@ script:
         // context.presentation.slides.load("items");
         await context.sync();
         for (let i = 0; i < allSlidesCount.value; i++) {
-          makeShapes(context, i, -260, 0, 270, 250, "D5F4DD", 0, "obs-Entrance-BG", "");
-          makeShapes(context, i, -235, 5, 25, 200, "9CD3D9", 0, "obs-Entrance-title", "Entrance");
-          makeShapes(context, i, -255, 35, 25, 240, "9CD3D9", 0, "obs-Entrance-Scene", "scene");
-          makeShapes(context, i, -255, 65, 25, 240, "9CD3D9", 0, "obs-Entrance-camera", "camera");
-          makeShapes(context, i, -255, 95, 25, 240, "9CD3D9", 0, "obs-Entrance", "");
-          makeShapes(context, i, -255, 125, 25, 240, "9CD3D9", 0, "obs-Entrance", "");
-          makeShapes(context, i, -255, 155, 25, 240, "9CD3D9", 0, "obs-Entrance", "");
-          makeShapes(context, i, -260, 270, 270, 250, "EFB8B6", 0, "obs-Exit-BG", "");
-          makeShapes(context, i, -235, 275, 25, 200, "FFA99B", 0, "obs-Exit-title", "Exit");
-          makeShapes(context, i, -255, 305, 25, 240, "FFA99B", 0.01, "obs-Exit-Scene", "scene");
-          makeShapes(context, i, -255, 335, 25, 240, "FFA99B", 0.01, "obs-Exit-camera", "camera");
-          makeShapes(context, i, -255, 365, 25, 240, "FFA99B", 0.01, "obs-Exit", "");
-          makeShapes(context, i, -255, 395, 25, 240, "FFA99B", 0.01, "obs-Exit", "");
-          makeShapes(context, i, -255, 425, 25, 240, "FFA99B", 0.01, "obs-Exit", "");
+          makeShapes(context, i, -360, 0, 270, 350, "D5F4DD", 0, "obs-Entrance-BG", "");
+          makeShapes(context, i, -335, 5, 25, 300, "9CD3D9", 0, "obs-Entrance-title", "Entrance");
+          makeShapes(context, i, -355, 35, 25, 340, "9CD3D9", 0, "obs-Entrance-Scene", "scene");
+          makeShapes(context, i, -355, 65, 25, 340, "9CD3D9", 0, "obs-Entrance-camera", "camera");
+          makeShapes(context, i, -355, 95, 25, 340, "9CD3D9", 0, "obs-Entrance", "");
+          makeShapes(context, i, -355, 125, 25, 340, "9CD3D9", 0, "obs-Entrance", "");
+          makeShapes(context, i, -355, 155, 25, 340, "9CD3D9", 0, "obs-Entrance", "");
+          makeShapes(context, i, -360, 270, 270, 350, "EFB8B6", 0, "obs-Exit-BG", "");
+          makeShapes(context, i, -335, 275, 25, 300, "FFA99B", 0, "obs-Exit-title", "Exit");
+          makeShapes(context, i, -355, 305, 25, 340, "FFA99B", 0.01, "obs-Exit-Scene", "scene");
+          makeShapes(context, i, -355, 335, 25, 340, "FFA99B", 0.01, "obs-Exit-camera", "camera");
+          makeShapes(context, i, -355, 365, 25, 340, "FFA99B", 0.01, "obs-Exit", "");
+          makeShapes(context, i, -355, 395, 25, 340, "FFA99B", 0.01, "obs-Exit", "");
+          makeShapes(context, i, -355, 425, 25, 340, "FFA99B", 0.01, "obs-Exit", "");
           makeShapes(context, i, 0, -275, 270, 700, "FFFFFF", 0.0, "obs-Notes", "Enter Notes");
         }
         // let allSlideItems: PowerPoint.Slide[] = context.presentation.slides.items;
@@ -122,6 +122,7 @@ script:
       newShape.fill.foregroundColor = color;
       newShape.fill.transparency = transparency;
       newShape.textFrame.textRange.font.color = "black";
+      newShape.textFrame.textRange.font.size = 16;
       newShape.textFrame.textRange.text = text;
       if (name === "obs-Notes") {
         newShape.textFrame.verticalAlignment = "Bottom";
@@ -180,7 +181,7 @@ script:
       await PowerPoint.run(async function(context) {
         //Get Current Slide Title and Index
         let selectedSlideMetadata = await getSelectedSlideMetadata();
-        console.log(`current slide metadata, ${JSON.stringify(selectedSlideMetadata)}`);
+        //console.log(`current slide metadata, ${JSON.stringify(selectedSlideMetadata)}`);
 
         //convert JSON to javaScript object
         selectedSlideMetadata = JSON.parse(JSON.stringify(selectedSlideMetadata));
@@ -192,14 +193,13 @@ script:
         //get current slide exit data
         let pptData = await getNotesForOBS(selectedSlideMetadata.index, "exit");
         pptData["slideTitle"] = selectedSlideMetadata.title;
-        console.log(`pptData returned ${JSON.stringify(pptData)}`);
+        //console.log(`pptData returned ${JSON.stringify(pptData)}`);
 
         //send slide data to OBS
         if (platform != "Mac") {
           await sendWebsocketMessageToOBS(pptData);
         }
 
-        console.log("skipped");
         //get the next slide
         await goToNextSlide();
 
@@ -335,17 +335,17 @@ script:
         let actionCode;
         switch (action) {
           case "entrance" || "current":
-            actionCode = 0;
+            actionCode = '\\\\\\';
             break; //Entrance
           case "exit":
-            actionCode = 0.01;
+            actionCode = "///";
             break; //Exit
         }
         //console.log(`action ${action} actionscode ${actionCode}`);
         //build the message
         for (let i = 0; i < shapeTextRanges.length; i++) {
-          if (shapeTextRanges[i].text.includes("|||") && shapeFills[i].transparency == actionCode) {
-            const keyValue = shapeTextRanges[i].text.split("|||");
+          if (shapeTextRanges[i].text.includes(actionCode)){
+            const keyValue = shapeTextRanges[i].text.split(actionCode);
             //console.log(`tag: ${shapeTextRanges[i].text} ActionCode: ${actionCode} transparecy ${shapeFills[i].transparency === actionCode}`)
             pptData[keyValue[0].trim()] = keyValue[1].trim();
           }
@@ -435,7 +435,12 @@ script:
             await context.sync();
             shapes.load("items");
             await context.sync();
-            shapes.items[0].textFrame.textRange.text = event.target.textContent;
+            shapes.items[0].load()
+            const shapeFill: PowerPoint.ShapeFill = shapes.items[0].fill;
+            shapeFill.load("transparency");
+            await context.sync();
+            const tagType = shapeFill.transparency === 0 ? '\\\\\\':"///"
+            shapes.items[0].textFrame.textRange.text = event.target.textContent.replace('|||', tagType);
           });
         });
       });
@@ -527,7 +532,7 @@ script:
       document.getElementById("tagList").style.display = "block";
       let sceneInput = document.getElementById("obsScenes").value;
       sceneInput = JSON.parse(sceneInput);
-      console.log(sceneInput, typeof sceneInput);
+      //console.log(sceneInput, typeof sceneInput);
       sceneInput.scenes.forEach((scene, index) => {
         // find scenes starting with "Scene"
         if (scene.sceneName.startsWith("scene|||")) {
@@ -590,7 +595,7 @@ script:
     }
   language: typescript
 template:
-  content: "<section class=\"ms-font-m\">\n\t<p class=\"ms-font-m\">Add UUinsome controls</p>\n\n\t<button id=\"add-to-slide\" class=\"ms-Button\">\n\t\t\t<span class=\"ms-Button-label\">Add to selected slide</span>\n\t</button>\n\n\t<button id=\"add-to-all-slides\" class=\"ms-Button\">\n\t\t\t<span class=\"ms-Button-label\">Add to all alides</span>\n\t</button>\n\n</section>\n<section class=\"ms-font-m\">\n\t<p class=\"ms-font-m\">Navigate the presentation.</p>\n</section>\n\n<button id=\"get-slide-metadata\" class=\"ms-Button\">\n    <span class=\"ms-Button-label\">Get current slide notes</span>\n</button>\n\n<button id=\"next-slide\" class=\"ms-Button\">\n    <span class=\"ms-Button-label\">Next slide</span>\n</button>\n\n<button id=\"previous-slide\" class=\"ms-Button\">\n    <span class=\"ms-Button-label\">Previous slide</span>\n</button>\n\n\n<section id=\"connectToOBS\" class=\"setup ms-font-m\">\n\t<h3>OBS WebSocket Server Settings</h3>\n\t<p class=\"ms-font-m\">Connect PowerPoint to OBS</p>\n\t<span class=\"ms-Button-label\">Enter WebSocket Server IP Address</span>\n\t<Input id=\"IP\" class=\"ms-Button\" value=\"localhost\"></Input>\n\t<span class=\"ms-Button-label\">Enter WebSocket Server Port</span><br>\n\t<Input id=\"Port\" class=\"ms-Button\" value=\"4455\"></Input>\n\t<span class=\"ms-Button-label\">Enter WebSocket Server Password</span><br>\n\t<Input type=\"password\" id=\"PW\" class=\"ms-Button\"></Input>\n\t<button id=\"connect-to-OBS\" class=\"ms-Button\">\n\t      <span class=\"ms-Button-label\">Connect to OBS WebSocket Server</span>\n    </button>\n</section>\n\n<section id=\"pasteOBSscenes\" class=\"setup ms-font-m\">\n\t<h3>Manually enter OBS scenes</h3>\n\t<p class=\"ms-font-m\">Use the Get User Media,<b> https://uuoocl.github.io/GUM/</b>, Github page to create a list of\n\t\tyour OBS Scenes and Sources. Copy and paste the list</p>\n\t<span class=\"ms-Button-label\">Enter Scenes and Sources</span>\n\t<Input id=\"obsScenes\" class=\"ms-Button\"></Input>\n\t<button id=\"make-tag-list\" class=\"ms-Button\">\n\t  <span class=\"ms-Button-label\">Make a list tags</span>\n  </button>\n</section>\n\n\n<section id=\"tagList\" class=\"setup ms-font-m\" hidden>\n\t<h3>Scenes</h3>\n\t<span class=\"ms-Button-label\">Select a Shape, then click a value below to set the Shape's text</span>\n\n\t<ul id=sceneList>\n\t</ul>\n\n\t<h3>Camera</h3>\n\t<ul id=cameraList>\n\t</ul>\n\t<p>Shapes that indicate an Entrance or Exit tag include the text \"|||\" <br>\n\t\tShapes that indicate an Entrance tag have 0% Transparency.<br>\n\t\tShapes that indicate an Exit tag have 1% Transparency.</p>\n</section>"
+  content: "<section class=\"ms-font-m\">\n\t<p class=\"ms-font-m\">Add UUinsome controls</p>\n\n\t<button id=\"add-to-slide\" class=\"ms-Button\">\n\t\t\t<span class=\"ms-Button-label\">Add to selected slide</span>\n\t</button>\n\n\t<button id=\"add-to-all-slides\" class=\"ms-Button\">\n\t\t\t<span class=\"ms-Button-label\">Add to all alides</span>\n\t</button>\n\n</section>\n<section class=\"ms-font-m\">\n\t<p class=\"ms-font-m\">Navigate the presentation.</p>\n</section>\n\n<button id=\"get-slide-metadata\" class=\"ms-Button\">\n    <span class=\"ms-Button-label\">Get current slide notes</span>\n</button>\n\n<button id=\"next-slide\" class=\"ms-Button\">\n    <span class=\"ms-Button-label\">Next slide</span>\n</button>\n\n<button id=\"previous-slide\" class=\"ms-Button\">\n    <span class=\"ms-Button-label\">Previous slide</span>\n</button>\n\n\n<section id=\"connectToOBS\" class=\"setup ms-font-m\">\n\t<h3>OBS WebSocket Server Settings</h3>\n\t<p class=\"ms-font-m\">Connect PowerPoint to OBS</p>\n\t<span class=\"ms-Button-label\">Enter WebSocket Server IP Address</span>\n\t<Input id=\"IP\" class=\"ms-Button\" value=\"localhost\"></Input>\n\t<span class=\"ms-Button-label\">Enter WebSocket Server Port</span><br>\n\t<Input id=\"Port\" class=\"ms-Button\" value=\"4455\"></Input>\n\t<span class=\"ms-Button-label\">Enter WebSocket Server Password</span><br>\n\t<Input type=\"password\" id=\"PW\" class=\"ms-Button\"></Input>\n\t<button id=\"connect-to-OBS\" class=\"ms-Button\">\n\t      <span class=\"ms-Button-label\">Connect to OBS WebSocket Server</span>\n    </button>\n</section>\n\n<section id=\"pasteOBSscenes\" class=\"setup ms-font-m\">\n\t<h3>Manually enter OBS scenes</h3>\n\t<p class=\"ms-font-m\">Use the Get User Media,<b> https://uuoocl.github.io/GUM/</b>, Github page to create a list of\n\t\tyour OBS Scenes and Sources. Copy and paste the list</p>\n\t<span class=\"ms-Button-label\">Enter Scenes and Sources</span>\n\t<Input id=\"obsScenes\" class=\"ms-Button\"></Input>\n\t<button id=\"make-tag-list\" class=\"ms-Button\">\n\t  <span class=\"ms-Button-label\">Make a list tags</span>\n  </button>\n</section>\n\n\n<section id=\"tagList\" class=\"setup ms-font-m\" hidden>\n\t<h3>Scenes</h3>\n\t<span class=\"ms-Button-label\">Select a Shape, then click a value below to set the Shape's text</span>\n\n\t<ul id=sceneList>\n\t</ul>\n\n\t<h3>Camera</h3>\n\t<ul id=cameraList>\n\t</ul>\n\t<p>Shapes that indicate an Entrance tag include the text \"\\\\\\\" and have 0% Transparency.<br>\n\tShapes that indicate an Entrance tag include the text \"///\" and have 1% Transparency.</p>\n\n</section>"
   language: html
 style:
   content: |
