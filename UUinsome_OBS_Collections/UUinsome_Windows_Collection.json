@@ -1,6 +1,6 @@
 {
-    "current_scene": "scene|||Full Screen Slide",
-    "current_program_scene": "scene|||Full Screen Slide",
+    "current_scene": "Slide Controls",
+    "current_program_scene": "Slide Controls",
     "scene_order": [
         {
             "name": "scene|||Over the Shoulder"
@@ -24,10 +24,10 @@
             "name": "Camera"
         },
         {
-            "name": "Slide Controls"
+            "name": "Slide Notes"
         },
         {
-            "name": "Slide Notes"
+            "name": "Slide Controls"
         }
     ],
     "name": "UUinsome_Windows_Collection",
@@ -129,7 +129,7 @@
                         },
                         "scale": {
                             "x": 1.5,
-                            "y": 1.4999995231628418
+                            "y": 1.4999990463256836
                         },
                         "align": 5,
                         "bounds_type": 0,
@@ -208,7 +208,7 @@
             "name": "Slide Notes",
             "monitor": -1,
             "type": 1,
-            "geometry": "AdnQywADAAAAAAO5AAABJwAABbAAAAJPAAADuQAAAUYAAAWwAAACTwAAAAAAAAAAB4AAAAO5AAABRgAABbAAAAJP",
+            "geometry": "AdnQywADAAAAAAKUAAAADgAABM8AAAEqAAAClAAAAC0AAATPAAABKgAAAAAAAAAAB4AAAAKUAAAALQAABM8AAAEq",
             "alwaysOnTop": true,
             "alwaysOnTopOverridden": true
         }
@@ -217,9 +217,9 @@
     "transition_duration": 300,
     "preview_locked": false,
     "scaling_enabled": true,
-    "scaling_level": -2,
-    "scaling_off_x": 35.341091156005859,
-    "scaling_off_y": -10.358880043029785,
+    "scaling_level": -7,
+    "scaling_off_x": -111.12624359130859,
+    "scaling_off_y": 39.174774169921875,
     "virtual-camera": {
         "type2": 3
     },
@@ -264,7 +264,7 @@
             "macros": [
                 {
                     "name": "Send-Next-Slide",
-                    "pause": false,
+                    "pause": true,
                     "parallel": false,
                     "onChange": true,
                     "skipExecOnStart": false,
@@ -286,18 +286,18 @@
                     },
                     "macroActionConditionSplitterPosition": [
                         {
-                            "pos": 201
+                            "pos": 312
                         },
                         {
-                            "pos": 409
+                            "pos": 637
                         }
                     ],
                     "macroElseActionSplitterPosition": [
                         {
-                            "pos": 241
+                            "pos": 387
                         },
                         {
-                            "pos": 136
+                            "pos": 218
                         }
                     ],
                     "registerHotkeys": false,
@@ -325,11 +325,7 @@
                                 }
                             },
                             "desc": "Slide - Next Hotkey",
-                            "keyBind": [
-                                {
-                                    "key": "OBS_KEY_F15"
-                                }
-                            ],
+                            "keyBind": [],
                             "checkPressed": true
                         }
                     ],
@@ -344,7 +340,7 @@
                             "enabled": true,
                             "source": {
                                 "type": 0,
-                                "name": "Navigation Text"
+                                "name": "NextSlide"
                             },
                             "action": 2,
                             "sourceSettingButton": {
@@ -373,7 +369,7 @@
                 },
                 {
                     "name": "Send-Previous-Slide",
-                    "pause": false,
+                    "pause": true,
                     "parallel": false,
                     "onChange": true,
                     "skipExecOnStart": false,
@@ -395,15 +391,15 @@
                     },
                     "macroActionConditionSplitterPosition": [
                         {
-                            "pos": 222
+                            "pos": 345
                         },
                         {
-                            "pos": 388
+                            "pos": 604
                         }
                     ],
                     "macroElseActionSplitterPosition": [
                         {
-                            "pos": 356
+                            "pos": 572
                         },
                         {
                             "pos": 0
@@ -434,11 +430,7 @@
                                 }
                             },
                             "desc": "Slide - Previous Hotkey",
-                            "keyBind": [
-                                {
-                                    "key": "OBS_KEY_F14"
-                                }
-                            ],
+                            "keyBind": [],
                             "checkPressed": true
                         }
                     ],
@@ -453,7 +445,7 @@
                             "enabled": true,
                             "source": {
                                 "type": 0,
-                                "name": "Navigation Text"
+                                "name": "NextSlide"
                             },
                             "action": 2,
                             "sourceSettingButton": {
@@ -482,7 +474,7 @@
                 },
                 {
                     "name": "Teleprompter Font Size Increase",
-                    "pause": false,
+                    "pause": true,
                     "parallel": false,
                     "onChange": false,
                     "skipExecOnStart": false,
@@ -504,15 +496,15 @@
                     },
                     "macroActionConditionSplitterPosition": [
                         {
-                            "pos": 204
+                            "pos": 133
                         },
                         {
-                            "pos": 406
+                            "pos": 266
                         }
                     ],
                     "macroElseActionSplitterPosition": [
                         {
-                            "pos": 374
+                            "pos": 234
                         },
                         {
                             "pos": 0
@@ -543,11 +535,7 @@
                                 }
                             },
                             "desc": "Teleprompter Font Size Increase",
-                            "keyBind": [
-                                {
-                                    "key": "OBS_KEY_F17"
-                                }
-                            ],
+                            "keyBind": [],
                             "checkPressed": true
                         }
                     ],
@@ -648,7 +636,7 @@
                 },
                 {
                     "name": "Teleprompter Font Size Decrease",
-                    "pause": false,
+                    "pause": true,
                     "parallel": false,
                     "onChange": false,
                     "skipExecOnStart": false,
@@ -670,15 +658,15 @@
                     },
                     "macroActionConditionSplitterPosition": [
                         {
-                            "pos": 204
+                            "pos": 317
                         },
                         {
-                            "pos": 406
+                            "pos": 632
                         }
                     ],
                     "macroElseActionSplitterPosition": [
                         {
-                            "pos": 374
+                            "pos": 600
                         },
                         {
                             "pos": 0
@@ -709,11 +697,7 @@
                                 }
                             },
                             "desc": "Teleprompter Font Size Decrease",
-                            "keyBind": [
-                                {
-                                    "key": "OBS_KEY_F19"
-                                }
-                            ],
+                            "keyBind": [],
                             "checkPressed": true
                         }
                     ],
@@ -814,7 +798,7 @@
                 },
                 {
                     "name": "Teleprompter Speed Increase",
-                    "pause": false,
+                    "pause": true,
                     "parallel": false,
                     "onChange": false,
                     "skipExecOnStart": false,
@@ -836,15 +820,15 @@
                     },
                     "macroActionConditionSplitterPosition": [
                         {
-                            "pos": 204
+                            "pos": 317
                         },
                         {
-                            "pos": 406
+                            "pos": 632
                         }
                     ],
                     "macroElseActionSplitterPosition": [
                         {
-                            "pos": 374
+                            "pos": 600
                         },
                         {
                             "pos": 0
@@ -875,11 +859,7 @@
                                 }
                             },
                             "desc": "Teleprompter Speed Increase",
-                            "keyBind": [
-                                {
-                                    "key": "OBS_KEY_F16"
-                                }
-                            ],
+                            "keyBind": [],
                             "checkPressed": true
                         }
                     ],
@@ -983,7 +963,7 @@
                 },
                 {
                     "name": "Teleprompter Speed Decrease",
-                    "pause": false,
+                    "pause": true,
                     "parallel": false,
                     "onChange": false,
                     "skipExecOnStart": false,
@@ -1005,15 +985,15 @@
                     },
                     "macroActionConditionSplitterPosition": [
                         {
-                            "pos": 204
+                            "pos": 133
                         },
                         {
-                            "pos": 406
+                            "pos": 266
                         }
                     ],
                     "macroElseActionSplitterPosition": [
                         {
-                            "pos": 374
+                            "pos": 234
                         },
                         {
                             "pos": 0
@@ -1044,11 +1024,7 @@
                                 }
                             },
                             "desc": "Teleprompter Speed Decrease",
-                            "keyBind": [
-                                {
-                                    "key": "OBS_KEY_F18"
-                                }
-                            ],
+                            "keyBind": [],
                             "checkPressed": true
                         }
                     ],
@@ -1152,7 +1128,7 @@
                 },
                 {
                     "name": "Teleprompter Play",
-                    "pause": false,
+                    "pause": true,
                     "parallel": false,
                     "onChange": true,
                     "skipExecOnStart": false,
@@ -1213,11 +1189,7 @@
                                 }
                             },
                             "desc": "Teleprompter Play Pause",
-                            "keyBind": [
-                                {
-                                    "key": "OBS_KEY_F13"
-                                }
-                            ],
+                            "keyBind": [],
                             "checkPressed": true
                         },
                         {
@@ -1351,7 +1323,7 @@
                 },
                 {
                     "name": "Teleprompter Pause",
-                    "pause": false,
+                    "pause": true,
                     "parallel": false,
                     "onChange": true,
                     "skipExecOnStart": false,
@@ -1412,11 +1384,7 @@
                                 }
                             },
                             "desc": "Teleprompter Play Pause",
-                            "keyBind": [
-                                {
-                                    "key": "OBS_KEY_F13"
-                                }
-                            ],
+                            "keyBind": [],
                             "checkPressed": true
                         },
                         {
@@ -1550,8 +1518,8 @@
                 },
                 {
                     "name": "Parse Notes",
-                    "pause": false,
-                    "parallel": false,
+                    "pause": true,
+                    "parallel": true,
                     "onChange": false,
                     "skipExecOnStart": false,
                     "stopActionsIfNotDone": false,
@@ -1572,15 +1540,15 @@
                     },
                     "macroActionConditionSplitterPosition": [
                         {
-                            "pos": 293
+                            "pos": 301
                         },
                         {
-                            "pos": 631
+                            "pos": 648
                         }
                     ],
                     "macroElseActionSplitterPosition": [
                         {
-                            "pos": 599
+                            "pos": 616
                         },
                         {
                             "pos": 0
@@ -1932,8 +1900,8 @@
                 },
                 {
                     "name": "Parse Scene",
-                    "pause": false,
-                    "parallel": false,
+                    "pause": true,
+                    "parallel": true,
                     "onChange": false,
                     "skipExecOnStart": false,
                     "stopActionsIfNotDone": false,
@@ -1954,15 +1922,15 @@
                     },
                     "macroActionConditionSplitterPosition": [
                         {
-                            "pos": 190
+                            "pos": 301
                         },
                         {
-                            "pos": 409
+                            "pos": 648
                         }
                     ],
                     "macroElseActionSplitterPosition": [
                         {
-                            "pos": 377
+                            "pos": 616
                         },
                         {
                             "pos": 0
@@ -2206,8 +2174,8 @@
                 },
                 {
                     "name": "CameraChoice",
-                    "pause": false,
-                    "parallel": false,
+                    "pause": true,
+                    "parallel": true,
                     "onChange": true,
                     "skipExecOnStart": false,
                     "stopActionsIfNotDone": false,
@@ -2228,15 +2196,15 @@
                     },
                     "macroActionConditionSplitterPosition": [
                         {
-                            "pos": 167
+                            "pos": 265
                         },
                         {
-                            "pos": 432
+                            "pos": 684
                         }
                     ],
                     "macroElseActionSplitterPosition": [
                         {
-                            "pos": 400
+                            "pos": 652
                         },
                         {
                             "pos": 0
@@ -2435,7 +2403,7 @@
                 {
                     "name": "Teleprompter Speed",
                     "saveAction": 1,
-                    "value": "35",
+                    "value": "85",
                     "defaultValue": ""
                 },
                 {
@@ -2626,16 +2594,16 @@
                 }
             ],
             "saveWindowGeo": false,
-            "windowPosX": 323,
-            "windowPosY": 130,
-            "windowWidth": 1398,
-            "windowHeight": 800,
+            "windowPosX": 453,
+            "windowPosY": 215,
+            "windowWidth": 1000,
+            "windowHeight": 600,
             "macroListMacroEditSplitterPosition": [
                 {
-                    "pos": 268
+                    "pos": 144
                 },
                 {
-                    "pos": 1103
+                    "pos": 829
                 }
             ],
             "version": "b561a20ddeca3e3e922ec1bf427ff811c2bf18f1",
@@ -2656,48 +2624,9 @@
             "id": "scene",
             "versioned_id": "scene",
             "settings": {
-                "id_counter": 7,
+                "id_counter": 10,
                 "custom_size": false,
                 "items": [
-                    {
-                        "name": "Wide",
-                        "source_uuid": "6851ffdd-74e7-46b7-ad70-79a395c4c5a2",
-                        "visible": true,
-                        "locked": false,
-                        "rot": 0.0,
-                        "pos": {
-                            "x": 0.0,
-                            "y": 0.0
-                        },
-                        "scale": {
-                            "x": 1.5,
-                            "y": 1.5
-                        },
-                        "align": 5,
-                        "bounds_type": 0,
-                        "bounds_align": 0,
-                        "bounds_crop": false,
-                        "bounds": {
-                            "x": 0.0,
-                            "y": 0.0
-                        },
-                        "crop_left": 0,
-                        "crop_top": 0,
-                        "crop_right": 0,
-                        "crop_bottom": 0,
-                        "id": 1,
-                        "group_item_backup": false,
-                        "scale_filter": "disable",
-                        "blend_method": "default",
-                        "blend_type": "normal",
-                        "show_transition": {
-                            "duration": 0
-                        },
-                        "hide_transition": {
-                            "duration": 0
-                        },
-                        "private_settings": {}
-                    },
                     {
                         "name": "Wide",
                         "source_uuid": "6851ffdd-74e7-46b7-ad70-79a395c4c5a2",
@@ -2710,7 +2639,7 @@
                         },
                         "scale": {
                             "x": 2.94140625,
-                            "y": 2.9416656494140625
+                            "y": 2.9416646957397461
                         },
                         "align": 5,
                         "bounds_type": 0,
@@ -2769,10 +2698,18 @@
                         "blend_method": "default",
                         "blend_type": "normal",
                         "show_transition": {
-                            "duration": 0
+                            "id": "fade_transition",
+                            "versioned_id": "fade_transition",
+                            "name": "Close Up Show Transition",
+                            "transition": {},
+                            "duration": 300
                         },
                         "hide_transition": {
-                            "duration": 0
+                            "id": "fade_transition",
+                            "versioned_id": "fade_transition",
+                            "name": "Close Up Hide Transition",
+                            "transition": {},
+                            "duration": 300
                         },
                         "private_settings": {
                             "collapsed": true
@@ -2820,7 +2757,7 @@
                     {
                         "name": "Medium",
                         "source_uuid": "a0a528e8-e657-48d2-8686-5fb23504dd82",
-                        "visible": true,
+                        "visible": false,
                         "locked": false,
                         "rot": 0.0,
                         "pos": {
@@ -2849,14 +2786,116 @@
                         "blend_method": "default",
                         "blend_type": "normal",
                         "show_transition": {
-                            "duration": 0
+                            "id": "fade_transition",
+                            "versioned_id": "fade_transition",
+                            "name": "Medium Show Transition",
+                            "transition": {},
+                            "duration": 300
                         },
                         "hide_transition": {
-                            "duration": 0
+                            "id": "fade_transition",
+                            "versioned_id": "fade_transition",
+                            "name": "Medium Hide Transition",
+                            "transition": {},
+                            "duration": 300
                         },
                         "private_settings": {
                             "collapsed": true
                         }
+                    },
+                    {
+                        "name": "Wide",
+                        "source_uuid": "6851ffdd-74e7-46b7-ad70-79a395c4c5a2",
+                        "visible": false,
+                        "locked": false,
+                        "rot": 0.0,
+                        "pos": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "scale": {
+                            "x": 1.5,
+                            "y": 1.5
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 1,
+                        "group_item_backup": false,
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "id": "fade_transition",
+                            "versioned_id": "fade_transition",
+                            "name": "Wide Show Transition",
+                            "transition": {},
+                            "duration": 300
+                        },
+                        "hide_transition": {
+                            "id": "fade_transition",
+                            "versioned_id": "fade_transition",
+                            "name": "Wide Hide Transition",
+                            "transition": {},
+                            "duration": 300
+                        },
+                        "private_settings": {}
+                    },
+                    {
+                        "name": "No Camera",
+                        "source_uuid": "0752dc22-48fc-4558-80a2-d54f3f4553cf",
+                        "visible": false,
+                        "locked": false,
+                        "rot": 0.0,
+                        "pos": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 10,
+                        "group_item_backup": false,
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "id": "fade_transition",
+                            "versioned_id": "fade_transition",
+                            "name": "No Camera Show Transition",
+                            "transition": {},
+                            "duration": 300
+                        },
+                        "hide_transition": {
+                            "id": "fade_transition",
+                            "versioned_id": "fade_transition",
+                            "name": "No Camera Hide Transition",
+                            "transition": {},
+                            "duration": 300
+                        },
+                        "private_settings": {}
                     }
                 ]
             },
@@ -2878,7 +2917,9 @@
                 "libobs.show_scene_item.2": [],
                 "libobs.hide_scene_item.2": [],
                 "libobs.show_scene_item.1": [],
-                "libobs.hide_scene_item.1": []
+                "libobs.hide_scene_item.1": [],
+                "libobs.show_scene_item.10": [],
+                "libobs.hide_scene_item.10": []
             },
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
@@ -2887,7 +2928,7 @@
         },
         {
             "prev_ver": 503447555,
-            "name": "Navigation Text",
+            "name": "NextSlide",
             "uuid": "d19f8913-1e20-4546-98ea-5b9b693cb050",
             "id": "text_gdiplus",
             "versioned_id": "text_gdiplus_v3",
@@ -2895,6 +2936,7 @@
                 "extents": false,
                 "chatlog": false,
                 "outline": true,
+                "text": "Previous",
                 "font": {
                     "face": "Arial",
                     "style": "Regular",
@@ -2902,9 +2944,56 @@
                     "flags": 0
                 },
                 "extents_cx": 1920,
-                "extents_cy": 5000,
-                "text": ""
+                "extents_cy": 5000
             },
+            "mixers": 0,
+            "sync": 0,
+            "flags": 0,
+            "volume": 1.0,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": false,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {},
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
+            "private_settings": {}
+        },
+        {
+            "prev_ver": 503447555,
+            "name": "No Camera",
+            "uuid": "0752dc22-48fc-4558-80a2-d54f3f4553cf",
+            "id": "text_gdiplus",
+            "versioned_id": "text_gdiplus_v3",
+            "settings": {},
+            "mixers": 0,
+            "sync": 0,
+            "flags": 0,
+            "volume": 1.0,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": false,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {},
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
+            "private_settings": {}
+        },
+        {
+            "prev_ver": 503447555,
+            "name": "Play-Pause",
+            "uuid": "5c96d8ca-6a46-4490-93d6-e32d43c31981",
+            "id": "text_gdiplus",
+            "versioned_id": "text_gdiplus_v3",
+            "settings": {},
             "mixers": 0,
             "sync": 0,
             "flags": 0,
@@ -2929,9 +3018,9 @@
             "id": "window_capture",
             "versioned_id": "window_capture",
             "settings": {
+                "window": "UUinsomeAlley-Example - PowerPoint:PPTFrameClass:POWERPNT.EXE",
                 "cursor": false,
-                "client_area": true,
-                "window": "UUinsomeAlley-Example - PowerPoint:PPTFrameClass:POWERPNT.EXE"
+                "client_area": true
             },
             "mixers": 255,
             "sync": 0,
@@ -2957,6 +3046,30 @@
         },
         {
             "prev_ver": 503447555,
+            "name": "PreviousSlide",
+            "uuid": "cb85d7e2-a379-4220-bf00-1239a267a180",
+            "id": "text_gdiplus",
+            "versioned_id": "text_gdiplus_v3",
+            "settings": {},
+            "mixers": 0,
+            "sync": 0,
+            "flags": 0,
+            "volume": 1.0,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": false,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {},
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
+            "private_settings": {}
+        },
+        {
+            "prev_ver": 503447555,
             "name": "scene|||Full Screen Slide",
             "uuid": "812ed50c-07ed-44ee-ab0b-cade2a85f24f",
             "id": "scene",
@@ -2972,8 +3085,8 @@
                         "locked": false,
                         "rot": 0.0,
                         "pos": {
-                            "x": -0.0001220703125,
-                            "y": -77.0
+                            "x": -386.0001220703125,
+                            "y": 105.0
                         },
                         "scale": {
                             "x": 1.045751690864563,
@@ -3635,18 +3748,66 @@
         },
         {
             "prev_ver": 503447555,
+            "name": "Scroll Faster",
+            "uuid": "2975b315-f678-4f59-ab34-94d01b0b9e19",
+            "id": "text_gdiplus",
+            "versioned_id": "text_gdiplus_v3",
+            "settings": {},
+            "mixers": 0,
+            "sync": 0,
+            "flags": 0,
+            "volume": 1.0,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": false,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {},
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
+            "private_settings": {}
+        },
+        {
+            "prev_ver": 503447555,
+            "name": "Scroll Slower ",
+            "uuid": "df6682d4-d568-422e-8ced-f08c478098e9",
+            "id": "text_gdiplus",
+            "versioned_id": "text_gdiplus_v3",
+            "settings": {},
+            "mixers": 0,
+            "sync": 0,
+            "flags": 0,
+            "volume": 1.0,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": false,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {},
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
+            "private_settings": {}
+        },
+        {
+            "prev_ver": 503447555,
             "name": "Slide Controls",
             "uuid": "737c0546-1a72-4f26-b5c5-40bdfc6d33b4",
             "id": "scene",
             "versioned_id": "scene",
             "settings": {
-                "id_counter": 1,
+                "id_counter": 9,
                 "custom_size": false,
                 "items": [
                     {
-                        "name": "Navigation Text",
+                        "name": "NextSlide",
                         "source_uuid": "d19f8913-1e20-4546-98ea-5b9b693cb050",
-                        "visible": true,
+                        "visible": false,
                         "locked": false,
                         "rot": 0.0,
                         "pos": {
@@ -3681,6 +3842,240 @@
                             "duration": 0
                         },
                         "private_settings": {}
+                    },
+                    {
+                        "name": "PreviousSlide",
+                        "source_uuid": "cb85d7e2-a379-4220-bf00-1239a267a180",
+                        "visible": false,
+                        "locked": false,
+                        "rot": 0.0,
+                        "pos": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 4,
+                        "group_item_backup": false,
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
+                    },
+                    {
+                        "name": "Scroll Faster",
+                        "source_uuid": "2975b315-f678-4f59-ab34-94d01b0b9e19",
+                        "visible": false,
+                        "locked": false,
+                        "rot": 0.0,
+                        "pos": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 5,
+                        "group_item_backup": false,
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
+                    },
+                    {
+                        "name": "Scroll Slower ",
+                        "source_uuid": "df6682d4-d568-422e-8ced-f08c478098e9",
+                        "visible": false,
+                        "locked": false,
+                        "rot": 0.0,
+                        "pos": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 6,
+                        "group_item_backup": false,
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
+                    },
+                    {
+                        "name": "Text Bigger",
+                        "source_uuid": "72252606-cc8a-4a07-bbd6-17143cad62b2",
+                        "visible": false,
+                        "locked": false,
+                        "rot": 0.0,
+                        "pos": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 7,
+                        "group_item_backup": false,
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
+                    },
+                    {
+                        "name": "Text Smaller",
+                        "source_uuid": "1c259b65-0055-4303-8cb7-ff8f11ca1346",
+                        "visible": false,
+                        "locked": false,
+                        "rot": 0.0,
+                        "pos": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 8,
+                        "group_item_backup": false,
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
+                    },
+                    {
+                        "name": "Play-Pause",
+                        "source_uuid": "5c96d8ca-6a46-4490-93d6-e32d43c31981",
+                        "visible": false,
+                        "locked": false,
+                        "rot": 0.0,
+                        "pos": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 9,
+                        "group_item_backup": false,
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
                     }
                 ]
             },
@@ -3697,8 +4092,40 @@
             "push-to-talk-delay": 0,
             "hotkeys": {
                 "OBSBasic.SelectScene": [],
-                "libobs.show_scene_item.1": [],
-                "libobs.hide_scene_item.1": []
+                "libobs.show_scene_item.1": [
+                    {
+                        "key": "OBS_KEY_F15"
+                    }
+                ],
+                "libobs.hide_scene_item.1": [],
+                "libobs.show_scene_item.4": [
+                    {
+                        "key": "OBS_KEY_F14"
+                    }
+                ],
+                "libobs.hide_scene_item.4": [],
+                "libobs.show_scene_item.5": [
+                    {
+                        "key": "OBS_KEY_F16"
+                    }
+                ],
+                "libobs.hide_scene_item.5": [],
+                "libobs.show_scene_item.6": [
+                    {
+                        "key": "OBS_KEY_F18"
+                    }
+                ],
+                "libobs.hide_scene_item.6": [],
+                "libobs.show_scene_item.7": [],
+                "libobs.hide_scene_item.7": [],
+                "libobs.show_scene_item.8": [],
+                "libobs.hide_scene_item.8": [],
+                "libobs.show_scene_item.9": [
+                    {
+                        "key": "OBS_KEY_F13"
+                    }
+                ],
+                "libobs.hide_scene_item.9": []
             },
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
@@ -3722,12 +4149,12 @@
                         "locked": false,
                         "rot": 0.0,
                         "pos": {
-                            "x": 0.0,
+                            "x": 48.0001220703125,
                             "y": 0.0
                         },
                         "scale": {
-                            "x": 6.4000000953674316,
-                            "y": 6.3125
+                            "x": 6.2399997711181641,
+                            "y": 6.2399997711181641
                         },
                         "align": 5,
                         "bounds_type": 0,
@@ -3788,16 +4215,13 @@
                 "vertical": false,
                 "chatlog": false,
                 "font": {
-                    "face": "Arial",
-                    "flags": 0,
-                    "size": 25,
-                    "style": "Regular"
+                    "size": 54
                 },
                 "extents_wrap": true,
                 "extents_cx": 300,
                 "extents_cy": 8000,
                 "antialiasing": true,
-                "text": "\"1 List 1\n1. The birch canoe slid on the smooth planks.\n2. Glue the sheet to the dark blue background.\n3. It's easy to tell the depth of a well.\n4. These days a chicken leg is a rare dish.\n5. Rice is often served in round bowls.\n6. The juice of lemons makes fine punch.\n7. The box was thrown beside the parked truck.\n8. The hogs were fed chopped corn and garbage.\n9. Four hours of steady work faced us.\n10. A large size in stockings is hard to sell.\n\n 2 List 1\n1. The birch canoe slid on the smooth planks.\n2. Glue the sheet to the dark blue background.\n3. It's easy to tell the depth of a well.\n4. These days a chicken leg is a rare dish.\n5. Rice is often served in round bowls.\n6. The juice of lemons makes fine punch.\n7. The box was thrown beside the parked truck.\n8. The hogs were fed chopped corn and garbage.\n9. Four hours of steady work faced us.\n10. A large size in stockings is hard to sell.\n\n3 List 1\n1. The birch canoe slid on the smooth planks.\n2. Glue the sheet to the dark blue background.\n3. It's easy to tell the depth of a well.\n4. These days a chicken leg is a rare dish.\n5. Rice is often served in round bowls.\n6. The juice of lemons makes fine punch.\n7. The box was thrown beside the parked truck.\n8. The hogs were fed chopped corn and garbage.\n9. Four hours of steady work faced us.\n10. A large size in stockings is hard to sell.\n4 List 1\n1. The birch canoe slid on the smooth planks.\n2. Glue the sheet to the dark blue background.\n3. It's easy to tell the depth of a well.\n4. These days a chicken leg is a rare dish.\n5. Rice is often served in round bowls.\n6. The juice of lemons makes fine punch.\n7. The box was thrown beside the parked truck.\n8. The hogs were fed chopped corn and garbage.\n9. Four hours of steady work faced us.\n10. A large size in stockings is hard to sell.\n\""
+                "text": "List 3\n\n1. The small pup gnawed a hole in the sock.\n2. The fish twisted and turned on the bent hook.\n3. Press the pants and sew a button on the vest.\n4. The swan dive was far short of perfect.\n5. The beauty of the view stunned the young boy.\n6. Two blue fish swam in the tank.\n7. Her purse was full of useless trash.\n8. The colt reared and threw the tall rider.\n9. It snowed, rained, and hailed the same morning.\n10. Read verse out loud for pleasure."
             },
             "mixers": 0,
             "sync": 0,
@@ -3823,7 +4247,7 @@
                     "id": "scroll_filter",
                     "versioned_id": "scroll_filter",
                     "settings": {
-                        "speed_y": 1.0,
+                        "speed_y": 38,
                         "limit_cx": true,
                         "speed_x": 0.0,
                         "limit_cy": false,
@@ -3875,6 +4299,54 @@
                     "private_settings": {}
                 }
             ]
+        },
+        {
+            "prev_ver": 503447555,
+            "name": "Text Bigger",
+            "uuid": "72252606-cc8a-4a07-bbd6-17143cad62b2",
+            "id": "text_gdiplus",
+            "versioned_id": "text_gdiplus_v3",
+            "settings": {},
+            "mixers": 0,
+            "sync": 0,
+            "flags": 0,
+            "volume": 1.0,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": false,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {},
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
+            "private_settings": {}
+        },
+        {
+            "prev_ver": 503447555,
+            "name": "Text Smaller",
+            "uuid": "1c259b65-0055-4303-8cb7-ff8f11ca1346",
+            "id": "text_gdiplus",
+            "versioned_id": "text_gdiplus_v3",
+            "settings": {},
+            "mixers": 0,
+            "sync": 0,
+            "flags": 0,
+            "volume": 1.0,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": false,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {},
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
+            "private_settings": {}
         },
         {
             "prev_ver": 503447555,
