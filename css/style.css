@@ -10,7 +10,7 @@ body {
 }
 
 body {
-  padding: 1em 2em 2em 17em;
+  padding: 0fr 2em 2em 17em;
   font-size: 16px;
   line-height: 1.6;
   font-family: "Roboto", sans-serif;
@@ -23,12 +23,23 @@ body {
 
 .form-grid {
   display:grid;
-  grid-template-columns: 350px 150px;
+  grid-template-columns: 300px 200px;
   
+}
+
+.nav-grid{
+  display:grid;
+  grid-template-columns: 200px 200px 200px;
+}
+
+.tele-grid{
+  display:grid;
+  grid-template-columns: 100px 200px 75px 200px;
 }
 
 .form-button {
   cursor: pointer;
+  margin: 5px;
 }
 
 .contents .form-small-button {
@@ -105,7 +116,7 @@ body {
   position: relative;
   width: 100%;
   margin: 40px auto;
-  padding: 40px;
+  padding: 10px;
   background: #fff;
   -webkit-box-shadow: 0 14px 30px rgba(0,0,0,0.1);
   box-shadow: 0 14px 30px rgba(0,0,0,0.1);
@@ -149,12 +160,12 @@ body {
 
 
 .contents h2 h3 {
-  padding-top: 1em;
+  padding-top: 0em;
   background-color: #f9f9f9;
 
 }
 .contents h2 {
-  margin-top: 1.2em;
+  margin-top: 0em;
   
 }
 
@@ -218,7 +229,7 @@ pre[class*="language-"] {
 
   /* make space  */
   margin: 5px 0;
-  padding: 1.75rem 0 1.75rem 1rem;
+  padding: 1rem 0 1.75rem 1rem;
   border-radius: 10px;
 }
 
@@ -249,4 +260,12 @@ main {
 
 h1 {
   font-size: 1.3rem;
+}
+
+ul{
+  padding: 0;
+  list-style-type: none;
+  margin: 0;
+  margin-bottom: 2px;
+  margin-left: 0px;
 }

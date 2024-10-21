@@ -5,15 +5,14 @@
     <meta charset='utf-8'>
     <title>UUinsone slide controls for MacOS</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <!-- <link rel='stylesheet' type='text/css' media='screen' href='main.css'> -->
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
-<link href="css/style.css" rel="stylesheet" type="text/css" />
 <body>
     <article class="contents">
         <h1>UUinsome </h1>
-        <h4>an interface to connect OBS to PowerPoint and Keynote</h4>
-        <a id="click test" href="shortcuts://run-shortcut?name=Show%20Alert">show alert</a>
+        <h4>An interface to connect OBS to PowerPoint and Keynote via macOS Shortcuts</h4>
+        <a id="clickTest">show alert</a>
         <section>
             <div id="srvr">
                 <div id="srvr-obs-ws">
@@ -25,194 +24,66 @@
                             <input type="text" id="Port" name="Port" value="4455" />
                             <label for="PW">Enter Password:</label>
                             <input type="password" id="PW" name="PW" value="EfTC8xml3070cx3A" />
-                            <input class="form-button" type="button" id="WSconnectButton" value="Connect to OBS" />
+                            <p></p><input class="form-button" type="button" id="WSconnectButton" value="Connect to OBS" />
                         </form>
                         <p id="WorkingDirectory" hidden></p>
-                </div>
-                <div>
-                    <h3>Choose an Audio and/or Video Source</h3>
-                    <p>
-                        <input type="checkbox" id="videoButton">
-                        <label for="videoButton">Desktop Window (Video)</label>
-                        <br>
-                        <input type="checkbox" id="audioButton">
-                        <label for="audioButton">Microphone (Choose Microphone in Chrome Settings:
-                            chrome://settings/content/microphone)</label><br>
-                        <input class="form-button" type="button" id="captureSource" value="Check Audio/Video" />
-                        <br>
-                        <video id="videoStream"></video>
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        
-        <section>
-			<div id="audio">
-                <div id="audio-fft-analysis">
-                    <h3>Audio Frequency Analysis</h3>
-                    <div id='fft'></div>
-                    <label for="FPS">Enter Frames Per Second:</label>
-                    <input type="text" id="FPS" name="FPS" value="1" /><br />            
-                </div>
-            </div>
-		</section>
-		
-
-        <section>
-            <div>
-                <div id="srvr-webRTC"></div>
-                <h3>Send Audio and/or Video to a target OBS Browser source via webRTC</h3>
-                <div id="selectAudio"></div>
-                <div id="intro-container">
-                    <p id="clientInfo"></p>
-                
-                    <input class="form-small-button" type="button" id="refreshRTCbrowsers" value="refresh 
-webRTC
-OBS browsers" />
-                    <form class="form-grid">
-                    
-                    <label for="pcName">Enter the name of peerConnections</label>
-                    <input type="text" id="pcName" value="ID" size="10"/>                
-            
-                    <label for="pcNumber">Enter the number of peerConnections</label>
-                    <input type="number" id="pcNumber" value=1 maxlength="2" size="10" />
-                    <input class="form-button" type="button" id="rtcButton" value="Start webRTC" />
-                    
-            </form>
-        </section>
-
-        <section>
-            <div id="input-midi-devices">
-                <h3>Midi</h3>
-                <p id="midi"></p>
-                <p id="midiData"></p>
-            </div>
-        </section>
-
-        <section>
-            <div id="input-gamepad-controller">
-                <h3>
-                <!-- <input type="checkbox" id="gamepad-load"/> -->
-                        Gamepad</h3>
-                <div id="gamepad-display" style="display:inline;">
-                    <p>https://github.com/luser/gamepadtest</p>
-                    <h4 id="startGP">Press a button on your controller to start</h2>
-                        <div id="gpData"></div>
                     </div>
                 </div>
-        </section>
-        <section>
-            <div id="audio-SpeechRecognition">
-                <h3>
-                <!-- <input type="checkbox" id="gamepad-load"/> -->
-                        WebSpeech API Speech Recognition</h3>
-                <div id="audio-speechRecognition" style="display:inline;">
-                    <form>
-                        <label for="obs_textSourceName">Enter OBS Text Source Name:</label>
-                        <input type="text" id="obs_textSourceName" name="obs_textSourceName" value="speechRecognition" />
+            </section>
+            
+            <section>
+                <div id="navigation">
+                    <div id="slide-navigation">
+                        <h3>Slide Show Navigation</h3>
+                        <form class="nav-grid">
+                            <input class="form-button" type="button" id="previousSlideButton" value="⬅️ Previous Slide" />
+                            <input class="form-button" type="button" id="CurrentSlideButton" value="Current slide 🔃" />
+                            <input class="form-button" type="button" id="nextSlideButton" value="Next Slide ➡️" />
+                        </form>           
+                    </div>
+                </div>
+            </section>
+            
+            <section>
+                <div id="teleprompter">
+                    <div id="text-teleprompter">
+                        <h3>Teleprompter Settings</h3>
+                        <form class="nav-grid">
+                            <input class="form-button" type="button" id="playPauseButton" value="Play" />
+                        </form>           
+                        <form class="tele-grid">
+                        <p>Text Size</p>
+                            <input class="form-button" type="button" id="DecreaseSizeButton" value="decrease -" />
+                            <input type="text" id="sizeValue" name="sizeValue" value="1" />
+                            <input class="form-button" type="button" id="IncreaseSizeButton" value="increase +" />  
+                        </form>           
+                        <form class="tele-grid">
+                        <p>Scroll speed</p>
+                            <input class="form-button" type="button" id="DecreaseSpeedButton" value="decrease -" />
+                            <input type="text" id="speedValue" name="speedValue" value="1" />
+                            <input class="form-button" type="button" id="IncreaseSpeedButton" value="increase +" />
+                        </form>           
+                    </div>
+                </div>
+            </section>
+            
+            <section>
+                <div id="tags">
+                    <div id="slide-tags">
+                        <h3>Slide Tags</h3>
                         
-                        <input type="button" class="form-button" id="startSpeechRecognition" value="Start Speech Recognition"/>
-                    </form>
-                        <div id="speechRecognition"></div>
+                        <p>Scene</p>
+                        <ul id=sceneList>
+                        </ul>
+                        <p>Camera</p>
+                        <ul id=cameraList>
+                        </ul>
+                        <p>Zoom</p>
                     </div>
                 </div>
         </section>
-        <section>
-            <div>
-                <h3>MediaPipe Pose Detection</h3>
-                <div id="mp-pose-detect" style="display:inline;">
-                    <input type="button" class="form-button" id="startPoseDetectButton" value="Start Pose Detection"/>
-                    <div id="poseLandmarksCanvas"></div>
-                </div>
-            </div>
-
-            <div>
-                <h3>MediaPipe Hand Landmark</h3>
-                <div id="mp-hand-detect" style="display:inline;">
-                    <input type="button" class="form-button" id="startHandLandmarks" value="Start Hand Detection" />
-                    <div id="handLandmarks"></div>
-                </div>
-            </div>
-
-            <div>
-                <h3>MediaPipe Face Landmark Dectection</h3>
-                <div id="mp-face-detect" style="display:inline;">
-                    <input type="button" class="form-button" id="startFaceLandmarks" value="Start Face Detection" />
-                    <div id="faceLandmarks"></div>
-                </div>
-            </div>
-
-            <div>
-                <h3>MediaPipe Image Segmentation</h3>
-                <div id="mp-segmentation-detect" style="display:inline;">
-                    <!-- <button id="webcamButton" class="mdc-button mdc-button--raised">
-                        <span class="mdc-button__ripple"></span>
-                        <span class="mdc-button__label">ENABLE WEBCAM</span>
-                      </button> -->
-                    <input type="button" class="form-button" id="startSegmentation" value="Load Image Segmentation" />
-                    <div id="segmentation"></div>
-                        <canvas id="segmentationCanvas" width="480px" height="360px"></canvas>
-                    </div>
-                </div>
-            </div>
-           
-            <div>
-                <h3>MediaPipe Text Classification</h3>
-                <div id="mp-sentiment-analysis">
-                    <input type="button" class="form-button" id="startTextAnalysis" value="Start Text Analysis" />
-                    <h1>Classifying text with the MediaPipe Text Classifier Task</h1>
-                    <p>This demo listens for event {speechToText}, then runs sentiment analysis. The result shows how likely the input text is to have a
-                      positive or negative sentiment.
-                  
-                      <section id="demos" class="invisible">
-                        <p><b>Input:
-                        </b>
-                      </p>
-                      <label>
-                        <span ></span>
-                        <span >
-                  
-                          <textarea id="input" rows="8" cols="40" aria-label="Text Input"></textarea>
-                        </span>
-                        <span></span>
-                      </label></br>
-                      <button id="submit">
-                        <span>CLASSIFY</span>
-                      </button></br>
-                  
-                      <p><b>Sentiment:</b></p>
-                      <p id="output"></p>
-                </div>
-            </div>
-            
-            <div hidden>
-                <h1>MediaPipe Gemma LLM Inference</h1>
-                <div id="mp-gemma">
-                    <input type="button" class="form-button" id="startLLM" value="Start Gemma" />
-                    <h4>Text-to-Text large language model </h4>
-                    <p>Gemma 2B is a part of a family of lightweight, state-of-the-art open models built from the same research and technology used to create the Gemini models. The model contains 2B parameters and open weights. This model is well-suited for a variety of text generation tasks, including question answering, summarization, and reasoning.
-
-                      <a href="https://developers.google.com/mediapipe/solutions/genai/llm_inference">https://developers.google.com/mediapipe/solutions/genai/llm_inference</a>
-                      <br>
-                      <a href="https://ai.google.dev/gemma/docs/formatting">Gemma formatting and system instructions</a>
-<br>
-                   
-                      Input:<br />
-                      example format<br />
-                      <code>&lt;start_of_turn&gt;user<br />
-                        Some question?&lt;end_of_turn&gt;<br />
-                        &lt;start_of_turn&gt;model</code><br />
-    <textarea id="gemmaInput" style="height: 300px; width: 600px"></textarea><br />
-    <input type="button" id="gemmaSubmit" value="Get Response" disabled /><br />
-    <br />
-    Result:<br />
-    <textarea id="gemmaOutput" style="height: 300px; width: 600px"></textarea>
-                </div>
-            </div>
-        </section>
-        
-    <section>
+		
+   <section>
         <div>
         <h1>Apple Shortcuts Input</h1>
         <div id="mouse-shortcuts" hidden>
@@ -250,9 +121,15 @@ OBS browsers" />
     </article>
 
     <script>
+        var teleprompterSize,
+            teleprompterSpeed,
+            teleprompterIsPlaying = false,
+            controlSources = new Object();
+
         window.addEventListener("load", (event) => {
             console.log("page is fully loaded");
-            getData();
+            //getData();
+            //document.getElementById("clickTest").click()
             const params = new URLSearchParams(window.location.search); //parse params
             const pw = params.get("pw"); //get password param
             const wd = params.get("wd"); //get working directory param
@@ -266,6 +143,7 @@ OBS browsers" />
                 document.getElementById("WorkingDirectory").innerHTML = wd; 
             }
         });
+        //document.getElementById("clickTest").addEventListener('click', )
 
             async function getData() {
                 let url = "shortcuts://run-shortcut?name=Show Alert";
@@ -288,7 +166,8 @@ OBS browsers" />
     <script src='lib/obs-ws.js'></script>
     <script src='lib/obsConnect.js'></script>
     
-    <script src="lib/shortcutsScripts.js"></script>
+    <script src="lib/shortcutsResults.js"></script>
+    <script src="lib/shortcutsTrigger.js"></script>
     <script src="lib/obsScenes.js"></script>
 
 </body>
