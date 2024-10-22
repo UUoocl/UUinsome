@@ -12,24 +12,40 @@
     <article class="contents">
         <h1>UUinsome </h1>
         <h4>An interface to connect OBS to PowerPoint and Keynote via macOS Shortcuts</h4>
-        <a id="clickTest">show alert</a>
+        <section>
+            <div id="slides">
+                <div id="slide-app">
+                    <h3>Presentation app</h3>
+                        <div class="radio-toolbar" style="font-size: 1.3em;">
+                            <input type="radio" name="appRadio" id="powerpoint-radio" value="PowerPoint" checked>
+                            <label for="powerpoint-radio">PowerPoint</label>
+                
+                            <input type="radio" name="appRadio" id="keynote-radio" value="Keynote">
+                            <label for="keynote-radio">Keynote</label>
+                        </div>
+                    <p>&nbsp;</p>
+                </div>
+            </div>
+        </section>
+        
+        
         <section>
             <div id="srvr">
                 <div id="srvr-obs-ws">
                     <h3>Connect to the OBS WebSocket Server</h3>
                     <form class="form-grid">
-                            <label for="IP">Enter IP address or "localhost":</label>
-                            <input type="text" id="IP" name="IP" value="localhost" />
-                            <label for="Port">Enter Port Number:</label>
-                            <input type="text" id="Port" name="Port" value="4455" />
-                            <label for="PW">Enter Password:</label>
-                            <input type="password" id="PW" name="PW" value="EfTC8xml3070cx3A" />
-                            <p></p><input class="form-button" type="button" id="WSconnectButton" value="Connect to OBS" />
-                        </form>
-                        <p id="WorkingDirectory" hidden></p>
-                    </div>
+                        <label for="IP">Enter IP address or "localhost":</label>
+                        <input type="text" id="IP" name="IP" value="localhost" />
+                        <label for="Port">Enter Port Number:</label>
+                        <input type="text" id="Port" name="Port" value="4455" />
+                        <label for="PW">Enter Password:</label>
+                        <input type="password" id="PW" name="PW" value="EfTC8xml3070cx3A" />
+                        <p></p><input class="form-button" type="button" id="WSconnectButton" value="Connect to OBS" />
+                    </form>
                 </div>
-            </section>
+            </div>
+        </section>
+
             
             <section>
                 <div id="navigation">
@@ -78,7 +94,6 @@
                         <p>Camera</p>
                         <ul id=cameraList>
                         </ul>
-                        <p>Zoom</p>
                     </div>
                 </div>
         </section>
@@ -86,14 +101,6 @@
    <section>
         <div>
         <h1>Apple Shortcuts Input</h1>
-        <div id="mouse-shortcuts" hidden>
-            <p>Mouse coordinates</p>
-            <textarea id="mouseCoordinates" style="height: 100px; width: 600px"></textarea>
-        </div>
-        <div id="ptz-shortcuts">
-            <p>PTZ coordinates</p><p id="loopStatus"></p>
-            <textarea id="ptzValues" style="height: 100px; width: 600px"></textarea>
-        </div>
         <div id="keynote-shortcuts">
             <p>Keynote Notes</p>
             <textarea id="keynoteNotes" style="height: 100px; width: 600px"></textarea>
@@ -104,19 +111,7 @@
         </div>
     </section>
     
-    <section>
-        <div>
-        <h1>OBS Scenes and Sources</h1>
-        <div id="obs-scenes">
-            <p>OBS Scenes and Sources</p>
-            <pre><code class="language-json" id="scenesList">.some-box {
-                width: 20px;
-                height: 20px;
-                background: black;
-                margin-bottom: 1.5rem;
-            }
-            </code></pre>
-    </section>
+
 
     </article>
 
