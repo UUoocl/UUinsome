@@ -1,6 +1,6 @@
 {
-    "current_scene": "scene|||Full Screen Slide",
-    "current_program_scene": "scene|||Full Screen Slide",
+    "current_scene": "scene|||Full Screen Slide LR",
+    "current_program_scene": "scene|||Full Screen Slide LR",
     "scene_order": [
         {
             "name": "scene|||Over the Shoulder"
@@ -24,13 +24,13 @@
             "name": "Camera"
         },
         {
-            "name": "Slide Controls"
+            "name": "Slide Notes"
         },
         {
-            "name": "Slide Notes"
+            "name": "Slide Controls"
         }
     ],
-    "name": "UUinsome_MacOS_Collection",
+    "name": "UUinsome_macOS_Collection",
     "groups": [
         {
             "prev_ver": 503447555,
@@ -40,8 +40,8 @@
             "versioned_id": "group",
             "settings": {
                 "custom_size": true,
-                "cx": 1299,
-                "cy": 731,
+                "cx": 2880,
+                "cy": 1620,
                 "id_counter": 0,
                 "items": [
                     {
@@ -55,8 +55,8 @@
                             "y": 0.0
                         },
                         "scale": {
-                            "x": 0.67656248807907104,
-                            "y": 0.67685186862945557
+                            "x": 1.5,
+                            "y": 1.4999998807907104
                         },
                         "align": 5,
                         "bounds_type": 0,
@@ -113,8 +113,8 @@
             "versioned_id": "group",
             "settings": {
                 "custom_size": true,
-                "cx": 2050,
-                "cy": 1153,
+                "cx": 2880,
+                "cy": 1620,
                 "id_counter": 0,
                 "items": [
                     {
@@ -128,8 +128,8 @@
                             "y": 0.0
                         },
                         "scale": {
-                            "x": 1.0677083730697632,
-                            "y": 1.0675926208496094
+                            "x": 1.5,
+                            "y": 1.4999990463256836
                         },
                         "align": 5,
                         "bounds_type": 0,
@@ -208,7 +208,7 @@
             "name": "Slide Notes",
             "monitor": -1,
             "type": 1,
-            "geometry": "AdnQywADAAAAAALxAAAAIwAABJUAAAFVAAAC8QAAAD8AAASVAAABVQAAAAAAAAAAB4AAAALxAAAAPwAABJUAAAFV",
+            "geometry": "AdnQywADAAAAAALMAAAACAAABKsAAAExAAACzAAAACQAAASrAAABMQAAAAAAAAAAB4AAAALMAAAAJAAABKsAAAEx",
             "alwaysOnTop": true,
             "alwaysOnTopOverridden": true
         }
@@ -218,8 +218,8 @@
     "preview_locked": false,
     "scaling_enabled": true,
     "scaling_level": -5,
-    "scaling_off_x": -47.911628723144531,
-    "scaling_off_y": 8.3747348785400391,
+    "scaling_off_x": -109.89970397949219,
+    "scaling_off_y": -66.681869506835938,
     "virtual-camera": {
         "type2": 3
     },
@@ -228,7 +228,7 @@
             "sceneGroups": [],
             "macros": [
                 {
-                    "name": "Send-Next-Slide-keynote",
+                    "name": "Send-Next-Slide",
                     "pause": true,
                     "parallel": false,
                     "onChange": true,
@@ -251,18 +251,18 @@
                     },
                     "macroActionConditionSplitterPosition": [
                         {
-                            "pos": 168
+                            "pos": 312
                         },
                         {
-                            "pos": 343
+                            "pos": 637
                         }
                     ],
                     "macroElseActionSplitterPosition": [
                         {
-                            "pos": 311
+                            "pos": 387
                         },
                         {
-                            "pos": 0
+                            "pos": 218
                         }
                     ],
                     "registerHotkeys": false,
@@ -290,11 +290,7 @@
                                 }
                             },
                             "desc": "Slide - Next Hotkey",
-                            "keyBind": [
-                                {
-                                    "key": "OBS_KEY_F15"
-                                }
-                            ],
+                            "keyBind": [],
                             "checkPressed": true
                         }
                     ],
@@ -305,37 +301,38 @@
                                 "useCustomLabel": false,
                                 "customLabel": "My label"
                             },
-                            "id": "run",
+                            "id": "source",
                             "enabled": true,
-                            "processConfig": {
-                                "path": "shortcuts",
-                                "workingDirectory": "",
-                                "args": [
-                                    {
-                                        "arg": "run"
-                                    },
-                                    {
-                                        "arg": "UUinsome Keynote Next clipboard"
-                                    }
-                                ]
+                            "source": {
+                                "type": 0,
+                                "name": "NextSlide"
                             },
-                            "duration": {
-                                "value": {
-                                    "value": 1.0,
-                                    "type": 0
-                                },
-                                "unit": 0,
-                                "version": 1
+                            "action": 2,
+                            "sourceSettingButton": {
+                                "id": "",
+                                "description": ""
                             },
-                            "wait": false,
-                            "version": 1
+                            "inputMethod": 0,
+                            "sourceSetting": {
+                                "id": "text",
+                                "description": "Text (Text)"
+                            },
+                            "manualSettingValue": "Next",
+                            "tempVar": {
+                                "type": 0,
+                                "idx": -1,
+                                "id": ""
+                            },
+                            "settings": "",
+                            "deinterlaceMode": 0,
+                            "deinterlaceOrder": 0
                         }
                     ],
                     "elseActions": [],
                     "inputVariables": []
                 },
                 {
-                    "name": "Send-Previous-Slide-keynote",
+                    "name": "Send-Previous-Slide",
                     "pause": true,
                     "parallel": false,
                     "onChange": true,
@@ -358,15 +355,15 @@
                     },
                     "macroActionConditionSplitterPosition": [
                         {
-                            "pos": 125
+                            "pos": 345
                         },
                         {
-                            "pos": 220
+                            "pos": 604
                         }
                     ],
                     "macroElseActionSplitterPosition": [
                         {
-                            "pos": 188
+                            "pos": 572
                         },
                         {
                             "pos": 0
@@ -397,11 +394,7 @@
                                 }
                             },
                             "desc": "Slide - Previous Hotkey",
-                            "keyBind": [
-                                {
-                                    "key": "OBS_KEY_F14"
-                                }
-                            ],
+                            "keyBind": [],
                             "checkPressed": true
                         }
                     ],
@@ -412,244 +405,31 @@
                                 "useCustomLabel": false,
                                 "customLabel": "My label"
                             },
-                            "id": "run",
+                            "id": "source",
                             "enabled": true,
-                            "processConfig": {
-                                "path": "shortcuts",
-                                "workingDirectory": "",
-                                "args": [
-                                    {
-                                        "arg": "run"
-                                    },
-                                    {
-                                        "arg": "UUinsome Keynote Previous clipboard"
-                                    }
-                                ]
+                            "source": {
+                                "type": 0,
+                                "name": "NextSlide"
                             },
-                            "duration": {
-                                "value": {
-                                    "value": 1.0,
-                                    "type": 0
-                                },
-                                "unit": 0,
-                                "version": 1
+                            "action": 2,
+                            "sourceSettingButton": {
+                                "id": "",
+                                "description": ""
                             },
-                            "wait": false,
-                            "version": 1
-                        }
-                    ],
-                    "elseActions": [],
-                    "inputVariables": []
-                },
-                {
-                    "name": "Send-Next-Slide-PowerPoint",
-                    "pause": false,
-                    "parallel": false,
-                    "onChange": true,
-                    "skipExecOnStart": false,
-                    "stopActionsIfNotDone": false,
-                    "group": false,
-                    "dockSettings": {
-                        "register": false,
-                        "hasRunButton": true,
-                        "hasPauseButton": true,
-                        "hasStatusLabel": false,
-                        "highlightIfConditionsTrue": false,
-                        "runButtonText": "Run",
-                        "pauseButtonText": "Pause",
-                        "unpauseButtonText": "Unpause",
-                        "conditionsTrueStatusText": "Conditions are true.",
-                        "conditionsFalseStatusText": "Conditions are false.",
-                        "dockId": "advss-macro-dock-decc8512-fe46-43b0-abd3-7d3675355697",
-                        "version": 1
-                    },
-                    "macroActionConditionSplitterPosition": [
-                        {
-                            "pos": 232
-                        },
-                        {
-                            "pos": 472
-                        }
-                    ],
-                    "macroElseActionSplitterPosition": [
-                        {
-                            "pos": 440
-                        },
-                        {
-                            "pos": 0
-                        }
-                    ],
-                    "registerHotkeys": false,
-                    "pauseHotkey": [],
-                    "unpauseHotkey": [],
-                    "togglePauseHotkey": [],
-                    "conditions": [
-                        {
-                            "segmentSettings": {
-                                "collapsed": false,
-                                "useCustomLabel": false,
-                                "customLabel": "My label"
+                            "inputMethod": 0,
+                            "sourceSetting": {
+                                "id": "text",
+                                "description": "Text (Text)"
                             },
-                            "id": "hotkey",
-                            "logic": 0,
-                            "durationModifier": {
-                                "time_constraint": 0,
-                                "seconds": {
-                                    "value": {
-                                        "value": 0.0,
-                                        "type": 0
-                                    },
-                                    "unit": 0,
-                                    "version": 1
-                                }
+                            "manualSettingValue": "Previous",
+                            "tempVar": {
+                                "type": 0,
+                                "idx": -1,
+                                "id": ""
                             },
-                            "desc": "Slide - Next Hotkey",
-                            "keyBind": [
-                                {
-                                    "key": "OBS_KEY_F15"
-                                }
-                            ],
-                            "checkPressed": true
-                        }
-                    ],
-                    "actions": [
-                        {
-                            "segmentSettings": {
-                                "collapsed": false,
-                                "useCustomLabel": false,
-                                "customLabel": "My label"
-                            },
-                            "id": "run",
-                            "enabled": true,
-                            "processConfig": {
-                                "path": "shortcuts",
-                                "workingDirectory": "",
-                                "args": [
-                                    {
-                                        "arg": "run"
-                                    },
-                                    {
-                                        "arg": "UUinsome PowerPoint Next clipboard"
-                                    }
-                                ]
-                            },
-                            "duration": {
-                                "value": {
-                                    "value": 1.0,
-                                    "type": 0
-                                },
-                                "unit": 0,
-                                "version": 1
-                            },
-                            "wait": false,
-                            "version": 1
-                        }
-                    ],
-                    "elseActions": [],
-                    "inputVariables": []
-                },
-                {
-                    "name": "Send-Previous-Slide-PowerPoint",
-                    "pause": false,
-                    "parallel": false,
-                    "onChange": true,
-                    "skipExecOnStart": false,
-                    "stopActionsIfNotDone": false,
-                    "group": false,
-                    "dockSettings": {
-                        "register": false,
-                        "hasRunButton": true,
-                        "hasPauseButton": true,
-                        "hasStatusLabel": false,
-                        "highlightIfConditionsTrue": false,
-                        "runButtonText": "Run",
-                        "pauseButtonText": "Pause",
-                        "unpauseButtonText": "Unpause",
-                        "conditionsTrueStatusText": "Conditions are true.",
-                        "conditionsFalseStatusText": "Conditions are false.",
-                        "dockId": "advss-macro-dock-51ad96ca-7ba2-45a7-b99a-2bceb6ee3a48",
-                        "version": 1
-                    },
-                    "macroActionConditionSplitterPosition": [
-                        {
-                            "pos": 343
-                        },
-                        {
-                            "pos": 600
-                        }
-                    ],
-                    "macroElseActionSplitterPosition": [
-                        {
-                            "pos": 568
-                        },
-                        {
-                            "pos": 0
-                        }
-                    ],
-                    "registerHotkeys": false,
-                    "pauseHotkey": [],
-                    "unpauseHotkey": [],
-                    "togglePauseHotkey": [],
-                    "conditions": [
-                        {
-                            "segmentSettings": {
-                                "collapsed": false,
-                                "useCustomLabel": false,
-                                "customLabel": "My label"
-                            },
-                            "id": "hotkey",
-                            "logic": 0,
-                            "durationModifier": {
-                                "time_constraint": 0,
-                                "seconds": {
-                                    "value": {
-                                        "value": 0.0,
-                                        "type": 0
-                                    },
-                                    "unit": 0,
-                                    "version": 1
-                                }
-                            },
-                            "desc": "Slide - Previous Hotkey",
-                            "keyBind": [
-                                {
-                                    "key": "OBS_KEY_F14"
-                                }
-                            ],
-                            "checkPressed": true
-                        }
-                    ],
-                    "actions": [
-                        {
-                            "segmentSettings": {
-                                "collapsed": false,
-                                "useCustomLabel": false,
-                                "customLabel": "My label"
-                            },
-                            "id": "run",
-                            "enabled": true,
-                            "processConfig": {
-                                "path": "shortcuts",
-                                "workingDirectory": "",
-                                "args": [
-                                    {
-                                        "arg": "run"
-                                    },
-                                    {
-                                        "arg": "UUinsome PowerPoint Previous clipboard"
-                                    }
-                                ]
-                            },
-                            "duration": {
-                                "value": {
-                                    "value": 1.0,
-                                    "type": 0
-                                },
-                                "unit": 0,
-                                "version": 1
-                            },
-                            "wait": false,
-                            "version": 1
+                            "settings": "",
+                            "deinterlaceMode": 0,
+                            "deinterlaceOrder": 0
                         }
                     ],
                     "elseActions": [],
@@ -657,7 +437,7 @@
                 },
                 {
                     "name": "Teleprompter Font Size Increase",
-                    "pause": false,
+                    "pause": true,
                     "parallel": false,
                     "onChange": false,
                     "skipExecOnStart": false,
@@ -679,15 +459,15 @@
                     },
                     "macroActionConditionSplitterPosition": [
                         {
-                            "pos": 316
+                            "pos": 133
                         },
                         {
-                            "pos": 627
+                            "pos": 266
                         }
                     ],
                     "macroElseActionSplitterPosition": [
                         {
-                            "pos": 595
+                            "pos": 234
                         },
                         {
                             "pos": 0
@@ -718,11 +498,7 @@
                                 }
                             },
                             "desc": "Teleprompter Font Size Increase",
-                            "keyBind": [
-                                {
-                                    "key": "OBS_KEY_F17"
-                                }
-                            ],
+                            "keyBind": [],
                             "checkPressed": true
                         }
                     ],
@@ -793,7 +569,7 @@
                             "enabled": true,
                             "source": {
                                 "type": 0,
-                                "name": "Slide Notes Text"
+                                "name": ""
                             },
                             "action": 2,
                             "sourceSettingButton": {
@@ -821,7 +597,7 @@
                 },
                 {
                     "name": "Teleprompter Font Size Decrease",
-                    "pause": false,
+                    "pause": true,
                     "parallel": false,
                     "onChange": false,
                     "skipExecOnStart": false,
@@ -843,15 +619,15 @@
                     },
                     "macroActionConditionSplitterPosition": [
                         {
-                            "pos": 316
+                            "pos": 317
                         },
                         {
-                            "pos": 627
+                            "pos": 632
                         }
                     ],
                     "macroElseActionSplitterPosition": [
                         {
-                            "pos": 595
+                            "pos": 600
                         },
                         {
                             "pos": 0
@@ -882,11 +658,7 @@
                                 }
                             },
                             "desc": "Teleprompter Font Size Decrease",
-                            "keyBind": [
-                                {
-                                    "key": "OBS_KEY_F19"
-                                }
-                            ],
+                            "keyBind": [],
                             "checkPressed": true
                         }
                     ],
@@ -957,7 +729,7 @@
                             "enabled": true,
                             "source": {
                                 "type": 0,
-                                "name": "Slide Notes Text"
+                                "name": ""
                             },
                             "action": 2,
                             "sourceSettingButton": {
@@ -985,7 +757,7 @@
                 },
                 {
                     "name": "Teleprompter Speed Increase",
-                    "pause": false,
+                    "pause": true,
                     "parallel": false,
                     "onChange": false,
                     "skipExecOnStart": false,
@@ -1007,15 +779,15 @@
                     },
                     "macroActionConditionSplitterPosition": [
                         {
-                            "pos": 316
+                            "pos": 317
                         },
                         {
-                            "pos": 627
+                            "pos": 632
                         }
                     ],
                     "macroElseActionSplitterPosition": [
                         {
-                            "pos": 595
+                            "pos": 600
                         },
                         {
                             "pos": 0
@@ -1046,11 +818,7 @@
                                 }
                             },
                             "desc": "Teleprompter Speed Increase",
-                            "keyBind": [
-                                {
-                                    "key": "OBS_KEY_F16"
-                                }
-                            ],
+                            "keyBind": [],
                             "checkPressed": true
                         }
                     ],
@@ -1121,11 +889,11 @@
                             "enabled": true,
                             "source": {
                                 "type": 0,
-                                "name": "Slide Notes Text"
+                                "name": ""
                             },
                             "filter": {
                                 "type": 0,
-                                "name": "Scroll"
+                                "name": ""
                             },
                             "action": 3,
                             "inputMethod": 0,
@@ -1152,7 +920,7 @@
                 },
                 {
                     "name": "Teleprompter Speed Decrease",
-                    "pause": false,
+                    "pause": true,
                     "parallel": false,
                     "onChange": false,
                     "skipExecOnStart": false,
@@ -1174,15 +942,15 @@
                     },
                     "macroActionConditionSplitterPosition": [
                         {
-                            "pos": 316
+                            "pos": 133
                         },
                         {
-                            "pos": 627
+                            "pos": 266
                         }
                     ],
                     "macroElseActionSplitterPosition": [
                         {
-                            "pos": 595
+                            "pos": 234
                         },
                         {
                             "pos": 0
@@ -1213,11 +981,7 @@
                                 }
                             },
                             "desc": "Teleprompter Speed Decrease",
-                            "keyBind": [
-                                {
-                                    "key": "OBS_KEY_F18"
-                                }
-                            ],
+                            "keyBind": [],
                             "checkPressed": true
                         }
                     ],
@@ -1288,11 +1052,11 @@
                             "enabled": true,
                             "source": {
                                 "type": 0,
-                                "name": "Slide Notes Text"
+                                "name": ""
                             },
                             "filter": {
                                 "type": 0,
-                                "name": "Scroll"
+                                "name": ""
                             },
                             "action": 3,
                             "inputMethod": 0,
@@ -1319,7 +1083,7 @@
                 },
                 {
                     "name": "Teleprompter Play",
-                    "pause": false,
+                    "pause": true,
                     "parallel": false,
                     "onChange": true,
                     "skipExecOnStart": false,
@@ -1341,15 +1105,15 @@
                     },
                     "macroActionConditionSplitterPosition": [
                         {
-                            "pos": 408
+                            "pos": 264
                         },
                         {
-                            "pos": 535
+                            "pos": 346
                         }
                     ],
                     "macroElseActionSplitterPosition": [
                         {
-                            "pos": 503
+                            "pos": 314
                         },
                         {
                             "pos": 0
@@ -1380,11 +1144,7 @@
                                 }
                             },
                             "desc": "Teleprompter Play Pause",
-                            "keyBind": [
-                                {
-                                    "key": "OBS_KEY_F13"
-                                }
-                            ],
+                            "keyBind": [],
                             "checkPressed": true
                         },
                         {
@@ -1429,11 +1189,11 @@
                             "enabled": true,
                             "source": {
                                 "type": 0,
-                                "name": "Slide Notes Text"
+                                "name": ""
                             },
                             "filter": {
                                 "type": 0,
-                                "name": "Scroll"
+                                "name": ""
                             },
                             "action": 3,
                             "inputMethod": 0,
@@ -1516,7 +1276,7 @@
                 },
                 {
                     "name": "Teleprompter Pause",
-                    "pause": false,
+                    "pause": true,
                     "parallel": false,
                     "onChange": true,
                     "skipExecOnStart": false,
@@ -1538,15 +1298,15 @@
                     },
                     "macroActionConditionSplitterPosition": [
                         {
-                            "pos": 483
+                            "pos": 312
                         },
                         {
-                            "pos": 460
+                            "pos": 298
                         }
                     ],
                     "macroElseActionSplitterPosition": [
                         {
-                            "pos": 428
+                            "pos": 266
                         },
                         {
                             "pos": 0
@@ -1577,11 +1337,7 @@
                                 }
                             },
                             "desc": "Teleprompter Play Pause",
-                            "keyBind": [
-                                {
-                                    "key": "OBS_KEY_F13"
-                                }
-                            ],
+                            "keyBind": [],
                             "checkPressed": true
                         },
                         {
@@ -1626,11 +1382,11 @@
                             "enabled": true,
                             "source": {
                                 "type": 0,
-                                "name": "Slide Notes Text"
+                                "name": ""
                             },
                             "filter": {
                                 "type": 0,
-                                "name": "Scroll"
+                                "name": ""
                             },
                             "action": 3,
                             "inputMethod": 0,
@@ -1712,130 +1468,10 @@
                     "inputVariables": []
                 },
                 {
-                    "name": "Copy Clipboard to Text Source",
-                    "pause": false,
-                    "parallel": false,
-                    "onChange": false,
-                    "skipExecOnStart": false,
-                    "stopActionsIfNotDone": false,
-                    "group": false,
-                    "dockSettings": {
-                        "register": false,
-                        "hasRunButton": true,
-                        "hasPauseButton": true,
-                        "hasStatusLabel": false,
-                        "highlightIfConditionsTrue": false,
-                        "runButtonText": "Run",
-                        "pauseButtonText": "Pause",
-                        "unpauseButtonText": "Unpause",
-                        "conditionsTrueStatusText": "Conditions are true.",
-                        "conditionsFalseStatusText": "Conditions are false.",
-                        "dockId": "advss-macro-dock-3c1b45c0-e17d-4457-87e2-8c3292881f6b",
-                        "version": 1
-                    },
-                    "macroActionConditionSplitterPosition": [
-                        {
-                            "pos": 202
-                        },
-                        {
-                            "pos": 451
-                        }
-                    ],
-                    "macroElseActionSplitterPosition": [
-                        {
-                            "pos": 419
-                        },
-                        {
-                            "pos": 0
-                        }
-                    ],
-                    "registerHotkeys": false,
-                    "pauseHotkey": [],
-                    "unpauseHotkey": [],
-                    "togglePauseHotkey": [],
-                    "conditions": [
-                        {
-                            "segmentSettings": {
-                                "collapsed": false,
-                                "useCustomLabel": false,
-                                "customLabel": "My label"
-                            },
-                            "id": "clipboard",
-                            "logic": 0,
-                            "durationModifier": {
-                                "time_constraint": 0,
-                                "seconds": {
-                                    "value": {
-                                        "value": 0.0,
-                                        "type": 0
-                                    },
-                                    "unit": 0,
-                                    "version": 1
-                                }
-                            },
-                            "condition": 4,
-                            "text": ".*\"actionName\":.*",
-                            "regexConfig": {
-                                "enable": true,
-                                "partial": false,
-                                "options": 0
-                            }
-                        }
-                    ],
-                    "actions": [
-                        {
-                            "segmentSettings": {
-                                "collapsed": false,
-                                "useCustomLabel": false,
-                                "customLabel": "My label"
-                            },
-                            "id": "source",
-                            "enabled": true,
-                            "source": {
-                                "type": 0,
-                                "name": "ClipBoard Response"
-                            },
-                            "action": 2,
-                            "sourceSettingButton": {
-                                "id": "",
-                                "description": ""
-                            },
-                            "inputMethod": 1,
-                            "sourceSetting": {
-                                "id": "text",
-                                "description": "Text (Text)"
-                            },
-                            "manualSettingValue": "hi",
-                            "tempVar": {
-                                "type": 1,
-                                "idx": 0,
-                                "id": "text"
-                            },
-                            "settings": "{\n}\n",
-                            "deinterlaceMode": 0,
-                            "deinterlaceOrder": 0
-                        },
-                        {
-                            "segmentSettings": {
-                                "collapsed": false,
-                                "useCustomLabel": false,
-                                "customLabel": "My label"
-                            },
-                            "id": "clipboard",
-                            "enabled": true,
-                            "action": 0,
-                            "text": "",
-                            "url": "Enter direct image URL"
-                        }
-                    ],
-                    "elseActions": [],
-                    "inputVariables": []
-                },
-                {
                     "name": "Parse Notes",
-                    "pause": false,
-                    "parallel": false,
-                    "onChange": true,
+                    "pause": true,
+                    "parallel": true,
+                    "onChange": false,
                     "skipExecOnStart": false,
                     "stopActionsIfNotDone": false,
                     "group": false,
@@ -1855,15 +1491,15 @@
                     },
                     "macroActionConditionSplitterPosition": [
                         {
-                            "pos": 447
+                            "pos": 301
                         },
                         {
-                            "pos": 496
+                            "pos": 648
                         }
                     ],
                     "macroElseActionSplitterPosition": [
                         {
-                            "pos": 464
+                            "pos": 616
                         },
                         {
                             "pos": 0
@@ -1880,7 +1516,7 @@
                                 "useCustomLabel": false,
                                 "customLabel": "My label"
                             },
-                            "id": "source",
+                            "id": "websocket",
                             "logic": 0,
                             "durationModifier": {
                                 "time_constraint": 0,
@@ -1893,66 +1529,16 @@
                                     "version": 1
                                 }
                             },
-                            "source": {
-                                "type": 0,
-                                "name": "ClipBoard Response"
-                            },
-                            "condition": 5,
-                            "settings": "",
-                            "regexConfig": {
-                                "enable": false,
-                                "partial": false,
-                                "options": 0
-                            },
-                            "sourceSetting": {
-                                "id": "text",
-                                "description": "Text (Text)"
-                            },
-                            "size": {
-                                "value": 0,
-                                "type": 0
-                            },
-                            "sizeComparisionMethod": 1
-                        },
-                        {
-                            "segmentSettings": {
-                                "collapsed": false,
-                                "useCustomLabel": false,
-                                "customLabel": "My label"
-                            },
-                            "id": "source",
-                            "logic": 101,
-                            "durationModifier": {
-                                "time_constraint": 0,
-                                "seconds": {
-                                    "value": {
-                                        "value": 0.0,
-                                        "type": 0
-                                    },
-                                    "unit": 0,
-                                    "version": 1
-                                }
-                            },
-                            "source": {
-                                "type": 0,
-                                "name": "ClipBoard Response"
-                            },
-                            "condition": 4,
-                            "settings": ".*\"notes\":\".*",
+                            "type": 0,
+                            "message": ".*\"notes\".*",
                             "regexConfig": {
                                 "enable": true,
                                 "partial": false,
                                 "options": 0
                             },
-                            "sourceSetting": {
-                                "id": "text",
-                                "description": "Text (Text)"
-                            },
-                            "size": {
-                                "value": 0,
-                                "type": 0
-                            },
-                            "sizeComparisionMethod": 1
+                            "connection": "Invalid connection selection",
+                            "clearBufferOnMatch": true,
+                            "version": 1
                         }
                     ],
                     "actions": [
@@ -1998,8 +1584,8 @@
                             },
                             "tempVar": {
                                 "type": 1,
-                                "idx": 1,
-                                "id": "setting"
+                                "idx": 0,
+                                "id": "message"
                             },
                             "sceneItemIndex": {
                                 "value": 1,
@@ -2134,7 +1720,7 @@
                             "enabled": true,
                             "source": {
                                 "type": 0,
-                                "name": "Slide Notes Text"
+                                "name": ""
                             },
                             "action": 2,
                             "sourceSettingButton": {
@@ -2166,11 +1752,11 @@
                             "enabled": true,
                             "source": {
                                 "type": 0,
-                                "name": "Slide Notes Text"
+                                "name": ""
                             },
                             "filter": {
                                 "type": 0,
-                                "name": "Scroll"
+                                "name": ""
                             },
                             "action": 3,
                             "inputMethod": 0,
@@ -2228,11 +1814,11 @@
                             "enabled": true,
                             "source": {
                                 "type": 0,
-                                "name": "Slide Notes Text"
+                                "name": ""
                             },
                             "filter": {
                                 "type": 0,
-                                "name": "Scroll"
+                                "name": ""
                             },
                             "action": 3,
                             "inputMethod": 0,
@@ -2259,8 +1845,8 @@
                 },
                 {
                     "name": "Parse Scene",
-                    "pause": false,
-                    "parallel": false,
+                    "pause": true,
+                    "parallel": true,
                     "onChange": false,
                     "skipExecOnStart": false,
                     "stopActionsIfNotDone": false,
@@ -2281,15 +1867,15 @@
                     },
                     "macroActionConditionSplitterPosition": [
                         {
-                            "pos": 359
+                            "pos": 301
                         },
                         {
-                            "pos": 584
+                            "pos": 648
                         }
                     ],
                     "macroElseActionSplitterPosition": [
                         {
-                            "pos": 552
+                            "pos": 616
                         },
                         {
                             "pos": 0
@@ -2306,7 +1892,7 @@
                                 "useCustomLabel": false,
                                 "customLabel": "My label"
                             },
-                            "id": "source",
+                            "id": "websocket",
                             "logic": 0,
                             "durationModifier": {
                                 "time_constraint": 0,
@@ -2319,66 +1905,16 @@
                                     "version": 1
                                 }
                             },
-                            "source": {
-                                "type": 0,
-                                "name": "ClipBoard Response"
-                            },
-                            "condition": 5,
-                            "settings": "",
-                            "regexConfig": {
-                                "enable": false,
-                                "partial": false,
-                                "options": 0
-                            },
-                            "sourceSetting": {
-                                "id": "text",
-                                "description": "Text (Text)"
-                            },
-                            "size": {
-                                "value": 0,
-                                "type": 0
-                            },
-                            "sizeComparisionMethod": 1
-                        },
-                        {
-                            "segmentSettings": {
-                                "collapsed": false,
-                                "useCustomLabel": false,
-                                "customLabel": "My label"
-                            },
-                            "id": "source",
-                            "logic": 101,
-                            "durationModifier": {
-                                "time_constraint": 0,
-                                "seconds": {
-                                    "value": {
-                                        "value": 0.0,
-                                        "type": 0
-                                    },
-                                    "unit": 0,
-                                    "version": 1
-                                }
-                            },
-                            "source": {
-                                "type": 0,
-                                "name": "ClipBoard Response"
-                            },
-                            "condition": 4,
-                            "settings": ".*\"scene\".*",
+                            "type": 0,
+                            "message": ".*\"scene\".*",
                             "regexConfig": {
                                 "enable": true,
                                 "partial": false,
                                 "options": 0
                             },
-                            "sourceSetting": {
-                                "id": "text",
-                                "description": "Text (Text)"
-                            },
-                            "size": {
-                                "value": 0,
-                                "type": 0
-                            },
-                            "sizeComparisionMethod": 1
+                            "connection": "Invalid connection selection",
+                            "clearBufferOnMatch": true,
+                            "version": 1
                         }
                     ],
                     "actions": [
@@ -2424,8 +1960,8 @@
                             },
                             "tempVar": {
                                 "type": 1,
-                                "idx": 1,
-                                "id": "setting"
+                                "idx": 0,
+                                "id": "message"
                             },
                             "sceneItemIndex": {
                                 "value": 1,
@@ -2580,8 +2116,8 @@
                 },
                 {
                     "name": "CameraChoice",
-                    "pause": false,
-                    "parallel": false,
+                    "pause": true,
+                    "parallel": true,
                     "onChange": true,
                     "skipExecOnStart": false,
                     "stopActionsIfNotDone": false,
@@ -2602,15 +2138,15 @@
                     },
                     "macroActionConditionSplitterPosition": [
                         {
-                            "pos": 390
+                            "pos": 265
                         },
                         {
-                            "pos": 553
+                            "pos": 684
                         }
                     ],
                     "macroElseActionSplitterPosition": [
                         {
-                            "pos": 521
+                            "pos": 652
                         },
                         {
                             "pos": 0
@@ -2627,7 +2163,7 @@
                                 "useCustomLabel": false,
                                 "customLabel": "My label"
                             },
-                            "id": "source",
+                            "id": "websocket",
                             "logic": 0,
                             "durationModifier": {
                                 "time_constraint": 0,
@@ -2640,66 +2176,16 @@
                                     "version": 1
                                 }
                             },
-                            "source": {
-                                "type": 0,
-                                "name": "ClipBoard Response"
-                            },
-                            "condition": 5,
-                            "settings": "",
-                            "regexConfig": {
-                                "enable": false,
-                                "partial": false,
-                                "options": 0
-                            },
-                            "sourceSetting": {
-                                "id": "text",
-                                "description": "Text (Text)"
-                            },
-                            "size": {
-                                "value": 0,
-                                "type": 0
-                            },
-                            "sizeComparisionMethod": 1
-                        },
-                        {
-                            "segmentSettings": {
-                                "collapsed": false,
-                                "useCustomLabel": false,
-                                "customLabel": "My label"
-                            },
-                            "id": "source",
-                            "logic": 101,
-                            "durationModifier": {
-                                "time_constraint": 0,
-                                "seconds": {
-                                    "value": {
-                                        "value": 0.0,
-                                        "type": 0
-                                    },
-                                    "unit": 0,
-                                    "version": 1
-                                }
-                            },
-                            "source": {
-                                "type": 0,
-                                "name": "ClipBoard Response"
-                            },
-                            "condition": 4,
-                            "settings": ".*\"camera\".*",
+                            "type": 0,
+                            "message": ".*\"camera\".*",
                             "regexConfig": {
                                 "enable": true,
                                 "partial": false,
                                 "options": 0
                             },
-                            "sourceSetting": {
-                                "id": "text",
-                                "description": "Text (Text)"
-                            },
-                            "size": {
-                                "value": 0,
-                                "type": 0
-                            },
-                            "sizeComparisionMethod": 1
+                            "connection": "Invalid connection selection",
+                            "clearBufferOnMatch": true,
+                            "version": 1
                         }
                     ],
                     "actions": [
@@ -2745,8 +2231,8 @@
                             },
                             "tempVar": {
                                 "type": 1,
-                                "idx": 1,
-                                "id": "setting"
+                                "idx": 0,
+                                "id": "message"
                             },
                             "sceneItemIndex": {
                                 "value": 1,
@@ -2839,67 +2325,6 @@
                     ],
                     "elseActions": [],
                     "inputVariables": []
-                },
-                {
-                    "name": "Macro 1",
-                    "pause": false,
-                    "parallel": false,
-                    "onChange": true,
-                    "skipExecOnStart": false,
-                    "stopActionsIfNotDone": false,
-                    "group": false,
-                    "dockSettings": {
-                        "register": false,
-                        "hasRunButton": true,
-                        "hasPauseButton": true,
-                        "hasStatusLabel": false,
-                        "highlightIfConditionsTrue": false,
-                        "runButtonText": "Run",
-                        "pauseButtonText": "Pause",
-                        "unpauseButtonText": "Unpause",
-                        "conditionsTrueStatusText": "Conditions are true.",
-                        "conditionsFalseStatusText": "Conditions are false.",
-                        "dockId": "advss-macro-dock-82bca7b0-7add-4cd3-8d56-9c1dc7a18fa3",
-                        "version": 1
-                    },
-                    "macroActionConditionSplitterPosition": [
-                        {
-                            "pos": 178
-                        },
-                        {
-                            "pos": 178
-                        }
-                    ],
-                    "macroElseActionSplitterPosition": [
-                        {
-                            "pos": 146
-                        },
-                        {
-                            "pos": 0
-                        }
-                    ],
-                    "registerHotkeys": false,
-                    "pauseHotkey": [],
-                    "unpauseHotkey": [],
-                    "togglePauseHotkey": [],
-                    "conditions": [],
-                    "actions": [
-                        {
-                            "segmentSettings": {
-                                "collapsed": false,
-                                "useCustomLabel": false,
-                                "customLabel": "My label"
-                            },
-                            "id": "websocket",
-                            "enabled": true,
-                            "api": 0,
-                            "type": 0,
-                            "message": "--enter text--",
-                            "connection": "Invalid connection selection"
-                        }
-                    ],
-                    "elseActions": [],
-                    "inputVariables": []
                 }
             ],
             "macroSettings": {
@@ -2918,7 +2343,7 @@
                 {
                     "name": "Teleprompter Speed",
                     "saveAction": 1,
-                    "value": "5",
+                    "value": "85",
                     "defaultValue": ""
                 },
                 {
@@ -3010,7 +2435,7 @@
                 "version": 1
             },
             "enableCooldown": false,
-            "active": true,
+            "active": false,
             "startup_behavior": 0,
             "autoStartEvent": 0,
             "logLevel": 0,
@@ -3109,8 +2534,8 @@
                 }
             ],
             "saveWindowGeo": false,
-            "windowPosX": 767,
-            "windowPosY": 242,
+            "windowPosX": 3034,
+            "windowPosY": 136,
             "windowWidth": 1000,
             "windowHeight": 600,
             "macroListMacroEditSplitterPosition": [
@@ -3198,7 +2623,7 @@
             "versioned_id": "scene",
             "settings": {
                 "custom_size": false,
-                "id_counter": 8,
+                "id_counter": 10,
                 "items": [
                     {
                         "name": "Wide",
@@ -3207,12 +2632,12 @@
                         "locked": false,
                         "rot": 0.0,
                         "pos": {
-                            "x": -978.421875,
-                            "y": -811.1611328125
+                            "x": -1205.0,
+                            "y": -997.0
                         },
                         "scale": {
-                            "x": 2.0937094688415527,
-                            "y": 2.09366774559021
+                            "x": 2.4802083969116211,
+                            "y": 2.4796280860900879
                         },
                         "align": 5,
                         "bounds_type": 0,
@@ -3246,12 +2671,12 @@
                         "locked": false,
                         "rot": 0.0,
                         "pos": {
-                            "x": -978.421875,
-                            "y": -811.1611328125
+                            "x": -1205.0,
+                            "y": -997.0
                         },
                         "scale": {
-                            "x": 1.9609375,
-                            "y": 1.9611110687255859
+                            "x": 1.6534721851348877,
+                            "y": 1.6530864238739014
                         },
                         "align": 5,
                         "bounds_type": 0,
@@ -3271,10 +2696,18 @@
                         "blend_method": "default",
                         "blend_type": "normal",
                         "show_transition": {
-                            "duration": 0
+                            "id": "fade_transition",
+                            "versioned_id": "fade_transition",
+                            "name": "Close Up Show Transition",
+                            "transition": {},
+                            "duration": 300
                         },
                         "hide_transition": {
-                            "duration": 0
+                            "id": "fade_transition",
+                            "versioned_id": "fade_transition",
+                            "name": "Close Up Hide Transition",
+                            "transition": {},
+                            "duration": 300
                         },
                         "private_settings": {
                             "collapsed": true
@@ -3287,12 +2720,12 @@
                         "locked": false,
                         "rot": 0.0,
                         "pos": {
-                            "x": -174.0,
-                            "y": -164.0
+                            "x": -615.0,
+                            "y": -648.0
                         },
                         "scale": {
-                            "x": 1.1776041984558105,
-                            "y": 1.1777777671813965
+                            "x": 1.5958333015441895,
+                            "y": 1.5962961912155151
                         },
                         "align": 5,
                         "bounds_type": 0,
@@ -3322,16 +2755,16 @@
                     {
                         "name": "Medium",
                         "source_uuid": "a0a528e8-e657-48d2-8686-5fb23504dd82",
-                        "visible": true,
+                        "visible": false,
                         "locked": false,
                         "rot": 0.0,
                         "pos": {
-                            "x": -174.0,
-                            "y": -164.0
+                            "x": -615.0,
+                            "y": -648.0
                         },
                         "scale": {
-                            "x": 1.7405697107315063,
-                            "y": 1.7400820255279541
+                            "x": 1.0638889074325562,
+                            "y": 1.0641975402832031
                         },
                         "align": 5,
                         "bounds_type": 0,
@@ -3351,10 +2784,18 @@
                         "blend_method": "default",
                         "blend_type": "normal",
                         "show_transition": {
-                            "duration": 0
+                            "id": "fade_transition",
+                            "versioned_id": "fade_transition",
+                            "name": "Medium Show Transition",
+                            "transition": {},
+                            "duration": 300
                         },
                         "hide_transition": {
-                            "duration": 0
+                            "id": "fade_transition",
+                            "versioned_id": "fade_transition",
+                            "name": "Medium Hide Transition",
+                            "transition": {},
+                            "duration": 300
                         },
                         "private_settings": {
                             "collapsed": true
@@ -3363,16 +2804,16 @@
                     {
                         "name": "Wide",
                         "source_uuid": "6851ffdd-74e7-46b7-ad70-79a395c4c5a2",
-                        "visible": true,
+                        "visible": false,
                         "locked": false,
                         "rot": 0.0,
                         "pos": {
-                            "x": 0.0,
-                            "y": 0.0
+                            "x": -249.0,
+                            "y": -327.0
                         },
                         "scale": {
-                            "x": 1.0015624761581421,
-                            "y": 1.0018517971038818
+                            "x": 1.3052083253860474,
+                            "y": 1.3055555820465088
                         },
                         "align": 5,
                         "bounds_type": 0,
@@ -3392,10 +2833,65 @@
                         "blend_method": "default",
                         "blend_type": "normal",
                         "show_transition": {
-                            "duration": 0
+                            "id": "fade_transition",
+                            "versioned_id": "fade_transition",
+                            "name": "Wide Show Transition",
+                            "transition": {},
+                            "duration": 300
                         },
                         "hide_transition": {
-                            "duration": 0
+                            "id": "fade_transition",
+                            "versioned_id": "fade_transition",
+                            "name": "Wide Hide Transition",
+                            "transition": {},
+                            "duration": 300
+                        },
+                        "private_settings": {}
+                    },
+                    {
+                        "name": "No Camera",
+                        "source_uuid": "0752dc22-48fc-4558-80a2-d54f3f4553cf",
+                        "visible": false,
+                        "locked": false,
+                        "rot": 0.0,
+                        "pos": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 10,
+                        "group_item_backup": false,
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "id": "fade_transition",
+                            "versioned_id": "fade_transition",
+                            "name": "No Camera Show Transition",
+                            "transition": {},
+                            "duration": 300
+                        },
+                        "hide_transition": {
+                            "id": "fade_transition",
+                            "versioned_id": "fade_transition",
+                            "name": "No Camera Hide Transition",
+                            "transition": {},
+                            "duration": 300
                         },
                         "private_settings": {}
                     }
@@ -3414,12 +2910,14 @@
             "push-to-talk-delay": 0,
             "hotkeys": {
                 "OBSBasic.SelectScene": [],
-                "libobs.show_scene_item.1": [],
-                "libobs.hide_scene_item.1": [],
+                "libobs.show_scene_item.4": [],
+                "libobs.hide_scene_item.4": [],
                 "libobs.show_scene_item.2": [],
                 "libobs.hide_scene_item.2": [],
-                "libobs.show_scene_item.4": [],
-                "libobs.hide_scene_item.4": []
+                "libobs.show_scene_item.1": [],
+                "libobs.hide_scene_item.1": [],
+                "libobs.show_scene_item.10": [],
+                "libobs.hide_scene_item.10": []
             },
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
@@ -3428,39 +2926,7 @@
         },
         {
             "prev_ver": 503447555,
-            "name": "ClipBoard Response",
-            "uuid": "faa36e5f-628a-4add-b437-476d21b4af93",
-            "id": "text_ft2_source",
-            "versioned_id": "text_ft2_source_v2",
-            "settings": {
-                "text": "{\"section\":\"Commands, Comments, Teamwork, Selection Pane, Sign In\",\"nextSlideSection\":\"Commands, Comments, Teamwork, Selection Pane, Sign In\",\"nextSlideSectionId\":2,\"nextSlideTitle\":\"Designed for teamwork\",\"slidePosition\":2,\"scene\":\"Full Screen Slide\",\"title\":\"Give feedback in comments\",\"notes\":\"\\\"Enter Notes\\\"\",\"camera\":\"Wide\",\"currentSectionId\":2,\"numOfSlides\":7,\"actionName\":\"Next_ppt\",\"nextSlideNotes\":\"\"}",
-                "font": {
-                    "face": "Helvetica",
-                    "style": "Regular",
-                    "size": 96,
-                    "flags": 0
-                }
-            },
-            "mixers": 0,
-            "sync": 0,
-            "flags": 0,
-            "volume": 1.0,
-            "balance": 0.5,
-            "enabled": true,
-            "muted": false,
-            "push-to-mute": false,
-            "push-to-mute-delay": 0,
-            "push-to-talk": false,
-            "push-to-talk-delay": 0,
-            "hotkeys": {},
-            "deinterlace_mode": 0,
-            "deinterlace_field_order": 0,
-            "monitoring_type": 0,
-            "private_settings": {}
-        },
-        {
-            "prev_ver": 503447555,
-            "name": "Navigation Text",
+            "name": "NextSlide",
             "uuid": "d19f8913-1e20-4546-98ea-5b9b693cb050",
             "id": "text_ft2_source",
             "versioned_id": "text_ft2_source_v2",
@@ -3469,7 +2935,7 @@
                 "extents": false,
                 "extents_cx": 1920,
                 "extents_cy": 5000,
-                "text": "",
+                "text": "Previous",
                 "font": {
                     "face": "Arial",
                     "flags": 0,
@@ -3497,6 +2963,54 @@
         },
         {
             "prev_ver": 503447555,
+            "name": "No Camera",
+            "uuid": "0752dc22-48fc-4558-80a2-d54f3f4553cf",
+            "id": "text_ft2_source",
+            "versioned_id": "text_ft2_source_v2",
+            "settings": {},
+            "mixers": 0,
+            "sync": 0,
+            "flags": 0,
+            "volume": 1.0,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": false,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {},
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
+            "private_settings": {}
+        },
+        {
+            "prev_ver": 503447555,
+            "name": "Play-Pause",
+            "uuid": "5c96d8ca-6a46-4490-93d6-e32d43c31981",
+            "id": "text_ft2_source",
+            "versioned_id": "text_ft2_source_v2",
+            "settings": {},
+            "mixers": 0,
+            "sync": 0,
+            "flags": 0,
+            "volume": 1.0,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": false,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {},
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
+            "private_settings": {}
+        },
+        {
+            "prev_ver": 503447555,
             "name": "PPT Window Capture",
             "uuid": "2ad07728-5981-4c22-9870-a6c7054f71f2",
             "id": "window_capture",
@@ -3504,10 +3018,10 @@
             "settings": {
                 "client_area": true,
                 "cursor": false,
-                "owner_pid": 2797,
+                "owner_pid": 1656,
                 "owner_name": "Microsoft PowerPoint",
                 "window_name": "PowerPoint Slide Show - [Presentation1]",
-                "window": 842
+                "window": 1536
             },
             "mixers": 0,
             "sync": 0,
@@ -3533,6 +3047,30 @@
         },
         {
             "prev_ver": 503447555,
+            "name": "PreviousSlide",
+            "uuid": "cb85d7e2-a379-4220-bf00-1239a267a180",
+            "id": "text_ft2_source",
+            "versioned_id": "text_ft2_source_v2",
+            "settings": {},
+            "mixers": 0,
+            "sync": 0,
+            "flags": 0,
+            "volume": 1.0,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": false,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {},
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
+            "private_settings": {}
+        },
+        {
+            "prev_ver": 503447555,
             "name": "scene|||Full Screen Slide",
             "uuid": "812ed50c-07ed-44ee-ab0b-cade2a85f24f",
             "id": "scene",
@@ -3548,8 +3086,8 @@
                         "locked": false,
                         "rot": 0.0,
                         "pos": {
-                            "x": -0.0001220703125,
-                            "y": -77.0
+                            "x": -20.0001220703125,
+                            "y": -80.0
                         },
                         "scale": {
                             "x": 1.045751690864563,
@@ -4153,7 +3691,7 @@
                         "rot": 0.0,
                         "pos": {
                             "x": 101.0,
-                            "y": 131.0
+                            "y": 117.0
                         },
                         "scale": {
                             "x": 0.41128149628639221,
@@ -4168,7 +3706,7 @@
                             "y": 0.0
                         },
                         "crop_left": 45,
-                        "crop_top": 34,
+                        "crop_top": 0,
                         "crop_right": 49,
                         "crop_bottom": 42,
                         "id": 1,
@@ -4211,18 +3749,66 @@
         },
         {
             "prev_ver": 503447555,
+            "name": "Scroll Faster",
+            "uuid": "2975b315-f678-4f59-ab34-94d01b0b9e19",
+            "id": "text_ft2_source",
+            "versioned_id": "text_ft2_source_v2",
+            "settings": {},
+            "mixers": 0,
+            "sync": 0,
+            "flags": 0,
+            "volume": 1.0,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": false,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {},
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
+            "private_settings": {}
+        },
+        {
+            "prev_ver": 503447555,
+            "name": "Scroll Slower ",
+            "uuid": "df6682d4-d568-422e-8ced-f08c478098e9",
+            "id": "text_ft2_source",
+            "versioned_id": "text_ft2_source_v2",
+            "settings": {},
+            "mixers": 0,
+            "sync": 0,
+            "flags": 0,
+            "volume": 1.0,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": false,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {},
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
+            "private_settings": {}
+        },
+        {
+            "prev_ver": 503447555,
             "name": "Slide Controls",
             "uuid": "737c0546-1a72-4f26-b5c5-40bdfc6d33b4",
             "id": "scene",
             "versioned_id": "scene",
             "settings": {
                 "custom_size": false,
-                "id_counter": 2,
+                "id_counter": 9,
                 "items": [
                     {
-                        "name": "Navigation Text",
+                        "name": "NextSlide",
                         "source_uuid": "d19f8913-1e20-4546-98ea-5b9b693cb050",
-                        "visible": true,
+                        "visible": false,
                         "locked": false,
                         "rot": 0.0,
                         "pos": {
@@ -4259,9 +3845,9 @@
                         "private_settings": {}
                     },
                     {
-                        "name": "ClipBoard Response",
-                        "source_uuid": "faa36e5f-628a-4add-b437-476d21b4af93",
-                        "visible": true,
+                        "name": "PreviousSlide",
+                        "source_uuid": "cb85d7e2-a379-4220-bf00-1239a267a180",
+                        "visible": false,
                         "locked": false,
                         "rot": 0.0,
                         "pos": {
@@ -4284,7 +3870,202 @@
                         "crop_top": 0,
                         "crop_right": 0,
                         "crop_bottom": 0,
-                        "id": 2,
+                        "id": 4,
+                        "group_item_backup": false,
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
+                    },
+                    {
+                        "name": "Scroll Faster",
+                        "source_uuid": "2975b315-f678-4f59-ab34-94d01b0b9e19",
+                        "visible": false,
+                        "locked": false,
+                        "rot": 0.0,
+                        "pos": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 5,
+                        "group_item_backup": false,
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
+                    },
+                    {
+                        "name": "Scroll Slower ",
+                        "source_uuid": "df6682d4-d568-422e-8ced-f08c478098e9",
+                        "visible": false,
+                        "locked": false,
+                        "rot": 0.0,
+                        "pos": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 6,
+                        "group_item_backup": false,
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
+                    },
+                    {
+                        "name": "Text Bigger",
+                        "source_uuid": "72252606-cc8a-4a07-bbd6-17143cad62b2",
+                        "visible": false,
+                        "locked": false,
+                        "rot": 0.0,
+                        "pos": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 7,
+                        "group_item_backup": false,
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
+                    },
+                    {
+                        "name": "Text Smaller",
+                        "source_uuid": "1c259b65-0055-4303-8cb7-ff8f11ca1346",
+                        "visible": false,
+                        "locked": false,
+                        "rot": 0.0,
+                        "pos": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 8,
+                        "group_item_backup": false,
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
+                    },
+                    {
+                        "name": "Play-Pause",
+                        "source_uuid": "5c96d8ca-6a46-4490-93d6-e32d43c31981",
+                        "visible": false,
+                        "locked": false,
+                        "rot": 0.0,
+                        "pos": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 9,
                         "group_item_backup": false,
                         "scale_filter": "disable",
                         "blend_method": "default",
@@ -4312,10 +4093,40 @@
             "push-to-talk-delay": 0,
             "hotkeys": {
                 "OBSBasic.SelectScene": [],
-                "libobs.show_scene_item.1": [],
+                "libobs.show_scene_item.1": [
+                    {
+                        "key": "OBS_KEY_F15"
+                    }
+                ],
                 "libobs.hide_scene_item.1": [],
-                "libobs.show_scene_item.2": [],
-                "libobs.hide_scene_item.2": []
+                "libobs.show_scene_item.4": [
+                    {
+                        "key": "OBS_KEY_F14"
+                    }
+                ],
+                "libobs.hide_scene_item.4": [],
+                "libobs.show_scene_item.5": [
+                    {
+                        "key": "OBS_KEY_F16"
+                    }
+                ],
+                "libobs.hide_scene_item.5": [],
+                "libobs.show_scene_item.6": [
+                    {
+                        "key": "OBS_KEY_F18"
+                    }
+                ],
+                "libobs.hide_scene_item.6": [],
+                "libobs.show_scene_item.7": [],
+                "libobs.hide_scene_item.7": [],
+                "libobs.show_scene_item.8": [],
+                "libobs.hide_scene_item.8": [],
+                "libobs.show_scene_item.9": [
+                    {
+                        "key": "OBS_KEY_F13"
+                    }
+                ],
+                "libobs.hide_scene_item.9": []
             },
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
@@ -4330,11 +4141,11 @@
             "versioned_id": "scene",
             "settings": {
                 "custom_size": false,
-                "id_counter": 2,
+                "id_counter": 4,
                 "items": [
                     {
                         "name": "Slide Notes Text",
-                        "source_uuid": "b8872ef2-9342-430a-8cbe-462c6a04fa45",
+                        "source_uuid": "2f57b613-876f-47a7-823e-417d3d7e21f3",
                         "visible": true,
                         "locked": false,
                         "rot": 0.0,
@@ -4344,7 +4155,7 @@
                         },
                         "scale": {
                             "x": 6.4000000953674316,
-                            "y": 6.3125
+                            "y": 6.4285712242126465
                         },
                         "align": 5,
                         "bounds_type": 0,
@@ -4358,7 +4169,7 @@
                         "crop_top": 0,
                         "crop_right": 0,
                         "crop_bottom": 0,
-                        "id": 1,
+                        "id": 4,
                         "group_item_backup": false,
                         "scale_filter": "disable",
                         "blend_method": "default",
@@ -4386,8 +4197,8 @@
             "push-to-talk-delay": 0,
             "hotkeys": {
                 "OBSBasic.SelectScene": [],
-                "libobs.show_scene_item.1": [],
-                "libobs.hide_scene_item.1": []
+                "libobs.show_scene_item.4": [],
+                "libobs.hide_scene_item.4": []
             },
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
@@ -4397,28 +4208,17 @@
         {
             "prev_ver": 503447555,
             "name": "Slide Notes Text",
-            "uuid": "b8872ef2-9342-430a-8cbe-462c6a04fa45",
+            "uuid": "2f57b613-876f-47a7-823e-417d3d7e21f3",
             "id": "text_ft2_source",
             "versioned_id": "text_ft2_source_v2",
             "settings": {
-                "chatlog": false,
-                "extents": true,
-                "extents_cx": 300,
-                "extents_cy": 8000,
-                "extents_wrap": true,
-                "vertical": false,
                 "custom_width": 300,
+                "text": "",
                 "font": {
                     "face": "Arial",
-                    "flags": 0,
-                    "size": 25,
-                    "style": "Regular"
+                    "size": 41
                 },
-                "antialiasing": true,
-                "word_wrap": true,
-                "outline": false,
-                "drop_shadow": false,
-                "text": "\"Enter Notes\""
+                "word_wrap": true
             },
             "mixers": 0,
             "sync": 0,
@@ -4440,16 +4240,11 @@
                 {
                     "prev_ver": 503447555,
                     "name": "Scroll",
-                    "uuid": "a5215eff-f730-4179-bfb6-61825bc8b494",
+                    "uuid": "9750c689-14e0-4a3a-86ee-635576b3cc3d",
                     "id": "scroll_filter",
                     "versioned_id": "scroll_filter",
                     "settings": {
-                        "limit_cx": true,
-                        "limit_cy": false,
-                        "speed_x": 0,
-                        "speed_y": 5,
-                        "cx": 300,
-                        "cy": 100,
+                        "speed_y": 28,
                         "loop": false
                     },
                     "mixers": 0,
@@ -4472,11 +4267,11 @@
                 {
                     "prev_ver": 503447555,
                     "name": "Sharpen",
-                    "uuid": "9b73aa67-9d65-45c9-838b-97ad0e5176ac",
+                    "uuid": "6dc0bddd-67f4-4049-a7ca-b3b42b479585",
                     "id": "sharpness_filter",
                     "versioned_id": "sharpness_filter_v2",
                     "settings": {
-                        "sharpness": 0.48999999999999999
+                        "sharpness": 0.20000000000000001
                     },
                     "mixers": 0,
                     "sync": 0,
@@ -4496,6 +4291,54 @@
                     "private_settings": {}
                 }
             ]
+        },
+        {
+            "prev_ver": 503447555,
+            "name": "Text Bigger",
+            "uuid": "72252606-cc8a-4a07-bbd6-17143cad62b2",
+            "id": "text_ft2_source",
+            "versioned_id": "text_ft2_source_v2",
+            "settings": {},
+            "mixers": 0,
+            "sync": 0,
+            "flags": 0,
+            "volume": 1.0,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": false,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {},
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
+            "private_settings": {}
+        },
+        {
+            "prev_ver": 503447555,
+            "name": "Text Smaller",
+            "uuid": "1c259b65-0055-4303-8cb7-ff8f11ca1346",
+            "id": "text_ft2_source",
+            "versioned_id": "text_ft2_source_v2",
+            "settings": {},
+            "mixers": 0,
+            "sync": 0,
+            "flags": 0,
+            "volume": 1.0,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": false,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {},
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
+            "private_settings": {}
         },
         {
             "prev_ver": 503447555,
