@@ -15,13 +15,15 @@ Features:
   - [Using UUinsome](#using-uuinsome)
 - [Getting Started on MacOS](#getting-started-on-macos)
   - [Overview](#overview-1)
+  - [Setup OBS](#setup-obs-1)
+  - [Import Shortcuts](#import-shortcuts)
 
 ## Prerequisite
 - [Open Broadcast Studio (obs)](https://obsproject.com/)
 - Windows
   - PowerPoint
 - MacOS
-  - Safari
+  - Chrome
   - Shortcuts
   - Keynote 
 
@@ -102,3 +104,22 @@ Participant PP as PowerPoint / <br/> Keynote
   OBS->>OBS:  Change Scene /<BR/> Display Notes
 
 ```
+
+### Setup OBS
+ - Import the [UUinsome macOS Collection](https://github.com/UUoocl/UUinsome/blob/main/UUinsome_OBS_Collections/UUinsome_macOS_Collection.json)
+
+#### Start the OBS Web Socket Server. 
+In the OBS Tools menu, click "WebSocket Server Settings"
+ - Check "Enable WebSocket server"
+ - Click "Show Connect Info", and copy the password.
+
+### Import Shortcuts
+Shortcuts is an automation app included with macOS.  These scripts created in Shortcuts will control PowerPoint and send data back to OBS. 
+
+Download the Shortcuts from this repo [Apple Shortcuts](https://github.com/UUoocl/UUinsome/tree/main/Apple_Shortcuts)
+
+In the Shortcuts app, click **File > Import...**
+
+
+
+
