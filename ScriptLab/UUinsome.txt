@@ -1,4 +1,4 @@
-name: UUinsome Slide Controls and Tags
+name: UUinsome Slide Controls and Tags (3)
 description: >-
   A script to create a WebSocket connection between Open Broadcast Studio (OBS)
   and PowerPoint M365. This script is for PowerPoint M365 Desktop app on
@@ -8,28 +8,22 @@ description: >-
 host: POWERPOINT
 api_set: {}
 script:
-  content: >-
+  content: >
     // A script to control Open Broadcast Studio (OBS) with PowerPoint Slides
 
-    // Add a Textbox to each slide and enter an OBS scene name.
+    // Shapes are used to tag instructions to a slide. 
 
-    // Name the text box "obsScene"
+    // Use the User Interface to add tags. 
 
-    //
-
-    // The OBS scene will change when the slide changes.
-
-    //
+    //           
 
     // NOTE: this script only works in 'window slide show mode'
 
 
     var teleprompterSize,
       teleprompterSpeed,
-      teleprompterIsPlaying = false,
-      controlSources = new Object;
+      teleprompterIsPlaying = false
 
-      
     $("#get-slide-metadata").on("click", { direction: "Current" },
     goToSlideByIndex);
 
@@ -57,11 +51,6 @@ script:
     $("#Play-Pause").on("click", togglePlayPause);
 
 
-    async function getSlideControlSceneItems(){
-      controlSources = await obs.call("GetSceneItemList", { sceneName: "Slide Controls" });
-    }
-
-
     async function togglePlayPause() {
       teleprompterIsPlaying = !teleprompterIsPlaying;
       const speed = teleprompterIsPlaying === true ? teleprompterSpeed : 1;
@@ -75,7 +64,7 @@ script:
       });
       if (speed > 1) {
         document.getElementById("Play-Pause").innerHTML = "Pause";
-      }else{
+      } else {
         document.getElementById("Play-Pause").innerHTML = "Play";
       }
     }
@@ -317,21 +306,25 @@ script:
             });
 
             //Reset the teleprompter
-            await obs.call("SetSourceFilterSettings", {
-              sourceName: "Slide Notes Text",
-              filterName: "Scroll",
-              filterSettings: {
-                speed_y: 0
-              }
-            }).then(setTimeout(async () => {
-            await obs.call("SetSourceFilterSettings", {
-              sourceName: "Slide Notes Text",
-              filterName: "Scroll",
-              filterSettings: {
-                speed_y: teleprompterSpeed
-              }
-            })
-            },1000))
+            await obs
+              .call("SetSourceFilterSettings", {
+                sourceName: "Slide Notes Text",
+                filterName: "Scroll",
+                filterSettings: {
+                  speed_y: 0
+                }
+              })
+              .then(
+                setTimeout(async () => {
+                  await obs.call("SetSourceFilterSettings", {
+                    sourceName: "Slide Notes Text",
+                    filterName: "Scroll",
+                    filterSettings: {
+                      speed_y: teleprompterSpeed
+                    }
+                  });
+                }, 1000)
+              );
           }
 
           //if pptData has camera
@@ -498,8 +491,6 @@ script:
         getSceneList();
         getTeleprompterSize();
         getTeleprompterSpeed();
-        getSlideControlSceneItems();
-
       } catch (error) {
         console.error("Failed to connect", error.code, error.message);
       }
@@ -740,25 +731,28 @@ script:
     }
 
 
-
     //OBS HotKey Controls
 
 
-
-    obs.on("SceneItemEnableStateChanged", async function (event) {
+    obs.on("SceneItemEnableStateChanged", async function(event) {
       //if ppt scriptlab text source
       if (event.sceneItemEnabled === true && event.sceneName === "Slide Controls") {
         //get source name
-        let sceneItem = getSceneItemName(event.sceneItemId);
-
+        const sceneItem = await obs.call("GetSceneItemSource", {
+          sceneName: "Slide Controls",
+          sceneItemId: event.sceneItemId,
+        })
+     
+        console.log("hi",sceneItem)
         const control = sceneItem.sourceName;
+     
         //if next
-        switch(control){
+        switch (control) {
           case "NextSlide":
-            goToSlideByIndex({data: { direction: "Next" } });
+            goToSlideByIndex({ data: { direction: "Next" } });
             break;
           case "PreviousSlide":
-            goToSlideByIndex({data: { direction: "Previous" } });
+            goToSlideByIndex({ data: { direction: "Previous" } });
             break;
           case "Play-Pause":
             togglePlayPause();
@@ -783,21 +777,13 @@ script:
         $("#decrease-speed").on("click", { change: -1 }, changeTeleprompterSpeed);
         $("#Play-Pause").on("click", togglePlayPause);
 
-          await obs.call("SetSceneItemEnabled", { 
-            sceneName: "Slide Controls", 
-            sceneItemId: event.sceneItemId, 
-            sceneItemEnabled: false});
+        await obs.call("SetSceneItemEnabled", {
+          sceneName: "Slide Controls",
+          sceneItemId: event.sceneItemId,
+          sceneItemEnabled: false
+        });
       }
     });
-
-
-    function getSceneItemName(itemID){
-      for(let i=0; i < controlSources.sceneItems.length; i++){
-        if(controlSources.sceneItems[i].sceneItemId == itemID){
-          return controlSources.sceneItems[i]
-        }
-      }
-    }
   language: typescript
 template:
   content: "<section id=\"connectToOBS\" class=\"setup ms-font-m\">\n\t<h3>OBS WebSocket Server Settings</h3>\n\t<p class=\"ms-font-m\">Connect PowerPoint to OBS</p>\n\t<span class=\"ms-Button-label\">Enter WebSocket Server IP Address</span>\n\t<Input id=\"IP\" class=\"ms-Button\" value=\"localhost\"></Input>\n\t<span class=\"ms-Button-label\">Enter WebSocket Server Port</span><br>\n\t<Input id=\"Port\" class=\"ms-Button\" value=\"4455\"></Input>\n\t<span class=\"ms-Button-label\">Enter WebSocket Server Password</span><br>\n\t<Input type=\"password\" id=\"PW\" class=\"ms-Button\"></Input>\n\t<button id=\"connect-to-OBS\" class=\"ms-Button\">\n\t      <span class=\"ms-Button-label\">Connect to OBS WebSocket Server</span>\n    </button>\n</section>\n\n<section id=\"pasteOBSscenes\" class=\"setup ms-font-m\">\n\t<h3>Manually enter OBS scenes</h3>\n\t<p class=\"ms-font-m\">Use the Get User Media,<b> https://uuoocl.github.io/GUM/</b>, Github page to create a list of\n\t\tyour OBS Scenes and Sources. Copy and paste the list</p>\n\t<span class=\"ms-Button-label\">Enter Scenes and Sources</span>\n\t<Input id=\"obsScenes\" class=\"ms-Button\"></Input>\n\t<button id=\"make-tag-list\" class=\"ms-Button\">\n\t  <span class=\"ms-Button-label\">Make a list tags</span>\n  </button>\n</section>\n\n<section class=\"ms-font-m\">\n\t<h3>Slide Navigation</h3>\n\t<p class=\"ms-font-m\">Navigate the presentation.</p>\n</section>\n\n<button id=\"previous-slide\" class=\"ms-Button\">\n    <span class=\"ms-Button-label\">Previous slide</span>\n</button>\n\n<button id=\"get-slide-metadata\" class=\"ms-Button\">\n    <span class=\"ms-Button-label\">Get current slide notes</span>\n</button>\n\n<button id=\"next-slide\" class=\"ms-Button\">\n    <span class=\"ms-Button-label\">Next slide</span>\n</button>\n\n\n<section class=\"ms-font-m\">\n\t<h3>Telepromter Settings</h3>\n\n\t<button id=\"Play-Pause\" class=\"ms-Button\">\n    <span class=\"ms-Button-label\">Play</span>\n</button>\n\n\t<p class=\"ms-font-m\">Text size</p>\n\n\t<button id=\"decrease-size\" class=\"ms-Button\">\n    <span class=\"ms-Button-label\">decrease -</span>\n</button>\n\n\t<input id=\"sizeValue\" class=\"ms-Button\" value=12>\n\t<span class=\"ms-Input-label\"></span>\n\t</input]>\n\n\t<button id=\"increase-size\" class=\"ms-Button\">\n    <span class=\"ms-Button-label\">increase +</span>\n</button>\n</section>\n\n<p class=\"ms-font-m\">Scroll speed</p>\n<button id=\"decrease-speed\" class=\"ms-Button\">\n    <span class=\"ms-Button-label\">decrease -</span>\n</button>\n\n<input id=\"speedValue\" class=\"ms-Button\" value=12>\n<span class=\"ms-Input-label\"></span>\n</input]>\n\n<button id=\"increase-speed\" class=\"ms-Button\">\n    <span class=\"ms-Button-label\">increase +</span>\n</button>\n\n\n<section class=\"ms-font-m\">\n\t<p class=\"ms-font-m\">Add UUinsome controls</p>\n</section>\n\n<section class=\"ms-font-m\">\n\t<p class=\"ms-font-m\">Add Notes section</p>\n</section>\n\n<button id=\"add-to-slide\" class=\"ms-Button\">\n\t\t\t<span class=\"ms-Button-label\">Add to selected slide</span>\n\t</button>\n\n<button id=\"add-to-all-slides\" class=\"ms-Button\">\n\t\t\t<span class=\"ms-Button-label\">Add to all alides</span>\n\t</button>\n\n<section id=\"tagList\" class=\"setup ms-font-m\" hidden>\n\t<h3>Scenes Tags</h3>\n\t<span class=\"ms-Button-label\">click a tag below to set the OBS Scene</span>\n\n\t<ul id=sceneList>\n\t</ul>\n\n\t<h3>Camera</h3>\n\t<ul id=cameraList>\n\t</ul>\n\t<p>Shapes that indicate an Entrance tag include the text \"\\\\\\\" and have 0% Transparency.<br>\n\tShapes that indicate an Entrance tag include the text \"///\" and have 1% Transparency.</p>\n\n</section>"
