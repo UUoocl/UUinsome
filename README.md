@@ -10,8 +10,8 @@ Features:
 - [Prerequisite](#prerequisite)
 - [Getting Started on Windows](#getting-started-on-windows)
   - [Overview](#overview)
-  - [Setup PowerPoint](#setup-powerpoint)
   - [Setup OBS](#setup-obs)
+  - [Setup PowerPoint](#setup-powerpoint)
   - [Using UUinsome](#using-uuinsome)
 - [Getting Started on MacOS](#getting-started-on-macos)
   - [Overview](#overview-1)
@@ -25,7 +25,7 @@ Features:
 - MacOS
   - Chrome
   - Shortcuts
-  - Keynote 
+  - PowerPoint or Keynote 
 
 ## Getting Started on Windows
 ### Overview
@@ -45,11 +45,24 @@ Participant PP as PowerPoint +<br/> Script Lab
 
 ```
 
+### Setup OBS
+  #### Import the [UUinsome Windows Scene Collection](https://github.com/UUoocl/UUinsome/blob/main/UUinsome_OBS_Collections/UUinsome_Windows_Collection.json)
+
+In OBS 
+- Click **Scene Collection > Import**
+- Choose the "UUinsome Windows Collection"
+- Switch to the UUinsome Windows Collection
+
+#### Start the OBS Web Socket Server. 
+In the OBS Tools menu, click "WebSocket Server Settings"
+ - Check "Enable WebSocket server"
+ - Click "Show Connect Info", and copy the password.
+
 ### Setup PowerPoint
 #### Install the PowerPoint add-in Script Lab
 Script Lab is a free PowerPoint add-in by Microsoft. 
 
-In PowerPoint click "Add-Ins" and ssearch for Script Lab. 
+In PowerPoint click "Add-Ins" and search for Script Lab. 
 
 ![{E6C4FC54-03ED-44E4-8DD0-6271F9537012}](https://github.com/user-attachments/assets/6d8b2dd3-18cd-41f8-ba8f-acbef5342282)
 
@@ -63,19 +76,20 @@ CLick Import and paste the UUinsome script into the text editor.
 
 Click the Run button to start the UUinsome script
 
-### Setup OBS
- - Import the [UUinsome Windows Collection](https://github.com/UUoocl/UUinsome/blob/main/UUinsome_OBS_Collections/UUinsome_Windows_Collection.json)
 
-#### Start the OBS Web Socket Server. 
-In the OBS Tools menu, click "WebSocket Server Settings"
- - Check "Enable WebSocket server"
- - Click "Show Connect Info", and copy the password.
-
-#### Connect PowerPoint to OBS
-
-In PowerPoint enter the OBS WenSocklet Server password into the UUinsome window.  
 
 ### Using UUinsome
+#### Connect PowerPoint to OBS
+
+In PowerPoint enter the OBS WenSocket Server password into the UUinsome window. 
+
+#### Adding Slide Tags
+
+#### Teleprompter Setting
+- Speed
+- Size
+
+#### Navigating Slides
 
 ## Getting Started on MacOS
 
