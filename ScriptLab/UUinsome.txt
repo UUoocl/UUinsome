@@ -1,4 +1,4 @@
-name: UUinsome Slide Controls and Tags (1)
+name: UUinsome Slide Controls and Tags
 description: >-
   A script to create a WebSocket connection between Open Broadcast Studio (OBS)
   and PowerPoint M365. This script is for PowerPoint M365 Desktop app on
