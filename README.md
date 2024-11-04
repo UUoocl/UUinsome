@@ -4,7 +4,8 @@ This repo contains scripts to connect Open Broadcast Studio (OBS) and PowerPoint
 Features:
 
   - Change OBS Scenes with PowerPoint slide tags.
-  - Scrolling slide notes  
+  - Scrolling slide notes 
+  - Use OBS Hotkeys to navigate slides 
   
 # Table of Content
 - [Prerequisite](#prerequisite)
@@ -90,6 +91,8 @@ In PowerPoint enter the OBS WenSocket Server password into the UUinsome window.
 - Size
 
 #### Navigating Slides
+
+#### Adding Notes
 
 ## Getting Started on MacOS
 

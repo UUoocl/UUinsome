@@ -1,4 +1,4 @@
-name: UUinsome Slide Controls and Tags (3)
+name: UUinsome Slide Controls and Tags (1)
 description: >-
   A script to create a WebSocket connection between Open Broadcast Studio (OBS)
   and PowerPoint M365. This script is for PowerPoint M365 Desktop app on
@@ -8,21 +8,21 @@ description: >-
 host: POWERPOINT
 api_set: {}
 script:
-  content: >
+  content: >-
     // A script to control Open Broadcast Studio (OBS) with PowerPoint Slides
 
-    // Shapes are used to tag instructions to a slide. 
+    // Shapes are used to tag instructions to a slide.
 
-    // Use the User Interface to add tags. 
+    // Use the User Interface to add tags.
 
-    //           
+    //
 
     // NOTE: this script only works in 'window slide show mode'
 
 
     var teleprompterSize,
       teleprompterSpeed,
-      teleprompterIsPlaying = false
+      teleprompterIsPlaying = false;
 
     $("#get-slide-metadata").on("click", { direction: "Current" },
     goToSlideByIndex);
@@ -87,6 +87,7 @@ script:
 
     async function changeTeleprompterSpeed(event) {
       teleprompterSpeed = Number(document.getElementById("speedValue").value);
+      console.log(event.data.change);
       teleprompterSpeed += event.data.change;
       document.getElementById("speedValue").value = teleprompterSpeed;
       await obs.call("SetSourceFilterSettings", {
@@ -740,42 +741,35 @@ script:
         //get source name
         const sceneItem = await obs.call("GetSceneItemSource", {
           sceneName: "Slide Controls",
-          sceneItemId: event.sceneItemId,
-        })
-     
-        console.log("hi",sceneItem)
+          sceneItemId: event.sceneItemId
+        });
+
         const control = sceneItem.sourceName;
-     
+
         //if next
         switch (control) {
           case "NextSlide":
-            goToSlideByIndex({ data: { direction: "Next" } });
+            document.getElementById("next-slide").click();
             break;
           case "PreviousSlide":
-            goToSlideByIndex({ data: { direction: "Previous" } });
+            document.getElementById("previous-slide").click();
             break;
           case "Play-Pause":
             togglePlayPause();
             break;
           case "Text Smaller":
-            changeTeleprompterSize({ data: { change: -1 } });
+            document.getElementById("decrease-size").click();
             break;
           case "Text Bigger":
-            changeTeleprompterSize({ data: { change: 1 } });
+            document.getElementById("increase-size").click();
             break;
           case "Scroll Slower":
-            changeTeleprompterSpeed({ data: { change: -1 } });
+            document.getElementById("decrease-speed").click();
             break;
           case "Scroll Faster":
-            changeTeleprompterSpeed({ data: { change: 1 } });
+            document.getElementById("increase-speed").click();
             break;
         }
-
-        $("#increase-size").on("click", { change: 1 }, changeTeleprompterSize);
-        $("#decrease-size").on("click", { change: -1 }, changeTeleprompterSize);
-        $("#increase-speed").on("click", { change: 1 }, changeTeleprompterSpeed);
-        $("#decrease-speed").on("click", { change: -1 }, changeTeleprompterSpeed);
-        $("#Play-Pause").on("click", togglePlayPause);
 
         await obs.call("SetSceneItemEnabled", {
           sceneName: "Slide Controls",
