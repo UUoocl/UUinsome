@@ -30,7 +30,7 @@ Features:
 
 ## Getting Started on Windows
 ### Overview
-
+[Getting started video](https://youtu.be/yMh8dkbfDEE)
 
 ```mermaid
 sequenceDiagram
