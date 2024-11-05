@@ -32,6 +32,8 @@ Features:
 ### Overview
 [Getting started video](https://youtu.be/yMh8dkbfDEE)
 
+![image](https://github.com/user-attachments/assets/bd28c662-43e6-4219-aebf-638893d74e81)
+
 ```mermaid
 sequenceDiagram
 Participant OBS
