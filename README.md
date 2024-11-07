@@ -32,6 +32,8 @@ Features:
 ### Overview
 [Getting started video](https://youtu.be/yMh8dkbfDEE)
 
+![image](https://github.com/user-attachments/assets/bd28c662-43e6-4219-aebf-638893d74e81)
+
 ```mermaid
 sequenceDiagram
 Participant OBS
@@ -136,7 +138,6 @@ Shortcuts is an automation app included with macOS.  These scripts created in Sh
 Download the Shortcuts from this repo [Apple Shortcuts](https://github.com/UUoocl/UUinsome/tree/main/Apple_Shortcuts)
 
 In the Shortcuts app, click **File > Import...**
-
 
 
 
