@@ -13,18 +13,24 @@ Features:
   - [Overview](#overview)
   - [Setup OBS](#setup-obs)
   - [Setup PowerPoint](#setup-powerpoint)
-  - [Using UUinsome](#using-uuinsome)
 - [Getting Started on MacOS](#getting-started-on-macos)
   - [Overview](#overview-1)
   - [Setup OBS](#setup-obs-1)
   - [Import Shortcuts](#import-shortcuts)
+  - [UUinsome Keynote and Powerpoint Controls](#uuinsome-keynote-and-powerpoint-controls)
+- [Using UUinsome](#using-uuinsome)
+  - [Connect to OBS](#connect-to-obs)
+  - [Adding Slide Tags](#adding-slide-tags)
+  - [Teleprompter Setting](#teleprompter-setting)
+  - [Navigating Slides](#navigating-slides)
+  - [Adding Notes](#adding-notes)
 
 ## Prerequisite
 - [Open Broadcast Studio (obs)](https://obsproject.com/)
 - Windows
   - PowerPoint
 - MacOS
-  - Chrome
+  - Chrome browser
   - Shortcuts
   - PowerPoint or Keynote 
 
@@ -80,22 +86,6 @@ CLick Import and paste the UUinsome script into the text editor.
 Click the Run button to start the UUinsome script
 
 
-
-### Using UUinsome
-#### Connect PowerPoint to OBS
-
-In PowerPoint enter the OBS WenSocket Server password into the UUinsome window. 
-
-#### Adding Slide Tags
-
-#### Teleprompter Setting
-- Speed
-- Size
-
-#### Navigating Slides
-
-#### Adding Notes
-
 ## Getting Started on MacOS
 
 ### Overview
@@ -107,7 +97,7 @@ In PowerPoint enter the OBS WenSocket Server password into the UUinsome window.
 ```mermaid
 sequenceDiagram
 Participant OBS
-Participant S as Safari
+Participant S as Chrome
 Participant SC as Shortcuts for <br/>Mac
 Participant PP as PowerPoint / <br/> Keynote
   OBS->>OBS: Start WebSocket server 
@@ -125,7 +115,7 @@ Participant PP as PowerPoint / <br/> Keynote
 ```
 
 ### Setup OBS
- - Import the [UUinsome macOS Collection](https://github.com/UUoocl/UUinsome/blob/main/UUinsome_OBS_Collections/UUinsome_macOS_Collection.json)
+ - Import the [UUinsome macOS Collection](https://github.com/UUoocl/UUinsome/blob/main/UUinsome_OBS_Collections/UUinsome_MacOS_Collection.json)
 
 #### Start the OBS Web Socket Server. 
 In the OBS Tools menu, click "WebSocket Server Settings"
@@ -133,11 +123,35 @@ In the OBS Tools menu, click "WebSocket Server Settings"
  - Click "Show Connect Info", and copy the password.
 
 ### Import Shortcuts
-Shortcuts is an automation app included with macOS.  These scripts created in Shortcuts will control PowerPoint and send data back to OBS. 
+Shortcuts is an automation app included with macOS.  These scripts created in Shortcuts will control changing slides in Keynote and PowerPoint. the Shortcuts will also send the slide data back to OBS. 
 
 Download the Shortcuts from this repo [Apple Shortcuts](https://github.com/UUoocl/UUinsome/tree/main/Apple_Shortcuts)
 
 In the Shortcuts app, click **File > Import...**
 
+### UUinsome Keynote and Powerpoint Controls
 
+Open the UUinsome controls page at [https://uuoocl.github.io/UUinsome/](https://uuoocl.github.io/UUinsome/)
 
+## Using UUinsome
+
+### Connect to OBS
+In the UUinsome controls page's "Connect to the OBS WebSocket Server" section, enter WebSocket Server IP, Port and Password. 
+
+### Adding Slide Tags
+After connecting to OBS, the available tags will appear on the page. Click on a tag to add it to a Keynote or Power Point presentation. 
+
+### Teleprompter Setting
+The Slide Notes are displayed in an OBS Text Source.  
+Right click on the "Slide Notes" Scene, then click "Windowed Projector (Scene)"
+
+Use the UUinsome controls to adjust the teleprompter. 
+- Speed
+- Size
+
+### Navigating Slides
+
+### Adding Notes
+####Windows
+
+####MacOS
