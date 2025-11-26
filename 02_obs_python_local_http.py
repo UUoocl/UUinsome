@@ -30,6 +30,9 @@ SOURCE_NAME = "wssDetails"
 # --- Custom Request Handler with Routing and File Serving ---
 class OBSCustomHandler(http.server.SimpleHTTPRequestHandler):
 
+    def log_message(self, format, *args):
+        pass # Do not log messages
+
     # Helper function to send the standard headers
     def _set_headers(self, status_code=200, content_type="text/html"):
         self.send_response(status_code)
@@ -40,7 +43,7 @@ class OBSCustomHandler(http.server.SimpleHTTPRequestHandler):
         # 1. Check the requested path
         path = self.path.split('?')[0] 
        
-        obs.script_log(obs.LOG_INFO, f"HTTP Server GET request for path: {path}")
+        # print(obs.LOG_INFO, f"HTTP Server GET request for path: {path}")
 
         # 2. Handle specific OBS-related routes example
         if path == "/status":
@@ -97,12 +100,12 @@ def start_server_in_thread():
         # Simple HTTP server creation
         httpd = socketserver.TCPServer((HOST_NAME, PORT_NUMBER), Handler)
         
-        obs.script_log(obs.LOG_INFO, f"Starting HTTP server on http://{HOST_NAME}:{PORT_NUMBER}")
+        print(obs.LOG_INFO, f"Starting HTTP server on http://{HOST_NAME}:{PORT_NUMBER}")
         
         httpd.serve_forever()
         
     except Exception as e:
-        obs.script_log(obs.LOG_ERROR, f"Error starting server: {e}")
+        print(obs.LOG_ERROR, f"Error starting server: {e}")
         if httpd:
             httpd.server_close()
         
@@ -121,29 +124,29 @@ def script_load(settings):
         server_thread = threading.Thread(target=start_server_in_thread)
         server_thread.daemon = True 
         server_thread.start()
-        obs.script_log(obs.LOG_INFO, "HTTP Server Thread Initialized.")
+        # print(obs.LOG_INFO, "HTTP Server Thread Initialized.")
 
     """Registers the event handler on script load."""
     obs.obs_frontend_add_event_callback(on_event)
 
 def script_unload():
     global httpd, server_thread, SOURCE_NAME
-    print(f"http unload {httpd}")
-    print(f"server_thread.is_alive() {server_thread}")
+    # print(f"http unload {httpd}")
+    # print(f"server_thread.is_alive() {server_thread}")
     if httpd:
-        obs.script_log(obs.LOG_INFO, "Stopping HTTP Server...")
+        # print(obs.LOG_INFO, "Stopping HTTP Server...")
         httpd.shutdown()
         httpd.server_close()
-        obs.script_log(obs.LOG_INFO, "HTTP Server closed")
+        # print(obs.LOG_INFO, "HTTP Server closed")
         
     # if server_thread and server_thread.is_alive():
     #     server_thread.join(timeout=1.0)
-    #     obs.script_log(obs.LOG_INFO, "HTTP Server Thread Cleanly Shut Down.")
+    #     print(obs.LOG_INFO, "HTTP Server Thread Cleanly Shut Down.")
 
     # remove signal handlers to keyHotkey text source
-    print(f"source name {SOURCE_NAME}")
+    # print(f"source name {SOURCE_NAME}")
     source = obs.obs_get_source_by_name(SOURCE_NAME)
-    print(f"source object {source}")
+    # print(f"source object {source}")
     try:
         if source:
             handler = obs.obs_source_get_signal_handler(source)
@@ -218,11 +221,11 @@ def on_event(event):
     global scene_collection_processed
 
     # 1. Print every event ID received (this is the integer value)
-    obs.script_log(obs.LOG_INFO, f"[EVENT ID] Received: {event}")
+    print(obs.LOG_INFO, f"[EVENT ID] Received: {event}")
 
     # 2. Execute core logic only on the Scene Collection Loaded event
     if event == obs.OBS_FRONTEND_EVENT_FINISHED_LOADING:
-        obs.script_log(obs.LOG_INFO, f"** Matched target event ID: {event} OBS_FRONTEND_EVENT_FINISHED_LOADING (Scene Collection Loaded) **")
+        print(obs.LOG_INFO, f"** Matched target event ID: {event} OBS_FRONTEND_EVENT_FINISHED_LOADING (Scene Collection Loaded) **")
         attach_signal()
         
 '''

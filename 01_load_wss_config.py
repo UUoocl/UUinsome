@@ -11,7 +11,7 @@ import json
 
 def generate_wss_details(source_path):
     """
-    Validates the source file and generates wssDetails.js.
+    Validates the source file and generates websocketDetails.js.
     Returns: (Success_Boolean, Status_Message)
     """
     if not source_path:
@@ -34,8 +34,7 @@ def generate_wss_details(source_path):
 
         # 3. Generate Output
         target_dir = script_path()
-        destination = os.path.join(target_dir, "wssDetails.js")
-
+        destination = os.path.join(target_dir,"obs_webSocket_details/", "websocketDetails.js")
         new_data = {
             "IP": "localhost",
             "PW": source_data["server_password"],
@@ -45,9 +44,9 @@ def generate_wss_details(source_path):
         json_string = json.dumps(new_data, ensure_ascii=False)
 
         with open(destination, "w", encoding="utf-8") as outfile:
-            outfile.write(f"let wssDetails = {json_string}")
+            outfile.write(f"let websocketDetails = {json_string}")
 
-        return True, "Success! wssDetails.js created."
+        return True, "Success! websocketDetails.js created."
 
     except json.JSONDecodeError:
         return False, "Error: Selected file is not valid JSON."
@@ -86,9 +85,18 @@ def script_description():
     <p>linuxs: ...</p>
     """
 
-def script_update(settings):
+def script_load(settings):
     """
     Called on script load. We run the logic once to ensure consistency,
+    but we don't force a UI refresh here (it happens automatically on load).
+    """
+    path = obs.obs_data_get_string(settings, "source_file_path")
+    success, message = generate_wss_details(path)
+    obs.obs_data_set_string(settings, "status_text", message)
+
+def script_update(settings):
+    """
+    Called on script update. We run the logic once to ensure consistency,
     but we don't force a UI refresh here (it happens automatically on load).
     """
     path = obs.obs_data_get_string(settings, "source_file_path")

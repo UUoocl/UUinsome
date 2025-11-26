@@ -112,7 +112,6 @@ def script_load(settings):
     print("loading mouse script")
     script_settings = settings  # Store OBS settings
 
-    
     click_bool = obs.obs_data_get_bool(settings, "click_bool")
     position_bool = obs.obs_data_get_bool(settings, "position_bool")
     scroll_bool = obs.obs_data_get_bool(settings, "scroll_bool")
