@@ -1,0 +1,1 @@
+let websocketDetails = {"IP": "localhost", "PW": "0u6Q1Rz1XEIedlPT", "PORT": 4455}

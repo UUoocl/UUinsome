@@ -1,0 +1,1 @@
+let wssDetails = {"IP": "localhost", "PW": "LrFwdpGRcB56DV0Y", "PORT": 4455}
