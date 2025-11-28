@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <title>OBS GetUserMedia</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+   <style>
+.axes {
+  padding: 1em;
+}
+
+.buttons {
+  margin-left: 1em;
+}
+
+/*meter*/.axis {
+  min-width: 200px;
+  margin: 1em;
+}
+
+.button {
+  display: inline-block;
+  width: 1em;
+  text-align: center;
+  padding: 1em;
+  border-radius: 20px;
+  border: 1px solid black;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAAXNSR0IArs4c6QAAAAxJREFUCNdjYPjPAAACAgEAqiqeJwAAAABJRU5ErkJggg==);
+  background-size: 0% 0%;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+
+.pressed {
+  border: 1px solid red;
+}
+
+.touched::after {
+  content: "touch";
+  display: block;
+  position: absolute;
+  margin-top: -0.2em;
+  margin-left: -0.5em;
+  font-size: 0.8em;
+  opacity: 0.7;
+}
+</style>
+</head>
+
+<body>
+    <article class="contents">
+        <section>
+            <div id="input-gamepad-controller">
+                <h3>
+                <!-- <input type="checkbox" id="gamepad-load"/> -->
+                        Gamepad</h3>
+                <div id="gamepad-display" style="display:inline;">
+                    <p>https://github.com/luser/gamepadtest</p>
+                    <h4 id="startGP">Press a button on your controller to start</h2>
+                        <div id="gpData"></div>
+                    </div>
+                </div>
+        </section>
+    </article>
+
+    <script src="lib/obs-ws.js"></script>
+    <script src="obs_webSocket_details/websocketDetails.js"></script>
+    <script src="lib/obsWssConnectionManager.js"></script>
+
+    <script>
+        obsWss.on("Identified", async (data) => {
+        //     const pollGamepads = () => {
+        //     // Always call `navigator.getGamepads()` inside of
+        //     // the game loop, not outside.
+        //     const gamepads = navigator.getGamepads();
+        //     for (const gamepad of gamepads) {
+        //         // Disregard empty slots.
+        //         if (!gamepad) {
+        //         continue;
+        //         }
+        //         // Process the gamepad state.
+        //         console.log(gamepad);
+        //     }
+        //     // Call yourself upon the next animation frame.
+        //     // (Typically this happens every 60 times per second.)
+        //     window.requestAnimationFrame(pollGamepads);
+        //     };
+        //     // Kick off the initial game loop iteration.
+        //     pollGamepads();
+        });
+    </script>
+
+    <script src="lib/gamepad_input.js"></script>
+    </body>
+</html>
+

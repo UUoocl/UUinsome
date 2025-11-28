@@ -6,7 +6,7 @@ import os
 import json
 
 # -------------------------------------------------------------------
-# CORE LOGIC
+# region CORE LOGIC
 # -------------------------------------------------------------------
 
 def generate_wss_details(source_path):
@@ -52,6 +52,8 @@ def generate_wss_details(source_path):
         return False, "Error: Selected file is not valid JSON."
     except Exception as e:
         return False, f"Error: {str(e)}"
+# endregion
+# -------------------------------------------------------------------
 
 # -------------------------------------------------------------------
 # CALLBACKS

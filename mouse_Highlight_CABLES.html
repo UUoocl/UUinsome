@@ -44,6 +44,7 @@
     <script src="lib/obs-ws.js"></script>
     <script src="obs_webSocket_details/websocketDetails.js"></script>
     <script src="lib/obsWssConnectionManager.js"></script>
+
     <!-- <script src="lib/SCRIPT_FOR_THIS_Page.js"></script> -->
   
     <script>
@@ -58,14 +59,23 @@
         
         window.addEventListener("load", (event) => {
         //wait for obs to add the css variables
-        setTimeout(()=>{
-            mouseOffsetX = Number(getComputedStyle(document.body).getPropertyValue('--mouse-offset-x'));
-            mouseOffsetY = Number(getComputedStyle(document.body).getPropertyValue('--mouse-offset-y'))
+        //setTimeout(()=>{
+          //  mouseOffsetX = Number(getComputedStyle(document.body).getPropertyValue('--mouse-offset-x'));
+            //mouseOffsetY = Number(getComputedStyle(document.body).getPropertyValue('--mouse-offset-y'))
             // console.log(`mouseOffsetX: ${mouseOffsetX}, mouseOffsetY: ${mouseOffsetY}`);
-        }, 100);
+        //}, 100);
         });
 
-      window.addEventListener(`mouseBoundary`, async function (event) {
+              //get css variables on load
+      obsWss.on("Identified", function() {
+        displayXmin = Number(getComputedStyle(document.body).getPropertyValue('--display-x-min'));
+        displayXmax = Number(getComputedStyle(document.body).getPropertyValue('--display-x-max'));
+        displayYmin = Number(getComputedStyle(document.body).getPropertyValue('--display-y-min'));
+        displayYmax = Number(getComputedStyle(document.body).getPropertyValue('--display-y-max'));
+      
+      })
+  
+        window.addEventListener(`mouseBoundary`, async function (event) {
         //event wss details
         console.log("message received: ", event)
         if (event.detail.hasOwnProperty('mouseBoundary')) {
@@ -77,6 +87,26 @@
         }
       })
 
+      //p5 map constrain
+      let map = (n, start1, stop1, start2, stop2) => {
+            // p5._validateParameters('map', arguments);
+            const newval = (n - start1) / (stop1 - start1) * (stop2 - start2) + start2;
+            return newval;
+            if (!withinBounds) {
+                return newval;
+            }
+            if (start2 < stop2) {
+            return constrain(newval, start2, stop2);
+            } else {
+            return constrain(newval, stop2, start2);
+            }
+        };
+
+        let constrain = (n, low, high) => {
+            // p5._validateParameters('constrain', arguments);
+            return Math.max(Math.min(n, high), low);
+        };
+    
         obsWss.on("InputSettingsChanged", async function (event) {
             //console.log(event);
             switch (event.inputName) {
@@ -87,13 +117,10 @@
                     //     mousePosition[0] = ((mousePosition[0] - inMinX) * (outMaxX - outMinX)) / (inMaxX - inMinX) + outMinX;
                     //     mousePosition[1] = window.innerHeight - ((mousePosition[1] - inMinY) * (outMaxY - outMinY)) / (inMaxY - inMinY) + outMinY;
                     //   }
-                    mousePosX = Number(mousePosition[0])
-                    if (mouseOffsetY != 0) {
-                        mousePosY = Number(mouseOffsetY) - Number(mousePosition[1])
-                    } else {
-                        mousePosY = Number(mousePosition[1]);
-                    }
-                    // console.log(mousePosition);
+                    mousePosX = Math.round(map(Number(mousePosition[0]), displayXmin, displayXmax, 0, window.innerWidth));
+                    mousePosY = Math.round(map(Number(mousePosition[1]), displayYmin, displayYmax, 0, window.innerHeight));
+                
+                    // console.log(mousePosX, mousePosY);
 
                     if (mousePosition) {
                         // get the current value
@@ -101,7 +128,7 @@
                         const varMouseY = CABLES.patch.getVar("MouseInY");
                         const currentValueX = varMouseX.getValue();
                         const currentValueY = varMouseY.getValue();
-                        console.log("currentValueX: ", currentValueX, "currentValueY: ", currentValueY);
+                        // console.log("currentValueX: ", currentValueX, "currentValueY: ", currentValueY);
 
                         //get previous value variables
                         const varPreviousMouseX = CABLES.patch.getVar("prevMousePosX");
