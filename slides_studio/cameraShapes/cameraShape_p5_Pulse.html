@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="../lib/p5.min.js"></script>
+    <script>
+        let direction = "grow";
+        let x = 800;
+        let y = 800;
+
+        function setup() {
+            createCanvas(1920, 1080);
+        }
+        
+        function draw() {
+            clear()
+            background(0,0,0,255);
+            console.log(x)
+            if(direction === "grow"){
+            // growing circle
+                x = lerp(x, 1000, 0.05);
+                y = lerp(x, 1000, 0.05);
+  
+            }
+            
+            if(direction === "shrink"){
+                x = lerp(x, 800, 0.05);
+                y = lerp(x, 800, 0.05);
+            }
+
+            // Draw the circle.
+
+            fill(255,255,255,255)
+            ellipse(width/2, height/2, x, y);
+
+            if (x > 999){direction = "shrink"}
+            
+            if (x < 801){direction = "grow"}
+        }
+
+        window.addEventListener('shape-changed', async (event) => {
+            let data = JSON.parse(event.detail.webSocketMessage);
+            console.log("received shape changed: ",data);
+            if (data.shape === "circle") {
+             noLoop();
+            } 
+            
+            if (data.shape === "square") {
+                noLoop();
+            }
+        
+        })
+
+    </script>
+</body>
+</html>

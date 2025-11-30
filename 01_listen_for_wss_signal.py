@@ -22,12 +22,13 @@ def get_output_file_path():
 def write_text_to_file(text):
     """Writes the provided text to the output file."""
     file_path = get_output_file_path()
-    try:
-        with open(file_path, "w", encoding="utf-8") as f:
-            f.write(f"let websocketDetails = {text}")
-            print(f"[{SOURCE_NAME}] Updated file: {text}")
-    except Exception as e:
-        print(f"[{SOURCE_NAME}] Error writing to file: {e}")
+    if(len(text)>0):
+        try:
+            with open(file_path, "w", encoding="utf-8") as f:
+                f.write(f"let websocketDetails = {text}")
+                print(f"[{SOURCE_NAME}] Updated file: {text}")
+        except Exception as e:
+            print(f"[{SOURCE_NAME}] Error writing to file: {e}")
 
 # ------------------------------------------------------------
 # Signal Callback
@@ -39,8 +40,9 @@ def on_source_update(calldata):
     if source:
         settings = obs.obs_source_get_settings(source)
         text_content = obs.obs_data_get_string(settings, "text")
-        
         write_text_to_file(text_content)
+        
+        obs.obs_data_set_string(settings, "text", "")
         
         obs.obs_data_release(settings)
         obs.obs_source_release(source)
@@ -85,7 +87,7 @@ def on_frontend_event(event):
         obs.obs_frontend_remove_event_callback(on_frontend_event)
 
 # ------------------------------------------------------------
-# Script Lifecycle
+# OBS SCRIPT FUNCTIONS
 # ------------------------------------------------------------
 
 def script_description():

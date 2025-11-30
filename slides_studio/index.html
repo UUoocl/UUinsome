@@ -1,0 +1,845 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+
+    <title>Slides Studio</title>
+
+    <style>
+      body {
+        font-family: Helvetica;
+        font-size: 18px;
+      }
+
+      #current-slide,
+      #upcoming-slide,
+      #speaker-controls {
+        padding: 6px;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+      }
+
+      #current-slide iframe,
+      #upcoming-slide iframe {
+        width: 100%;
+        height: 100%;
+        border: 1px solid #ddd;
+      }
+
+      #current-slide .label,
+      #upcoming-slide .label {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        z-index: 2;
+      }
+
+      .connection-status {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 20;
+        padding: 0% 20% 20% 20%;
+        font-size: 18px;
+        color: #222;
+        background: #fff;
+        text-align: center;
+        box-sizing: border-box;
+        line-height: 1.4;
+      }
+
+      .overlay-element {
+        height: 34px;
+        line-height: 34px;
+        padding: 0 10px;
+        text-shadow: none;
+        background: rgba(220, 220, 220, 0.8);
+        color: #222;
+        font-size: 14px;
+      }
+
+      .overlay-element.interactive:hover {
+        background: rgba(220, 220, 220, 1);
+      }
+
+      #current-slide {
+        position: absolute;
+        width: 60%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        padding-right: 0;
+      }
+
+      #upcoming-slide {
+        position: absolute;
+        width: 40%;
+        height: 40%;
+        right: 0;
+        top: 0;
+      }
+
+      /* Speaker controls */
+      #speaker-controls {
+        position: absolute;
+        top: 40%;
+        right: 0;
+        width: 40%;
+        height: 60%;
+        overflow: auto;
+        font-size: 18px;
+      }
+
+      .speaker-controls-time.hidden,
+      .speaker-controls-notes.hidden {
+        display: none;
+      }
+
+      .speaker-controls-time .label,
+      .speaker-controls-pace .label,
+      .speaker-controls-notes .label {
+        text-transform: uppercase;
+        font-weight: normal;
+        font-size: 0.66em;
+        color: #666;
+        margin: 0;
+      }
+
+      .speaker-controls-time,
+      .speaker-controls-pace {
+        border-bottom: 1px solid rgba(200, 200, 200, 0.5);
+        margin-bottom: 10px;
+        padding: 10px 16px;
+        padding-bottom: 20px;
+        cursor: pointer;
+      }
+
+      .speaker-controls-time .reset-button {
+        opacity: 0;
+        float: right;
+        color: #666;
+        text-decoration: none;
+      }
+      .speaker-controls-time:hover .reset-button {
+        opacity: 1;
+      }
+
+      .speaker-controls-time .timer,
+      .speaker-controls-time .clock {
+        width: 50%;
+      }
+
+      .speaker-controls-time .timer,
+      .speaker-controls-time .clock,
+      .speaker-controls-time .pacing .hours-value,
+      .speaker-controls-time .pacing .minutes-value,
+      .speaker-controls-time .pacing .seconds-value {
+        font-size: 1.9em;
+      }
+
+      .speaker-controls-time .timer {
+        float: left;
+      }
+
+      .speaker-controls-time .clock {
+        float: right;
+        text-align: right;
+      }
+
+      .speaker-controls-time span.mute {
+        opacity: 0.3;
+      }
+
+      .speaker-controls-time .pacing-title {
+        margin-top: 5px;
+      }
+
+      .speaker-controls-time .pacing.ahead {
+        color: blue;
+      }
+
+      .speaker-controls-time .pacing.on-track {
+        color: green;
+      }
+
+      .speaker-controls-time .pacing.behind {
+        color: red;
+      }
+
+      .speaker-controls-notes {
+        padding: 10px 16px;
+      }
+
+      .speaker-controls-notes .value {
+        margin-top: 5px;
+        line-height: 1.4;
+        font-size: 1.2em;
+      }
+
+      /* Layout selector */
+      #speaker-layout {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        color: #222;
+        z-index: 10;
+      }
+      #speaker-layout select {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        border: 0;
+        box-shadow: 0;
+        cursor: pointer;
+        opacity: 0;
+
+        font-size: 1em;
+        background-color: transparent;
+
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+      }
+
+      #speaker-layout select:focus {
+        outline: none;
+        box-shadow: none;
+      }
+
+      .clear {
+        clear: both;
+      }
+
+      /* Speaker layout: Wide */
+      body[data-speaker-layout="wide"] #current-slide,
+      body[data-speaker-layout="wide"] #upcoming-slide {
+        width: 50%;
+        height: 45%;
+        padding: 6px;
+      }
+
+      body[data-speaker-layout="wide"] #current-slide {
+        top: 0;
+        left: 0;
+      }
+
+      body[data-speaker-layout="wide"] #upcoming-slide {
+        top: 0;
+        left: 50%;
+      }
+
+      body[data-speaker-layout="wide"] #speaker-controls {
+        top: 45%;
+        left: 0;
+        width: 100%;
+        height: 50%;
+        font-size: 1.25em;
+      }
+
+      /* Speaker layout: Tall */
+      body[data-speaker-layout="tall"] #current-slide,
+      body[data-speaker-layout="tall"] #upcoming-slide {
+        width: 45%;
+        height: 50%;
+        padding: 6px;
+      }
+
+      body[data-speaker-layout="tall"] #current-slide {
+        top: 0;
+        left: 0;
+      }
+
+      body[data-speaker-layout="tall"] #upcoming-slide {
+        top: 50%;
+        left: 0;
+      }
+
+      body[data-speaker-layout="tall"] #speaker-controls {
+        padding-top: 40px;
+        top: 0;
+        left: 45%;
+        width: 55%;
+        height: 100%;
+        font-size: 1.25em;
+      }
+
+      /* Speaker layout: Notes only */
+      body[data-speaker-layout="notes-only"] #current-slide,
+      body[data-speaker-layout="notes-only"] #upcoming-slide {
+        display: none;
+      }
+
+      body[data-speaker-layout="notes-only"] #speaker-controls {
+        padding-top: 40px;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        font-size: 1.25em;
+      }
+
+/* Speaker layout: Teleprompter */
+body[data-speaker-layout="teleprompter"] #current-slide,
+               body[data-speaker-layout="teleprompter"] #upcoming-slide {
+                    width: 50%;
+                    height: 30%;
+                    padding: 6px;
+               }
+
+               body[data-speaker-layout="teleprompter"] #current-slide {
+                    top: 0;
+                    left: 0;
+               }
+
+               body[data-speaker-layout="teleprompter"] #upcoming-slide {
+                    top: 0;
+                    left: 50%;
+               }
+
+               body[data-speaker-layout="teleprompter"] #speaker-controls {
+                    top: 30%;
+                    left: 0;
+                    width: 100%;
+                    height: 70%;
+                    font-size: 1.25em;
+               }
+
+      @media screen and (max-width: 1080px) {
+        body[data-speaker-layout="default"] #speaker-controls {
+          font-size: 16px;
+        }
+      }
+
+      @media screen and (max-width: 900px) {
+        body[data-speaker-layout="default"] #speaker-controls {
+          font-size: 14px;
+        }
+      }
+
+      @media screen and (max-width: 800px) {
+        body[data-speaker-layout="default"] #speaker-controls {
+          font-size: 12px;
+        }
+      }  
+
+        /* 2 column form grid layout         */
+        .form-grid {
+            display:grid;
+            grid-template-columns: 350px 150px;
+        }
+
+        .form-button{
+            padding: 2px;
+            margin: 10px 10px 0 0;
+        }
+        
+        .slide-location{
+            width: 500px
+        }
+	  </style>
+</head>
+
+<body>
+  <div id="connection-status" class="connection-status">    
+    <div id="slidesLocation">
+      <h2>Slides Studio settings</h2>
+      <h3>Open a Slides deck</h3>
+      <form>
+        <div>
+          <label for="configName">Enter the shared Slides link:</label>
+        </div>
+        <input class="slide-location" type="text" id="location" name="locationName" list="configNameValues"
+        placeholder="https://slides.com/username/deck-id/" />
+        <datalist id="slideLocations">
+        </datalist>
+        <!-- <div id="openSlidesButton">
+          <input class="form-button" type="button" value="Open Slides" />
+        </div> -->
+      </form>
+    </div>
+    
+    <div id="connectToOBS">
+      <h3>Open OBS</h3>
+      <form class="form-grid" id="obsData">
+        <label for="configName">Enter a configuration name:</label>
+        <input type="text" id="configName" name="configName" list="configNameValues" placeholder="Slides" />
+        <datalist id="configNameValues">
+          
+        </datalist>
+        <label for="obsName" id="obsNameLabel">Enter OBS app name:</label>
+        <input type="text" id="obsName" name="obsName" value="OBS" />
+        <label for="profileName">Enter OBS Profile name:</label>
+        <input type="text" id="profileName" name="profileName" value="720vc" />
+        <label for="collectionName">Enter OBS Collection name:</label>
+        <input type="text" id="collectionName" name="collectionName" value="slides collection" />
+        <label for="IP">Enter IP address or "localhost":</label>
+        <input type="text" id="IP" name="IP" value="localhost" disabled />
+        <label for="Port">Enter Port Number:</label>
+        <input type="text" id="Port" name="Port" value="4455" />
+        <label for="PW">Enter Password:</label>
+        <input type="password" id="PW" name="PW" value="" />
+        <label for="virtualCameraOn">Start Virtual Camera:</label>
+        <input type="checkbox" id="virtualCameraOn" name="virtualCameraOn" disabled unchecked />
+        <label for="Debug">Debug mode:</label>
+        <input type="checkbox" id="Debug" name="Debug" />
+        <p></p>
+        <div id="openOBSbutton">
+          <input class="form-button" type="button" value="Open OBS" />
+        </div>
+      </form>
+      <div>
+        <button id="copyCommand" class="form-button">Copy Command</button>
+        <input type="text" id="obsOpenCommand" />
+      </div>
+      
+      <div id="srvr">
+        <h3>Connect to the OBS WebSocket Server</h3>
+        <form class="form-grid">
+          <p></p><input class="form-button" type="button" id="WSconnectButton" value="Connect" />
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  <div id="current-slide" hidden></div>
+  <div id="upcoming-slide" hidden>
+    <span class="overlay-element label">Upcoming</span>
+  </div>
+  <div id="speaker-controls" hidden>
+    <div id="studio-table">
+    </div>
+    <div id="teleprompter">
+      
+    </div>
+  </div>
+  <div id="speaker-layout" class="overlay-element interactive" hidden>
+    <span class="speaker-layout-label"></span>
+    <select class="speaker-layout-dropdown"></select>
+  </div>
+  
+  <script src="../lib/obs-ws.js"></script>
+  <script src="../obs_webSocket_details/websocketDetails.js"></script>
+  <script src="../lib/obsWssConnectionManager.js"></script>
+  <script src='lib/obsOpen.js'></script>
+  <script id ="setupForm">
+    window.addEventListener("load", (event) => {
+      console.log("page is fully loaded");
+      if (localStorage.getItem("wssDetails")) {
+        const wssDetails = JSON.parse(window.localStorage.getItem('wssDetails'))
+        document.getElementById("IP").value = wssDetails?.IP;
+        document.getElementById("Port").value = wssDetails?.PORT;
+        document.getElementById("PW").value = wssDetails?.PW;
+      }
+      //add button event listeners
+      document
+        .getElementById("configName")
+        .addEventListener('change', configSelected);
+
+      document
+        .getElementById("obsData")
+        .addEventListener('change', obsLaunchCommand);
+
+      document
+        .getElementById("openOBSbutton")
+        .addEventListener('click', openOBS);
+
+      document
+        .getElementById("copyCommand")
+        .addEventListener('click', (e) => {
+          console.log(e)
+          copyCode(e.target.id, "obsOpenCommand", e.target.innerText)
+        });
+
+      document
+          .getElementById("WSconnectButton")
+          .addEventListener("click", wsConnect);
+    })
+  </script>
+  <script id="setupSpeakerView">
+    
+      console.log("Iframe SpeakerView")
+      let notes,
+      notesValue,
+      currentSlide,
+      upcomingSlide,
+      notesIframe,
+      studioIframe,
+      layoutLabel,
+      layoutDropdown,
+      pendingCalls = {},
+      lastRevealApiCallId = 0,
+      connected = false,
+      scroller,
+      slideDeck,
+      deckName,
+      slideDeckURL;
+      
+      let slidesArray = []
+      let slidesLoaded = false;
+      let tableLoaded = false;
+      
+      function loadSpeakerView(){
+        document.getElementById("connection-status").hidden = true;
+        document.getElementById("current-slide").hidden = false;
+        document.getElementById("upcoming-slide").hidden = false;
+        document.getElementById("speaker-controls").hidden = false;
+        document.getElementById("speaker-layout").hidden = false;
+        
+        //create element
+        //set slides url
+        slideDeckURL = new URL(document.getElementById("location").value)
+        if(slideDeckURL.origin === "https://slides.com"){
+          slideDeck = `${document.getElementById("location").value}/fullscreen`
+          loadScript('lib/getSlideData-slides_com.js')
+        } else {
+          slideDeck = `${document.getElementById("location").value}`
+          loadScript("lib/getSlideData-localhost.js")
+        }
+        
+        //send slide url to OBS browser source
+        sendToOBS({url: slideDeck}, "set-slides-studio-url");
+        
+        connectionStatus.style.display = "none";
+        setupLayout();
+        setupIframes();
+        handleConnectMessage();
+        window.document.getElementById("speaker-controls").focus();
+      }
+  
+  //
+	//#region speaker view settings
+	//
+   
+//#region teleprompter layout  
+		   window.document.getElementById("speaker-controls").focus();
+		   window.document.getElementById("speaker-controls").scrollTo(0, 0);
+		   
+		   //teleprompterScroll();
+		   /*
+		   * Notes teleprompter function, scroll the notes smoothly at a set speed
+		   */
+		  var scrollActive = 0;
+		  var play = true;
+		  var currentScroll = 0;
+		  var speed = 30;
+		  var label;
+		  var svFontSize;
+		  var svSettings;
+		  
+		  //get speakerview font size
+		  svFontSize = window.document.getElementById("teleprompterData");
+		  if (svFontSize) {
+			  svFontSize = svFontSize.getAttribute("data-speakerview-font-size");
+			  console.log("font size", svFontSize)
+			 } else {
+				 svFontSize = 100 //wssDetails.TeleprompterFontSize;
+			 }
+			 
+			 //get speaker view notes scroll speed
+			 speed = window.document.getElementById("teleprompterData");
+			 if (speed) {
+				 speed = Number(speed.getAttribute("data-speakerview-speed"));
+			 } else {
+				 speed = 50 //wssDetails.TeleprompterSpeed;
+			 }
+
+			 label = window.document.querySelector(".overlay-element.label");
+			  
+       function scrollPause() {
+        play = !play;
+        console.log("pause funciton", play)
+        clearInterval(scroller)
+			  //label.innerHTML = Number(currentScroll) +"; "+ Number(notes.scrollHeight) + "; "+ notes.clientHeight + "; Play: " + play+ ", Size: " + svFontSize + ", Speed: " + speed;
+        console.log(play, notesValue.innerHTML.length >0)
+        if(play && notesValue.innerHTML.length >0){
+          scroller = setInterval(scroll, speed);
+        }
+			  label.innerHTML = play ? "Play" + svSettings : "Pause" + svSettings;
+		 }
+
+
+//#endregion
+			
+// connection functions
+			var connectionStatus = document.querySelector("#connection-status");
+
+      var SPEAKER_LAYOUTS = {
+		    'teleprompter': 'Teleprompter',
+		    'studio': 'Studio',
+        default: "Default",
+        wide: "Wide",
+        tall: "Tall",
+        "notes-only": "Notes only"
+      };
+
+      /**
+       * Called when the main window is trying to establish a
+       * connection.
+       */
+      function handleConnectMessage() {
+        if (connected === false) {
+          connected = true;
+
+          setupKeyboard();
+        }
+      }
+
+      /**
+       * Called when the main window sends an updated state.
+       */
+      function handleStateMessage() {
+
+      }
+
+      // Limit to max one state update per X ms
+      handleStateMessage = debounce(handleStateMessage, 200);
+
+      /**
+       * Forward keyboard events to the current slide window.
+       * This enables keyboard events to work even if focus
+       * isn't set on the current slide iframe.
+       *
+       * Block F5 default handling, it reloads and disconnects
+       * the speaker notes window.
+       */
+      function setupKeyboard() {
+        const notes_iframe = document.getElementById("notes-iframe");
+        document.addEventListener("keydown", function (event) {
+          event.preventDefault();
+          if (
+            event.keyCode === 116 ||
+            (event.metaKey && event.keyCode === 82)
+          ) {
+            return false;
+          }
+          switch(event.keyCode){
+            //key : 1
+            case (49): setLayout("default"); break;
+            //key : 2
+            case (50): setLayout("wide"); break;
+            //key : 3
+            case (51): setLayout("tall"); break;
+            //key : 4
+            case (52): setLayout("notes-only"); break;
+            //key : 5
+            case (53): setLayout("teleprompter"); break;
+            //key : 6
+            case (54): setLayout("studio"); break;
+            //key : =
+            case (187): 
+              notes_iframe.contentWindow.postMessage(JSON.stringify({ namespace:"teleprompter", method: 'teleprompterChangeRequest', functionName: "increaseFont", value: 1 }), '*');
+              break;
+            //key : -
+            case (189): 
+              notes_iframe.contentWindow.postMessage(JSON.stringify({ namespace:"teleprompter", method: 'teleprompterChangeRequest', functionName: "decreaseFont", value: -1 }), '*');
+              break;
+            //key : 8
+            case (56): 
+              notes_iframe.contentWindow.postMessage(JSON.stringify({ namespace:"teleprompter", method: 'teleprompterChangeRequest', functionName: "decreaseSpeed", value: 1 }), '*');
+              break;
+            //key : 999
+            case (57): 
+              notes_iframe.contentWindow.postMessage(JSON.stringify({ namespace:"teleprompter", method: 'togglePlay', functionName: "playPause" }), '*');  
+              break;
+              //key : 0
+            case (48): 
+              notes_iframe.contentWindow.postMessage(JSON.stringify({ namespace:"teleprompter", method: 'teleprompterChangeRequest', functionName: "increaseSpeed", value: 1 }), '*');
+              break;
+          }
+          currentSlide.contentWindow.postMessage(
+            JSON.stringify({ method: "triggerKey", args: [event.keyCode] }),
+            "*"
+          );
+        });
+      }
+      
+      /**
+       * Creates the preview iframes.
+       */
+      function setupIframes() {
+        currentSlide = document.createElement("iframe");
+        currentSlide.setAttribute("width", 1280);
+        currentSlide.setAttribute("height", 1024);
+        currentSlide.setAttribute("src", `${slideDeck}?postMessageEvents=true`);
+        currentSlide.setAttribute("id", "current-iframe");
+        document.querySelector("#current-slide").appendChild(currentSlide);
+
+        upcomingSlide = document.createElement("iframe");
+        upcomingSlide.setAttribute("width", 640);
+        upcomingSlide.setAttribute("height", 512);
+        upcomingSlide.setAttribute("src", `${slideDeck}?postMessageEvents=false?postMessage=true`);
+        upcomingSlide.setAttribute("id", "upcoming-iframe");
+        document.querySelector("#upcoming-slide").appendChild(upcomingSlide);
+        
+        notesIframe = document.createElement("iframe");
+        notesIframe.setAttribute("width",'100%')
+        notesIframe.setAttribute("height",'100%')
+        notesIframe.setAttribute("src",`teleprompter.html`)
+        notesIframe.setAttribute("id", "notes-iframe");
+        document.getElementById("teleprompter").appendChild(notesIframe);
+
+        studioIframe = document.createElement("iframe");
+        studioIframe.setAttribute("width",'100%')
+        studioIframe.setAttribute("height",'100%')
+        studioIframe.setAttribute("src",`studio.html`)
+        studioIframe.setAttribute("id", "studio-iframe");
+        document.getElementById("studio-table").appendChild(studioIframe);
+      }
+
+      /**
+       * Setup the notes UI.
+       */
+      function setupNotes() {
+        
+      }
+
+      /**
+       * Sets up the speaker view layout and layout selector.
+       */
+      function setupLayout() {
+        layoutDropdown = document.querySelector(".speaker-layout-dropdown");
+        layoutLabel = document.querySelector(".speaker-layout-label");
+
+        // Render the list of available layouts
+        for (var id in SPEAKER_LAYOUTS) {
+          var option = document.createElement("option");
+          option.setAttribute("value", id);
+          option.textContent = SPEAKER_LAYOUTS[id];
+          layoutDropdown.appendChild(option);
+        }
+
+        // Monitor the dropdown for changes
+        layoutDropdown.addEventListener(
+          "change",
+          function (event) {
+            setLayout(layoutDropdown.value);
+          },
+          false
+        );
+
+        // Restore any currently persisted layout
+        setLayout(getLayout());
+      }
+
+      /**
+       * Sets a new speaker view layout. The layout is persisted
+       * in local storage.
+       */
+      function setLayout(value) {
+        console.log(SPEAKER_LAYOUTS)
+        var title = SPEAKER_LAYOUTS[value];
+        
+        layoutLabel.innerHTML = "Layout" + (title ? ": " + title : "");
+        layoutDropdown.value = value;
+        
+        console.log("set layout called", value, title)
+        value = layoutDropdown.value.toLowerCase();
+        // Persist locally
+        if (supportsLocalStorage()) {
+          window.localStorage.setItem("reveal-speaker-layout", value);
+        }
+
+        const tagTable = document.getElementById("studio-table")
+        const teleprompter = document.getElementById("teleprompter")
+        if(value === "teleprompter"){
+          teleprompter.hidden = false;
+          tagTable.hidden = true;
+        }
+
+        if(value === "studio"){
+          teleprompter.hidden = true;
+          tagTable.hidden = false;
+          value = 'teleprompter'
+        }
+      
+        document.body.setAttribute("data-speaker-layout", value);
+      }
+
+      /**
+       * Returns the ID of the most recently set speaker layout
+       * or our default layout if none has been set.
+       */
+      function getLayout() {
+        if (supportsLocalStorage()) {
+          var layout = window.localStorage.getItem("reveal-speaker-layout");
+          if (layout) {
+            return layout;
+          }
+        }
+
+        // Default to the first record in the layouts hash
+        for (var id in SPEAKER_LAYOUTS) {
+          return id;
+        }
+      }
+
+      function supportsLocalStorage() {
+        try {
+          localStorage.setItem("test", "test");
+          localStorage.removeItem("test");
+          return true;
+        } catch (e) {
+          return false;
+        }
+      }
+
+      /**
+       * Limits the frequency at which a function can be called.
+       */
+      function debounce(fn, ms) {
+        var lastTime = 0,
+          timeout;
+
+        return function () {
+          var args = arguments;
+          var context = this;
+
+          clearTimeout(timeout);
+
+          var timeSinceLastCall = Date.now() - lastTime;
+          if (timeSinceLastCall > ms) {
+            fn.apply(context, args);
+            lastTime = Date.now();
+          } else {
+            timeout = setTimeout(function () {
+              fn.apply(context, args);
+              lastTime = Date.now();
+            }, ms - timeSinceLastCall);
+          }
+        };
+      }
+
+      function loadScript(script, module = false, callback = false) {
+        const scriptElem = document.createElement("script");
+        scriptElem.src = `${script}`;
+        //scriptElem.async = script.async;
+        scriptElem.type = 'text/javascript';
+
+        if (module) {
+          scriptElem.type = 'module';
+        }
+
+        scriptElem.onload = () => {
+          console.log(`${script} Script loaded successfuly`);
+          if (callback) {
+            callback();
+          }
+        };
+
+        scriptElem.onerror = () => {
+          console.log(`${script} Error occurred while loading script`);
+        };
+        
+        document.body.appendChild(scriptElem);
+      }
+
+//#endregion
+    
+    </script>
+    <script src="lib/getOBSData.js"></script>
+    <script src="lib/slideSync_SpeakerView_Browser.js"></script> 
+  </body>
+</html>
