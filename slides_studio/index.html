@@ -497,13 +497,8 @@ body[data-speaker-layout="teleprompter"] #current-slide,
         } else {
           slideDeck = `${document.getElementById("location").value}`
           loadScript("lib/getSlideData-localhost.js")
-          //send localhost URL to OBS Browser Source
-          obsWss.call("SetInputSettings", {
-            inputName: 'slides',
-            inputSettings: {
-              url: `${slideDeckURL.origin}/slides-studio-main/slides_studio_OBS_browser_source.html`,
-            },
-          });
+          //send localhost URL to OBS Browser Sources
+          updateBrowserOrigin();
         }
         
         //send slide url to OBS browser source
@@ -841,6 +836,29 @@ body[data-speaker-layout="teleprompter"] #current-slide,
         };
         
         document.body.appendChild(scriptElem);
+      }
+
+      async function updateBrowserOrigin(){
+      //send localhost URL to OBS Browser Sources
+        let browserSources = await obsWss.call("GetInputList",{inputKind: "browser_source"})
+
+        for(let i=0; i<browserSources.inputs.length; i++){
+          const browserSettings = 
+            await obsWss.call("GetInputSettings", {
+              inputUuid: browserSources.inputs[i].inputUuid
+            })
+          console.log("BROWSER SETTINGS",browserSettings)  
+          const browserURL = new URL(browserSettings.inputSettings.url)
+          
+          console.log("browserURL",browserURL)
+          await obsWss.call("SetInputSettings", {
+            inputUuid: browserSources.inputs[i].inputUuid,
+            inputSettings: {
+              url: `${window.location.origin}${browserURL.pathname}`,
+            },
+          });
+        }
+        refreshOBSbrowsers()
       }
 
 //#endregion
