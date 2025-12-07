@@ -1,6 +1,6 @@
 {
-    "current_scene": "Scene Camera Over Slides",
-    "current_program_scene": "Scene Camera Over Slides",
+    "current_scene": "Set Camera",
+    "current_program_scene": "Set Camera",
     "scene_order": [
         {
             "name": "----------SETTINGS----------"
@@ -86,15 +86,23 @@
         }
     ],
     "transitions": [],
-    "saved_projectors": [],
+    "saved_projectors": [
+        {
+            "name": "slides local",
+            "monitor": -1,
+            "type": 0,
+            "geometry": "AdnQywADAAD///wdAAACSP///fwAAANx///8HQAAAmT///38AAADcQAAAAEAAAAABej///wdAAACZP///fwAAANx",
+            "alwaysOnTopOverridden": false
+        }
+    ],
     "canvases": [],
     "current_transition": "Fade",
     "transition_duration": 300,
     "preview_locked": false,
-    "scaling_enabled": true,
-    "scaling_level": -14,
-    "scaling_off_x": -11.478042602539062,
-    "scaling_off_y": -25.19300079345703,
+    "scaling_enabled": false,
+    "scaling_level": -1,
+    "scaling_off_x": 0.0,
+    "scaling_off_y": 0.0,
     "virtual-camera": {
         "type2": 3
     },
@@ -141,6 +149,7 @@
                 "highlightExecuted": false,
                 "highlightConditions": false,
                 "highlightActions": false,
+                "newMacroCheckInParallel": false,
                 "newMacroRegisterHotkey": false,
                 "newMacroUseShortCircuitEvaluation": false,
                 "saveSettingsOnMacroChange": true
@@ -211,6 +220,7 @@
             "showSystemTrayNotifications": false,
             "disableHints": false,
             "disableFilterComboboxFilter": false,
+            "disableMacroWidgetCache": false,
             "warnPluginLoadFailure": true,
             "hideLegacyTabs": true,
             "priority0": 10,
@@ -231,6 +241,12 @@
             "startHotkey": [],
             "stopHotkey": [],
             "toggleHotkey": [],
+            "newMacroHotkey": [
+                {
+                    "control": true,
+                    "key": "OBS_KEY_N"
+                }
+            ],
             "upMacroSegmentHotkey": [],
             "downMacroSegmentHotkey": [],
             "removeMacroSegmentHotkey": [],
@@ -287,13 +303,16 @@
                     "twitchConnectionTab": 16
                 },
                 {
-                    "websocketConnectionTab": 17
+                    "mqttConnectionTab": 17
                 },
                 {
-                    "variableTab": 18
+                    "websocketConnectionTab": 18
                 },
                 {
-                    "actionQueueTab": 19
+                    "variableTab": 19
+                },
+                {
+                    "actionQueueTab": 20
                 }
             ],
             "saveWindowGeo": false,
@@ -309,12 +328,34 @@
                     "pos": 811
                 }
             ],
-            "version": "0ee6feb529930e0bc6458bd8b58ec983ea9d3d9b",
+            "version": "bf7fe71ae39a9a0a782a224dedda14513b97dfc2",
             "twitchConnections": [],
+            "mqttConnections": [],
             "websocketConnections": [],
             "actionQueues": []
         },
-        "scripts-tool": [],
+        "scripts-tool": [
+            {
+                "path": "/Users/jonwood/Documents/myGithub/UUinsome/01_listen_for_wss_signal.py",
+                "settings": {}
+            },
+            {
+                "path": "/Users/jonwood/Documents/myGithub/UUinsome/01_load_wss_config.py",
+                "settings": {
+                    "status_text": "Please select a file."
+                }
+            },
+            {
+                "path": "/Users/jonwood/Documents/myGithub/UUinsome/01_send_wss_connect_event.py",
+                "settings": {
+                    "browser_event_hotkey": []
+                }
+            },
+            {
+                "path": "/Users/jonwood/Documents/myGithub/UUinsome/02_obs_python_local_http.py",
+                "settings": {}
+            }
+        ],
         "output-timer": {
             "streamTimerHours": 0,
             "streamTimerMinutes": 0,
@@ -341,7 +382,7 @@
     "version": 2,
     "sources": [
         {
-            "prev_ver": 520159233,
+            "prev_ver": 536870915,
             "name": "----------OPTIONS----------",
             "uuid": "30b380b1-7f65-47a0-a40a-8b60e5ac439a",
             "id": "scene",
@@ -372,7 +413,7 @@
             "private_settings": {}
         },
         {
-            "prev_ver": 520159233,
+            "prev_ver": 536870915,
             "name": "----------SCENES----------",
             "uuid": "e8dd8a96-8245-40b7-bc07-0ed4e63885bd",
             "id": "scene",
@@ -403,7 +444,7 @@
             "private_settings": {}
         },
         {
-            "prev_ver": 520159233,
+            "prev_ver": 536870915,
             "name": "----------SETTINGS----------",
             "uuid": "0d021fcf-58a3-4655-ab9a-941e04310aa6",
             "id": "scene",
@@ -434,7 +475,7 @@
             "private_settings": {}
         },
         {
-            "prev_ver": 520159233,
+            "prev_ver": 536870915,
             "name": "----------SOURCES----------",
             "uuid": "f419f136-c94d-4a90-822c-dd18bae87749",
             "id": "scene",
@@ -465,7 +506,7 @@
             "private_settings": {}
         },
         {
-            "prev_ver": 520159233,
+            "prev_ver": 536870915,
             "name": "Camera 1",
             "uuid": "71c7c89b-1884-416d-9ec9-c86c3776f3cc",
             "id": "macos-avcapture",
@@ -507,7 +548,33 @@
             "private_settings": {}
         },
         {
-            "prev_ver": 520159233,
+            "prev_ver": 536870915,
+            "name": "camera 1 placeholder",
+            "uuid": "6617abcf-a57a-4dab-9937-45398c6bcff5",
+            "id": "image_source",
+            "versioned_id": "image_source",
+            "settings": {
+                "file": "/Users/jonwood/Documents/myGithub/UUinsome/slides_studio/obs_Collections/camera 1 placeholder.png"
+            },
+            "mixers": 0,
+            "sync": 0,
+            "flags": 0,
+            "volume": 1.0,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": false,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {},
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
+            "private_settings": {}
+        },
+        {
+            "prev_ver": 536870915,
             "name": "Camera Full Off Center",
             "uuid": "8996bd8b-43fa-4d33-8395-fef35ab8b51f",
             "id": "scene",
@@ -653,7 +720,7 @@
             "private_settings": {},
             "filters": [
                 {
-                    "prev_ver": 520159233,
+                    "prev_ver": 536870915,
                     "name": "Luma Key",
                     "uuid": "b8efd78e-8b61-49af-bbf2-ab1b77d5bbe1",
                     "id": "luma_key_filter",
@@ -683,7 +750,7 @@
             ]
         },
         {
-            "prev_ver": 520159233,
+            "prev_ver": 536870915,
             "name": "Camera Full Screen",
             "uuid": "50ef12b5-0283-4a23-9c8d-c475587fed77",
             "id": "scene",
@@ -829,7 +896,7 @@
             "private_settings": {},
             "filters": [
                 {
-                    "prev_ver": 520159233,
+                    "prev_ver": 536870915,
                     "name": "Luma Key",
                     "uuid": "1222856c-3373-4b97-9083-4632b50cbe54",
                     "id": "luma_key_filter",
@@ -859,7 +926,7 @@
             ]
         },
         {
-            "prev_ver": 520159233,
+            "prev_ver": 536870915,
             "name": "Camera Lower Left",
             "uuid": "481bf261-4c25-49fe-912a-b93ae400f6f8",
             "id": "scene",
@@ -1005,7 +1072,7 @@
             "private_settings": {},
             "filters": [
                 {
-                    "prev_ver": 520159233,
+                    "prev_ver": 536870915,
                     "name": "Luma Key",
                     "uuid": "ee4fc477-2980-4e32-8999-cd3b24c9ce30",
                     "id": "luma_key_filter",
@@ -1035,7 +1102,7 @@
             ]
         },
         {
-            "prev_ver": 520159233,
+            "prev_ver": 536870915,
             "name": "Camera Lower Right",
             "uuid": "9dafaf62-a251-4bf3-ba04-81f288827757",
             "id": "scene",
@@ -1181,7 +1248,7 @@
             "private_settings": {},
             "filters": [
                 {
-                    "prev_ver": 520159233,
+                    "prev_ver": 536870915,
                     "name": "Luma Key",
                     "uuid": "1023ffdb-4787-4e70-9831-069613b038ad",
                     "id": "luma_key_filter",
@@ -1211,7 +1278,7 @@
             ]
         },
         {
-            "prev_ver": 520159233,
+            "prev_ver": 536870915,
             "name": "Camera Position",
             "uuid": "4f2c3b4c-9606-4b8f-972a-b8ff28185ab9",
             "id": "scene",
@@ -1223,7 +1290,7 @@
                     {
                         "name": "Camera Upper Left",
                         "source_uuid": "d62189f8-fe02-4408-bdee-d58ee35878e4",
-                        "visible": true,
+                        "visible": false,
                         "locked": false,
                         "rot": 0.0,
                         "scale_ref": {
@@ -1498,7 +1565,7 @@
                     {
                         "name": "Camera Full Screen",
                         "source_uuid": "50ef12b5-0283-4a23-9c8d-c475587fed77",
-                        "visible": false,
+                        "visible": true,
                         "locked": false,
                         "rot": 0.0,
                         "scale_ref": {
@@ -1585,7 +1652,7 @@
             "private_settings": {},
             "filters": [
                 {
-                    "prev_ver": 520159233,
+                    "prev_ver": 536870915,
                     "name": "Luma Key",
                     "uuid": "f8506901-5803-4853-ab24-c0eb87e69c7f",
                     "id": "luma_key_filter",
@@ -1609,7 +1676,7 @@
                     "private_settings": {}
                 },
                 {
-                    "prev_ver": 520159233,
+                    "prev_ver": 536870915,
                     "name": "Chroma Key",
                     "uuid": "c449c9b8-3269-4468-adad-a2af453242db",
                     "id": "chroma_key_filter",
@@ -1641,7 +1708,7 @@
             ]
         },
         {
-            "prev_ver": 520159233,
+            "prev_ver": 536870915,
             "name": "Camera Shape",
             "uuid": "74051577-8aa7-49ef-9ea6-2a2ef22dbbd2",
             "id": "scene",
@@ -1653,7 +1720,7 @@
                     {
                         "name": "cssSquare",
                         "source_uuid": "73b91793-f91f-4acf-9dfb-39b3441c50eb",
-                        "visible": false,
+                        "visible": true,
                         "locked": false,
                         "rot": 0.0,
                         "scale_ref": {
@@ -1928,7 +1995,7 @@
                     {
                         "name": "Circle",
                         "source_uuid": "0fe2e5f7-8ce0-4ad9-a9ff-3227bf39038f",
-                        "visible": true,
+                        "visible": false,
                         "locked": false,
                         "rot": 0.0,
                         "scale_ref": {
@@ -2129,7 +2196,7 @@
             "private_settings": {},
             "filters": [
                 {
-                    "prev_ver": 520159233,
+                    "prev_ver": 536870915,
                     "name": "Color Key",
                     "uuid": "01b364d3-1476-46d7-8153-2d70dce609c0",
                     "id": "color_key_filter",
@@ -2158,7 +2225,7 @@
                     "private_settings": {}
                 },
                 {
-                    "prev_ver": 520159233,
+                    "prev_ver": 536870915,
                     "name": "Color Key 2",
                     "uuid": "9e4f9925-1f7c-4ab8-a248-9a5bdbc67107",
                     "id": "color_key_filter",
@@ -2189,7 +2256,7 @@
             ]
         },
         {
-            "prev_ver": 520159233,
+            "prev_ver": 536870915,
             "name": "Camera Upper Left",
             "uuid": "d62189f8-fe02-4408-bdee-d58ee35878e4",
             "id": "scene",
@@ -2335,7 +2402,7 @@
             "private_settings": {},
             "filters": [
                 {
-                    "prev_ver": 520159233,
+                    "prev_ver": 536870915,
                     "name": "Luma Key",
                     "uuid": "f0b35e10-a62e-469d-b1bf-59c37df546a2",
                     "id": "luma_key_filter",
@@ -2365,7 +2432,7 @@
             ]
         },
         {
-            "prev_ver": 520159233,
+            "prev_ver": 536870915,
             "name": "Camera Upper Right",
             "uuid": "f9388282-290c-497e-93df-8c4bb6ea7e70",
             "id": "scene",
@@ -2511,7 +2578,7 @@
             "private_settings": {},
             "filters": [
                 {
-                    "prev_ver": 520159233,
+                    "prev_ver": 536870915,
                     "name": "Luma Key",
                     "uuid": "5cecdac7-6e75-4f4a-a28e-b0d46030cde4",
                     "id": "luma_key_filter",
@@ -2541,7 +2608,7 @@
             ]
         },
         {
-            "prev_ver": 520159233,
+            "prev_ver": 536870915,
             "name": "Circle",
             "uuid": "0fe2e5f7-8ce0-4ad9-a9ff-3227bf39038f",
             "id": "browser_source",
@@ -2575,7 +2642,7 @@
             "private_settings": {}
         },
         {
-            "prev_ver": 520159233,
+            "prev_ver": 536870915,
             "name": "cssAnimation_Circle",
             "uuid": "4ed53725-b926-47d2-8031-6f1b38181027",
             "id": "browser_source",
@@ -2610,7 +2677,7 @@
             "private_settings": {}
         },
         {
-            "prev_ver": 520159233,
+            "prev_ver": 536870915,
             "name": "cssAnimation_Square",
             "uuid": "e1f8245e-a031-4cb2-91a6-8a424d5902f8",
             "id": "browser_source",
@@ -2645,7 +2712,7 @@
             "private_settings": {}
         },
         {
-            "prev_ver": 520159233,
+            "prev_ver": 536870915,
             "name": "cssCircle",
             "uuid": "25fa494f-2740-4943-b49d-28415abb779c",
             "id": "browser_source",
@@ -2680,7 +2747,7 @@
             "private_settings": {}
         },
         {
-            "prev_ver": 520159233,
+            "prev_ver": 536870915,
             "name": "cssSquare",
             "uuid": "73b91793-f91f-4acf-9dfb-39b3441c50eb",
             "id": "browser_source",
@@ -2715,7 +2782,7 @@
             "private_settings": {}
         },
         {
-            "prev_ver": 520159233,
+            "prev_ver": 536870915,
             "name": "Full Screen",
             "uuid": "4d932745-9860-4d91-8837-f7e7338b0318",
             "id": "text_ft2_source",
@@ -2741,13 +2808,14 @@
             "private_settings": {}
         },
         {
-            "prev_ver": 520159233,
+            "prev_ver": 536870915,
             "name": "macOS Screen Capture",
             "uuid": "40c72b15-9893-4198-b2b8-89edaf6950f5",
             "id": "screen_capture",
             "versioned_id": "screen_capture",
             "settings": {
-                "display_uuid": "E0651CF3-B7A0-4796-9373-B16C872C027F",
+                "display_uuid": "37D8832A-2D66-02CA-B9F7-8F30A301B230",
+                "show_cursor": true,
                 "hide_obs": true
             },
             "mixers": 255,
@@ -2773,7 +2841,7 @@
             "private_settings": {}
         },
         {
-            "prev_ver": 520159233,
+            "prev_ver": 536870915,
             "name": "None",
             "uuid": "566dbfe3-0ea5-4d92-903f-3c666e562dbb",
             "id": "color_source",
@@ -2799,7 +2867,7 @@
             "private_settings": {}
         },
         {
-            "prev_ver": 520159233,
+            "prev_ver": 536870915,
             "name": "Over-the-Shoulder skewed",
             "uuid": "b34956a3-a127-4f72-9738-a200d66a58a2",
             "id": "text_ft2_source",
@@ -2825,7 +2893,7 @@
             "private_settings": {}
         },
         {
-            "prev_ver": 520159233,
+            "prev_ver": 536870915,
             "name": "Pulse",
             "uuid": "f9511b8b-23a8-4cfa-b1ae-8910d8db0e37",
             "id": "browser_source",
@@ -2861,7 +2929,7 @@
             "private_settings": {}
         },
         {
-            "prev_ver": 520159233,
+            "prev_ver": 536870915,
             "name": "Scene Camera Over Slides",
             "uuid": "4b8f14bf-9731-4fb2-a23b-641cac7feeac",
             "id": "scene",
@@ -3007,7 +3075,7 @@
             "private_settings": {}
         },
         {
-            "prev_ver": 520159233,
+            "prev_ver": 536870915,
             "name": "Scene Desktop",
             "uuid": "e17589ff-db22-4fe6-80c9-b5ce804eb0f1",
             "id": "scene",
@@ -3092,11 +3160,11 @@
                         "id": 4,
                         "group_item_backup": false,
                         "pos": {
-                            "x": 0.0,
+                            "x": 1.0,
                             "y": 0.0
                         },
                         "pos_rel": {
-                            "x": -1.7777777910232544,
+                            "x": -1.775925874710083,
                             "y": -1.0
                         },
                         "scale": {
@@ -3153,7 +3221,7 @@
             "private_settings": {}
         },
         {
-            "prev_ver": 520159233,
+            "prev_ver": 536870915,
             "name": "Scene Slides over Camera",
             "uuid": "5b65a153-227a-480e-9460-057ea2671b5b",
             "id": "scene",
@@ -3299,15 +3367,70 @@
             "private_settings": {}
         },
         {
-            "prev_ver": 520159233,
+            "prev_ver": 536870915,
             "name": "Set Camera",
             "uuid": "c5a30b1c-386b-4b41-bbdd-1684a80b2d54",
             "id": "scene",
             "versioned_id": "scene",
             "settings": {
-                "id_counter": 16,
+                "id_counter": 17,
                 "custom_size": false,
                 "items": [
+                    {
+                        "name": "camera 1 placeholder",
+                        "source_uuid": "6617abcf-a57a-4dab-9937-45398c6bcff5",
+                        "visible": true,
+                        "locked": false,
+                        "rot": 0.0,
+                        "scale_ref": {
+                            "x": 1920.0,
+                            "y": 1080.0
+                        },
+                        "align": 5,
+                        "bounds_type": 2,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 17,
+                        "group_item_backup": false,
+                        "pos": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "pos_rel": {
+                            "x": -1.7777777910232544,
+                            "y": -1.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "scale_rel": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "bounds": {
+                            "x": 1920.0,
+                            "y": 1080.0
+                        },
+                        "bounds_rel": {
+                            "x": 3.555555582046509,
+                            "y": 2.0
+                        },
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
+                    },
                     {
                         "name": "Camera 1",
                         "source_uuid": "71c7c89b-1884-416d-9ec9-c86c3776f3cc",
@@ -3383,7 +3506,9 @@
             "hotkeys": {
                 "OBSBasic.SelectScene": [],
                 "libobs.show_scene_item.1": [],
-                "libobs.hide_scene_item.1": []
+                "libobs.hide_scene_item.1": [],
+                "libobs.show_scene_item.17": [],
+                "libobs.hide_scene_item.17": []
             },
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
@@ -3392,7 +3517,7 @@
             "private_settings": {}
         },
         {
-            "prev_ver": 520159233,
+            "prev_ver": 536870915,
             "name": "Set Desktop",
             "uuid": "6148c53d-0ee9-4722-8de5-a543f7e67aa1",
             "id": "scene",
@@ -3481,7 +3606,7 @@
             "private_settings": {}
         },
         {
-            "prev_ver": 520159233,
+            "prev_ver": 536870915,
             "name": "Side-by-Side",
             "uuid": "1f4355d3-e46c-4e7f-a072-f09090629ab8",
             "id": "text_ft2_source",
@@ -3507,7 +3632,7 @@
             "private_settings": {}
         },
         {
-            "prev_ver": 520159233,
+            "prev_ver": 536870915,
             "name": "Slide Position",
             "uuid": "17cc3744-5000-40b7-bf61-11c75181a0d2",
             "id": "scene",
@@ -3519,7 +3644,7 @@
                     {
                         "name": "Over-the-Shoulder skewed",
                         "source_uuid": "b34956a3-a127-4f72-9738-a200d66a58a2",
-                        "visible": false,
+                        "visible": true,
                         "locked": false,
                         "rot": 0.0,
                         "scale_ref": {
@@ -3647,20 +3772,20 @@
                         "id": 3,
                         "group_item_backup": false,
                         "pos": {
-                            "x": 0.0,
-                            "y": 0.0
+                            "x": -1.0,
+                            "y": -3.0
                         },
                         "pos_rel": {
-                            "x": -1.7777777910232544,
-                            "y": -1.0
+                            "x": -1.7796295881271362,
+                            "y": -1.005555510520935
                         },
                         "scale": {
-                            "x": 1.0,
-                            "y": 1.0
+                            "x": 0.2753400504589081,
+                            "y": 0.2753365635871887
                         },
                         "scale_rel": {
-                            "x": 1.0,
-                            "y": 1.0
+                            "x": 0.2753400504589081,
+                            "y": 0.2753365635871887
                         },
                         "bounds": {
                             "x": 0.0,
@@ -3710,51 +3835,17 @@
             "private_settings": {}
         },
         {
-            "prev_ver": 520159233,
-            "name": "slides",
-            "uuid": "6a461c7a-d68a-4ffa-a435-2762754aeb21",
-            "id": "browser_source",
-            "versioned_id": "browser_source",
-            "settings": {
-                "url": "https://uuoocl.github.io/slides-studio/slides_studio_OBS_browser_source.html ",
-                "width": 1920,
-                "height": 1080
-            },
-            "mixers": 255,
-            "sync": 0,
-            "flags": 0,
-            "volume": 1.0,
-            "balance": 0.5,
-            "enabled": true,
-            "muted": false,
-            "push-to-mute": false,
-            "push-to-mute-delay": 0,
-            "push-to-talk": false,
-            "push-to-talk-delay": 0,
-            "hotkeys": {
-                "libobs.mute": [],
-                "libobs.unmute": [],
-                "libobs.push-to-mute": [],
-                "libobs.push-to-talk": [],
-                "ObsBrowser.Refresh": []
-            },
-            "deinterlace_mode": 0,
-            "deinterlace_field_order": 0,
-            "monitoring_type": 0,
-            "private_settings": {}
-        },
-        {
-            "prev_ver": 520159233,
+            "prev_ver": 536870915,
             "name": "Slides",
             "uuid": "17bcf915-68f7-4433-a6d7-2c55d3bd90d3",
             "id": "scene",
             "versioned_id": "scene",
             "settings": {
-                "id_counter": 7,
+                "id_counter": 8,
                 "custom_size": false,
                 "items": [
                     {
-                        "name": "slides",
+                        "name": "slides local",
                         "source_uuid": "6a461c7a-d68a-4ffa-a435-2762754aeb21",
                         "visible": true,
                         "locked": false,
@@ -3764,7 +3855,7 @@
                             "y": 1080.0
                         },
                         "align": 5,
-                        "bounds_type": 0,
+                        "bounds_type": 2,
                         "bounds_align": 0,
                         "bounds_crop": false,
                         "crop_left": 0,
@@ -3774,28 +3865,28 @@
                         "id": 1,
                         "group_item_backup": false,
                         "pos": {
-                            "x": -7.0,
-                            "y": -7.0
+                            "x": 0.0,
+                            "y": 0.0
                         },
                         "pos_rel": {
-                            "x": -1.790740728378296,
-                            "y": -1.0129629373550415
+                            "x": -1.7777777910232544,
+                            "y": -1.0
                         },
                         "scale": {
-                            "x": 1.0109374523162842,
-                            "y": 1.0111111402511597
+                            "x": 1.0,
+                            "y": 1.0
                         },
                         "scale_rel": {
-                            "x": 1.0109374523162842,
-                            "y": 1.0111111402511597
+                            "x": 1.0,
+                            "y": 1.0
                         },
                         "bounds": {
-                            "x": 0.0,
-                            "y": 0.0
+                            "x": 1920.0,
+                            "y": 1080.0
                         },
                         "bounds_rel": {
-                            "x": 0.0,
-                            "y": 0.0
+                            "x": 3.555555582046509,
+                            "y": 2.0
                         },
                         "scale_filter": "disable",
                         "blend_method": "default",
@@ -3833,7 +3924,42 @@
             "private_settings": {}
         },
         {
-            "prev_ver": 520159233,
+            "prev_ver": 536870915,
+            "name": "slides local",
+            "uuid": "6a461c7a-d68a-4ffa-a435-2762754aeb21",
+            "id": "browser_source",
+            "versioned_id": "browser_source",
+            "settings": {
+                "url": "http://localhost:3000/slides-studio/slides_studio_OBS_browser_source.html",
+                "width": 1920,
+                "height": 1080,
+                "fps_custom": true
+            },
+            "mixers": 255,
+            "sync": 0,
+            "flags": 0,
+            "volume": 1.0,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": false,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {
+                "libobs.mute": [],
+                "libobs.unmute": [],
+                "libobs.push-to-mute": [],
+                "libobs.push-to-talk": [],
+                "ObsBrowser.Refresh": []
+            },
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
+            "private_settings": {}
+        },
+        {
+            "prev_ver": 536870915,
             "name": "Square",
             "uuid": "76da82a8-74d7-4ffa-a5e1-348ff3f9fc17",
             "id": "browser_source",
