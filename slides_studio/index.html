@@ -497,6 +497,13 @@ body[data-speaker-layout="teleprompter"] #current-slide,
         } else {
           slideDeck = `${document.getElementById("location").value}`
           loadScript("lib/getSlideData-localhost.js")
+          //send localhost URL to OBS Browser Source
+          obsWss.call("SetInputSettings", {
+            inputName: 'slides',
+            inputSettings: {
+              url: `${slideDeckURL.origin}/slides-studio-main/slides_studio_OBS_browser_source.html`,
+            },
+          });
         }
         
         //send slide url to OBS browser source
