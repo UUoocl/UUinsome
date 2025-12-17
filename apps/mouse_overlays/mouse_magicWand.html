@@ -1,0 +1,73 @@
+  <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    
+  </head>
+  <body>
+    <main>
+    </main>
+    <script src="../lib/obs-ws.js"></script>
+    <script src="../obs_webSocket_details/websocketDetails.js"></script>
+    <script src="../lib/obsWssConnectionManager.js"></script>
+    
+    <script>
+      let viewMode, mouseBoundary;
+      let inMinX, inMaxX;
+      let inMinY, inMaxY;
+      let mousePosX = 0, mousePosY = 0;
+      let mouseOffsetX = 0;
+      let mouseOffsetY = 0; 
+      let displayWidth, displayHeight;
+      let displayXmin = 0;
+      let displayXmax = 0;
+      let displayYmin = 0;
+      let displayYmax = 0;
+      
+      //get css variables on load
+      obsWss.on("Identified", function() {
+        displayXmin = Number(getComputedStyle(document.body).getPropertyValue('--display-x-min'));
+        displayXmax = Number(getComputedStyle(document.body).getPropertyValue('--display-x-max'));
+        displayYmin = Number(getComputedStyle(document.body).getPropertyValue('--display-y-min'));
+        displayYmax = Number(getComputedStyle(document.body).getPropertyValue('--display-y-max'));
+      
+      })
+
+      window.addEventListener(`mouseBoundary`, async function (event) {
+        if (event.detail.hasOwnProperty('mouseBoundary')) {
+          mouseBoundary = event.detail.mouseBoundary;
+          inMinX = mouseBoundary.mouseBoundaryLeft; 
+          inMaxX = mouseBoundary.mouseBoundaryRight;
+          inMinY = mouseBoundary.mouseBoundaryTop
+          inMaxY = mouseBoundary.mouseBoundaryBottom;
+        }
+      })
+
+      obsWss.on("InputSettingsChanged", async function (event) {
+        switch (event.inputName) {
+          case 'MouseClick':
+            mousePressed(event.inputSettings.text); 
+            break;
+          case 'MouseLocation':
+              const mousePosition = event.inputSettings.text.split(",");
+              originalMouseX = Number(mousePosition[0]);      
+              originalMouseY = Number(mousePosition[1]);
+
+              mousePosX = Math.round(map(Number(mousePosition[0]), displayXmin, displayXmax, 0, window.innerWidth));
+              mousePosY = Math.round(map(Number(mousePosition[1]), displayYmin, displayYmax, 0, window.innerHeight));
+             
+            break;
+          // case 'view mode':
+          //   viewMode = event.inputSettings.text;
+          //   break;
+          default:
+            break;
+        }
+      })
+      
+      </script>
+    <script src="../lib/p5.min.js"></script>
+    <script src="sketch/magicWandMouse_Sketch.js"></script>
+    <script src="sketch/magicWandMouse_Class.js"></script>
+  </body>
+</html>

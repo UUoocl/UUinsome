@@ -1,0 +1,11 @@
+{
+	"id": "slides-studio",
+	"name": "Slides Studio",
+	"version": "0.0.1",
+	"minAppVersion": "1.9.0",
+	"description": "Sync presentations and OBS scene change.",
+	"author": "UUoocl",
+	"authorUrl": "https://github.com/UUoocl",
+	"fundingUrl": "https://github.com/sponsors/UUoocl",
+	"isDesktopOnly": true
+}

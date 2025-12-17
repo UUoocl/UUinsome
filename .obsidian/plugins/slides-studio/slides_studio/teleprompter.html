@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>TelePrompter</title>
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/jquery-ui.min.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/teleprompter.css">
+
+    <!-- Preload Assets -->
+    <link rel="preload" href="font/fontawesome-webfont.woff" as="font" type="font/woff2" crossorigin>
+  </head>
+
+  <body id="gui">
+    <header>
+      <h1><span class="clock">00:00:00</span></h1>
+      <nav>
+        <div class="colors" role="group" aria-label="Color Pickers">
+          <input type="color" id="text-color" value="#ffffff" aria-label="Text Color">
+          <input type="color" id="background-color" value="#141414" aria-label="Background Color">
+        </div>
+        <div class="sliders">
+          <label class="font_size_label" aria-label="Font Size">
+            Font <span>(60)</span>:&nbsp;
+            <div class="font_size slider"></div>
+          </label><br>
+          <label class="speed_label" aria-label="Page Speed">
+            Speed <span>(35)</span>:&nbsp;
+            <div class="speed slider"></div>
+          </label>
+        </div>
+        <div class="buttons" role="group" aria-label="TelePrompter Controls">
+          <button class="button small icon-eye-close dim-controls" aria-label="Dim While Reading" title="Dim While Reading" data-ga data-category="Nav" data-action="Control" data-label="Dim"></button>
+          <button class="button small icon-undo reset" aria-label="Reset TelePrompter" title="Reset TelePrompter" data-ga data-category="Nav" data-action="Control" data-label="Reset"></button>
+          <button class="button small icon-text-width flip-x" aria-label="Flip Text Horizontally" title="Flip Text Horizontally" data-ga data-category="Nav" data-action="Control" data-label="FlipX"></button>
+          <button class="button small icon-text-height flip-y" aria-label="Flip Text Vertically" title="Flip Text Vertically" data-ga data-category="Nav" data-action="Control" data-label="FlipY"></button>
+          <button class="button icon-play play active" aria-label="Play / Pause" title="Play / Pause TelePrompter" data-ga data-category="Nav" data-action="Control" data-label="Play"></button>
+        </div>
+      </nav>
+    </header>
+    <article>
+      <div class="overlay">
+        <div class="top"></div>
+        <div class="bottom"></div>
+      </div>
+      <div class="teleprompter" id="teleprompter" role="textbox" aria-multiline="true" aria-label="TelePrompter Text" contenteditable>
+        Oh, hello there. I did not see you come in. I was too busy reading off this TelePrompter. It does some pretty cool
+        things, for example:
+        <br><br>
+        You can edit the text right on the page. It'll even save it for you if you happen to leave the page. That's some
+        smart thinking.
+        <br><br>
+        If you're using an iPad, you can add a shortcut to your home screen for full screen awesomeness.
+        <br><br>
+        You can also use some handy keyboard shortcuts to speed things up. You can adjust the speed and font size at the
+        top right as well. We're also experimenting with ways to flip the text around for you fancy folks using mirrors.
+        <br><br>
+        The keyboard shortcuts are as follows:
+        <br><br>
+        Up: Increases Font Size
+        <br><br>
+        Down: Decreases Font Size
+        <br><br>
+        Left: Slows Down Teleprompter
+        <br><br>
+        Right: Speeds Up Teleprompter
+        <br><br>
+        Space: Starts / Stops Teleprompter
+        <br><br>
+        Escape: Resets Everything
+        <br><br>
+        Finally, we also made an effort to make sure your text will be easy to read. So if you are pasting text from a
+        Microsoft Word document, we'll do some cleaning up to make the breaks flow more easily.
+        <br><br>
+        Thanks for stopping by.
+        <br><br>
+        Love this TelePrompter?
+        <br><br>
+        <a href="https://github.com/manifestinteractive/teleprompter#project-support" contenteditable="false" class="sponsor-project" target="_blank" title="Support TelePrompter" aria-label="Support TelePrompter" data-ga data-category="Nav" data-action="Help" data-label="Support TelePrompter">
+          Support Our Work :)
+        </a><br><br>
+        Thanks !!!
+      </div>
+      <i class="icon-play marker" style="display: none"></i>
+    </article>
+
+    <script src="lib/teleprompter.plugins.v122.js"></script>
+    <script src="lib/teleprompter.js"></script>
+
+    <script>
+      // Initialize App
+      window.onload = function() {
+        TelePrompter.init();
+      };
+
+      window.addEventListener('message', (event) => {
+        console.log("Teleprompter iframe", event)
+        
+        if(event.origin === window.location.origin){
+          const parentMessage = JSON.parse(event.data)
+          if(parentMessage.method === "updateNotes"){
+            document.getElementById("teleprompter").innerHTML = JSON.parse(parentMessage.data);
+            TelePrompter.resetPageScroll();
+          }
+          //listen for changes and call the matching function.                                                                                                                                          
+          if(parentMessage.method === "teleprompterChangeRequest"){
+            console.log("change request", parentMessage.functionName)
+            TelePrompter[`${parentMessage.functionName}`](parentMessage?.value)
+          }
+          
+          if(parentMessage.method === "togglePlay"){
+            console.log("change request", parentMessage.functionName)
+            TelePrompter[`${parentMessage.functionName}`]()
+          }
+        
+        }
+      
+        });
+    </script>
+  </body>
+</html>
