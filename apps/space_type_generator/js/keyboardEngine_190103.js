@@ -168,8 +168,8 @@ function keyboardEngine() {
 
 function letter_A ( strX,  strY) {
   push();
-   
   beginShape();
+    fill('#00000000');
   vertex(0, typeY+strY);
   vertex(typeX/2+strX/2, 0);
   vertex(typeX+strX, typeY+strY);
@@ -187,6 +187,7 @@ function letter_a ( strX,  strY) {
    
  
   beginShape();
+    fill('#00000000');
   vertex(typeX+strX, typeY+strY);
   vertex(typeX+strX, typeY/2);
   bezierVertex(typeX+strX, typeY/2,  typeX+strX, typeY/4,  typeX/2+strX, typeY/4);
@@ -195,6 +196,7 @@ function letter_a ( strX,  strY) {
   endShape();
   
   beginShape();
+    fill('#00000000');
   vertex(typeX+strX, 3*typeY/4+strY);
   vertex(typeX+strX, 3*typeY/4);
   bezierVertex(typeX+strX, 3*typeY/4,  typeX+strX, typeY/2,  typeX/2+strX, typeY/2);
@@ -215,6 +217,7 @@ function letter_B ( strX,  strY) {
    
    
   beginShape();
+    fill('#00000000');
   vertex(0, typeY+strY);
   vertex(0, 0);
   vertex(typeX/2+strX, 0);
@@ -228,6 +231,7 @@ function letter_B ( strX,  strY) {
   push();
   translate(0, typeY/2+strY/2);
   beginShape();
+    fill('#00000000');
   vertex(0, 0);
   vertex(typeX/2+strX, 0);
   bezierVertex(typeX/2+strX, 0, typeX+strX, 0, typeX+strX, typeY/4);
@@ -245,6 +249,7 @@ function letter_b ( strX,  strY) {
     
   
   beginShape();
+    fill('#00000000');
   vertex(typeX+strX, typeY/2);
   bezierVertex(typeX+strX, typeY/2,  typeX+strX, typeY/4,  typeX/2+strX, typeY/4);
   vertex(typeX/2, typeY/4);
@@ -265,6 +270,7 @@ function letter_C ( strX,  strY) {
    
     
   beginShape();
+    fill('#00000000');
   vertex(typeX+strX, typeY/3);
   bezierVertex(typeX+strX, typeY/3, typeX+strX, 0, typeX/2+strX, 0);
   vertex(typeX/2, 0);
@@ -283,6 +289,7 @@ function letter_c ( strX,  strY) {
     
   
   beginShape();
+    fill('#00000000');
   vertex(typeX+strX, typeY/2);
   bezierVertex(typeX+strX, typeY/2,  typeX+strX, typeY/4,  typeX/2+strX, typeY/4);
   vertex(typeX/2, typeY/4);
@@ -301,6 +308,7 @@ function letter_D ( strX,  strY) {
    
     
   beginShape();
+    fill('#00000000');
   vertex(typeX+strX, typeY/3);
   bezierVertex(typeX+strX,typeY/3,  typeX+strX,0,  typeX/2+strX,0);
   vertex(0, 0);
@@ -319,6 +327,7 @@ function letter_d ( strX,  strY) {
     
   
   beginShape();
+    fill('#00000000');
   vertex(typeX+strX, typeY/2);
   bezierVertex(typeX+strX, typeY/2,  typeX+strX, typeY/4,  typeX/2+strX, typeY/4);
   vertex(typeX/2, typeY/4);
@@ -339,6 +348,7 @@ function letter_E ( strX,  strY) {
    
     
   beginShape();
+    fill('#00000000');
   vertex(typeX+strX, 0);
   vertex(0, 0);
   vertex(0, typeY+strY);
@@ -355,6 +365,7 @@ function letter_e ( strX,  strY) {
     
   
   beginShape();
+    fill('#00000000');
   
   vertex(0,5*typeY/8+strY/2);
   vertex(typeX+strX, 5*typeY/8+strY/2);
@@ -376,6 +387,7 @@ function letter_F ( strX,  strY) {
    
     
   beginShape();
+    fill('#00000000');
   vertex(typeX+strX, 0);
   vertex(0, 0);
   vertex(0, typeY+strY);
@@ -391,6 +403,7 @@ function letter_f ( strX,  strY) {
     
   
   beginShape();
+    fill('#00000000');
   vertex(typeX/2+strX/2,typeY+strY);
   vertex(typeX/2+strX/2,typeY/4);
   bezierVertex(typeX/2+strX/2,typeY/4,  typeX/2+strX/2,0,  typeX+strX/2,0);
@@ -407,6 +420,7 @@ function letter_G ( strX,  strY) {
    
     
   beginShape();
+    fill('#00000000');
   vertex(typeX+strX, typeY/3);
   bezierVertex(typeX+strX, typeY/3, typeX+strX, 0, typeX/2+strX, 0);
   vertex(typeX/2, 0);
@@ -418,6 +432,7 @@ function letter_G ( strX,  strY) {
   endShape();
 
   beginShape();
+    fill('#00000000');
   vertex(typeX/2+strX/2, typeY/2+strY/2);
   vertex(typeX+strX, typeY/2+strY/2);
   vertex(typeX+strX, typeY+strY);
@@ -431,6 +446,7 @@ function letter_g ( strX,  strY) {
     
   
   beginShape();
+    fill('#00000000');
   vertex(typeX+strX, typeY/2);
   bezierVertex(typeX+strX, typeY/2,  typeX+strX, typeY/4,  typeX/2+strX, typeY/4);
   vertex(typeX/2, typeY/4);
@@ -443,6 +459,7 @@ function letter_g ( strX,  strY) {
   endShape();
   
   beginShape();
+    fill('#00000000');
   vertex(typeX/2+strX/2,3*typeY/4+strY);
   vertex(typeX+strX,typeY+strY);
   bezierVertex(typeX+strX,typeY+strY,  typeX+strX,5*typeY/4+strY,  typeX/2+strX, 5*typeY/4+strY);
@@ -471,6 +488,7 @@ function letter_h ( strX,  strY) {
     
   
   beginShape();
+    fill('#00000000');
   vertex(typeX+strX, typeY+strY);
   vertex(typeX+strX, typeY/2);
   bezierVertex(typeX+strX, typeY/2,  typeX+strX, typeY/4,  typeX/2+strX, typeY/4);
@@ -500,6 +518,7 @@ function letter_i ( strX,  strY) {
     
 
   beginShape();
+    fill('#00000000');
   vertex(0,typeY/4);
   vertex(typeX/2+strX/2,typeY/4);
   vertex(typeX/2+strX/2,typeY+strY);
@@ -516,6 +535,7 @@ function letter_J ( strX,  strY) {
    
     
   beginShape();
+    fill('#00000000');
   vertex(0, 2*typeY/3+strY);
   bezierVertex(0, 2*typeY/3+strY, 0, typeY+strY, typeX/2, typeY+strY);
   vertex(typeX/2+strX, typeY+strY);
@@ -531,6 +551,7 @@ function letter_j ( strX,  strY) {
    
     
   beginShape();
+    fill('#00000000');
   vertex(typeX/4,typeY/4);
   vertex(3*typeX/4+strX,typeY/4);
   vertex(3*typeX/4+strX,typeY+strY);
@@ -573,6 +594,7 @@ function letter_L ( strX,  strY) {
    
     
   beginShape();
+    fill('#00000000');
   vertex(0, 0);
   vertex(0, typeY+strY);
   vertex(typeX+strX, typeY+strY);
@@ -585,6 +607,7 @@ function letter_l ( strX,  strY) {
    
     
   beginShape();
+    fill('#00000000');
   vertex(0, 0);
   vertex(typeX/2+strX/2, 0);
   vertex(typeX/2+strX/2,typeY+strY);
@@ -599,6 +622,7 @@ function letter_M ( strX,  strY) {
    
     
   beginShape();
+    fill('#00000000');
   vertex(0, typeY+strY);
   vertex(0, 0);
   vertex(typeX/2+strX/2, 2*typeY/3+strY);
@@ -617,6 +641,7 @@ function letter_m ( strX,  strY) {
 
   //left Hump  
   beginShape();
+    fill('#00000000');
   vertex(0,3*typeY/8);
   bezierVertex(0,3*typeY/8,  0,typeY/4,  typeX/4,typeY/4);
   vertex(typeX/4+strX/2,typeY/4);
@@ -626,6 +651,7 @@ function letter_m ( strX,  strY) {
   
   translate(typeX/2+strX/2,0);
   beginShape();
+    fill('#00000000');
   vertex(0,3*typeY/8);
   bezierVertex(0,3*typeY/8,  0,typeY/4,  typeX/4,typeY/4);
   vertex(typeX/4+strX/2,typeY/4);
@@ -641,6 +667,7 @@ function letter_N ( strX,  strY) {
    
     
   beginShape();
+    fill('#00000000');
   vertex(0, typeY+strY);
   vertex(0, 0);
   vertex(typeX+strX, typeY+strY);
@@ -657,6 +684,7 @@ function letter_n ( strX,  strY) {
   line(0,typeY/4,0,typeY+strY);
   
   beginShape();
+    fill('#00000000');
   vertex(typeX+strX, typeY+strY);
   vertex(typeX+strX, typeY/2);
   bezierVertex(typeX+strX, typeY/2,  typeX+strX, typeY/4,  typeX/2+strX, typeY/4);
@@ -672,6 +700,7 @@ function letter_O ( strX,  strY) {
    
     
   beginShape();
+    fill('#00000000');
   vertex(typeX+strX, typeY/3);
   bezierVertex(typeX+strX, typeY/3, typeX+strX, 0, typeX/2+strX, 0);
   vertex(typeX/2, 0);
@@ -691,6 +720,7 @@ function letter_o ( strX,  strY) {
     
   
   beginShape();
+    fill('#00000000');
   vertex(typeX+strX, typeY/2);
   bezierVertex(typeX+strX, typeY/2,  typeX+strX, typeY/4,  typeX/2+strX, typeY/4);
   vertex(typeX/2, typeY/4);
@@ -709,6 +739,7 @@ function letter_P ( strX,  strY) {
   push();
        
     beginShape();
+      fill('#00000000');
     vertex(0, typeY+strY);
     vertex(0, 0);
     vertex(typeX/2+strX, 0);
@@ -728,6 +759,7 @@ function letter_p ( strX,  strY) {
   line(0,typeY/4,  0,5*typeY/4+strY);
   
   beginShape();
+    fill('#00000000');
   vertex(typeX+strX, typeY/2);
   bezierVertex(typeX+strX, typeY/2,  typeX+strX, typeY/4,  typeX/2+strX, typeY/4);
   vertex(typeX/2, typeY/4);
@@ -747,6 +779,7 @@ function letter_Q ( strX,  strY) {
    
     
   beginShape();
+    fill('#00000000');
   vertex(typeX+strX, typeY/3);
   bezierVertex(typeX+strX, typeY/3, typeX+strX, 0, typeX/2+strX, 0);
   vertex(typeX/2, 0);
@@ -770,6 +803,7 @@ function letter_q ( strX,  strY) {
   line(typeX+strX,typeY/4,  typeX+strX,5*typeY/4+strY);
   
   beginShape();
+    fill('#00000000');
   vertex(typeX+strX, typeY/2);
   bezierVertex(typeX+strX, typeY/2,  typeX+strX, typeY/4,  typeX/2+strX, typeY/4);
   vertex(typeX/2, typeY/4);
@@ -788,6 +822,7 @@ function letter_R ( strX,  strY) {
   push();
     
     beginShape();
+      fill('#00000000');
     vertex(0, typeY+strY);
     vertex(0, 0);
     vertex(typeX/2+strX, 0);
@@ -807,6 +842,7 @@ function letter_r ( strX,  strY) {
     
   
   beginShape();
+    fill('#00000000');
   vertex(typeX+strX, typeY/2);
   bezierVertex(typeX+strX, typeY/2,  typeX+strX, typeY/4,  typeX/2+strX, typeY/4);
   vertex(typeX/2, typeY/4);
@@ -823,6 +859,7 @@ function letter_S ( strX,  strY) {
    
     
   beginShape();
+    fill('#00000000');
   vertex(typeX+strX, typeY/4);
   bezierVertex(typeX+strX, typeY/4, typeX+strX, 0, typeX/2+strX, 0);
   vertex(typeX/2, 0);
@@ -841,6 +878,7 @@ function letter_s ( strX,  strY) {
     
   
   beginShape();
+    fill('#00000000');
   vertex(7*typeX/8+strX,3*typeY/8);
   bezierVertex(7*typeX/8+strX,3*typeY/8,  7*typeX/8+strX,typeY/4,  typeX/2+strX,typeY/4);
   vertex(typeX/2,typeY/4);
@@ -871,6 +909,7 @@ function letter_t ( strX,  strY) {
   line(0,typeY/4,  typeX+strX,typeY/4);
   
   beginShape();
+    fill('#00000000');
   vertex(typeX/2+strX/2,0);
   vertex(typeX/2+strX/2,3*typeY/4+strY);
   bezierVertex(typeX/2+strX/2,3*typeY/4+strY,  typeX/2+strX/2,typeY+strY,  3*typeX/4+strX/2,typeY+strY);
@@ -885,6 +924,7 @@ function letter_U ( strX,  strY) {
    
     
   beginShape();
+    fill('#00000000');
   vertex(0, 0);
   vertex(0, 2*typeY/3+strY);
   bezierVertex(0, 2*typeY/3+strY, 0, typeY+strY, typeX/2, typeY+strY);
@@ -903,6 +943,7 @@ function letter_u ( strX,  strY) {
   line(typeX+strX,typeY/4,  typeX+strX,typeY+strY);
   
   beginShape();
+    fill('#00000000');
   vertex(0,typeY/4);
   vertex(0, 3*typeY/4+strY);
   bezierVertex(0, 3*typeY/4+strY,  0, typeY+strY,  typeX/2, typeY+strY);
@@ -918,6 +959,7 @@ function letter_V ( strX,  strY) {
    
     
   beginShape();
+    fill('#00000000');
   vertex(0, 0);
   vertex(typeX/2+strX/2, typeY+strY);
   vertex(typeX+strX, 0);
@@ -931,6 +973,7 @@ function letter_v ( strX,  strY) {
     
   
   beginShape();
+    fill('#00000000');
   vertex(0, typeY/4);
   vertex(typeX/2+strX/2, typeY+strY);
   vertex(typeX+strX, typeY/4);
@@ -944,6 +987,7 @@ function letter_W ( strX,  strY) {
    
     
   beginShape();
+    fill('#00000000');
   vertex(0, 0);
   vertex(typeX/4, typeY+strY);
   vertex(typeX/2+strX/2, typeY/3);
@@ -959,6 +1003,7 @@ function letter_w ( strX,  strY) {
     
   
   beginShape();
+    fill('#00000000');
   vertex(0, typeY/4);
   vertex(typeX/4+strX/4, typeY+strY);
   vertex(typeX/2+strX/2, typeY/2+strY/2);
@@ -992,6 +1037,7 @@ function letter_Y ( strX,  strY) {
    
     
   beginShape();
+    fill('#00000000');
   vertex(0, 0);
   vertex(typeX/2+strX/2, typeY/2+strY/2);
   vertex(typeX+strX, 0);
@@ -1007,12 +1053,14 @@ function letter_y ( strX,  strY) {
     
   
   beginShape();
+    fill('#00000000');
   vertex(0, typeY/4);
   vertex(typeX/2+strX/2, typeY+strY);
   vertex(typeX+strX, typeY/4);
   endShape();
   
   beginShape();
+    fill('#00000000');
   vertex(typeX/2+strX/2,typeY+strY);
   bezierVertex(typeX/2+strX/2,typeY+strY,  typeX/2+strX/2,5*typeY/4+strY,  strX/2,5*typeY/4+strY);
   vertex(0,5*typeY/4+strY);
@@ -1027,6 +1075,7 @@ function letter_Z ( strX,  strY) {
    
     
   beginShape();
+    fill('#00000000');
   vertex(0, 0);
   vertex(typeX+strX, 0);
   vertex(0, typeY+strY);
@@ -1041,6 +1090,7 @@ function letter_z ( strX,  strY) {
     
   
   beginShape();
+    fill('#00000000');
   vertex(0, typeY/4);
   vertex(typeX+strX, typeY/4);
   vertex(0, typeY+strY);
@@ -1071,6 +1121,7 @@ function letter_question ( strX,  strY) {
    
     
   beginShape();
+    fill('#00000000');
   vertex(0, typeY/3);
   bezierVertex(0, typeY/3, 0, 0, typeX/2, 0);
   vertex(typeX/2+strX, 0);
@@ -1141,6 +1192,7 @@ function letter_amp ( strX,  strY) {
    
     
     beginShape();
+      fill('#00000000');
     vertex(typeX+strX,typeY+strY);
     quadraticVertex(typeX/8,typeY/4,  typeX/8,typeY/8);
     quadraticVertex(typeX/8,0,  3*typeX/8,0);
@@ -1165,6 +1217,7 @@ function one (strX,  strY) {
   push();
 
     beginShape();
+      fill('#00000000');
     vertex(0,typeY/4);
     vertex(typeX/2+strX/2,0);
     vertex(typeX/2+strX/2,typeY+strY);
@@ -1178,6 +1231,7 @@ function two (strX,  strY) {
   push();
 
     beginShape();
+      fill('#00000000');
     vertex(0,typeY/3);
     quadraticVertex(0,0,typeX/2,0);
     vertex(typeX/2+strX,0);
@@ -1193,6 +1247,7 @@ function three (strX,  strY) {
   push();
 
     beginShape();
+      fill('#00000000');
     vertex(0,0);
     vertex(typeX+strX,0);
     vertex(typeX/2+strX/2,typeY/3);
@@ -1209,6 +1264,7 @@ function four (strX,  strY) {
   push();
 
     beginShape();
+      fill('#00000000');
     vertex(typeX/3,0);
     vertex(0,2*typeY/3+strY);
     vertex(typeX+strX,2*typeY/3+strY);
@@ -1221,6 +1277,7 @@ function five (strX,  strY) {
   push();
 
     beginShape();
+      fill('#00000000');
     vertex(typeX+strX,0);
     vertex(0,0);
     vertex(0,typeY/3);
@@ -1237,6 +1294,7 @@ function six (strX,  strY) {
   push();
 
     beginShape();
+      fill('#00000000');
     vertex(typeX+strX,2*typeY/3+strY);
     quadraticVertex(typeX+strX,typeY+strY,typeX/2+strX,typeY+strY);
     vertex(typeX/2,typeY+strY);
@@ -1249,6 +1307,7 @@ function six (strX,  strY) {
     endShape();
     
     beginShape();
+      fill('#00000000');
     vertex(0,2*typeY/3);
     quadraticVertex(0,0,2*typeX/3,0);
     endShape();
@@ -1259,6 +1318,7 @@ function seven (strX,  strY) {
   push();
 
     beginShape();
+      fill('#00000000');
     vertex(0,0);
     vertex(typeX+strX,0);
     vertex(typeX/2+strX/2,typeY+strY);
@@ -1270,6 +1330,7 @@ function eight (strX,  strY) {
   push();
 
     beginShape();
+      fill('#00000000');
     vertex(0,typeY/4);
     quadraticVertex(0,0,typeX/2,0);
     vertex(typeX/2+strX,0);
@@ -1283,6 +1344,7 @@ function eight (strX,  strY) {
     
     translate(0,typeY/2+strY/2);//bottom hump
     beginShape();
+      fill('#00000000');
     vertex(0,typeY/4);
     quadraticVertex(0,0,typeX/2,0);
     vertex(typeX/2+strX,0);
@@ -1301,6 +1363,7 @@ function nine (strX,  strY) {
   push();
 
     beginShape();
+      fill('#00000000');
     vertex(0,typeY/3);
     quadraticVertex(0,0,typeX/2,0);
     vertex(typeX/2+strX,0);
@@ -1320,6 +1383,7 @@ function zero (strX,  strY) {
   push();
 
     beginShape();
+      fill('#00000000');
     vertex(typeX/2+strX,0);
     quadraticVertex(typeX+strX,0,  typeX+strX,typeY/3);
     vertex(typeX+strX,2*typeY/3+strY);

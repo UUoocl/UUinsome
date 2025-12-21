@@ -118,10 +118,19 @@ function setup(){
   inp5check = createCheckbox('', false);inp5check.position(160, 202);
 */
   bkgdColorPicker = createColorPicker('#FFFFFF'); bkgdColorPicker.position(140, 120); bkgdColorPicker.style('height', '20px');
-//  bkgdStrokeColorPicker = createColorPicker('#FFFFFF'); bkgdStrokeColorPicker.position(160, 310); bkgdStrokeColorPicker.style('height', '20px');
+// bkgdStrokeColorPicker = createColorPicker('#FFFFFF'); bkgdStrokeColorPicker.position(160, 310); bkgdStrokeColorPicker.style('height', '20px');
 }
 
-function draw(){
+function draw() {
+  if(!hideCanvasUI){
+    editorViewDraw();
+  }
+  else{
+    viewerViewDraw();
+  }
+}
+
+function editorViewDraw(){
   bkgdColor = bkgdColorPicker.value();
   background(bkgdColor);
   inpText = String(inp.value());  
@@ -202,6 +211,185 @@ function draw(){
     text("CAMERA: Z-Rotation " + zRotCamera,45,100);
 
     pop();
+  
+  noFill();
+  strokeWeight(typeStroke);
+  
+  push();
+  // camera
+  translate(0,0,zoomCamera);
+  rotateX(radians(xRotCamera));
+  rotateY(radians(yRotCamera));
+  rotateZ(radians(zRotCamera));
+  
+  // center stack
+  translate(0,-(stackNum-1)*stackHeight/2);
+  
+  // rotation
+  rotateY(frameCount*(rRotate/1000));
+               	
+  for(var i =0; i<inpText.length*stackNum; i++) {
+    var ringSpot = i%inpText.length;
+    letter_select = ringSpot;  
+    
+      if(floor(i/inpText.length)%2 === 1){
+        strecherY = map(sin(ringSpot*rWaveOffset + frameCount*(rWaveSpeed/1000)),-1,1,0,strecherYsize);
+      } else {
+        strecherY = map(sin(ringSpot*rWaveOffset + frameCount*(rWaveSpeed/1000) + PI),-1,1,0,strecherYsize);
+      }
+
+	    strecherX = map(sin(floor(i/inpText.length)*rWaveOffset+frameCount*(rWaveSpeed/1000)),-1,1,0,strecherXsize);
+    
+    push();
+    // stack translates
+    rotateY(floor(i/inpText.length)*rOffset);
+    translate(0,floor(i/inpText.length)*stackHeight);
+    // ring translates
+    rotateY(ringSpot*pieSlice);
+    
+    translate(0,0,radius);
+    if(rLong!=0){
+      var rLonger = sin(floor(i/inpText.length)*rWaveOffset+frameCount*(rWaveSpeed/1000))*rLong;
+			translate(0,0,rLonger);
+    }
+    if(rZaxis!=0){
+      var rZaxiser = sin(ringSpot*rWaveOffset + frameCount*(rWaveSpeed/1000)) * rZaxis;
+    	translate(0,rZaxiser,0);
+    }
+    if(rWave!=0){
+      var rWaver = sin(ringSpot*rWaveOffset + frameCount*(rWaveSpeed/1000)) * rWave;
+      translate(0,0,rWaver);
+    }
+    if(yRotTweak!=0){
+	    rotateY(cos(ringSpot*rWaveOffset + frameCount*(rWaveSpeed/1000)) * -radians(yRotTweak));
+    }
+    if(xRotTweak!=0){      
+      rotateX(cos(ringSpot*rWaveOffset + frameCount*(rWaveSpeed/1000)) * -radians(xRotTweak));
+    }
+    
+		if(rLong!=0){
+      // fix rLong y-rotation
+      var prerLonger = sin(floor((i/inpText.length)-1)*rWaveOffset+frameCount*(rWaveSpeed/1000))*rLong;
+      var postrLonger = sin(floor((i/inpText.length)+1)*rWaveOffset+frameCount*(rWaveSpeed/1000))*rLong;
+      var rLongAdjust = atan2(stackHeight*2,(prerLonger-postrLonger))
+      rotateX(rLongAdjust-PI/2);
+    }
+    
+    if(zRotTweak!=0){
+      rotateZ(cos(ringSpot*rWaveOffset + frameCount*(rWaveSpeed/1000)) * radians(zRotTweak));
+    }
+        
+    translate(-(typeX+strecherX)/2,-(typeY+strecherY)/2,0);
+    	// outer surface
+    if(inpNumber == 6){
+      setTextColor(floor(i/inpText.length));
+    } else {
+      strkColor = color(inp1.value())
+      bkgdStrokeColor = lerpColor(strkColor, color(bkgdColorPicker.value()), 0.75);
+    }
+      stroke(strkColor);    
+     	keyboardEngine();
+    translate(0,0,-1);
+   		// inner surface
+    	stroke(bkgdStrokeColor);
+     	keyboardEngine()
+  	pop();
+ 	}
+	pop();
+}
+
+function viewerViewDraw(){
+  bkgdColor = bkgdColorPicker.value();
+  //background();
+    background('rgba(0, 255, 0, 0)');
+  clear()
+  if (frameCount % 60 == 0 && hotKeyTimer > 0) { // if the frameCount is divisible by 60, then a second has passed. it will stop at 0
+    hotKeyTimer --;
+  }
+
+  if (hotKeyTimer == 0 && frameCount % 2 == 0 && inp.value().length > 0) {
+    const textLength = inp.value().length-1
+    inp.value(inp.value().substring(0,textLength))
+  }
+
+  inpText = String(inp.value());  
+
+  radius = rSlider.value();
+  stackNum = stackNumSlider.value();
+  rRotate = rRotateSlider.value();
+  rOffset = rOffsetSlider.value();
+  rWaveCount = rWaveCountSlider.value();
+  rWaveSpeed = rWaveSpeedSlider.value();
+  rWave = rWaveSlider.value();  
+  rZaxis = rZaxisSlider.value();
+  strecherYsize = strecherYslider.value();
+  strecherXsize = strecherXslider.value();
+  rLong = rLongSlider.value();
+  typeX = typeXSlider.value();
+  typeY = typeYSlider.value();
+  typeStroke = typeStrokeSlider.value();
+  xRotCamera = xRotCameraSlider.value();
+  yRotCamera = yRotCameraSlider.value();
+  zRotCamera = zRotCameraSlider.value();
+  xRotTweak = xRotTweakSlider.value();
+  yRotTweak = yRotTweakSlider.value();
+  zRotTweak = zRotTweakSlider.value();
+  zoomCamera = zoomCameraSlider.value();
+  
+  stackHeight = (typeY+strecherYsize/2) + 5 + stackHeightAdjust;
+  pieSlice = 2*PI/inpText.length;
+  rWaveOffset = 2*PI/inpText.length*rWaveCount;
+
+    // push();
+    // translate(-width/2,-height/2);
+    // stroke(125);
+    // strokeWeight(1);
+    // line(10,130,130,130);
+    // line(10,350,130,350);
+    // rect(5,450,125,160);    
+    // line(185,height-43,500,height-43); 
+
+    // fill(125);
+//     textAlign(LEFT);
+
+//     textSize(9);
+//     text("Type Color",140,75);
+//     text("BACKGROUND",140,115);
+// //    text("INNER",145,300);
+
+  
+//     text("CYLINDER: Radius " + radius,15,16);
+//     text("CYLINDER: Count " + stackNum,15,46);
+//     text("CYLINDER: Rotate " + rRotate,15,76);
+//     text("CYLINDER: Offset " + rOffset,15,106);
+//   //  line break
+//     text("WAVE: Count " + rWaveCount,15,146);
+//     text("WAVE: Speed " + rWaveSpeed,15,176);
+//     text("WAVE: Latitude  " + rWave,15,206);
+//     text("WAVE: Longitude " + rLong,15,236);
+//     text("WAVE: Ripple " + rZaxis,15,266);
+//     text("WAVE: X-Scale " + strecherXsize,15,296);
+//     text("WAVE: Y-Scale " + strecherYsize,15,326);
+//   // line break  
+//     text("TYPE: X-Scale " + typeX,15,366);
+//     text("TYPE: Y-Scale " + typeY,15,396);
+//     text("TYPE: Weight " + typeStroke,15,426);
+
+//     text("Use to smooth form\nafter LATITUDE (x,y)\nor RIPPLE (z) adjust",15,470);  
+//     text("TWEAK: X Rotation " + xRotTweak,15,516);
+//     text("TWEAK: Y Rotation " + yRotTweak,15,546);
+//     text("TWEAK: Z Rotation " + zRotTweak,15,576);
+
+//     text("CAMERA: Zoom",15,height-22);
+// 		text("PRESETS", 145,height-40);
+    
+//     translate(0,height);
+//     rotateZ(-PI/2);
+//     text("CAMERA: X-Rotation " + xRotCamera,45,20);
+//     text("CAMERA: Y-Rotation " + yRotCamera,45,60);
+//     text("CAMERA: Z-Rotation " + zRotCamera,45,100);
+
+    // pop();
   
   noFill();
   strokeWeight(typeStroke);

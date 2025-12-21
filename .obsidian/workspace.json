@@ -13,12 +13,12 @@
             "state": {
               "type": "webviewer",
               "state": {
-                "url": "http://localhost:57000/apps/space_type_generator/stripes.html",
-                "title": "STG _v.stripes",
+                "url": "http://localhost:57000/apps/space_type_generator/cylinder.html",
+                "title": "SPACE TYPE GENERATOR",
                 "mode": "webview"
               },
               "icon": "globe-2",
-              "title": "STG _v.stripes"
+              "title": "SPACE TYPE GENERATOR"
             }
           }
         ]
@@ -184,17 +184,18 @@
   },
   "active": "d95894f99018338c",
   "lastOpenFiles": [
-    "apps/space_type_generator/cylinder.html",
-    "apps/space_type_generator/presets/cyclinder_settings10.json",
-    "apps/space_type_generator/presets/cyclinder_settings.json",
-    "apps/space_type_generator/js/keyboardEngine_190103.js",
-    "apps/space_type_generator/js/Untitled-1.ts",
-    "apps/space_type_generator/js/sketch_cyclinder.js",
-    "apps/space_type_generator/css/stgStyle.css",
-    "apps/space_type_generator/cyclinder.html",
-    "apps/space_type_generator/css/stripesStyle_obs.css",
-    "apps/space_type_generator/presets/stripe_settings5.json",
-    "apps/space_type_generator/stg_obs.html",
+    "apps/space_type_generator/presets/danger_settings2.json",
+    "apps/space_type_generator/js/manage_view.js",
+    "apps/space_type_generator/js/keyboard_input.js",
+    "apps/space_type_generator/presets/stripes_settings.json",
+    "apps/space_type_generator/js/sketch_boost_obs.js",
+    "apps/space_type_generator/js/sketch_boost copy.js",
+    "apps/space_type_generator/js/p5.min.1.11.9.js",
+    "apps/space_type_generator/presets/boost_settings.json",
+    "apps/space_type_generator/js/tumble_class_letArabic.js",
+    "apps/space_type_generator/js/tumble_class_let.js",
+    "apps/space_type_generator/js/tumble_class_base.js",
+    "apps/space_type_generator/resources/transparency.png",
     "apps/space_type_generator/font/fontawesome-webfont.svg",
     "apps/stg_assets/font/fontawesome-webfont.svg",
     "apps/keyboard_overlays/stg_assets/font/fontawesome-webfont.svg",

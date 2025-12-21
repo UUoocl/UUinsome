@@ -83,7 +83,7 @@ window.addEventListener('DOMContentLoaded', async function() {
         console.log("cssVarConnected",cssVarConnected)
         break;}
   }
-  }, 1000);
+  }, 100);
 })
 
 //3. get web socket details from a message

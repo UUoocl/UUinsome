@@ -127,7 +127,16 @@ function setup() {
 }
 
 function draw() {
-  //  strkColor = inp1.value();  
+  if(!hideCanvasUI){
+    editorViewDraw();
+  }
+  else{
+    viewerViewDraw();
+  }
+}
+
+function editorViewDraw(){
+    //  strkColor = inp1.value();  
   bkgdColor = bkgdColorPicker.value();
   background(bkgdColor);
   
@@ -252,6 +261,103 @@ function draw() {
       print("stop");
       gifRecord = false;
     }
+}
+
+function viewerViewDraw(){
+    background('rgba(0, 255, 0, 0)');
+  clear()
+  if (frameCount % 60 == 0 && hotKeyTimer > 0) { // if the frameCount is divisible by 60, then a second has passed. it will stop at 0
+    hotKeyTimer --;
+  }
+  if (hotKeyTimer == 0 && frameCount % 2 == 0 && ribbonCountSlider.value()>0) {
+      typeXSlider.value(typeXSlider.value() *.8)
+      typeYSlider.value(typeYSlider.value() *.8)
+      ribbonCountSlider.value(ribbonCountSlider.value()-1)
+      trackingSlider.value(trackingSlider.value() *.8)
+
+  }
+  fill(125);
+  noStroke();
+  textSize(9);
+  
+  inpText = String(inp.value());
+  runLength = inpText.length;
+  
+  typeX = typeXSlider.value();
+  typeY = typeYSlider.value();
+  typeStroke = typeStrokeSlider.value();
+  tracking = trackingSlider.value();
+  ribbonCount = ribbonCountSlider.value();
+  ribbonSpaceX = ribbonSpaceXSlider.value();
+  ribbonSpaceY = ribbonSpaceYSlider.value();
+  ribbonSize = ribbonSizeSlider.value();
+  ribbonOffset = ribbonOffsetSlider.value();
+  yWave = yWaveSlider.value();
+  speed = speedSlider.value();
+  offset = offsetSlider.value();
+	slope = slopeSlider.value();
+  
+  
+  xSpace = typeX + tracking;
+  SA = typeStroke/2;
+  doubleQuoteSwitch = 1;
+  singleQuoteSwitch = 1;
+  noFill();
+  
+  push();
+  translate(width / 2, height / 2);
+  translate(-xSpace * runLength / 2 - ribbonCount * ribbonSpaceX / 2, -ribbonCount * ribbonSpaceY / 2);
+  
+  // FLAG
+  for (var k = 0; k < ribbonCount; k++) {
+    
+    //Ribbon Shadow
+    strokeWeight(typeY + ribbonSize);
+    stroke(0, 0, 0, 50);
+    strokeCap(SQUARE);
+    strokeJoin(ROUND);
+    beginShape();
+    for (var i = -1; i <= runLength; i++) {
+      yWaver = sinEngine(offset, i, ribbonOffset, k, -speed, slope) * yWave;
+      vertex(i * xSpace + k * ribbonSpaceX - ribbonSpaceX / 7, k * ribbonSpaceY - ribbonSpaceY / 7 + yWaver);
+    }
+    endShape();
+    
+    //Ribbon
+    setRibbonColor(k);
+    strokeWeight(typeY + ribbonSize);
+    stroke(ribbonColor);
+    beginShape();
+    for (var i = -1; i <= runLength; i++) {
+      yWaver = sinEngine(offset, i, ribbonOffset, k, -speed, slope) * yWave;
+      //     yWaver = sin(frameCount*speed + i*offset + k*ribbonOffset) * yWave;
+      vertex(i * xSpace + k * ribbonSpaceX, k * ribbonSpaceY + yWaver);
+    }
+    endShape();
+    
+    //Type
+    setTextColor(k);
+    strokeWeight(typeStroke);
+    stroke(strkColor);
+    strokeCap(PROJECT);
+    for (var i = 0; i < runLength; i++) {
+      var yWaverPre = sinEngine(offset, i-1, ribbonOffset, k, -speed, slope) * yWave;
+      var yWaverPost= sinEngine(offset, i+1, ribbonOffset, k, -speed, slope) * yWave;
+      var rotateFix = atan2(yWaverPost - yWaverPre, 2 * xSpace);
+      
+      yWaver = sinEngine(offset, i, ribbonOffset, k, -speed, slope) * yWave;
+      letter_select = i;
+      
+      push();
+      translate(i * xSpace + k * ribbonSpaceX, k * ribbonSpaceY + yWaver);
+      rotate(rotateFix);
+      translate(-(typeX) / 2, -(typeY) / 2);
+      
+      keyboardEngine();
+      pop();
+    }
+  }
+  pop();
 }
 
 function sinEngine(xLength, xCounter, yLength, yCounter, Speed, slopeN) {

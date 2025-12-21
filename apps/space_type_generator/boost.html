@@ -1,0 +1,493 @@
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>STG _v.Boost</title>
+
+   <script src="./js/p5.min.1.11.9.js"></script>
+  <script src="./js/opentype.min.1.3.4.js"></script>  
+  <!-- <script src="https://unpkg.com/p5.js-svg@1.5.1"></script> -->
+  <!-- <script src="https://unpkg.com/h264-mp4-encoder/embuild/dist/h264-mp4-encoder.web.js"></script> -->
+  
+  <link rel="stylesheet" href="./css/stgBoostStyle.css">
+  <!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> 
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
+  <script src="./js/sketch_boost.js" type="text/javascript" data-obsidian="true"></script> 
+  <script src="./js/sketch_boost_update.js" type="text/javascript"></script>
+  <script src="./js/animators.js" type="text/javascript"></script>
+
+  <script src="./js/tumble_class_base.js" type="text/javascript"></script>
+  <script src="./js/tumble_class_let.js" type="text/javascript"></script>
+  <script src="./js/tumble_class_letArabic.js" type="text/javascript"></script>
+
+  <style> body {padding: 0; margin: 0;} canvas {vertical-align: top;} </style>
+</head>
+
+<body>
+  <div id="widget">
+
+    <div id="generatorInput">
+      <div class="titleh2">
+        <h2>STG v.Boost</h2>
+        <p>a kinetic generator from <a href="https://www.instagram.com/kiel.d.m/" target="_blank">kielm</a></p>
+        <div class="popup" onclick="myFunction()">Readme and Support!
+          <span class="popuptext" id="myPopup">
+            Boost 1.1.0
+            <br>
+            <br>Consider supporting STG by <br> <a href="https://www.buymeacoffee.com/kieldm" target="_blank">Buying Me A Coffee</a>
+            <br>
+            <br>Use for personal projects!
+            <br>Give me a <a href="https://www.instagram.com/kiel.d.m/" target="_blank">tag</a> if possible.
+            <br>
+            <br>For commercial usage, <a href="/cdn-cgi/l/email-protection#f19a98949ddf95df9cb1969c90989ddf929e9c">email me.</a>
+            <br>
+            <br>Featuring fonts from <br><a href="https://www.zetafonts.com/" target="_blank">Zetafonts</a> (Milligram),<br>
+            <a href="https://pangrampangram.com/" target="_blank">Pangram Pangram</a>(Formula Condensed, NeueWorld),<br>
+            and <a href="https://boharat.com/" target="_blank">Boharat</a>(Ko Banzeen, Zafran)
+          </span>
+        </div>
+      </div>
+
+      <button type="button" class="collapsible"><h1>Text</h1></button>
+      <div class="content">
+        <div class="module">         
+          <textarea id="textArea" rows=4 oninput="setText()"></textarea>
+
+          <select name="fontChange" id="fontChange" onchange="setFont(this.value)">
+            <option value="0" selected="selected">Milligram - Medium</option>
+            <option value="1">Milligram Condensed - Medium</option>
+            <!-- <option value="2">GT America Extended - Black</option> -->
+            <!-- <option value="3">GT Alpina Condensed - Light</option> -->
+            <option value="4">Neue World Condensed - Regular</option>
+            <option value="5">Formula Condensed - Black</option>
+            <option value="6">Instrumental - Italic</option>
+            <!-- <option value="7">Noto Sans Arabic - Black</option> -->
+            <!-- <option value="7">Zaatar - Bold</option> -->
+            <option value="7">Ko Banzeen - SlantedL</option>
+            <option value="8">Zafran Arabic - Black</option>
+          </select>
+          
+
+          <div class="coupling1">
+            <div class="coupling_label"><h3>Align</h3></div>
+            <select name="alignMode" id="alignMode" onchange="setAlignMode(this.value)">
+              <option value="0">Left</option>
+              <option value="1" selected="selected">Center</option>
+              <option value="2">Right</option>
+            </select>
+          </div>
+
+
+          <div class="coupling1">
+            <div class="coupling_label"><h3>Size</h3></div>
+            <input type="range" class="ranger" min="0" max="100" value="50" id="scaler" oninput="setScaler(this.value)">
+          </div>
+        </div>
+      </div>
+
+      <button type="button" class="collapsible"><h1>Style</h1></button>
+      <div class="content">
+        <div class="module">
+          
+          <div class="accelModule">
+            <div class="coupling1">
+              <div class="coupling_label"><h3>Bkgd</h3></div>
+              <input type="color" id="bkgdColor" name="bkgdColor" value="#000000" oninput="setBkgdColor(this.value)">
+            </div>
+          </div>
+
+          <div class="accelModule">
+            <h4>Caps</h4>
+            <div class="coupling1">
+              <label class="coupling_label" for="capsOn">Fill</label>
+              <input type="checkbox" id="capsOn" name="capsOn" checked onclick="setCapsOn()">
+            </div>
+
+            <div id="capsOptions">
+              <div class="coupling1">
+                <div class="coupling_label"><h3>Color</h3></div>
+                <input type="color" id="textColor" name="textColor" value="#ffffff" oninput="setTextColor(this.value)">
+              </div>
+            </div>
+          </div>
+
+          <div class="accelModule">
+            <h4>Stroke</h4>
+            <div class="coupling1">
+              <label class="coupling_label" for="strokeOn">Visible</label>
+              <input type="checkbox" id="strokeOn" name="strokeOn" onclick="setStrokeOn()">
+            </div>
+
+            <div id="strokeOptions">
+              <div class="coupling1">
+                <div class="coupling_label"><h3>Weight</h3></div>
+                <input type="range" class="ranger" min="0" max="100" value="10" id="strokeWeight" oninput="setStrokeWeight(this.value)">
+              </div>
+
+              <div class="coupling1">
+                <div class="coupling_label"><h3>Color</h3></div>
+                <input type="color" id="strokeColor" name="strokeColor" value="#000000" oninput="setStrokeColor(this.value)">
+              </div>
+            </div>
+          </div>
+
+          <div class="accelModule">
+            <h4>Sides</h4>
+            <select name="sidesType" id="sidesType" onchange="setSidesType(this.value)">
+              <option value="0">Transparent</option>
+              <option value="1">Solid</option>
+              <option value="2" selected="selected">Assorted</option>
+              <!-- <option value="3">Texture</option> -->
+            </select>
+
+            <div id="sidesOptionsTrans">
+            </div>
+
+            <div id="sidesOptionsSolid">
+              <div class="coupling1">
+                <!-- <div class="coupling_label"><h3>Color</h3></div> -->
+                <input type="color" class="fullLengthColor" id="sideSolidColor" name="sideSolidColor" value="#f26666" oninput="setSideSolidColor(this.value)">
+              </div>
+            </div>
+
+            <div id="sidesOptionsRandom">
+                <div id="quintColor">
+                  <div class="coupling1">
+                    <!-- <div class="coupling_label"><h3>Into</h3></div> -->
+                    <input type="color" id="quint0color" name="quint0color" value="#ffffff" oninput="setColorSet(0, this.value)">
+                    <input type="color" id="quint1color" name="quint1color" value="#4e7cd9" oninput="setColorSet(1, this.value)">
+                    <input type="color" id="quint2color" name="quint2color" value="#02733e" oninput="setColorSet(2, this.value)">
+                    <input type="color" id="quint3color" name="quint3color" value="#f23030" oninput="setColorSet(3, this.value)">
+                    <input type="color" id="quint4color" name="quint4color" value="#f26666" oninput="setColorSet(4, this.value)">
+                  </div>
+    
+                  <div class="coupling1">
+                    <button type="button" class="randomPalette" onclick="generateRandomPalette()">RANDOM PALETTE</button>
+                  </div>
+                </div>
+
+            </div>
+
+            <div id="sidesOptionsTexture">
+              <div class="coupling1">
+                <div class="coupling_label"><h3>Color</h3></div>
+                <input type="color" id="textColor" name="textColor" value="#ffffff" oninput="setTextColor(this.value)">
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+      <button type="button" class="collapsible"><h1>Animation</h1></button>
+      <div class="content">
+        <div class="coupling1">
+          <label class="coupling2_label" for="orbitOn">Orbit Control</label>
+          <input type="checkbox" id="orbitOn" name="orbit" onclick="setOrbitOn()">
+        </div>
+
+        <div class="coupling1">
+          <label class="coupling2_label" for="mouseCenter">Mouse Center</label>
+          <input type="checkbox" id="mouseCenter" name="mouseCenter" onclick="setMouseCenterOn()">
+        </div>
+
+        <div class="module">         
+          <select name="extrudeType" id="extrudeType" onchange="setExtrudeType(this.value)">
+            <option value="0">Tumble</option>
+            <option value="1" selected="selected">Zoom</option>
+            <option value="2">Punch</option>
+          </select>
+
+          <div id="tumbleSet">
+            <div class="coupling1">
+              <div class="coupling_label"><h3>Extrude</h3></div>
+              <input type="range" class="ranger" min="0" max="100" value="50" id="tumbleDepthLength" oninput="setTumbleDepthLength(this.value)">
+            </div>
+            
+            <div class="coupling1">
+              <div class="coupling_label"><h3>Amount</h3></div>
+              <input type="range" class="ranger" min="0" max="100" value="50" id="tumbleAmount" oninput="setTumbleAmount(this.value)">
+            </div>
+          </div>
+
+          <div id="zoomSet">
+            <div class="coupling1">
+              <div class="coupling_label"><h3>Extrude</h3></div>
+              <input type="range" class="ranger" min="0" max="100" value="50" id="zoomDepthLength" oninput="setZoomDepthLength(this.value)">
+            </div> 
+          </div>
+
+          <div id="punchSet">
+            <div class="coupling1">
+              <div class="coupling_label"><h3>Extrude</h3></div>
+              <input type="range" class="ranger" min="0" max="100" value="25" id="punchDepthLength" oninput="setPunchDepthLength(this.value)">
+            </div>
+
+            <div class="coupling1">
+              <div class="coupling_label"><h3>Distance</h3></div>
+              <input type="range" class="ranger" min="0" max="100" value="50" id="punchDistance" oninput="setPunchDistance(this.value)">
+            </div>
+
+            <!-- <div class="coupling1">
+              <label class="coupling_label" for="strokeOn">Invert</label>
+              <input type="checkbox" id="punchInvert" name="punchInvert" onclick="setPunchInvert()">
+            </div> -->
+          </div>
+        </div>
+      </div>
+
+      <button type="button" class="collapsible"><h1>Acceleration</h1></button>
+      <div class="content">
+        <div class="module">
+          <div class="accelModule">
+            <h4>Delay</h4>
+            <div class="coupling1">
+              <div class="coupling_label"><h3>Length</h3></div>
+              <input type="range" class="ranger" min="0" max="100" value="20" id="maxDelay" oninput="setMaxDelay(this.value)">
+            </div>
+          </div>
+
+          <div class="accelModule">
+            <h4>INTRO STAGE</h4>
+            <div class="selectPair">
+              <select name="stageAstrength" id="stageAstrength" class="stageSelect" onchange="setStageAstrength(this.value)">
+                <option value="0">Sine</option>
+                <option value="1">Cubic</option>
+                <option value="2">Circ</option>
+                <option value="3" selected="selected">Expo</option>
+                <option value="4">Back</option>
+                <option value="5">Bounce</option>
+                <option value="6">Elastic</option>
+              </select>
+  
+              <select name="stageAdirect" id="stageAdirect" class="stageSelect" onchange="setStageAdirect(this.value)">
+                <option value="0">In</option>
+                <option value="1">Out</option>
+                <option value="2" selected="selected">In & Out</option>
+              </select>
+            </div>    
+  
+            <div class="coupling1">
+              <div class="coupling_label"><h3>Length</h3></div>
+              <input type="range" class="ranger" min="0" max="100" value="40" id="stagAlength" oninput="setStageAlength(this.value)">
+            </div>      
+          </div> 
+
+          <div class="accelModule">
+            <h4>PAUSE</h4>
+            <div class="coupling1">
+              <div class="coupling_label"><h3>Length</h3></div>
+              <input type="range" class="ranger" min="0" max="100" value="0" id="pauseLength" oninput="setPauseLength(this.value)">
+            </div>
+          </div>
+
+          <div class="accelModule">
+            <h4>OUTRO STAGE</h4>
+            <div class="selectPair">
+              <select id="stageBstrength" name="stageBstrength" class="stageSelect" onchange="setStageBstrength(this.value)">
+                <option value="0">Sine</option>
+                <option value="1">Cubic</option>
+                <option value="2">Circ</option>
+                <option value="3" selected="selected">Expo</option>
+                <option value="4">Back</option>
+                <option value="5">Bounce</option>
+                <option value="6">Elastic</option>
+              </select>
+  
+              <select id="stageBdirect" name="stageBdirect" class="stageSelect" onchange="setStageBdirect(this.value)">
+                <option value="0">In</option>
+                <option value="1">Out</option>
+                <option value="2" selected="selected">In & Out</option>
+              </select>
+            </div>    
+  
+            <div class="coupling1">
+              <div class="coupling_label"><h3>Length</h3></div>
+              <input type="range" class="ranger" min="0" max="100" value="40" id="stageBlength" oninput="setStageBlength(this.value)">
+            </div>
+          </div>  
+
+        </div>
+      </div>
+
+
+      <!-- <button type="button" class="collapsible"><h1>Export</h1></button>
+      <div class="content">
+        <div class="module">
+          <div class="coupling2">
+            <div class="couplingEntry">
+              <input type="radio" id="window" name="saveSize" value=0 onclick="sizeSaveChange(this.value)" checked>
+              <label for="window">Window Size</label>
+            </div>
+            <div class="couplingEntry">
+              <input type="radio" id="vert" name="saveSize" value=1 onclick="sizeSaveChange(this.value)">
+              <label for="vert">Vertical, 9:16</label>
+            </div>
+            <div class="couplingEntry">
+              <input type="radio" id="squa" name="saveSize" value=2 onclick="sizeSaveChange(this.value)">
+              <label for="squa">Square, 1:1</label>
+            </div>
+          </div>
+
+          <div class="coupling1">
+            <button type="button" class="saveJPGbutton" onclick="runJPGsave()">SAVE JPG</button>
+          </div>
+          <div class="coupling1">
+            <button type="button" class="saveMP4button" onclick="runSave()">RECORD MP4</button>
+          </div>
+          <div class="coupling1">
+            <div id="recStatus">
+              <p>RECORDING IN PROCESS <br><span id="recTicker"></span>/<span id="numFrame"></span></p>
+            </div>
+          </div>
+        </div>
+      </div>-->
+
+    </div>
+  </div>
+
+  <!-- <div>
+    <label class="switch">
+      <input type="checkbox" checked oninput="hideWidget()">
+      <span class="slider round"></span>
+    </label>
+  </div>  -->
+
+<!-- 
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+<script>
+    // When the user clicks on <div>, open the popup
+    function myFunction() {
+      var popup = document.getElementById("myPopup");
+      popup.classList.toggle("show");
+    }
+
+    document.getElementById('generatorInput').addEventListener('mouseenter', function() {
+      pausePop = true; 
+    });
+
+    document.getElementById('generatorInput').addEventListener('mouseleave', function() {
+      pausePop = false;
+    });
+  </script> -->
+
+  <script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+  
+    for (i = 0; i < coll.length; i++) {
+      coll[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.display === "block") {
+          content.style.display = "none";
+        } else {
+          content.style.display = "block";
+        }
+      });
+    }
+  </script>
+
+<script src="./js/stg_menu.js" data-obsidian="true"></script>
+<script src="./js/obsidian_save_load.js" data-obsidian="true"></script>
+
+<script src="../lib/obs-ws.js"></script>
+<script src="../lib/obsWssConnectionManager.js"></script>
+<script src="./js/manage_view.js"></script>
+<script src="./js/keyboard_input.js"></script>
+
+<script id="sketchSettings">
+let hideCanvasUI = false;
+function getSketchSettings(filename){
+  //create array of scripts
+  const scriptElems = document.querySelectorAll('script[src]:not([data-obsidian]')
+  const scriptSrcValues = [];
+  for (const script of scriptElems) {
+    // console.log(script)
+      scriptSrcValues.push(script.attributes.src.textContent); // Accessing the .src property is a simple way
+  }
+  scriptSrcValues.push(`./js/sketch_${filename}_obs.js`)
+
+    const settings = {
+    "filename" : filename,
+    "scripts" : scriptSrcValues,
+    "text" : document.getElementById("textArea").value,
+    "setFont" : document.getElementById("fontChange").value,
+    "setAlignMode" : document.getElementById("alignMode").value,
+    "setScaler" : document.getElementById("scaler").value,
+    "setBkgdColor" : document.getElementById("bkgdColor").value,
+    "setCapsOn" : document.getElementById("capsOn").value,
+    "setTextColor" : document.getElementById("textColor").value,
+    "setStrokeOn" : document.getElementById("strokeOn").value,
+    "setStrokeWeight" : document.getElementById("strokeWeight").value,
+    "setStrokeColor" : document.getElementById("strokeColor").value,
+    "setSidesType" : document.getElementById("sidesType").value,
+    "setSideSolidColor" : document.getElementById("sideSolidColor").value,
+    "quint0color" : document.getElementById("quint0color").value,
+    "quint1color" : document.getElementById("quint1color").value,
+    "quint2color" : document.getElementById("quint2color").value,
+    "quint3color" : document.getElementById("quint3color").value,
+    "quint4color" : document.getElementById("quint4color").value,
+    "setOrbitOn" : document.getElementById("orbitOn").value,
+    "setMouseCenterOn" : document.getElementById("mouseCenter").value,
+    "setExtrudeType" : document.getElementById("extrudeType").value,
+    "setTumbleDepthLength" : document.getElementById("tumbleDepthLength").value,
+    "setTumbleAmount" : document.getElementById("tumbleAmount").value,
+    "setZoomDepthLength" : document.getElementById("zoomDepthLength").value,
+    "setPunchDepthLength" : document.getElementById("punchDepthLength").value,
+    "setPunchDistance" : document.getElementById("punchDistance").value,
+    "setMaxDelay" : document.getElementById("maxDelay").value,
+    "setStageAstrength" : document.getElementById("stageAstrength").value,
+    "setStageAdirect" : document.getElementById("stageAdirect").value,
+    "setPauseLength" : document.getElementById("pauseLength").value,
+    "setStageBstrength" : document.getElementById("stageBstrength").value,
+    "setStageBdirect" : document.getElementById("stageBdirect").value,
+    "setStageBlength" : document.getElementById("stageBlength").value,
+    "p5CameraX" : p5Camera.eyeX,
+    "p5CameraY" : p5Camera.eyeY,
+    "p5CameraZ" : p5Camera.eyeZ
+  }
+    return settings
+}
+
+function setSketchSettings(json){
+  document.getElementById("textArea").value = json.text; 
+  document.getElementById("fontChange").value = json.setFont ; setFont( json.setFont);
+  document.getElementById("alignMode").value = json.setAlignMode ; setAlignMode( json.setAlignMode);
+  document.getElementById("scaler").value = json.setScaler ; setScaler( json.setScaler);
+  document.getElementById("bkgdColor").value = json.setBkgdColor ; setBkgdColor( json.setBkgdColor);
+  document.getElementById("capsOn").value = json.setCapsOn ; setCapsOn( json.setCapsOn);
+  document.getElementById("textColor").value = json.setTextColor ; setTextColor( json.setTextColor);
+  document.getElementById("strokeOn").value = json.setStrokeOn ; setStrokeOn();
+  document.getElementById("strokeWeight").value = json.setStrokeWeight ; setStrokeWeight( json.setStrokeWeight);
+  document.getElementById("strokeColor").value = json.setStrokeColor ; setStrokeColor( json.setStrokeColor);
+  document.getElementById("sidesType").value = json.setSidesType ; setSidesType( json.setSidesType);
+  document.getElementById("sideSolidColor").value = json.setSideSolidColor ; setSideSolidColor( json.setSideSolidColor);
+  document.getElementById("quint0color").value = json.quint0color ; setColorSet("0", json.quint0color);
+  document.getElementById("quint1color").value = json.quint1color ; setColorSet("1", json.quint1color);
+  document.getElementById("quint2color").value = json.quint2color ; setColorSet("2", json.quint2color);
+  document.getElementById("quint3color").value = json.quint3color ; setColorSet("3", json.quint3color);
+  document.getElementById("quint4color").value = json.quint4color ; setColorSet("4", json.quint4color);
+  document.getElementById("orbitOn").value = json.setOrbitOn ; setOrbitOn();
+  document.getElementById("mouseCenter").value = json.setMouseCenterOn ; setMouseCenterOn();
+  document.getElementById("extrudeType").value = json.setExtrudeType ; setExtrudeType( json.setExtrudeType);
+  document.getElementById("tumbleDepthLength").value = json.setTumbleDepthLength ; setTumbleDepthLength( json.setTumbleDepthLength);
+  document.getElementById("tumbleAmount").value = json.setTumbleAmount ; setTumbleAmount( json.setTumbleAmount);
+  document.getElementById("zoomDepthLength").value = json.setZoomDepthLength ; setZoomDepthLength( json.setZoomDepthLength);
+  document.getElementById("punchDepthLength").value = json.setPunchDepthLength ; setPunchDepthLength( json.setPunchDepthLength);
+  document.getElementById("punchDistance").value = json.setPunchDistance ; setPunchDistance( json.setPunchDistance);
+  document.getElementById("maxDelay").value = json.setMaxDelay ; setMaxDelay( json.setMaxDelay);
+  document.getElementById("stageAstrength").value = json.setStageAstrength ; setStageAstrength( json.setStageAstrength);
+  document.getElementById("stageAdirect").value = json.setStageAdirect ; setStageAdirect( json.setStageAdirect);
+  document.getElementById("pauseLength").value = json.setPauseLength ; setPauseLength( json.setPauseLength);
+  document.getElementById("stageBstrength").value = json.setStageBstrength ; setStageBstrength( json.setStageBstrength);
+  document.getElementById("stageBdirect").value = json.setStageBdirect ; setStageBdirect( json.setStageBdirect);
+  document.getElementById("stageBlength").value = json.setStageBlength ; setStageBlength( json.setStageBlength);
+  p5Camera.camera(json.p5CameraX, json.p5CameraY, json.p5CameraZ)
+  PRESET_SETTINGS = json
+}
+  </script>
+</body>
+</html>
