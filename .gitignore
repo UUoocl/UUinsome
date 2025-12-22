@@ -5,3 +5,66 @@ obs_webSocket_details/websocketDetails.js
 slides_deck-48ea10
 
 .obsidian/plugins/slides-extended
+apps/gum/mediapipe_models/bert_classifier.tflite
+apps/gum/mediapipe_tasks/tasks-genai/genai_bundle.mjs
+apps/gum/mediapipe_tasks/tasks-genai/wasm/genai_wasm_internal.js
+apps/gum/mediapipe_tasks/tasks-genai/wasm/genai_wasm_internal.wasm
+apps/gum/mediapipe_tasks/tasks-genai/wasm/genai_wasm_nosimd_internal.js
+apps/gum/mediapipe_tasks/tasks-genai/wasm/genai_wasm_nosimd_internal.wasm
+apps/gum/mediapipe_tasks/tasks-text/package.json
+apps/gum/mediapipe_tasks/tasks-text/README.md
+apps/gum/mediapipe_tasks/tasks-text/text_bundle.cjs
+apps/gum/mediapipe_tasks/tasks-text/text_bundle.cjs.map
+apps/gum/mediapipe_tasks/tasks-text/text_bundle.mjs
+apps/gum/mediapipe_tasks/tasks-text/text_bundle.mjs.map
+apps/gum/mediapipe_tasks/tasks-text/text.d.ts
+apps/gum/mediapipe_tasks/tasks-text/wasm/text_wasm_internal.js
+apps/gum/mediapipe_tasks/tasks-text/wasm/text_wasm_internal.wasm
+apps/gum/mediapipe_tasks/tasks-text/wasm/text_wasm_nosimd_internal.js
+apps/gum/mediapipe_tasks/tasks-text/wasm/text_wasm_nosimd_internal.wasm
+apps/gum/obs_browser_examples/Interfaces_p5_code-rlb2-live.html
+apps/gum/obs_browser_examples/Interfaces_p5_code-stickman-live.html
+apps/gum/obs_browser_examples/Interfaces_p5_code-tornado_taz-live.html
+apps/gum/obs_browser_examples/Interfaces_p5_typeTreament.html
+apps/gum/obs_browser_examples/speechBGcolorChange.html
+apps/gum/obs_browser_examples/webSocketTester.html
+apps/gum/obs_browser_examples/lib/Disclaimer-Plain.otf
+apps/gum/obs_browser_examples/lib/Interfaces_p5_code-rlb2-live.js
+apps/gum/obs_browser_examples/lib/Interfaces_p5_code-stickman-live.js
+apps/gum/obs_browser_examples/lib/Interfaces_p5_code-tornado_taz-live.js
+apps/gum/obs_browser_examples/lib/Interfaces_p5_typeTreament.js
+apps/gum/obs_browser_examples/lib/obs-ws.js
+apps/gum/obs_browser_examples/lib/obsConnect.js
+apps/gum/obs_browser_examples/lib/p5.js
+apps/gum/obs_browser_examples/lib/webSocketTester.js
+apps/gum/webRTC_Target/webRTC_Target_Audio-ID_3.html
+apps/gum/webRTC_Target/webRTC_Target_Face-ID_1.html
+apps/gum/webRTC_Target/webRTC_Target_Hand-ID_2.html
+apps/gum/webRTC_Target/webRTC_Target_Pose-ID_0.html
+apps/gum/webRTC_Target/webRTC_Target-OBS_0.html
+apps/gum/webRTC_Target/webRTC_Target-Segment_0.html
+apps/gum/webRTC_Target/lib/audioData-broadcast.js
+apps/gum/webRTC_Target/lib/connectToWSS.js
+apps/gum/webRTC_Target/lib/face-broadcast.js
+apps/gum/webRTC_Target/lib/getMessageID.js
+apps/gum/webRTC_Target/lib/hand-broadcast.js
+apps/gum/webRTC_Target/lib/obs-ws.js
+apps/gum/webRTC_Target/lib/obsConnect.js
+apps/gum/webRTC_Target/lib/p5.soundForOBS.js
+apps/gum/webRTC_Target/lib/p5forOBS.js
+apps/gum/webRTC_Target/lib/pose-broadcast.js
+apps/gum/webRTC_Target/lib/webRTC-Target-connect.js
+apps/interfaces_7pc/sketch/__source__ (2).js
+apps/interfaces_7pc/sketch/__source__.js
+apps/interfaces_7pc/sketch/__source__ (13).js
+apps/interfaces_7pc/sketch/__source__ (12).js
+apps/interfaces_7pc/sketch/__source__ (11).js
+apps/interfaces_7pc/sketch/__source__ (10).js
+apps/interfaces_7pc/sketch/__source__ (9).js
+apps/interfaces_7pc/sketch/__source__ (8).js
+apps/interfaces_7pc/sketch/__source__ (7).js
+apps/interfaces_7pc/sketch/__source__ (6).js
+apps/interfaces_7pc/sketch/__source__ (5).js
+apps/interfaces_7pc/sketch/__source__ (4).js
+apps/interfaces_7pc/sketch/3d_cube.js
+apps/interfaces_7pc/sketch/ant_colony.js

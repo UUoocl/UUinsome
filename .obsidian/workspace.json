@@ -20,8 +20,37 @@
               "icon": "globe-2",
               "title": "SPACE TYPE GENERATOR"
             }
+          },
+          {
+            "id": "f13b0d873ac61303",
+            "type": "leaf",
+            "state": {
+              "type": "webviewer",
+              "state": {
+                "url": "http://localhost:57000/apps/gum/index.html",
+                "title": "OBS GetUserMedia",
+                "mode": "webview"
+              },
+              "icon": "globe-2",
+              "title": "OBS GetUserMedia"
+            }
+          },
+          {
+            "id": "2f615a3c488425b6",
+            "type": "leaf",
+            "state": {
+              "type": "webviewer",
+              "state": {
+                "url": "http://localhost:57000/apps/interfaces_7pc/interface.html?preset=interface_settings1",
+                "title": "Load Librarues Sequentially",
+                "mode": "webview"
+              },
+              "icon": "globe-2",
+              "title": "Load Librarues Sequentially"
+            }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -182,19 +211,25 @@
       "slides-extended:Show slide preview": false
     }
   },
-  "active": "d95894f99018338c",
+  "active": "2f615a3c488425b6",
   "lastOpenFiles": [
-    "apps/space_type_generator/presets/danger_settings2.json",
-    "apps/space_type_generator/js/manage_view.js",
-    "apps/space_type_generator/js/keyboard_input.js",
-    "apps/space_type_generator/presets/stripes_settings.json",
-    "apps/space_type_generator/js/sketch_boost_obs.js",
-    "apps/space_type_generator/js/sketch_boost copy.js",
-    "apps/space_type_generator/js/p5.min.1.11.9.js",
-    "apps/space_type_generator/presets/boost_settings.json",
-    "apps/space_type_generator/js/tumble_class_letArabic.js",
-    "apps/space_type_generator/js/tumble_class_let.js",
-    "apps/space_type_generator/js/tumble_class_base.js",
+    "apps/interfaces_7pc/interfaces_r1b2.html",
+    "apps/interfaces_7pc/presets/interface_settings11.json",
+    "apps/interfaces_7pc/presets/interface_settings10.json",
+    "apps/interfaces_7pc/presets/interface_settings2.json",
+    "apps/interfaces_7pc/presets/interface_settings1.json",
+    "apps/interfaces_7pc/presets/interface_settings.json",
+    "apps/interfaces_7pc/presets",
+    "apps/interfaces_7pc/js/obsidian_save_load.js",
+    "apps/interfaces_7pc/js/manage_view.js",
+    "apps/interfaces_7pc/js",
+    "apps/interfaces_7pc/lib/p5.js",
+    "apps/gum/mediapipe_tasks/tasks-vision/README.md",
+    "apps/gum/mediapipe_tasks/tasks-text/README.md",
+    "apps/gum/README.md",
+    "apps/GUM/README.md",
+    "apps/GUM/mediapipe_tasks/tasks-vision/README.md",
+    "apps/GUM/mediapipe_tasks/tasks-text/README.md",
     "apps/space_type_generator/resources/transparency.png",
     "apps/space_type_generator/font/fontawesome-webfont.svg",
     "apps/stg_assets/font/fontawesome-webfont.svg",

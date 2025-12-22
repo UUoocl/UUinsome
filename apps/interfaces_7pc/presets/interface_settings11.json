@@ -1,0 +1,14 @@
+{
+  "filename": "interface",
+  "ephemeral": true,
+  "ephemeral_alpha": 0,
+  "fps": 60,
+  "inp1color": "#5054d3",
+  "inp2color": "#ffff00",
+  "inp3color": "#0000ff",
+  "inp4color": "#ffffff",
+  "inp5color": "#000000",
+  "inp6color": "#e60fd4",
+  "inp7color": "#d8baba",
+  "bkgdColor": "#ffffff"
+}
