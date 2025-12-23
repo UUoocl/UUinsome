@@ -18,3 +18,6 @@ This repo contains scripts to connect Open Broadcast Studio (OBS) to
 
 [uuoocl.com](https://www.uuoocl.com)
 
+<!-- slide data-id="1766429488856" -->
+
+

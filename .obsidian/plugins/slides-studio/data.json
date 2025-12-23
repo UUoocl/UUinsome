@@ -31,7 +31,9 @@
     "Square",
     "None"
   ],
-  "user_tags": [],
+  "user_tags": [
+    "sdfsdf:234"
+  ],
   "newTag": "",
   "obsAppName_Text": "OBS",
   "obsCollection_Text": "Slides-Studio",
@@ -39,8 +41,23 @@
   "obsAppPath_Text": "",
   "serverPort": "57000",
   "serverEnabled": true,
-  "oscDevices": [],
-  "midiDevices": [],
+  "oscDevices": [
+    {
+      "name": "NewDevice",
+      "ip": "127.0.0.1",
+      "inPort": "8000",
+      "outPort": "9000"
+    }
+  ],
+  "midiDevices": [
+    {
+      "name": "MyMidiDevice",
+      "inputName": "",
+      "outputName": ""
+    }
+  ],
   "scenes": [],
-  "cameras": []
+  "cameras": [],
+  "newTagKey": "sdfsdf",
+  "newTagValue": "234"
 }

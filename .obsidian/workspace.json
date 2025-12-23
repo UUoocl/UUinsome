@@ -11,46 +11,46 @@
             "id": "d95894f99018338c",
             "type": "leaf",
             "state": {
-              "type": "webviewer",
+              "type": "markdown",
               "state": {
-                "url": "http://localhost:57000/apps/space_type_generator/cylinder.html",
-                "title": "SPACE TYPE GENERATOR",
-                "mode": "webview"
+                "file": "README.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "globe-2",
-              "title": "SPACE TYPE GENERATOR"
+              "icon": "lucide-file",
+              "title": "README"
             }
           },
           {
-            "id": "f13b0d873ac61303",
+            "id": "e9867eae39b661df",
             "type": "leaf",
             "state": {
               "type": "webviewer",
               "state": {
-                "url": "http://localhost:57000/apps/gum/index.html",
-                "title": "OBS GetUserMedia",
+                "url": "http://localhost:57000/apps/flow_manager/index.html",
+                "title": "OBS Flow Manager",
                 "mode": "webview"
               },
               "icon": "globe-2",
-              "title": "OBS GetUserMedia"
+              "title": "OBS Flow Manager"
             }
           },
           {
-            "id": "2f615a3c488425b6",
+            "id": "96ce0edcacfc43df",
             "type": "leaf",
             "state": {
               "type": "webviewer",
               "state": {
-                "url": "http://localhost:57000/apps/interfaces_7pc/interface.html?preset=interface_settings1",
-                "title": "Load Librarues Sequentially",
+                "url": "http://localhost:57000/.obsidian/plugins/slides-studio/slides_studio/",
+                "title": "Slides Studio",
                 "mode": "webview"
               },
               "icon": "globe-2",
-              "title": "Load Librarues Sequentially"
+              "title": "Slides Studio"
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -107,7 +107,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 446.5
+    "width": 322.5
   },
   "right": {
     "id": "11ba8dab7580db0a",
@@ -190,13 +190,23 @@
               "icon": "lucide-list",
               "title": "Outline"
             }
+          },
+          {
+            "id": "f4de613f485c3dcd",
+            "type": "leaf",
+            "state": {
+              "type": "slides-tag-view",
+              "state": {},
+              "icon": "aperture",
+              "title": "Slide tags"
+            }
           }
-        ]
+        ],
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 759.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -211,19 +221,20 @@
       "slides-extended:Show slide preview": false
     }
   },
-  "active": "2f615a3c488425b6",
+  "active": "e9867eae39b661df",
   "lastOpenFiles": [
+    "apps/text_editor/app.js",
+    "apps/text_editor/lib/loader.min.js",
+    "apps/text_editor/lib",
+    "apps/text_editor/index.html",
+    "apps/text_editor",
+    "README.md",
     "apps/interfaces_7pc/interfaces_r1b2.html",
     "apps/interfaces_7pc/presets/interface_settings11.json",
     "apps/interfaces_7pc/presets/interface_settings10.json",
     "apps/interfaces_7pc/presets/interface_settings2.json",
     "apps/interfaces_7pc/presets/interface_settings1.json",
     "apps/interfaces_7pc/presets/interface_settings.json",
-    "apps/interfaces_7pc/presets",
-    "apps/interfaces_7pc/js/obsidian_save_load.js",
-    "apps/interfaces_7pc/js/manage_view.js",
-    "apps/interfaces_7pc/js",
-    "apps/interfaces_7pc/lib/p5.js",
     "apps/gum/mediapipe_tasks/tasks-vision/README.md",
     "apps/gum/mediapipe_tasks/tasks-text/README.md",
     "apps/gum/README.md",

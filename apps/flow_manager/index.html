@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OBS Flow Manager</title>
+    <link rel="stylesheet" type="text/css" href="./css/litegraph.css">
+    <style>
+        body { margin: 0; background: #111; color: #eee; font-family: sans-serif; }
+        #toolbar { background: #222; padding: 10px; display: flex; gap: 10px; align-items: center; border-bottom: 1px solid #444; }
+        canvas { display: block; }
+        .connected { color: #44ff44; }
+        #status { font-weight: bold; color: #ff4444; }
+        </style>
+</head>
+<body>
+    <div id="toolbar">
+        <input type="text" id="flowName" value="default">
+        <button onclick="saveFlow()">Save Flow</button>
+        <button onclick="loadFlow()">Load Flow</button>
+        Status: <span id="status">Connecting...</span>
+    </div>
+    <canvas id="mainCanvas" width="1280" height="720"></canvas>
+    
+    <!-- Dependencies -->
+    <script src="./lib/litegraph,js"></script>
+    <script src="../lib/obs-ws.js"></script>
+    
+    <!-- App Logic -->
+    <script src="../lib/obsWssConnectionManager.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
