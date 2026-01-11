@@ -1,0 +1,116 @@
+{
+    "id": "753acdd5-9024-4310-9458-cd91e7105fba",
+    "authorName": "Gemini",
+    "created": 1673260800000,
+    "layout": {
+        "portsIn": [
+            {
+                "type": 2,
+                "name": "obsConnection",
+                "objType": "obsConnection"
+            },
+            {
+                "type": 1,
+                "name": "Call"
+            },
+            {
+                "type": 5,
+                "name": "Scene Name"
+            },
+            {
+                "type": 5,
+                "name": "Scene UUID"
+            },
+            {
+                "type": 5,
+                "name": "Input Name"
+            },
+            {
+                "type": 5,
+                "name": "Input Kind"
+            },
+            {
+                "type": 2,
+                "name": "Input Settings"
+            },
+            {
+                "type": 0,
+                "name": "Scene Item Enabled",
+                "subType": "boolean"
+            }
+        ],
+        "portsOut": [
+            {
+                "type": 1,
+                "name": "Finished"
+            },
+            {
+                "type": 5,
+                "name": "Input UUID"
+            },
+            {
+                "type": 0,
+                "name": "Scene Item ID",
+                "subType": "number"
+            }
+        ]
+    },
+    "summary": "Creates a new input and adds it to a scene",
+    "docs": {
+        "ports": [
+            {
+                "name": "obsConnection",
+                "text": "The OBS Connection object (optional, defaults to global obs)"
+            },
+            {
+                "name": "Call",
+                "text": "Trigger to call the request"
+            },
+            {
+                "name": "Scene Name",
+                "text": "Name of the scene to add the input to"
+            },
+            {
+                "name": "Scene UUID",
+                "text": "UUID of the scene to add the input to"
+            },
+            {
+                "name": "Input Name",
+                "text": "Name of the new input"
+            },
+            {
+                "name": "Input Kind",
+                "text": "The kind of input to create"
+            },
+            {
+                "name": "Input Settings",
+                "text": "Optional settings object for the input"
+            },
+            {
+                "name": "Scene Item Enabled",
+                "text": "Whether to enable the scene item by default"
+            },
+            {
+                "name": "Finished",
+                "text": "Triggered when the request is finished"
+            },
+            {
+                "name": "Input UUID",
+                "text": "UUID of the newly created input"
+            },
+            {
+                "name": "Scene Item ID",
+                "text": "ID of the newly created scene item"
+            }
+        ]
+    },
+    "dependencies": [
+        {
+            "type": "npm",
+            "src": "obs-websocket-js"
+        }
+    ],
+    "coreLibs": [
+        "standalone_electron"
+    ]
+}

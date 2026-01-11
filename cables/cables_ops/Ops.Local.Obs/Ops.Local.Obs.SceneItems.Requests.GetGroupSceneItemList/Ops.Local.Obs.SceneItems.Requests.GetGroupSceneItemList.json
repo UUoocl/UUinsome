@@ -1,0 +1,74 @@
+{
+    "id": "fe35718f-e582-4cba-8fc2-2dccd8798391",
+    "authorName": "Gemini",
+    "created": 1673260800000,
+    "layout": {
+        "portsIn": [
+            {
+                "type": 2,
+                "name": "obsConnection",
+                "objType": "obsConnection"
+            },
+            {
+                "type": 1,
+                "name": "Call"
+            },
+            {
+                "type": 5,
+                "name": "Group Name"
+            },
+            {
+                "type": 5,
+                "name": "Group UUID"
+            }
+        ],
+        "portsOut": [
+            {
+                "type": 1,
+                "name": "Finished"
+            },
+            {
+                "type": 3,
+                "name": "Scene Items"
+            }
+        ]
+    },
+    "summary": "Gets a list of all scene items in a group",
+    "docs": {
+        "ports": [
+            {
+                "name": "obsConnection",
+                "text": "The OBS Connection object (optional, defaults to global obs)"
+            },
+            {
+                "name": "Call",
+                "text": "Trigger to call the request"
+            },
+            {
+                "name": "Group Name",
+                "text": "Name of the group to get the items of"
+            },
+            {
+                "name": "Group UUID",
+                "text": "UUID of the group to get the items of"
+            },
+            {
+                "name": "Finished",
+                "text": "Triggered when the request is finished"
+            },
+            {
+                "name": "Scene Items",
+                "text": "Array of scene item objects"
+            }
+        ]
+    },
+    "dependencies": [
+        {
+            "type": "npm",
+            "src": "obs-websocket-js"
+        }
+    ],
+    "coreLibs": [
+        "standalone_electron"
+    ]
+}

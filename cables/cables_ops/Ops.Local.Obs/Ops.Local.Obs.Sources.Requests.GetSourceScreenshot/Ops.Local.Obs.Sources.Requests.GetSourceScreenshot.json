@@ -1,0 +1,109 @@
+{
+    "id": "04961ecf-dfce-45e2-a40a-e75428b2c5f0",
+    "authorName": "Gemini",
+    "created": 1673260800000,
+    "layout": {
+        "portsIn": [
+            {
+                "type": 2,
+                "name": "obsConnection",
+                "objType": "obsConnection"
+            },
+            {
+                "type": 1,
+                "name": "Call"
+            },
+            {
+                "type": 5,
+                "name": "Source Name"
+            },
+            {
+                "type": 5,
+                "name": "Source UUID"
+            },
+            {
+                "type": 5,
+                "name": "Image Format"
+            },
+            {
+                "type": 0,
+                "name": "Image Width",
+                "subType": "number"
+            },
+            {
+                "type": 0,
+                "name": "Image Height",
+                "subType": "number"
+            },
+            {
+                "type": 0,
+                "name": "Image Compression Quality",
+                "subType": "number"
+            }
+        ],
+        "portsOut": [
+            {
+                "type": 1,
+                "name": "Finished"
+            },
+            {
+                "type": 5,
+                "name": "Image Data (Base64)"
+            }
+        ]
+    },
+    "summary": "Gets a Base64-encoded screenshot of a source",
+    "docs": {
+        "ports": [
+            {
+                "name": "obsConnection",
+                "text": "The OBS Connection object (optional, defaults to global obs)"
+            },
+            {
+                "name": "Call",
+                "text": "Trigger to call the request"
+            },
+            {
+                "name": "Source Name",
+                "text": "Name of the source to take a screenshot of"
+            },
+            {
+                "name": "Source UUID",
+                "text": "UUID of the source to take a screenshot of"
+            },
+            {
+                "name": "Image Format",
+                "text": "Image compression format to use (e.g. png, jpg)"
+            },
+            {
+                "name": "Image Width",
+                "text": "Width to scale the screenshot to (8-4096)"
+            },
+            {
+                "name": "Image Height",
+                "text": "Height to scale the screenshot to (8-4096)"
+            },
+            {
+                "name": "Image Compression Quality",
+                "text": "Compression quality (-1 to 100)"
+            },
+            {
+                "name": "Finished",
+                "text": "Triggered when the request is finished"
+            },
+            {
+                "name": "Image Data (Base64)",
+                "text": "Base64-encoded image data"
+            }
+        ]
+    },
+    "dependencies": [
+        {
+            "type": "npm",
+            "src": "obs-websocket-js"
+        }
+    ],
+    "coreLibs": [
+        "standalone_electron"
+    ]
+}

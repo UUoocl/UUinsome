@@ -1,0 +1,50 @@
+{
+    "id": "6d2d9246-9a69-4d13-9f2b-4476fa6bf864",
+    "authorName": "Gemini",
+    "created": 1672531200000,
+    "layout": {
+        "portsIn": [
+            {
+                "type": 2,
+                "name": "obsConnection",
+                "objType": "obsConnection"
+            }
+        ],
+        "portsOut": [
+            {
+                "type": 1,
+                "name": "Changed"
+            },
+            {
+                "type": 5,
+                "name": "Profile Name"
+            }
+        ]
+    },
+    "summary": "Triggered when the current profile starts changing",
+    "docs": {
+        "ports": [
+            {
+                "name": "obsConnection",
+                "text": "The OBS Connection object (optional, defaults to global obs)"
+            },
+            {
+                "name": "Changed",
+                "text": "Triggered when the event occurs"
+            },
+            {
+                "name": "Profile Name",
+                "text": "Name of the current profile"
+            }
+        ]
+    },
+    "dependencies": [
+        {
+            "type": "npm",
+            "src": "obs-websocket-js"
+        }
+    ],
+    "coreLibs": [
+        "standalone_electron"
+    ]
+}

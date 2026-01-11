@@ -1,0 +1,58 @@
+{
+    "id": "abf4c310-ec22-4618-ab6b-9750309d6a5b",
+    "authorName": "Gemini",
+    "created": 1672531200000,
+    "layout": {
+        "portsIn": [
+            {
+                "type": 2,
+                "name": "obsConnection",
+                "objType": "obsConnection"
+            }
+        ],
+        "portsOut": [
+            {
+                "type": 1,
+                "name": "Changed"
+            },
+            {
+                "type": 5,
+                "name": "Transition Name"
+            },
+            {
+                "type": 5,
+                "name": "Transition UUID"
+            }
+        ]
+    },
+    "summary": "Triggered when the current scene transition has changed",
+    "docs": {
+        "ports": [
+            {
+                "name": "obsConnection",
+                "text": "The OBS Connection object (optional, defaults to global obs)"
+            },
+            {
+                "name": "Changed",
+                "text": "Triggered when the transition changes"
+            },
+            {
+                "name": "Transition Name",
+                "text": "Name of the new transition"
+            },
+            {
+                "name": "Transition UUID",
+                "text": "UUID of the new transition"
+            }
+        ]
+    },
+    "dependencies": [
+        {
+            "type": "npm",
+            "src": "obs-websocket-js"
+        }
+    ],
+    "coreLibs": [
+        "standalone_electron"
+    ]
+}

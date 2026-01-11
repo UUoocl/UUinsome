@@ -393,8 +393,6 @@
 <script src="./js/stg_menu.js" data-obsidian="true"></script>
 <script src="./js/obsidian_save_load.js" data-obsidian="true"></script>
 
-<script src="../lib/obs-ws.js"></script>
-<script src="../lib/obsWssConnectionManager.js"></script>
 <script src="./js/manage_view.js"></script>
 <script src="./js/keyboard_input.js"></script>
 
@@ -453,6 +451,8 @@ function getSketchSettings(filename){
 }
 
 function setSketchSettings(json){
+  
+
   document.getElementById("textArea").value = json.text; 
   document.getElementById("fontChange").value = json.setFont ; setFont( json.setFont);
   document.getElementById("alignMode").value = json.setAlignMode ; setAlignMode( json.setAlignMode);

@@ -1,0 +1,66 @@
+{
+    "id": "2398717f-8612-47a9-b964-448250b346f1",
+    "authorName": "Gemini",
+    "created": 1672531200000,
+    "layout": {
+        "portsIn": [
+            {
+                "type": 2,
+                "name": "obsConnection",
+                "objType": "obsConnection"
+            }
+        ],
+        "portsOut": [
+            {
+                "type": 1,
+                "name": "Changed"
+            },
+            {
+                "type": 5,
+                "name": "Source Name"
+            },
+            {
+                "type": 5,
+                "name": "Filter Name"
+            },
+            {
+                "type": 2,
+                "name": "Filter Settings"
+            }
+        ]
+    },
+    "summary": "Triggered when a source filter's settings have changed",
+    "docs": {
+        "ports": [
+            {
+                "name": "obsConnection",
+                "text": "The OBS Connection object (optional, defaults to global obs)"
+            },
+            {
+                "name": "Changed",
+                "text": "Triggered when the settings change"
+            },
+            {
+                "name": "Source Name",
+                "text": "Name of the source the filter is on"
+            },
+            {
+                "name": "Filter Name",
+                "text": "Name of the filter"
+            },
+            {
+                "name": "Filter Settings",
+                "text": "New settings object of the filter"
+            }
+        ]
+    },
+    "dependencies": [
+        {
+            "type": "npm",
+            "src": "obs-websocket-js"
+        }
+    ],
+    "coreLibs": [
+        "standalone_electron"
+    ]
+}

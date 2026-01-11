@@ -16,9 +16,6 @@
      <textarea id="textfield" autofocus>SPACE TYPE GENERATOR</textarea>
    
     </div>
-    <script src="../lib/obs-ws.js"></script>
-    <script src="../lib/obsWssConnectionManager.js"></script>
-    
     <script id="obs_view">
       var timer
       const APP_FOLDER = "apps/space_type_generator/presets";
@@ -26,17 +23,12 @@
 
       //onload get query paramater
       window.onload = ( async () => {
-      })
-      
-      //load p5 after connecting to OBS
-      obsWss.on("Identified", async (data) => {
         const params = new URLSearchParams(window.location.search)
         if(params.has("preset")){
           loadSettings(params.get("preset"))    
         }else{
           console.log("add a preset parameter")
         }
-        //stop if not preset found
       })
       
       //get file name from Query Parameter

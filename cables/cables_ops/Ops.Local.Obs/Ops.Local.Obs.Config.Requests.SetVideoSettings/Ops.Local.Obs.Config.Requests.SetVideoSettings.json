@@ -1,0 +1,104 @@
+{
+    "id": "7e9c48ef-c680-476f-a7f8-d8ff2ecbf72a",
+    "authorName": "Gemini",
+    "created": 1673260800000,
+    "layout": {
+        "portsIn": [
+            {
+                "type": 2,
+                "name": "obsConnection",
+                "objType": "obsConnection"
+            },
+            {
+                "type": 1,
+                "name": "Call"
+            },
+            {
+                "type": 0,
+                "name": "FPS Numerator",
+                "subType": "number"
+            },
+            {
+                "type": 0,
+                "name": "FPS Denominator",
+                "subType": "number"
+            },
+            {
+                "type": 0,
+                "name": "Base Width",
+                "subType": "number"
+            },
+            {
+                "type": 0,
+                "name": "Base Height",
+                "subType": "number"
+            },
+            {
+                "type": 0,
+                "name": "Output Width",
+                "subType": "number"
+            },
+            {
+                "type": 0,
+                "name": "Output Height",
+                "subType": "number"
+            }
+        ],
+        "portsOut": [
+            {
+                "type": 1,
+                "name": "Finished"
+            }
+        ]
+    },
+    "summary": "Sets the current video settings",
+    "docs": {
+        "ports": [
+            {
+                "name": "obsConnection",
+                "text": "The OBS Connection object (optional, defaults to global obs)"
+            },
+            {
+                "name": "Call",
+                "text": "Trigger to call the request"
+            },
+            {
+                "name": "FPS Numerator",
+                "text": "Numerator of the fractional FPS value"
+            },
+            {
+                "name": "FPS Denominator",
+                "text": "Denominator of the fractional FPS value"
+            },
+            {
+                "name": "Base Width",
+                "text": "Width of the base (canvas) resolution in pixels"
+            },
+            {
+                "name": "Base Height",
+                "text": "Height of the base (canvas) resolution in pixels"
+            },
+            {
+                "name": "Output Width",
+                "text": "Width of the output resolution in pixels"
+            },
+            {
+                "name": "Output Height",
+                "text": "Height of the output resolution in pixels"
+            },
+            {
+                "name": "Finished",
+                "text": "Triggered when the request is complete"
+            }
+        ]
+    },
+    "dependencies": [
+        {
+            "type": "npm",
+            "src": "obs-websocket-js"
+        }
+    ],
+    "coreLibs": [
+        "standalone_electron"
+    ]
+}

@@ -1,0 +1,107 @@
+{
+    "id": "98981918-3978-4256-ae92-24e139a4a821",
+    "authorName": "Gemini",
+    "created": 1673260800000,
+    "layout": {
+        "portsIn": [
+            {
+                "type": 2,
+                "name": "obsConnection",
+                "objType": "obsConnection"
+            },
+            {
+                "type": 1,
+                "name": "Call"
+            }
+        ],
+        "portsOut": [
+            {
+                "type": 1,
+                "name": "Finished"
+            },
+            {
+                "type": 5,
+                "name": "OBS Version"
+            },
+            {
+                "type": 5,
+                "name": "OBS WebSocket Version"
+            },
+            {
+                "type": 0,
+                "name": "RPC Version",
+                "subType": "number"
+            },
+            {
+                "type": 3,
+                "name": "Available Requests"
+            },
+            {
+                "type": 3,
+                "name": "Supported Image Formats"
+            },
+            {
+                "type": 5,
+                "name": "Platform"
+            },
+            {
+                "type": 5,
+                "name": "Platform Description"
+            }
+        ]
+    },
+    "summary": "Gets data about the current plugin and RPC version",
+    "docs": {
+        "ports": [
+            {
+                "name": "obsConnection",
+                "text": "The OBS Connection object (optional, defaults to global obs)"
+            },
+            {
+                "name": "Call",
+                "text": "Trigger to call the request"
+            },
+            {
+                "name": "Finished",
+                "text": "Triggered when the request is finished"
+            },
+            {
+                "name": "OBS Version",
+                "text": "Current OBS Studio version"
+            },
+            {
+                "name": "OBS WebSocket Version",
+                "text": "Current obs-websocket version"
+            },
+            {
+                "name": "RPC Version",
+                "text": "Current latest obs-websocket RPC version"
+            },
+            {
+                "name": "Available Requests",
+                "text": "Array of available RPC requests"
+            },
+            {
+                "name": "Supported Image Formats",
+                "text": "Image formats available in screenshot requests"
+            },
+            {
+                "name": "Platform",
+                "text": "Name of the platform (e.g. windows, macos)"
+            },
+            {
+                "name": "Platform Description",
+                "text": "Description of the platform"
+            }
+        ]
+    },
+    "dependencies": [
+        {
+            "type": "npm",
+            "src": "obs-websocket-js"
+        }
+    ],
+    "coreLibs": [
+        "standalone_electron"
+    ]
+}

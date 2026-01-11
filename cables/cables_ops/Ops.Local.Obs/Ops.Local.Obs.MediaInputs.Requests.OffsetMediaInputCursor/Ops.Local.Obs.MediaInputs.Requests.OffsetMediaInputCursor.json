@@ -1,0 +1,75 @@
+{
+    "id": "3b5660d9-535a-40a7-be6d-fe2065611db0",
+    "authorName": "Gemini",
+    "created": 1673260800000,
+    "layout": {
+        "portsIn": [
+            {
+                "type": 2,
+                "name": "obsConnection",
+                "objType": "obsConnection"
+            },
+            {
+                "type": 1,
+                "name": "Call"
+            },
+            {
+                "type": 5,
+                "name": "Input Name"
+            },
+            {
+                "type": 5,
+                "name": "Input UUID"
+            },
+            {
+                "type": 0,
+                "name": "Media Cursor Offset (ms)",
+                "subType": "number"
+            }
+        ],
+        "portsOut": [
+            {
+                "type": 1,
+                "name": "Finished"
+            }
+        ]
+    },
+    "summary": "Offsets the current cursor position of a media input by the specified value",
+    "docs": {
+        "ports": [
+            {
+                "name": "obsConnection",
+                "text": "The OBS Connection object (optional, defaults to global obs)"
+            },
+            {
+                "name": "Call",
+                "text": "Trigger to call the request"
+            },
+            {
+                "name": "Input Name",
+                "text": "Name of the media input"
+            },
+            {
+                "name": "Input UUID",
+                "text": "UUID of the media input"
+            },
+            {
+                "name": "Media Cursor Offset (ms)",
+                "text": "Value to offset the current cursor position by in milliseconds"
+            },
+            {
+                "name": "Finished",
+                "text": "Triggered when the request is complete"
+            }
+        ]
+    },
+    "dependencies": [
+        {
+            "type": "npm",
+            "src": "obs-websocket-js"
+        }
+    ],
+    "coreLibs": [
+        "standalone_electron"
+    ]
+}

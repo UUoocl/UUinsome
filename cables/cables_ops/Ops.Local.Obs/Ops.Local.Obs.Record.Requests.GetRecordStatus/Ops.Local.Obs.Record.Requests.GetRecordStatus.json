@@ -1,0 +1,94 @@
+{
+    "id": "c54ddec6-4681-457b-a8a4-416e5e1d8c1f",
+    "authorName": "Gemini",
+    "created": 1673260800000,
+    "layout": {
+        "portsIn": [
+            {
+                "type": 2,
+                "name": "obsConnection",
+                "objType": "obsConnection"
+            },
+            {
+                "type": 1,
+                "name": "Call"
+            }
+        ],
+        "portsOut": [
+            {
+                "type": 1,
+                "name": "Finished"
+            },
+            {
+                "type": 0,
+                "name": "Output Active",
+                "subType": "boolean"
+            },
+            {
+                "type": 0,
+                "name": "Output Paused",
+                "subType": "boolean"
+            },
+            {
+                "type": 5,
+                "name": "Output Timecode"
+            },
+            {
+                "type": 0,
+                "name": "Output Duration (ms)",
+                "subType": "number"
+            },
+            {
+                "type": 0,
+                "name": "Output Bytes",
+                "subType": "number"
+            }
+        ]
+    },
+    "summary": "Gets the status of the record output",
+    "docs": {
+        "ports": [
+            {
+                "name": "obsConnection",
+                "text": "The OBS Connection object (optional, defaults to global obs)"
+            },
+            {
+                "name": "Call",
+                "text": "Trigger to call the request"
+            },
+            {
+                "name": "Finished",
+                "text": "Triggered when the request is finished"
+            },
+            {
+                "name": "Output Active",
+                "text": "Whether the output is active"
+            },
+            {
+                "name": "Output Paused",
+                "text": "Whether the output is paused"
+            },
+            {
+                "name": "Output Timecode",
+                "text": "Current formatted timecode string"
+            },
+            {
+                "name": "Output Duration (ms)",
+                "text": "Current duration in milliseconds"
+            },
+            {
+                "name": "Output Bytes",
+                "text": "Number of bytes sent"
+            }
+        ]
+    },
+    "dependencies": [
+        {
+            "type": "npm",
+            "src": "obs-websocket-js"
+        }
+    ],
+    "coreLibs": [
+        "standalone_electron"
+    ]
+}

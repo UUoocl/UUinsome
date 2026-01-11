@@ -3,44 +3,18 @@
   "websocketPort_Text": "4455",
   "websocketPW_Text": "password",
   "slidesPort_Text": "5000",
-  "slide_tags": [
-    "Over-the-Shoulder skewed",
-    "Side-by-Side",
-    "Full Screen"
-  ],
-  "scene_tags": [
-    "Scene Desktop",
-    "Scene Camera Over Slides",
-    "Scene Slides over Camera"
-  ],
-  "camera_tags": [
-    "Camera Upper Left",
-    "Camera Upper Right",
-    "Camera Lower Left",
-    "Camera Lower Right",
-    "Camera Full Off Center",
-    "Camera Full Screen"
-  ],
-  "camera_shape_tags": [
-    "cssSquare",
-    "cssAnimation_Square",
-    "cssAnimation_Circle",
-    "cssCircle",
-    "Pulse",
-    "Circle",
-    "Square",
-    "None"
-  ],
-  "user_tags": [
-    "sdfsdf:234"
-  ],
+  "slide_tags": [],
+  "scene_tags": [],
+  "camera_tags": [],
+  "camera_shape_tags": [],
+  "user_tags": [],
   "newTag": "",
   "obsAppName_Text": "OBS",
-  "obsCollection_Text": "Slides-Studio",
+  "obsCollection_Text": "python_http_osc_midi",
   "obsDebugPort_Text": "9222",
   "obsAppPath_Text": "",
   "serverPort": "57000",
-  "serverEnabled": true,
+  "serverEnabled": false,
   "oscDevices": [
     {
       "name": "NewDevice",

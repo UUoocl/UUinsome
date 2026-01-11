@@ -428,7 +428,7 @@ body[data-speaker-layout="teleprompter"] #current-slide,
  
   <script id ="setupForm">
     window.addEventListener("load", (event) => {
-      console.log("page is fully loaded");
+      console.debug("page is fully loaded");
       //if the websocketDetails variable exists, update local storage
       if(websocketDetails){
         window.localStorage.setItem('wssDetails',JSON.stringify(websocketDetails))
@@ -455,7 +455,6 @@ body[data-speaker-layout="teleprompter"] #current-slide,
       document
         .getElementById("copyCommand")
         .addEventListener('click', (e) => {
-          console.log(e)
           copyCode(e.target.id, "obsOpenCommand", e.target.innerText)
         });
 
@@ -466,7 +465,6 @@ body[data-speaker-layout="teleprompter"] #current-slide,
   </script>
   <script id="setupSpeakerView">
     
-      console.log("Iframe SpeakerView")
       let notes,
       notesValue,
       currentSlide,
@@ -501,7 +499,6 @@ body[data-speaker-layout="teleprompter"] #current-slide,
         }
         
         slideDeckURL = new URL(document.getElementById("location").value)
-        console.log(slideDeckURL)
         if(slideDeckURL.origin === "https://slides.com"){
           slideDeck = `${document.getElementById("location").value}/fullscreen`
           loadScript('lib/getSlideData-slides_com.js')
@@ -545,7 +542,6 @@ body[data-speaker-layout="teleprompter"] #current-slide,
 		  svFontSize = window.document.getElementById("teleprompterData");
 		  if (svFontSize) {
 			  svFontSize = svFontSize.getAttribute("data-speakerview-font-size");
-			  console.log("font size", svFontSize)
 			 } else {
 				 svFontSize = 100 //wssDetails.TeleprompterFontSize;
 			 }
@@ -562,10 +558,8 @@ body[data-speaker-layout="teleprompter"] #current-slide,
 			  
        function scrollPause() {
         play = !play;
-        console.log("pause funciton", play)
         clearInterval(scroller)
 			  //label.innerHTML = Number(currentScroll) +"; "+ Number(notes.scrollHeight) + "; "+ notes.clientHeight + "; Play: " + play+ ", Size: " + svFontSize + ", Speed: " + speed;
-        console.log(play, notesValue.innerHTML.length >0)
         if(play && notesValue.innerHTML.length >0){
           scroller = setInterval(scroll, speed);
         }
@@ -741,13 +735,11 @@ body[data-speaker-layout="teleprompter"] #current-slide,
        * in local storage.
        */
       function setLayout(value) {
-        console.log(SPEAKER_LAYOUTS)
         var title = SPEAKER_LAYOUTS[value];
         
         layoutLabel.innerHTML = "Layout" + (title ? ": " + title : "");
         layoutDropdown.value = value;
         
-        console.log("set layout called", value, title)
         value = layoutDropdown.value.toLowerCase();
         // Persist locally
         if (supportsLocalStorage()) {
@@ -835,14 +827,13 @@ body[data-speaker-layout="teleprompter"] #current-slide,
         }
 
         scriptElem.onload = () => {
-          console.log(`${script} Script loaded successfuly`);
           if (callback) {
             callback();
           }
         };
 
         scriptElem.onerror = () => {
-          console.log(`${script} Error occurred while loading script`);
+          console.error(`${script} Error occurred while loading script`);
         };
         
         document.body.appendChild(scriptElem);
@@ -857,10 +848,8 @@ body[data-speaker-layout="teleprompter"] #current-slide,
               await obsWss.call("GetInputSettings", {
                 inputUuid: browserSources.inputs[i].inputUuid
               })
-            console.log("BROWSER SETTINGS",browserSettings)  
             const browserURL = new URL(browserSettings.inputSettings.url)
             
-            console.log("browserURL",browserURL)
             await obsWss.call("SetInputSettings", {
               inputUuid: browserSources.inputs[i].inputUuid,
               inputSettings: {

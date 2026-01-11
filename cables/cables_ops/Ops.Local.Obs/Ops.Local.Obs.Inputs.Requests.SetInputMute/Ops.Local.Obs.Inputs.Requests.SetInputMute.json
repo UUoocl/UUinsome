@@ -1,0 +1,75 @@
+{
+    "id": "20157b0e-c6d2-4bee-8e30-d9e50590c94e",
+    "authorName": "Gemini",
+    "created": 1673260800000,
+    "layout": {
+        "portsIn": [
+            {
+                "type": 2,
+                "name": "obsConnection",
+                "objType": "obsConnection"
+            },
+            {
+                "type": 1,
+                "name": "Call"
+            },
+            {
+                "type": 5,
+                "name": "Input Name"
+            },
+            {
+                "type": 5,
+                "name": "Input UUID"
+            },
+            {
+                "type": 0,
+                "name": "Input Muted",
+                "subType": "boolean"
+            }
+        ],
+        "portsOut": [
+            {
+                "type": 1,
+                "name": "Finished"
+            }
+        ]
+    },
+    "summary": "Sets the audio mute state of an input",
+    "docs": {
+        "ports": [
+            {
+                "name": "obsConnection",
+                "text": "The OBS Connection object (optional, defaults to global obs)"
+            },
+            {
+                "name": "Call",
+                "text": "Trigger to call the request"
+            },
+            {
+                "name": "Input Name",
+                "text": "Name of the input"
+            },
+            {
+                "name": "Input UUID",
+                "text": "UUID of the input"
+            },
+            {
+                "name": "Input Muted",
+                "text": "Whether to mute the input or not"
+            },
+            {
+                "name": "Finished",
+                "text": "Triggered when the request is complete"
+            }
+        ]
+    },
+    "dependencies": [
+        {
+            "type": "npm",
+            "src": "obs-websocket-js"
+        }
+    ],
+    "coreLibs": [
+        "standalone_electron"
+    ]
+}

@@ -1,0 +1,109 @@
+{
+    "id": "84013a3a-c826-4a90-89b1-f9e608b38250",
+    "authorName": "Gemini",
+    "created": 1673260800000,
+    "layout": {
+        "portsIn": [
+            {
+                "type": 2,
+                "name": "obsConnection",
+                "objType": "obsConnection"
+            },
+            {
+                "type": 1,
+                "name": "Call"
+            }
+        ],
+        "portsOut": [
+            {
+                "type": 1,
+                "name": "Finished"
+            },
+            {
+                "type": 5,
+                "name": "Transition Name"
+            },
+            {
+                "type": 5,
+                "name": "Transition UUID"
+            },
+            {
+                "type": 5,
+                "name": "Transition Kind"
+            },
+            {
+                "type": 0,
+                "name": "Transition Fixed",
+                "subType": "boolean"
+            },
+            {
+                "type": 0,
+                "name": "Transition Duration",
+                "subType": "number"
+            },
+            {
+                "type": 0,
+                "name": "Transition Configurable",
+                "subType": "boolean"
+            },
+            {
+                "type": 2,
+                "name": "Transition Settings"
+            }
+        ]
+    },
+    "summary": "Gets information about the current scene transition",
+    "docs": {
+        "ports": [
+            {
+                "name": "obsConnection",
+                "text": "The OBS Connection object (optional, defaults to global obs)"
+            },
+            {
+                "name": "Call",
+                "text": "Trigger to call the request"
+            },
+            {
+                "name": "Finished",
+                "text": "Triggered when the request is finished"
+            },
+            {
+                "name": "Transition Name",
+                "text": "Name of the transition"
+            },
+            {
+                "name": "Transition UUID",
+                "text": "UUID of the transition"
+            },
+            {
+                "name": "Transition Kind",
+                "text": "Kind of the transition"
+            },
+            {
+                "name": "Transition Fixed",
+                "text": "Whether the transition uses a fixed duration"
+            },
+            {
+                "name": "Transition Duration",
+                "text": "Configured transition duration in milliseconds"
+            },
+            {
+                "name": "Transition Configurable",
+                "text": "Whether the transition supports being configured"
+            },
+            {
+                "name": "Transition Settings",
+                "text": "Object of settings for the transition"
+            }
+        ]
+    },
+    "dependencies": [
+        {
+            "type": "npm",
+            "src": "obs-websocket-js"
+        }
+    ],
+    "coreLibs": [
+        "standalone_electron"
+    ]
+}

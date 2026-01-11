@@ -1,0 +1,82 @@
+{
+    "id": "104749d2-6ac2-4165-9a51-b7abf7d38328",
+    "authorName": "Gemini",
+    "created": 1673260800000,
+    "layout": {
+        "portsIn": [
+            {
+                "type": 2,
+                "name": "obsConnection",
+                "objType": "obsConnection"
+            },
+            {
+                "type": 1,
+                "name": "Call"
+            },
+            {
+                "type": 5,
+                "name": "Parameter Category"
+            },
+            {
+                "type": 5,
+                "name": "Parameter Name"
+            }
+        ],
+        "portsOut": [
+            {
+                "type": 1,
+                "name": "Finished"
+            },
+            {
+                "type": 5,
+                "name": "Parameter Value"
+            },
+            {
+                "type": 5,
+                "name": "Default Parameter Value"
+            }
+        ]
+    },
+    "summary": "Gets a parameter from the current profile's configuration",
+    "docs": {
+        "ports": [
+            {
+                "name": "obsConnection",
+                "text": "The OBS Connection object (optional, defaults to global obs)"
+            },
+            {
+                "name": "Call",
+                "text": "Trigger to call the request"
+            },
+            {
+                "name": "Parameter Category",
+                "text": "Category of the parameter to get"
+            },
+            {
+                "name": "Parameter Name",
+                "text": "Name of the parameter to get"
+            },
+            {
+                "name": "Finished",
+                "text": "Triggered when the request is finished"
+            },
+            {
+                "name": "Parameter Value",
+                "text": "Value associated with the parameter"
+            },
+            {
+                "name": "Default Parameter Value",
+                "text": "Default value associated with the parameter"
+            }
+        ]
+    },
+    "dependencies": [
+        {
+            "type": "npm",
+            "src": "obs-websocket-js"
+        }
+    ],
+    "coreLibs": [
+        "standalone_electron"
+    ]
+}

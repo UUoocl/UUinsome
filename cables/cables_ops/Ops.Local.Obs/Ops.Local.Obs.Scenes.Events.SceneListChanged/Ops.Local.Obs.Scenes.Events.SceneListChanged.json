@@ -1,0 +1,50 @@
+{
+    "id": "1aee0bf2-1374-4739-a550-54413fb4bcb2",
+    "authorName": "Gemini",
+    "created": 1672531200000,
+    "layout": {
+        "portsIn": [
+            {
+                "type": 2,
+                "name": "obsConnection",
+                "objType": "obsConnection"
+            }
+        ],
+        "portsOut": [
+            {
+                "type": 1,
+                "name": "Changed"
+            },
+            {
+                "type": 3,
+                "name": "Scenes"
+            }
+        ]
+    },
+    "summary": "Triggered when the list of scenes has changed",
+    "docs": {
+        "ports": [
+            {
+                "name": "obsConnection",
+                "text": "The OBS Connection object (optional, defaults to global obs)"
+            },
+            {
+                "name": "Changed",
+                "text": "Triggered when the scene list changes"
+            },
+            {
+                "name": "Scenes",
+                "text": "Updated array of scenes"
+            }
+        ]
+    },
+    "dependencies": [
+        {
+            "type": "npm",
+            "src": "obs-websocket-js"
+        }
+    ],
+    "coreLibs": [
+        "standalone_electron"
+    ]
+}

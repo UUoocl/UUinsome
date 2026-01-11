@@ -1,0 +1,76 @@
+{
+    "id": "c6f6bb0d-e74a-454b-9879-cc6e709d174c",
+    "authorName": "Gemini",
+    "created": 1672531200000,
+    "layout": {
+        "portsIn": [
+            {
+                "type": 2,
+                "name": "obsConnection",
+                "objType": "obsConnection"
+            }
+        ],
+        "portsOut": [
+            {
+                "type": 1,
+                "name": "Changed"
+            },
+            {
+                "type": 5,
+                "name": "Input Name"
+            },
+            {
+                "type": 5,
+                "name": "Input UUID"
+            },
+            {
+                "type": 0,
+                "name": "Volume Multiplier",
+                "subType": "number"
+            },
+            {
+                "type": 0,
+                "name": "Volume dB",
+                "subType": "number"
+            }
+        ]
+    },
+    "summary": "Triggered when an input's volume level has changed",
+    "docs": {
+        "ports": [
+            {
+                "name": "obsConnection",
+                "text": "The OBS Connection object (optional, defaults to global obs)"
+            },
+            {
+                "name": "Changed",
+                "text": "Triggered when the volume changes"
+            },
+            {
+                "name": "Input Name",
+                "text": "Name of the input"
+            },
+            {
+                "name": "Input UUID",
+                "text": "UUID of the input"
+            },
+            {
+                "name": "Volume Multiplier",
+                "text": "New volume level multiplier"
+            },
+            {
+                "name": "Volume dB",
+                "text": "New volume level in dB"
+            }
+        ]
+    },
+    "dependencies": [
+        {
+            "type": "npm",
+            "src": "obs-websocket-js"
+        }
+    ],
+    "coreLibs": [
+        "standalone_electron"
+    ]
+}

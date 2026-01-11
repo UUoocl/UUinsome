@@ -1,0 +1,67 @@
+{
+    "id": "9202916f-1aaa-4946-98c9-d9ed7c326777",
+    "authorName": "Gemini",
+    "created": 1672531200000,
+    "layout": {
+        "portsIn": [
+            {
+                "type": 2,
+                "name": "obsConnection",
+                "objType": "obsConnection"
+            }
+        ],
+        "portsOut": [
+            {
+                "type": 1,
+                "name": "Changed"
+            },
+            {
+                "type": 5,
+                "name": "Input Name"
+            },
+            {
+                "type": 5,
+                "name": "Input UUID"
+            },
+            {
+                "type": 0,
+                "name": "Video Active",
+                "subType": "boolean"
+            }
+        ]
+    },
+    "summary": "Triggered when an input's active state has changed",
+    "docs": {
+        "ports": [
+            {
+                "name": "obsConnection",
+                "text": "The OBS Connection object (optional, defaults to global obs)"
+            },
+            {
+                "name": "Changed",
+                "text": "Triggered when the event occurs"
+            },
+            {
+                "name": "Input Name",
+                "text": "Name of the input"
+            },
+            {
+                "name": "Input UUID",
+                "text": "UUID of the input"
+            },
+            {
+                "name": "Video Active",
+                "text": "Whether the input is active"
+            }
+        ]
+    },
+    "dependencies": [
+        {
+            "type": "npm",
+            "src": "obs-websocket-js"
+        }
+    ],
+    "coreLibs": [
+        "standalone_electron"
+    ]
+}

@@ -1,6 +1,6 @@
 # UUinsome 
 This repo contains scripts to connect Open Broadcast Studio (OBS) to
-- 🪴 Mouse Input 
+- 🌺 Mouse Input 
 - 🌺 Keyboard Input
 - 🪴 OSC 
 - 🪴 MIDI
@@ -12,12 +12,10 @@ This repo contains scripts to connect Open Broadcast Studio (OBS) to
 - 🌱 Slides.com
 - 🌱 Reveal js
 - 🌱 Google Sheets
-- 🌱 Command line
-- 🌱 shortcuts
-- 🌱 Zoom
+- 🪴 Command line
+- 🪴 shortcuts
+- 🪴 Zoom
+- 🪴 Cables gl
+- 🪴 Source capture
 
 [uuoocl.com](https://www.uuoocl.com)
-
-<!-- slide data-id="1766429488856" -->
-
-

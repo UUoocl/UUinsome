@@ -1,0 +1,100 @@
+{
+    "id": "98ef3d5a-8040-4b7e-b0fe-3ff25d88a691",
+    "authorName": "Gemini",
+    "created": 1673260800000,
+    "layout": {
+        "portsIn": [
+            {
+                "type": 2,
+                "name": "obsConnection",
+                "objType": "obsConnection"
+            },
+            {
+                "type": 1,
+                "name": "Call"
+            },
+            {
+                "type": 5,
+                "name": "Scene Name"
+            },
+            {
+                "type": 5,
+                "name": "Scene UUID"
+            },
+            {
+                "type": 5,
+                "name": "Source Name"
+            },
+            {
+                "type": 5,
+                "name": "Source UUID"
+            },
+            {
+                "type": 0,
+                "name": "Scene Item Enabled",
+                "subType": "boolean"
+            }
+        ],
+        "portsOut": [
+            {
+                "type": 1,
+                "name": "Finished"
+            },
+            {
+                "type": 0,
+                "name": "Scene Item ID",
+                "subType": "number"
+            }
+        ]
+    },
+    "summary": "Creates a new scene item using a source",
+    "docs": {
+        "ports": [
+            {
+                "name": "obsConnection",
+                "text": "The OBS Connection object (optional, defaults to global obs)"
+            },
+            {
+                "name": "Call",
+                "text": "Trigger to call the request"
+            },
+            {
+                "name": "Scene Name",
+                "text": "Name of the scene to create the new item in"
+            },
+            {
+                "name": "Scene UUID",
+                "text": "UUID of the scene to create the new item in"
+            },
+            {
+                "name": "Source Name",
+                "text": "Name of the source to add to the scene"
+            },
+            {
+                "name": "Source UUID",
+                "text": "UUID of the source to add to the scene"
+            },
+            {
+                "name": "Scene Item Enabled",
+                "text": "Enable state to apply to the scene item on creation"
+            },
+            {
+                "name": "Finished",
+                "text": "Triggered when the request is finished"
+            },
+            {
+                "name": "Scene Item ID",
+                "text": "Numeric ID of the created scene item"
+            }
+        ]
+    },
+    "dependencies": [
+        {
+            "type": "npm",
+            "src": "obs-websocket-js"
+        }
+    ],
+    "coreLibs": [
+        "standalone_electron"
+    ]
+}

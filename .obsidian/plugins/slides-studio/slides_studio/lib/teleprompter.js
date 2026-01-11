@@ -110,7 +110,7 @@ var TelePrompter = (function() {
     initialized = true;
 
     if (debug) {
-      console.log('[TP]', 'TelePrompter Initialized');
+      console.debug('[TP]', 'TelePrompter Initialized');
     }
   }
 
@@ -246,7 +246,7 @@ var TelePrompter = (function() {
     }
 
     if (debug) {
-      console.log('[TP]', 'Settings Initialized', urlParams ? urlParams : '( No URL Params )');
+      console.debug('[TP]', 'Settings Initialized', urlParams ? urlParams : '( No URL Params )');
     }
 
   }
@@ -331,7 +331,7 @@ var TelePrompter = (function() {
     $elm.teleprompter.addClass('ready');
 
     if (debug) {
-      console.log('[TP]', 'UI Initialized');
+      console.debug('[TP]', 'UI Initialized');
     }
   }
 
@@ -381,7 +381,7 @@ var TelePrompter = (function() {
     });
 
     if (debug) {
-      console.log('[TP]', 'URL Params:', paramCount > 0 ? vars : null);
+      console.debug('[TP]', 'URL Params:', paramCount > 0 ? vars : null);
     }
 
     return (paramCount > 0) ? vars : null;
@@ -399,7 +399,7 @@ var TelePrompter = (function() {
     localStorage.setItem('teleprompter_background_color', config.backgroundColor);
 
     if (debug) {
-      console.log('[TP]', 'Background Color Changed:', config.backgroundColor);
+      console.debug('[TP]', 'Background Color Changed:', config.backgroundColor);
     }
 
     // Update URL Params
@@ -448,7 +448,7 @@ var TelePrompter = (function() {
     localStorage.setItem('teleprompter_dim_controls', config.dimControls);
 
     if (debug) {
-      console.log('[TP]', 'Dim Control Changed:', config.dimControls);
+      console.debug('[TP]', 'Dim Control Changed:', config.dimControls);
     }
 
     // Update URL Params
@@ -486,7 +486,7 @@ var TelePrompter = (function() {
     localStorage.setItem('teleprompter_flip_x', config.flipX);
 
     if (debug) {
-      console.log('[TP]', 'Flip X Changed:', config.flipX);
+      console.debug('[TP]', 'Flip X Changed:', config.flipX);
     }
 
     // Update URL Params
@@ -539,7 +539,7 @@ var TelePrompter = (function() {
     }
 
     if (debug) {
-      console.log('[TP]', 'Flip Y Changed:', config.flipY);
+      console.debug('[TP]', 'Flip Y Changed:', config.flipY);
     }
 
     // Update URL Params
@@ -558,7 +558,7 @@ var TelePrompter = (function() {
     localStorage.setItem('teleprompter_text_color', config.textColor);
 
     if (debug) {
-      console.log('[TP]', 'Text Color Changed:', config.textColor);
+      console.debug('[TP]', 'Text Color Changed:', config.textColor);
     }
 
     // Update URL Params
@@ -594,7 +594,7 @@ var TelePrompter = (function() {
     });
 
     if (debug) {
-      console.log('[TP]', 'Reset Button Pressed');
+      console.debug('[TP]', 'Reset Button Pressed');
     }
   }
 
@@ -790,9 +790,9 @@ var TelePrompter = (function() {
    */
   function remoteUpdate(oldConfig, newConfig) {
     if (debug) {
-      console.log('[IO]', 'Remote Update');
-      console.log('[IO]', 'Old Config:', oldConfig);
-      console.log('[IO]', 'New Config:', newConfig);
+      console.debug('[IO]', 'Remote Update');
+      console.debug('[IO]', 'Old Config:', oldConfig);
+      console.debug('[IO]', 'New Config:', newConfig);
     }
 
     if (oldConfig.dimControls !== newConfig.dimControls) {
@@ -868,7 +868,7 @@ var TelePrompter = (function() {
     isPlaying = true;
 
     if (debug) {
-      console.log('[TP]', 'Starting TelePrompter');
+      console.debug('[TP]', 'Starting TelePrompter');
     }
 
   }
@@ -898,7 +898,7 @@ var TelePrompter = (function() {
     isPlaying = false;
 
     if (debug) {
-      console.log('[TP]', 'Stopping TelePrompter');
+      console.debug('[TP]', 'Stopping TelePrompter');
     }
 
   }
@@ -929,7 +929,7 @@ var TelePrompter = (function() {
     }
 
     if (debug) {
-      console.log('[TP]', 'Font Size Changed:', config.fontSize);
+      console.debug('[TP]', 'Font Size Changed:', config.fontSize);
     }
 
 
@@ -953,7 +953,7 @@ var TelePrompter = (function() {
     }
 
     if (debug) {
-      console.log('[TP]', 'Page Speed Changed:', config.pageSpeed);
+      console.debug('[TP]', 'Page Speed Changed:', config.pageSpeed);
     }
 
     // Update URL Params
@@ -979,7 +979,7 @@ var TelePrompter = (function() {
     $('p:empty', $elm.teleprompter).remove();
 
     if (debug) {
-      console.log('[TP]', 'TelePrompter Text Updated');
+      console.debug('[TP]', 'TelePrompter Text Updated');
     }
 
   }
@@ -1006,7 +1006,7 @@ var TelePrompter = (function() {
     }
 
     if (debug) {
-      console.log('[TP]', 'URL Updated:', custom);
+      console.debug('[TP]', 'URL Updated:', custom);
     }
   }
 

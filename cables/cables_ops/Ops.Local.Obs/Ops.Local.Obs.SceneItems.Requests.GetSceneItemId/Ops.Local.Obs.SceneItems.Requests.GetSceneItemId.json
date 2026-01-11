@@ -1,0 +1,92 @@
+{
+    "id": "df480fd9-1aaa-45e9-a180-c8cd35a00646",
+    "authorName": "Gemini",
+    "created": 1673260800000,
+    "layout": {
+        "portsIn": [
+            {
+                "type": 2,
+                "name": "obsConnection",
+                "objType": "obsConnection"
+            },
+            {
+                "type": 1,
+                "name": "Call"
+            },
+            {
+                "type": 5,
+                "name": "Scene Name"
+            },
+            {
+                "type": 5,
+                "name": "Scene UUID"
+            },
+            {
+                "type": 5,
+                "name": "Source Name"
+            },
+            {
+                "type": 0,
+                "name": "Search Offset",
+                "subType": "number"
+            }
+        ],
+        "portsOut": [
+            {
+                "type": 1,
+                "name": "Finished"
+            },
+            {
+                "type": 0,
+                "name": "Scene Item ID",
+                "subType": "number"
+            }
+        ]
+    },
+    "summary": "Searches a scene for a source, and returns its id",
+    "docs": {
+        "ports": [
+            {
+                "name": "obsConnection",
+                "text": "The OBS Connection object (optional, defaults to global obs)"
+            },
+            {
+                "name": "Call",
+                "text": "Trigger to call the request"
+            },
+            {
+                "name": "Scene Name",
+                "text": "Name of the scene or group to search in"
+            },
+            {
+                "name": "Scene UUID",
+                "text": "UUID of the scene or group to search in"
+            },
+            {
+                "name": "Source Name",
+                "text": "Name of the source to find"
+            },
+            {
+                "name": "Search Offset",
+                "text": "Number of matches to skip during search (>= 0 for forward, -1 for last/top)"
+            },
+            {
+                "name": "Finished",
+                "text": "Triggered when the request is finished"
+            },
+            {
+                "name": "Scene Item ID",
+                "text": "Numeric ID of the scene item"
+            }
+        ]
+    },
+    "dependencies": [
+        {
+            "type": "npm",
+            "src": "obs-websocket-js"
+        }
+    ],
+    "coreLibs": [
+        "standalone_electron"
+    ]
+}

@@ -1,0 +1,82 @@
+{
+    "id": "224556c3-ca08-4743-a6fe-a974b326bc9a",
+    "authorName": "Gemini",
+    "created": 1673260800000,
+    "layout": {
+        "portsIn": [
+            {
+                "type": 2,
+                "name": "obsConnection",
+                "objType": "obsConnection"
+            },
+            {
+                "type": 1,
+                "name": "Call"
+            }
+        ],
+        "portsOut": [
+            {
+                "type": 1,
+                "name": "Finished"
+            },
+            {
+                "type": 5,
+                "name": "Current Transition Name"
+            },
+            {
+                "type": 5,
+                "name": "Current Transition UUID"
+            },
+            {
+                "type": 5,
+                "name": "Current Transition Kind"
+            },
+            {
+                "type": 3,
+                "name": "Transitions"
+            }
+        ]
+    },
+    "summary": "Gets an array of all scene transitions in OBS",
+    "docs": {
+        "ports": [
+            {
+                "name": "obsConnection",
+                "text": "The OBS Connection object (optional, defaults to global obs)"
+            },
+            {
+                "name": "Call",
+                "text": "Trigger to call the request"
+            },
+            {
+                "name": "Finished",
+                "text": "Triggered when the request is finished"
+            },
+            {
+                "name": "Current Transition Name",
+                "text": "Name of the current scene transition"
+            },
+            {
+                "name": "Current Transition UUID",
+                "text": "UUID of the current scene transition"
+            },
+            {
+                "name": "Current Transition Kind",
+                "text": "Kind of the current scene transition"
+            },
+            {
+                "name": "Transitions",
+                "text": "Array of transition objects"
+            }
+        ]
+    },
+    "dependencies": [
+        {
+            "type": "npm",
+            "src": "obs-websocket-js"
+        }
+    ],
+    "coreLibs": [
+        "standalone_electron"
+    ]
+}

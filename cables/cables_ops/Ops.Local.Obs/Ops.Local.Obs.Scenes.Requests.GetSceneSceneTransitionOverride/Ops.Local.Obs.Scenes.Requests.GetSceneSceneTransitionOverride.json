@@ -1,0 +1,83 @@
+{
+    "id": "96e4a8bc-ea5e-4d17-836a-0981322e6786",
+    "authorName": "Gemini",
+    "created": 1673260800000,
+    "layout": {
+        "portsIn": [
+            {
+                "type": 2,
+                "name": "obsConnection",
+                "objType": "obsConnection"
+            },
+            {
+                "type": 1,
+                "name": "Call"
+            },
+            {
+                "type": 5,
+                "name": "Scene Name"
+            },
+            {
+                "type": 5,
+                "name": "Scene UUID"
+            }
+        ],
+        "portsOut": [
+            {
+                "type": 1,
+                "name": "Finished"
+            },
+            {
+                "type": 5,
+                "name": "Transition Name"
+            },
+            {
+                "type": 0,
+                "name": "Transition Duration",
+                "subType": "number"
+            }
+        ]
+    },
+    "summary": "Gets the scene transition overridden for a scene",
+    "docs": {
+        "ports": [
+            {
+                "name": "obsConnection",
+                "text": "The OBS Connection object (optional, defaults to global obs)"
+            },
+            {
+                "name": "Call",
+                "text": "Trigger to call the request"
+            },
+            {
+                "name": "Scene Name",
+                "text": "Name of the scene"
+            },
+            {
+                "name": "Scene UUID",
+                "text": "UUID of the scene"
+            },
+            {
+                "name": "Finished",
+                "text": "Triggered when the request is finished"
+            },
+            {
+                "name": "Transition Name",
+                "text": "Name of the overridden scene transition, else null"
+            },
+            {
+                "name": "Transition Duration",
+                "text": "Duration of the overridden scene transition, else null"
+            }
+        ]
+    },
+    "dependencies": [
+        {
+            "type": "npm",
+            "src": "obs-websocket-js"
+        }
+    ],
+    "coreLibs": [
+        "standalone_electron"
+    ]
+}

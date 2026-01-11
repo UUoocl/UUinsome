@@ -1,0 +1,74 @@
+{
+    "id": "57822350-5ba8-41ca-af54-796773d1e412",
+    "authorName": "Gemini",
+    "created": 1673260800000,
+    "layout": {
+        "portsIn": [
+            {
+                "type": 2,
+                "name": "obsConnection",
+                "objType": "obsConnection"
+            },
+            {
+                "type": 1,
+                "name": "Call"
+            },
+            {
+                "type": 5,
+                "name": "Parameter Category"
+            },
+            {
+                "type": 5,
+                "name": "Parameter Name"
+            },
+            {
+                "type": 5,
+                "name": "Parameter Value"
+            }
+        ],
+        "portsOut": [
+            {
+                "type": 1,
+                "name": "Finished"
+            }
+        ]
+    },
+    "summary": "Sets the value of a parameter in the current profile's configuration",
+    "docs": {
+        "ports": [
+            {
+                "name": "obsConnection",
+                "text": "The OBS Connection object (optional, defaults to global obs)"
+            },
+            {
+                "name": "Call",
+                "text": "Trigger to call the request"
+            },
+            {
+                "name": "Parameter Category",
+                "text": "Category of the parameter to set"
+            },
+            {
+                "name": "Parameter Name",
+                "text": "Name of the parameter to set"
+            },
+            {
+                "name": "Parameter Value",
+                "text": "Value of the parameter to set. Leave empty to delete"
+            },
+            {
+                "name": "Finished",
+                "text": "Triggered when the request is complete"
+            }
+        ]
+    },
+    "dependencies": [
+        {
+            "type": "npm",
+            "src": "obs-websocket-js"
+        }
+    ],
+    "coreLibs": [
+        "standalone_electron"
+    ]
+}

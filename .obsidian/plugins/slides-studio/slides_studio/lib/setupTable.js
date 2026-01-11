@@ -4,8 +4,7 @@ let isKeyPressed = false;
 function loadTable() {
     //get local storage slide deck attributes first
     const tableData = JSON.parse(localStorage.getItem(slideDeckId)) ?? slidesArray;
-    console.log(tableData)
-    console.log(typeof table)
+    
     table = undefined;
     table = new Tabulator("#slidesTable", {
         layout:"fitDataStretch",
@@ -34,7 +33,6 @@ function loadTable() {
             { title: "Index", field: "slideState",  responsive: 0,
                 cellClick: function gotoSlide(e,cell){
                     let rowValues = cell.getRow().getData();
-                    console.log("Cell clicked", rowValues)
                     filterRowData(rowValues);
                 },
                 sorter:"alphanum",
@@ -82,7 +80,7 @@ function loadTable() {
             isKeyPressed = true;
             
             event.preventDefault(); // Prevents page scrolling
-            console.log('Spacebar pressed, default scroll prevented', selectedRowNumber);
+            //console.debug('Spacebar pressed, default scroll prevented', selectedRowNumber);
             table.deselectRow();
             selectedRowNumber += 1;                        
             table.selectRow(table.getRowFromPosition( selectedRowNumber ));

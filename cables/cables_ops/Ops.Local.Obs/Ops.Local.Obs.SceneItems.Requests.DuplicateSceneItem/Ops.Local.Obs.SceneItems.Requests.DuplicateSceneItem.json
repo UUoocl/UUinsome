@@ -1,0 +1,100 @@
+{
+    "id": "5f82b763-8aab-4d41-8525-3492cc36bed0",
+    "authorName": "Gemini",
+    "created": 1673260800000,
+    "layout": {
+        "portsIn": [
+            {
+                "type": 2,
+                "name": "obsConnection",
+                "objType": "obsConnection"
+            },
+            {
+                "type": 1,
+                "name": "Call"
+            },
+            {
+                "type": 5,
+                "name": "Scene Name"
+            },
+            {
+                "type": 5,
+                "name": "Scene UUID"
+            },
+            {
+                "type": 0,
+                "name": "Scene Item ID",
+                "subType": "number"
+            },
+            {
+                "type": 5,
+                "name": "Destination Scene Name"
+            },
+            {
+                "type": 5,
+                "name": "Destination Scene UUID"
+            }
+        ],
+        "portsOut": [
+            {
+                "type": 1,
+                "name": "Finished"
+            },
+            {
+                "type": 0,
+                "name": "New Scene Item ID",
+                "subType": "number"
+            }
+        ]
+    },
+    "summary": "Duplicates a scene item, copying all transform and crop info",
+    "docs": {
+        "ports": [
+            {
+                "name": "obsConnection",
+                "text": "The OBS Connection object (optional, defaults to global obs)"
+            },
+            {
+                "name": "Call",
+                "text": "Trigger to call the request"
+            },
+            {
+                "name": "Scene Name",
+                "text": "Name of the scene the item is in"
+            },
+            {
+                "name": "Scene UUID",
+                "text": "UUID of the scene the item is in"
+            },
+            {
+                "name": "Scene Item ID",
+                "text": "Numeric ID of the scene item"
+            },
+            {
+                "name": "Destination Scene Name",
+                "text": "Optional: Name of the scene to create the duplicated item in"
+            },
+            {
+                "name": "Destination Scene UUID",
+                "text": "Optional: UUID of the scene to create the duplicated item in"
+            },
+            {
+                "name": "Finished",
+                "text": "Triggered when the request is finished"
+            },
+            {
+                "name": "New Scene Item ID",
+                "text": "Numeric ID of the duplicated scene item"
+            }
+        ]
+    },
+    "dependencies": [
+        {
+            "type": "npm",
+            "src": "obs-websocket-js"
+        }
+    ],
+    "coreLibs": [
+        "standalone_electron"
+    ]
+}

@@ -1,0 +1,66 @@
+{
+    "id": "919426f6-cc66-43d8-868e-5ffdcad6245f",
+    "authorName": "Gemini",
+    "created": 1673260800000,
+    "layout": {
+        "portsIn": [
+            {
+                "type": 2,
+                "name": "obsConnection",
+                "objType": "obsConnection"
+            },
+            {
+                "type": 1,
+                "name": "Call"
+            }
+        ],
+        "portsOut": [
+            {
+                "type": 1,
+                "name": "Finished"
+            },
+            {
+                "type": 5,
+                "name": "Stream Service Type"
+            },
+            {
+                "type": 2,
+                "name": "Stream Service Settings"
+            }
+        ]
+    },
+    "summary": "Gets the current stream service settings (stream destination)",
+    "docs": {
+        "ports": [
+            {
+                "name": "obsConnection",
+                "text": "The OBS Connection object (optional, defaults to global obs)"
+            },
+            {
+                "name": "Call",
+                "text": "Trigger to call the request"
+            },
+            {
+                "name": "Finished",
+                "text": "Triggered when the request is finished"
+            },
+            {
+                "name": "Stream Service Type",
+                "text": "Stream service type, like rtmp_custom or rtmp_common"
+            },
+            {
+                "name": "Stream Service Settings",
+                "text": "Object containing stream service settings"
+            }
+        ]
+    },
+    "dependencies": [
+        {
+            "type": "npm",
+            "src": "obs-websocket-js"
+        }
+    ],
+    "coreLibs": [
+        "standalone_electron"
+    ]
+}

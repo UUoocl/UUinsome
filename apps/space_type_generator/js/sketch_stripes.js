@@ -123,7 +123,9 @@ function setup() {
   inp3check.changed(inp3checker);
   inp4check.changed(inp4checker);
   inp5check.changed(inp5checker);
-    
+
+  //on p5 setup get query paramater
+  getParams();
 }
 
 function draw() {

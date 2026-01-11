@@ -64,7 +64,6 @@
     </div>
     
     <script src="./lib/obs-ws.js"></script>
-    <script src="../obs_webSocket_details/websocketDetails.js"></script>
     <script src="./lib/obsWssConnectionManager.js"></script>
     
     <script src="./lib/slideSync_OBS.js"></script>
@@ -80,15 +79,12 @@
         })
         
   async function processTags(currentSlide) {
-        // console.log("current slide", currentSlide)
-
+       
         if (Object.hasOwn(currentSlide, 'scene')) {
-            console.log("scene tag found")
             obsWss.call("SetCurrentProgramScene", { sceneName: currentSlide['scene'] })
         };
 
         if (Object.hasOwn(currentSlide, 'cameraPosition')){ 
-            console.log("camera tag found")
             //disable this scenes cameras
             await disableSceneItems("Camera Position")
             
@@ -97,7 +93,6 @@
         };
 
         if (Object.hasOwn(currentSlide, 'cameraShape')){ 
-            console.log("camera mask found")
             //disable this scenes cameras
             await disableSceneItems("Camera Shape")
             
@@ -106,7 +101,6 @@
         };        
         
         if (Object.hasOwn(currentSlide, 'slidePosition')) {
-            console.log("slide class tag found")
             const className = currentSlide['slidePosition']
             setSlidePositionCSS(className);
         };
@@ -119,9 +113,7 @@
             settings = await obsWss.call("GetInputSettings", {
                 inputName: className,
             });
-            console.log("Settings", settings);
             cssSettings = JSON.parse(`{${settings.inputSettings.text}}`)
-            console.log("cssSettings", typeof cssSettings, cssSettings);
             
             if (cssSettings) {
                 slidePosition.style.setProperty('--top', cssSettings.top || '0');
@@ -148,7 +140,6 @@
         async function disableSceneItems(sceneName){
             //disable all camera scene sources
             const sceneItems = await obsWss.call("GetSceneItemList",{"sceneName":sceneName});
-            console.log('sceneItems',sceneItems)
             sceneItems.sceneItems.forEach((sceneItem) => {    
 
                 obsWss.call("SetSceneItemEnabled", {
@@ -194,7 +185,6 @@
         }
 
     //     function sendToOBS(msgParam, eventName) {
-	// 	//console.log("sending message:", JSON.stringify(msgParam));
 	// 	const webSocketMessage = JSON.stringify(msgParam);
 	// 	//send results to OBS Browser Source
 	// 	obsWss.call("CallVendorRequest", {

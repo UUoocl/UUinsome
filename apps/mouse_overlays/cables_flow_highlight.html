@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Ext-Trigger_Fast_Fluid_Simulation no drag</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #000;
+            color: #fff;
+            font-family: Helvetica, Arial, sans-serif;
+            overflow: hidden; /* disable scrolling / rubberband effect on mobile */
+            height:100vh;
+        }
+
+        canvas {
+            display: block;
+            position: absolute;
+            outline:0;
+        }
+
+        * {
+            /* disable on touch highlights of html elements, especially on mobile! */
+            -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+    </style>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
+    <meta itemprop="name" content="Ext-Trigger_Fast Fluid Simulation no drag">
+    <meta itemprop="description" content="made with cables">
+    <meta itemprop="image" content="screenshot.png">
+    <meta name="description" content="made with cables"/>
+
+</head>
+<body>
+    <canvas id="glcanvas" width="100vw" height="100vh" tabindex="1"></canvas>
+
+        <script>
+        let viewMode, mouseBoundary;
+        let inMinX, inMaxX;
+        let inMinY, inMaxY;
+        let mousePosX = 0, mousePosY = 0;
+        let mouseOffsetX = 0;
+        let mouseOffsetY = 0;
+        
+        let displayXmin = 0;
+        let displayXmax = 1512;
+        let displayYmin = 0;
+        let displayYmax = 945;
+
+        const mouseChannel = new BroadcastChannel('mouse_move');
+        const desktopBoundsChannel = new BroadcastChannel('desktop_bounds');
+
+        function remap(n, start1, stop1, start2, stop2) {
+            return (n - start1) / (stop1 - start1) * (stop2 - start2) + start2;
+        }
+
+        desktopBoundsChannel.onmessage = (event) => {
+            if(event.data && typeof event.data.minX !== 'undefined') {
+                displayXmin = event.data.minX;
+                displayXmax = event.data.maxX;
+                displayYmin = event.data.minY;
+                displayYmax = event.data.maxY;
+            }
+        };
+
+        // Request bounds
+        desktopBoundsChannel.postMessage('request_bounds');
+
+        mouseChannel.onmessage = (event) => {
+            //console.log(event.data)
+            const { x, y } = event.data;
+            
+            //console.log(x, displayXmin, displayXmax, 0, window.innerWidth)
+            mousePosX = Math.round(x);
+            //mousePosX = Math.round(remap(x, displayXmin, displayXmax, 0, window.innerWidth));
+            mousePosY = Math.round(y);
+            // mousePosY = Math.round(remap(y, displayYmin, displayYmax, 0, window.innerHeight));
+
+            if (typeof CABLES !== 'undefined' && CABLES.patch) {
+                // get the current value
+                const varMouseX = CABLES.patch.getVar("MouseInX");
+                const varMouseY = CABLES.patch.getVar("MouseInY");
+                if (varMouseX && varMouseY) {
+                    const currentValueX = varMouseX.getValue();
+                    const currentValueY = varMouseY.getValue();
+
+                    //get previous value variables
+                    const varPreviousMouseX = CABLES.patch.getVar("prevMousePosX");
+                    const varPreviousMouseY = CABLES.patch.getVar("prevMousePosY");
+
+                    //
+                    const varMouseMoving = CABLES.patch.getVar("MouseMoving");
+                    const varMouseDrag = CABLES.patch.getVar("MouseIsDragged");
+                    if(varMouseMoving) varMouseMoving.setValue(1);
+                    if(varMouseDrag) varMouseDrag.setValue(1);
+
+                    // change the value
+                    varMouseX.setValue(Number(mousePosX));
+                    varMouseY.setValue(Number(mousePosY));
+                    if(varPreviousMouseX) varPreviousMouseX.setValue(currentValueX);
+                    if(varPreviousMouseY) varPreviousMouseY.setValue(currentValueY);
+                    if(varMouseMoving) varMouseMoving.setValue(0);
+                    if(varMouseDrag) varMouseDrag.setValue(1);
+                }
+            }
+        };
+        
+        window.addEventListener(`mouseBoundary`, async function (event) {
+        //event wss details
+        console.log("message received: ", event)
+        if (event.detail.hasOwnProperty('mouseBoundary')) {
+          mouseBoundary = event.detail.mouseBoundary;
+          inMinX = mouseBoundary.mouseBoundaryLeft; 
+          inMaxX = mouseBoundary.mouseBoundaryRight;
+          inMinY = mouseBoundary.mouseBoundaryTop
+          inMaxY = mouseBoundary.mouseBoundaryBottom;
+        }
+      })
+
+      //p5 map constrain
+      let map = (n, start1, stop1, start2, stop2) => {
+            // p5._validateParameters('map', arguments);
+            const newval = (n - start1) / (stop1 - start1) * (stop2 - start2) + start2;
+            return newval;
+            if (!withinBounds) {
+                return newval;
+            }
+            if (start2 < stop2) {
+            return constrain(newval, start2, stop2);
+            } else {
+            return constrain(newval, stop2, start2);
+            }
+        };
+
+        let constrain = (n, low, high) => {
+            // p5._validateParameters('constrain', arguments);
+            return Math.max(Math.min(n, high), low);
+        };
+    
+    </script>
+    
+    <script type="text/javascript" src="patches/Fast_Fluid_Simulation.js" async></script>
+    
+
+    <script type="text/javascript">
+
+        function showError(initiator,...args)
+        {
+            CABLES.logErrorConsole("[" + initiator + "]", ...args);
+        }
+
+        function patchInitialized(patch)
+        {
+            // You can now access the patch object (patch), register variable watchers and so on
+        }
+
+        function patchFinishedLoading(patch)
+        {
+            // The patch is ready now, all assets have been loaded
+            //set canvas size
+            const varCanvasWidth = CABLES.patch.getVar("ColorWidth");
+            const varCanvasHeight = CABLES.patch.getVar("ColorHeight");
+            varCanvasWidth.setValue(640);
+
+            //calculate height
+            const monitorWidth = (Math.abs(displayXmin)+Math.abs(displayXmax));
+            const monitorHeight = (Math.abs(displayYmin)+Math.abs(displayYmax));
+            
+            const ratio = monitorHeight/monitorWidth;
+            console.log(monitorWidth, monitorHeight, ratio)
+            console.log(640 + (640 * ratio), (640 * ratio))
+            varCanvasHeight.setValue(640 * ratio);
+            
+            //set map parameters for map op
+            const monitorsXmin = CABLES.patch.getVar("monitorsXmin")
+            const monitorsXmax = CABLES.patch.getVar("monitorsXmax")
+            const monitorsYmin = CABLES.patch.getVar("monitorsYmin")
+            const monitorsYmax = CABLES.patch.getVar("monitorsYmax")
+            monitorsXmin.setValue(displayXmin);
+            monitorsXmax.setValue(displayXmax);
+            monitorsYmin.setValue(displayYmin);
+            monitorsYmax.setValue(displayYmax);
+            console.log(varCanvasWidth, varCanvasHeight);
+            console.log(CABLES.patch.getVar("ColorWidth"), CABLES.patch.getVar("ColorHeight"))
+        }
+
+        document.addEventListener("CABLES.jsLoaded", function (event)
+        {
+            CABLES.patch = new CABLES.Patch({
+            patch: CABLES.exportedPatch,
+            "prefixAssetPath": "",
+            "assetPath": "assets/",
+            "jsPath": "patches/",
+            "glCanvasId": "glcanvas",
+            "glCanvasResizeToWindow": true,
+            "onError": showError,
+            "onPatchLoaded": patchInitialized,
+            "onFinishedLoading": patchFinishedLoading,
+            "canvas": {"alpha":true, "premultipliedAlpha":true } // make canvas transparent
+            });
+        });
+
+        // disable rubberband effect on mobile devices
+        document.getElementById('glcanvas').addEventListener('touchmove', (e)=>{ e.preventDefault(); }, false);
+    </script>
+</body>
+</html>

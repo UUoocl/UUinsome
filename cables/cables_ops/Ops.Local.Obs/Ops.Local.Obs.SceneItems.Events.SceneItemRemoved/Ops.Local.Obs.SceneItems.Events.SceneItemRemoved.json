@@ -1,0 +1,83 @@
+{
+    "id": "cf5366d0-35a6-4914-9752-49d2b909965f",
+    "authorName": "Gemini",
+    "created": 1672531200000,
+    "layout": {
+        "portsIn": [
+            {
+                "type": 2,
+                "name": "obsConnection",
+                "objType": "obsConnection"
+            }
+        ],
+        "portsOut": [
+            {
+                "type": 1,
+                "name": "Removed"
+            },
+            {
+                "type": 5,
+                "name": "Scene Name"
+            },
+            {
+                "type": 5,
+                "name": "Scene UUID"
+            },
+            {
+                "type": 5,
+                "name": "Source Name"
+            },
+            {
+                "type": 5,
+                "name": "Source UUID"
+            },
+            {
+                "type": 0,
+                "name": "Scene Item ID",
+                "subType": "number"
+            }
+        ]
+    },
+    "summary": "Triggered when a scene item has been removed",
+    "docs": {
+        "ports": [
+            {
+                "name": "obsConnection",
+                "text": "The OBS Connection object (optional, defaults to global obs)"
+            },
+            {
+                "name": "Removed",
+                "text": "Triggered when the item is removed"
+            },
+            {
+                "name": "Scene Name",
+                "text": "Name of the scene the item was removed from"
+            },
+            {
+                "name": "Scene UUID",
+                "text": "UUID of the scene the item was removed from"
+            },
+            {
+                "name": "Source Name",
+                "text": "Name of the underlying source"
+            },
+            {
+                "name": "Source UUID",
+                "text": "UUID of the underlying source"
+            },
+            {
+                "name": "Scene Item ID",
+                "text": "Numeric ID of the scene item"
+            }
+        ]
+    },
+    "dependencies": [
+        {
+            "type": "npm",
+            "src": "obs-websocket-js"
+        }
+    ],
+    "coreLibs": [
+        "standalone_electron"
+    ]
+}

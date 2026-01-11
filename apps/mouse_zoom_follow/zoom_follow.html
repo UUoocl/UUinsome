@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zoom Follow - OBS Browser Source</title>
+    <script src="./lib/p5.min.js"></script>
+    <script src="./lib/obs-ws.global.js"></script>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+<div id="p5-container"></div>
+
+<button id="settings-toggle-btn" onclick="toggleSettings()">Settings (S)</button>
+
+<div id="settings-overlay">
+    <div class="settings-header">
+        <h2>Zoom & Follow Settings</h2>
+        <button onclick="toggleSettings()">Close</button>
+    </div>
+
+    <div class="setting-group">
+        <div id="connection-status" class="status disconnected">Disconnected from OBS</div>
+    </div>
+
+    <div id="monitor-mappings">
+        <!-- Will be populated dynamically -->
+    </div>
+
+    <div class="setting-group">
+        <label>Hotkeys (Click to set)</label>
+        
+        <div class="hotkey-row">
+            <div>
+                <label style="font-size: 0.7em;">Zoom In</label>
+                <input type="text" id="hotkey-zoom-in" placeholder="Set key" readonly>
+            </div>
+            <button class="clear-btn" onclick="clearHotkey('hotkeyZoomIn')">Clear</button>
+        </div>
+
+        <div class="hotkey-row">
+            <div>
+                <label style="font-size: 0.7em;">Zoom Out</label>
+                <input type="text" id="hotkey-zoom-out" placeholder="Set key" readonly>
+            </div>
+            <button class="clear-btn" onclick="clearHotkey('hotkeyZoomOut')">Clear</button>
+        </div>
+
+        <div class="hotkey-row">
+            <div>
+                <label style="font-size: 0.7em;">Toggle Menu</label>
+                <input type="text" id="hotkey-toggle-menu" placeholder="Set key" readonly>
+            </div>
+            <button class="clear-btn" onclick="clearHotkey('hotkeyToggleMenu')">Clear</button>
+        </div>
+    </div>
+
+    <div class="setting-group">
+        <label>Bounding Box Size (px)</label>
+        <input type="number" id="bounding-box-size" value="200">
+    </div>
+
+    <div class="setting-group">
+        <label>Movement Smoothing</label>
+        <select id="movement-type">
+            <option value="smooth">Smooth In/Out</option>
+            <option value="linear">Linear</option>
+        </select>
+    </div>
+
+    <div class="setting-group">
+        <label>Movement Speed (0.01 - 1.0)</label>
+        <input type="range" id="movement-speed" min="0.01" max="1.0" step="0.01" value="0.1">
+    </div>
+
+    <div class="setting-group">
+        <label>Zoom Increment</label>
+        <input type="number" id="zoom-increment" value="0.1" step="0.1">
+    </div>
+
+    <div class="setting-group">
+        <label>Sync Browser Sources to Perimeter</label>
+        <div id="browser-sync-list" style="max-height: 150px; overflow-y: auto; background: #1e1e1e; padding: 10px; border-radius: 4px; border: 1px solid #3c3c3c;">
+            <!-- Browser sources will be listed here -->
+        </div>
+    </div>
+
+    <button onclick="saveSettings()">Save Settings</button>
+</div>
+
+<!-- Core logic files -->
+<script src="./js/OBSManager.js"></script>
+<script src="./js/Settings.js"></script>
+<script src="./js/Monitor.js"></script>
+<script src="./js/sketch.js"></script>
+
+</body>
+</html>

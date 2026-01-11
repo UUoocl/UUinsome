@@ -1,0 +1,67 @@
+{
+    "id": "ca1a2c97-ba44-4ad0-9bcd-70a65f74a532",
+    "authorName": "Gemini",
+    "created": 1672531200000,
+    "layout": {
+        "portsIn": [
+            {
+                "type": 2,
+                "name": "obsConnection",
+                "objType": "obsConnection"
+            }
+        ],
+        "portsOut": [
+            {
+                "type": 1,
+                "name": "Created"
+            },
+            {
+                "type": 5,
+                "name": "Scene Name"
+            },
+            {
+                "type": 5,
+                "name": "Scene UUID"
+            },
+            {
+                "type": 0,
+                "name": "Is Group",
+                "subType": "boolean"
+            }
+        ]
+    },
+    "summary": "Triggered when a new scene has been created",
+    "docs": {
+        "ports": [
+            {
+                "name": "obsConnection",
+                "text": "The OBS Connection object (optional, defaults to global obs)"
+            },
+            {
+                "name": "Created",
+                "text": "Triggered when a scene is created"
+            },
+            {
+                "name": "Scene Name",
+                "text": "Name of the new scene"
+            },
+            {
+                "name": "Scene UUID",
+                "text": "UUID of the new scene"
+            },
+            {
+                "name": "Is Group",
+                "text": "Whether the new scene is a group"
+            }
+        ]
+    },
+    "dependencies": [
+        {
+            "type": "npm",
+            "src": "obs-websocket-js"
+        }
+    ],
+    "coreLibs": [
+        "standalone_electron"
+    ]
+}

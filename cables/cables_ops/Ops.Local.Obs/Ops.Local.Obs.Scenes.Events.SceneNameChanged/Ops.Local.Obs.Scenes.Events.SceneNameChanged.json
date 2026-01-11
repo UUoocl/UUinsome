@@ -1,0 +1,66 @@
+{
+    "id": "ea1a3af3-ea12-4f91-bc8e-4edded1b06d7",
+    "authorName": "Gemini",
+    "created": 1672531200000,
+    "layout": {
+        "portsIn": [
+            {
+                "type": 2,
+                "name": "obsConnection",
+                "objType": "obsConnection"
+            }
+        ],
+        "portsOut": [
+            {
+                "type": 1,
+                "name": "Changed"
+            },
+            {
+                "type": 5,
+                "name": "Scene UUID"
+            },
+            {
+                "type": 5,
+                "name": "Old Scene Name"
+            },
+            {
+                "type": 5,
+                "name": "New Scene Name"
+            }
+        ]
+    },
+    "summary": "Triggered when the name of a scene has changed",
+    "docs": {
+        "ports": [
+            {
+                "name": "obsConnection",
+                "text": "The OBS Connection object (optional, defaults to global obs)"
+            },
+            {
+                "name": "Changed",
+                "text": "Triggered when the name changes"
+            },
+            {
+                "name": "Scene UUID",
+                "text": "UUID of the scene"
+            },
+            {
+                "name": "Old Scene Name",
+                "text": "Old name of the scene"
+            },
+            {
+                "name": "New Scene Name",
+                "text": "New name of the scene"
+            }
+        ]
+    },
+    "dependencies": [
+        {
+            "type": "npm",
+            "src": "obs-websocket-js"
+        }
+    ],
+    "coreLibs": [
+        "standalone_electron"
+    ]
+}

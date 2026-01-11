@@ -1,0 +1,149 @@
+{
+    "id": "233121a3-7b69-4128-a68c-214fb2e435e1",
+    "authorName": "Gemini",
+    "created": 1673260800000,
+    "layout": {
+        "portsIn": [
+            {
+                "type": 2,
+                "name": "obsConnection",
+                "objType": "obsConnection"
+            },
+            {
+                "type": 1,
+                "name": "Call"
+            }
+        ],
+        "portsOut": [
+            {
+                "type": 1,
+                "name": "Finished"
+            },
+            {
+                "type": 0,
+                "name": "CPU Usage (%)",
+                "subType": "number"
+            },
+            {
+                "type": 0,
+                "name": "Memory Usage (MB)",
+                "subType": "number"
+            },
+            {
+                "type": 0,
+                "name": "Available Disk Space",
+                "subType": "number"
+            },
+            {
+                "type": 0,
+                "name": "Active FPS",
+                "subType": "number"
+            },
+            {
+                "type": 0,
+                "name": "Avg Frame Render Time (ms)",
+                "subType": "number"
+            },
+            {
+                "type": 0,
+                "name": "Render Skipped Frames",
+                "subType": "number"
+            },
+            {
+                "type": 0,
+                "name": "Render Total Frames",
+                "subType": "number"
+            },
+            {
+                "type": 0,
+                "name": "Output Skipped Frames",
+                "subType": "number"
+            },
+            {
+                "type": 0,
+                "name": "Output Total Frames",
+                "subType": "number"
+            },
+            {
+                "type": 0,
+                "name": "WS Incoming Messages",
+                "subType": "number"
+            },
+            {
+                "type": 0,
+                "name": "WS Outgoing Messages",
+                "subType": "number"
+            }
+        ]
+    },
+    "summary": "Gets statistics about OBS, obs-websocket, and the current session",
+    "docs": {
+        "ports": [
+            {
+                "name": "obsConnection",
+                "text": "The OBS Connection object (optional, defaults to global obs)"
+            },
+            {
+                "name": "Call",
+                "text": "Trigger to call the request"
+            },
+            {
+                "name": "Finished",
+                "text": "Triggered when the request is finished"
+            },
+            {
+                "name": "CPU Usage (%)",
+                "text": "Current CPU usage in percent"
+            },
+            {
+                "name": "Memory Usage (MB)",
+                "text": "Amount of memory in MB currently being used by OBS"
+            },
+            {
+                "name": "Available Disk Space",
+                "text": "Available disk space on the device being used for recording storage"
+            },
+            {
+                "name": "Active FPS",
+                "text": "Current FPS being rendered"
+            },
+            {
+                "name": "Avg Frame Render Time (ms)",
+                "text": "Average time in milliseconds that OBS is taking to render a frame"
+            },
+            {
+                "name": "Render Skipped Frames",
+                "text": "Number of frames skipped by OBS in the render thread"
+            },
+            {
+                "name": "Render Total Frames",
+                "text": "Total number of frames outputted by the render thread"
+            },
+            {
+                "name": "Output Skipped Frames",
+                "text": "Number of frames skipped by OBS in the output thread"
+            },
+            {
+                "name": "Output Total Frames",
+                "text": "Total number of frames outputted by the output thread"
+            },
+            {
+                "name": "WS Incoming Messages",
+                "text": "Total number of messages received by obs-websocket from the client"
+            },
+            {
+                "name": "WS Outgoing Messages",
+                "text": "Total number of messages sent by obs-websocket to the client"
+            }
+        ]
+    },
+    "dependencies": [
+        {
+            "type": "npm",
+            "src": "obs-websocket-js"
+        }
+    ],
+    "coreLibs": [
+        "standalone_electron"
+    ]
+}

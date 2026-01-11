@@ -90,6 +90,9 @@ function setup() {
   // pivot = -atan2(height,width);
   foreCol = color('#df1111ff');
   bkgdCol = color('rgba(48, 28, 200, 0.7)');
+
+    //on p5 setup get query paramater
+  getParams();
 }
 
 function draw() {

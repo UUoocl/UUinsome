@@ -105,6 +105,9 @@ function setup() {
   dotSpiralSet = createButton('Dot Spiral'); dotSpiralSet.position(25,height-80); dotSpiralSet.mousePressed(dotSpiral);
   beAggressiveSet = createButton('Be Aggressive'); beAggressiveSet.position(25,height-60); beAggressiveSet.mousePressed(beAggressive);
   meatSpaceSet = createButton('Meat Space'); meatSpaceSet.position(25,height-40); meatSpaceSet.mousePressed(meatSpace);
+
+  //on p5 setup get query paramater
+  getParams();
 }
 
 function draw() {

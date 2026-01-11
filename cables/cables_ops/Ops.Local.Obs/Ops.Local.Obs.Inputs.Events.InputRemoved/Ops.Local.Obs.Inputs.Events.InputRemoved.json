@@ -1,0 +1,58 @@
+{
+    "id": "a95ae58f-e235-4d22-b956-b4fd1057fdd6",
+    "authorName": "Gemini",
+    "created": 1672531200000,
+    "layout": {
+        "portsIn": [
+            {
+                "type": 2,
+                "name": "obsConnection",
+                "objType": "obsConnection"
+            }
+        ],
+        "portsOut": [
+            {
+                "type": 1,
+                "name": "Removed"
+            },
+            {
+                "type": 5,
+                "name": "Input Name"
+            },
+            {
+                "type": 5,
+                "name": "Input UUID"
+            }
+        ]
+    },
+    "summary": "Triggered when an input has been removed",
+    "docs": {
+        "ports": [
+            {
+                "name": "obsConnection",
+                "text": "The OBS Connection object (optional, defaults to global obs)"
+            },
+            {
+                "name": "Removed",
+                "text": "Triggered when an input is removed"
+            },
+            {
+                "name": "Input Name",
+                "text": "Name of the removed input"
+            },
+            {
+                "name": "Input UUID",
+                "text": "UUID of the removed input"
+            }
+        ]
+    },
+    "dependencies": [
+        {
+            "type": "npm",
+            "src": "obs-websocket-js"
+        }
+    ],
+    "coreLibs": [
+        "standalone_electron"
+    ]
+}

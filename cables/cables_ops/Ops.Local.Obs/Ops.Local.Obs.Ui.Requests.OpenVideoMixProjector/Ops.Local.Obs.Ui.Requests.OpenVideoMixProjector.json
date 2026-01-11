@@ -1,0 +1,75 @@
+{
+    "id": "a7b387df-1b49-4d75-9af8-595f1a9ce477",
+    "authorName": "Gemini",
+    "created": 1673260800000,
+    "layout": {
+        "portsIn": [
+            {
+                "type": 2,
+                "name": "obsConnection",
+                "objType": "obsConnection"
+            },
+            {
+                "type": 1,
+                "name": "Call"
+            },
+            {
+                "type": 5,
+                "name": "Video Mix Type"
+            },
+            {
+                "type": 0,
+                "name": "Monitor Index",
+                "subType": "number"
+            },
+            {
+                "type": 5,
+                "name": "Projector Geometry"
+            }
+        ],
+        "portsOut": [
+            {
+                "type": 1,
+                "name": "Finished"
+            }
+        ]
+    },
+    "summary": "Opens a projector for a specific output video mix",
+    "docs": {
+        "ports": [
+            {
+                "name": "obsConnection",
+                "text": "The OBS Connection object (optional, defaults to global obs)"
+            },
+            {
+                "name": "Call",
+                "text": "Trigger to call the request"
+            },
+            {
+                "name": "Video Mix Type",
+                "text": "Type of mix to open (e.g. OBS_WEBSOCKET_VIDEO_MIX_TYPE_PREVIEW)"
+            },
+            {
+                "name": "Monitor Index",
+                "text": "Monitor index (-1 for windowed mode)"
+            },
+            {
+                "name": "Projector Geometry",
+                "text": "Optional: Size/Position data for a windowed projector"
+            },
+            {
+                "name": "Finished",
+                "text": "Triggered when the request is complete"
+            }
+        ]
+    },
+    "dependencies": [
+        {
+            "type": "npm",
+            "src": "obs-websocket-js"
+        }
+    ],
+    "coreLibs": [
+        "standalone_electron"
+    ]
+}

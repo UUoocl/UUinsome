@@ -24,7 +24,7 @@ window.addEventListener("message", async (event) => {
 
 	//on reveal slides 'ready' start the get Slides and Fragments process 
   if (data.namespace === "reveal" && data.eventName === "ready") {
-    console.log("Slides ready");
+    // console.debug("Slides ready");
     slidesArray = [];
 
     addSlideToSlideArray(presentSlide(), data)
@@ -83,7 +83,6 @@ window.addEventListener("message", async (event) => {
       tableLoaded === false &&
       ["fragmentshown","fragmenthidden"].includes(data.eventName)
     ) {
-      // console.log("currentEl", data.state, presentSlide())
       addFragmentToSlideArray(presentSlide(), data);
     }
   });
@@ -143,7 +142,6 @@ async function addSlideToSlideArray(slideEl, data) {
   };
   slidesArray.push(slideDetails);
   
-  // console.log("slides array",slidesArray)
   currentSlide.contentWindow.postMessage(
     JSON.stringify({ method: "getProgress" }),
     window.location.origin
@@ -196,7 +194,7 @@ async function addFragmentToSlideArray(slideEl, data) {
     
     foundSlide._children.push(fragment);// push the fragment to the children property
   } else {
-    console.log(`Slide with ID ${slideToFind} not found.`);
+    console.error(`Slide with ID ${slideToFind} not found.`);
   }
   currentSlide.contentWindow.postMessage(
     JSON.stringify({ method: "getProgress" }),

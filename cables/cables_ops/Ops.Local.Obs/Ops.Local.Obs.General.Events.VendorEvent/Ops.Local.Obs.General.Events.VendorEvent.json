@@ -1,0 +1,66 @@
+{
+    "id": "d9be0ebc-21a1-4654-9ceb-c5424f94f10b",
+    "authorName": "Gemini",
+    "created": 1672531200000,
+    "layout": {
+        "portsIn": [
+            {
+                "type": 2,
+                "name": "obsConnection",
+                "objType": "obsConnection"
+            }
+        ],
+        "portsOut": [
+            {
+                "type": 1,
+                "name": "Changed"
+            },
+            {
+                "type": 5,
+                "name": "Vendor Name"
+            },
+            {
+                "type": 5,
+                "name": "Event Type"
+            },
+            {
+                "type": 2,
+                "name": "Event Data"
+            }
+        ]
+    },
+    "summary": "Triggered when a VendorEvent is emitted",
+    "docs": {
+        "ports": [
+            {
+                "name": "obsConnection",
+                "text": "The OBS Connection object (optional, defaults to global obs)"
+            },
+            {
+                "name": "Changed",
+                "text": "Triggered when a vendor event occurs"
+            },
+            {
+                "name": "Vendor Name",
+                "text": "Name of the vendor emitting the event"
+            },
+            {
+                "name": "Event Type",
+                "text": "Vendor-provided event typedef"
+            },
+            {
+                "name": "Event Data",
+                "text": "Vendor-provided event data"
+            }
+        ]
+    },
+    "dependencies": [
+        {
+            "type": "npm",
+            "src": "obs-websocket-js"
+        }
+    ],
+    "coreLibs": [
+        "standalone_electron"
+    ]
+}

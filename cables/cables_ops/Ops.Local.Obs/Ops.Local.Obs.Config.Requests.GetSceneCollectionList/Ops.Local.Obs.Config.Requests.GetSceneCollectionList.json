@@ -1,0 +1,66 @@
+{
+    "id": "c0038e32-8aa5-4e80-8a2d-b634b6d915be",
+    "authorName": "Gemini",
+    "created": 1673260800000,
+    "layout": {
+        "portsIn": [
+            {
+                "type": 2,
+                "name": "obsConnection",
+                "objType": "obsConnection"
+            },
+            {
+                "type": 1,
+                "name": "Call"
+            }
+        ],
+        "portsOut": [
+            {
+                "type": 1,
+                "name": "Finished"
+            },
+            {
+                "type": 5,
+                "name": "Current Scene Collection Name"
+            },
+            {
+                "type": 3,
+                "name": "Scene Collections"
+            }
+        ]
+    },
+    "summary": "Gets an array of all scene collections",
+    "docs": {
+        "ports": [
+            {
+                "name": "obsConnection",
+                "text": "The OBS Connection object (optional, defaults to global obs)"
+            },
+            {
+                "name": "Call",
+                "text": "Trigger to call the request"
+            },
+            {
+                "name": "Finished",
+                "text": "Triggered when the request is finished"
+            },
+            {
+                "name": "Current Scene Collection Name",
+                "text": "The name of the current scene collection"
+            },
+            {
+                "name": "Scene Collections",
+                "text": "Array of all available scene collections"
+            }
+        ]
+    },
+    "dependencies": [
+        {
+            "type": "npm",
+            "src": "obs-websocket-js"
+        }
+    ],
+    "coreLibs": [
+        "standalone_electron"
+    ]
+}

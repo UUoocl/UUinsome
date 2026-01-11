@@ -1,0 +1,92 @@
+{
+    "id": "6953019a-74b5-41ad-97ab-66cc853e1727",
+    "authorName": "Gemini",
+    "created": 1672531200000,
+    "layout": {
+        "portsIn": [
+            {
+                "type": 2,
+                "name": "obsConnection",
+                "objType": "obsConnection"
+            }
+        ],
+        "portsOut": [
+            {
+                "type": 1,
+                "name": "Created"
+            },
+            {
+                "type": 5,
+                "name": "Scene Name"
+            },
+            {
+                "type": 5,
+                "name": "Scene UUID"
+            },
+            {
+                "type": 5,
+                "name": "Source Name"
+            },
+            {
+                "type": 5,
+                "name": "Source UUID"
+            },
+            {
+                "type": 0,
+                "name": "Scene Item ID",
+                "subType": "number"
+            },
+            {
+                "type": 0,
+                "name": "Scene Item Index",
+                "subType": "number"
+            }
+        ]
+    },
+    "summary": "Triggered when a scene item has been created",
+    "docs": {
+        "ports": [
+            {
+                "name": "obsConnection",
+                "text": "The OBS Connection object (optional, defaults to global obs)"
+            },
+            {
+                "name": "Created",
+                "text": "Triggered when the item is created"
+            },
+            {
+                "name": "Scene Name",
+                "text": "Name of the scene the item was added to"
+            },
+            {
+                "name": "Scene UUID",
+                "text": "UUID of the scene the item was added to"
+            },
+            {
+                "name": "Source Name",
+                "text": "Name of the underlying source"
+            },
+            {
+                "name": "Source UUID",
+                "text": "UUID of the underlying source"
+            },
+            {
+                "name": "Scene Item ID",
+                "text": "Numeric ID of the scene item"
+            },
+            {
+                "name": "Scene Item Index",
+                "text": "Index position of the item"
+            }
+        ]
+    },
+    "dependencies": [
+        {
+            "type": "npm",
+            "src": "obs-websocket-js"
+        }
+    ],
+    "coreLibs": [
+        "standalone_electron"
+    ]
+}

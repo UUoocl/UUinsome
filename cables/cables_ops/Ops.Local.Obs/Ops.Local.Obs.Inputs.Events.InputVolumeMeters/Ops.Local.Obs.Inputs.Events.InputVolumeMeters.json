@@ -1,0 +1,50 @@
+{
+    "id": "d8afb281-906a-461b-8015-e47fdd41009f",
+    "authorName": "Gemini",
+    "created": 1672531200000,
+    "layout": {
+        "portsIn": [
+            {
+                "type": 2,
+                "name": "obsConnection",
+                "objType": "obsConnection"
+            }
+        ],
+        "portsOut": [
+            {
+                "type": 1,
+                "name": "Updated"
+            },
+            {
+                "type": 3,
+                "name": "Inputs"
+            }
+        ]
+    },
+    "summary": "A high-volume event providing volume levels of all active inputs every 50 milliseconds",
+    "docs": {
+        "ports": [
+            {
+                "name": "obsConnection",
+                "text": "The OBS Connection object (optional, defaults to global obs)"
+            },
+            {
+                "name": "Updated",
+                "text": "Triggered every 50ms with new levels"
+            },
+            {
+                "name": "Inputs",
+                "text": "Array of active inputs with their associated volume levels"
+            }
+        ]
+    },
+    "dependencies": [
+        {
+            "type": "npm",
+            "src": "obs-websocket-js"
+        }
+    ],
+    "coreLibs": [
+        "standalone_electron"
+    ]
+}

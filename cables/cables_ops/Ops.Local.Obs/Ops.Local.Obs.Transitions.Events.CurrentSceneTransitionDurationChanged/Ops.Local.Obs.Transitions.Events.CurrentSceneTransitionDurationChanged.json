@@ -1,0 +1,51 @@
+{
+    "id": "e4b09fea-1abe-44ea-9c99-fa672d240b76",
+    "authorName": "Gemini",
+    "created": 1672531200000,
+    "layout": {
+        "portsIn": [
+            {
+                "type": 2,
+                "name": "obsConnection",
+                "objType": "obsConnection"
+            }
+        ],
+        "portsOut": [
+            {
+                "type": 1,
+                "name": "Changed"
+            },
+            {
+                "type": 0,
+                "name": "Transition Duration (ms)",
+                "subType": "number"
+            }
+        ]
+    },
+    "summary": "Triggered when the current scene transition duration has changed",
+    "docs": {
+        "ports": [
+            {
+                "name": "obsConnection",
+                "text": "The OBS Connection object (optional, defaults to global obs)"
+            },
+            {
+                "name": "Changed",
+                "text": "Triggered when the duration changes"
+            },
+            {
+                "name": "Transition Duration (ms)",
+                "text": "Transition duration in milliseconds"
+            }
+        ]
+    },
+    "dependencies": [
+        {
+            "type": "npm",
+            "src": "obs-websocket-js"
+        }
+    ],
+    "coreLibs": [
+        "standalone_electron"
+    ]
+}

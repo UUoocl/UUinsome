@@ -1,0 +1,58 @@
+{
+    "id": "258e295d-d9da-4e9d-94cd-488ed56a1c21",
+    "authorName": "Gemini",
+    "created": 1672531200000,
+    "layout": {
+        "portsIn": [
+            {
+                "type": 2,
+                "name": "obsConnection",
+                "objType": "obsConnection"
+            }
+        ],
+        "portsOut": [
+            {
+                "type": 1,
+                "name": "Video Ended"
+            },
+            {
+                "type": 5,
+                "name": "Transition Name"
+            },
+            {
+                "type": 5,
+                "name": "Transition UUID"
+            }
+        ]
+    },
+    "summary": "Triggered when a scene transition's video has completed fully",
+    "docs": {
+        "ports": [
+            {
+                "name": "obsConnection",
+                "text": "The OBS Connection object (optional, defaults to global obs)"
+            },
+            {
+                "name": "Video Ended",
+                "text": "Triggered when the transition video ends"
+            },
+            {
+                "name": "Transition Name",
+                "text": "Scene transition name"
+            },
+            {
+                "name": "Transition UUID",
+                "text": "Scene transition UUID"
+            }
+        ]
+    },
+    "dependencies": [
+        {
+            "type": "npm",
+            "src": "obs-websocket-js"
+        }
+    ],
+    "coreLibs": [
+        "standalone_electron"
+    ]
+}

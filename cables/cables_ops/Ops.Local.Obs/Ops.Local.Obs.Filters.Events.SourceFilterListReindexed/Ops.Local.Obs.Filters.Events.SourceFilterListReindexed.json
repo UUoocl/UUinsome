@@ -1,0 +1,58 @@
+{
+    "id": "3426b09b-430a-4674-a34c-73e6a5a16b8b",
+    "authorName": "Gemini",
+    "created": 1672531200000,
+    "layout": {
+        "portsIn": [
+            {
+                "type": 2,
+                "name": "obsConnection",
+                "objType": "obsConnection"
+            }
+        ],
+        "portsOut": [
+            {
+                "type": 1,
+                "name": "Reindexed"
+            },
+            {
+                "type": 5,
+                "name": "Source Name"
+            },
+            {
+                "type": 3,
+                "name": "Filters"
+            }
+        ]
+    },
+    "summary": "Triggered when a source's filter list has been reindexed",
+    "docs": {
+        "ports": [
+            {
+                "name": "obsConnection",
+                "text": "The OBS Connection object (optional, defaults to global obs)"
+            },
+            {
+                "name": "Reindexed",
+                "text": "Triggered when the filters are reindexed"
+            },
+            {
+                "name": "Source Name",
+                "text": "Name of the source"
+            },
+            {
+                "name": "Filters",
+                "text": "Array of filter objects"
+            }
+        ]
+    },
+    "dependencies": [
+        {
+            "type": "npm",
+            "src": "obs-websocket-js"
+        }
+    ],
+    "coreLibs": [
+        "standalone_electron"
+    ]
+}

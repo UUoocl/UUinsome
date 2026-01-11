@@ -1,0 +1,76 @@
+{
+    "id": "d27a6d06-1942-469e-90a2-3ba65d1b8a24",
+    "authorName": "Gemini",
+    "created": 1736524800000,
+    "layout": {
+        "portsIn": [
+            {
+                "type": 5,
+                "name": "URL"
+            },
+            {
+                "type": 0,
+                "name": "Active",
+                "subType": "boolean"
+            },
+            {
+                "type": 0,
+                "name": "With Credentials",
+                "subType": "boolean"
+            }
+        ],
+        "portsOut": [
+            {
+                "type": 0,
+                "name": "Connected",
+                "subType": "boolean"
+            },
+            {
+                "type": 1,
+                "name": "Error"
+            },
+            {
+                "type": 2,
+                "name": "SSE Object",
+                "objType": "sseConnection"
+            }
+        ]
+    },
+    "summary": "Manage an SSE (Server Sent Events) connection",
+    "docs": {
+        "ports": [
+            {
+                "name": "URL",
+                "text": "The URL of the SSE server"
+            },
+            {
+                "name": "Active",
+                "text": "Enable or disable the connection"
+            },
+            {
+                "name": "With Credentials",
+                "text": "Whether to include cookies/credentials in the request"
+            },
+            {
+                "name": "Connected",
+                "text": "Whether the SSE connection is currently open"
+            },
+            {
+                "name": "Error",
+                "text": "Triggered when a connection error occurs"
+            },
+            {
+                "name": "SSE Object",
+                "text": "The EventSource object to be passed to listener Ops"
+            }
+        ]
+    },
+    "license": "MIT",
+    "coreLibs": [],
+    "dependencies": [
+        {
+            "src": "eventsource",
+            "type": "npm"
+        }
+    ]
+}

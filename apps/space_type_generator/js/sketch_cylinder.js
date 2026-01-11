@@ -119,6 +119,9 @@ function setup(){
 */
   bkgdColorPicker = createColorPicker('#FFFFFF'); bkgdColorPicker.position(140, 120); bkgdColorPicker.style('height', '20px');
 // bkgdStrokeColorPicker = createColorPicker('#FFFFFF'); bkgdStrokeColorPicker.position(160, 310); bkgdStrokeColorPicker.style('height', '20px');
+
+  //on p5 setup get query paramater
+  getParams();
 }
 
 function draw() {

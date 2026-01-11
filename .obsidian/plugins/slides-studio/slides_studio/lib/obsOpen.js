@@ -6,9 +6,8 @@ let configMap = new Map();
 window.addEventListener('load', async function() {
   if(localStorage.getItem('wssDetails') !== null){
     //try to connect
-    console.log("try saved websocket details")
+    // console.debug("try saved websocket details")
     const wssDetails = JSON.parse(window.localStorage.getItem('wssDetails'));
-    //setTimeout(() => connectOBS(wssDetails), 500);
   }
 
   if (localStorage.getItem("configName")) {
@@ -57,7 +56,7 @@ localStorage.setItem("configName", str);
 
 async function sendWSSdetails() {
   const event_name = `ws-details-for-client-${rtcID}`;
-  console.log("event_name",event_name, wssDetails);
+  // console.debug("event_name",event_name, wssDetails);
   await obsWss.call("CallVendorRequest", {
     vendorName: "obs-browser",
     requestType: "emit_event",
@@ -116,7 +115,6 @@ function getLocalStorageConfigValue(selectedConfig) {
 }
 
 function configSelected() {
-  console.log(this)
     const selectedValue = this.value;
     // Perform actions based on the selected value
 
@@ -131,10 +129,9 @@ function configSelected() {
     }
 
     if (optionFound) {
-        console.log("Valid selection from datalist");
         getLocalStorageConfigValue(selectedValue)
     } else {
-        console.log("Not a valid selection from datalist");
+        console.error("Not a valid selection from datalist");
         //Actions when the input doesn't match any datalist option
     }
 
@@ -142,11 +139,7 @@ function configSelected() {
 }
 
 function obsLaunchCommand(event){
-    console.log(window.navigator.platform)
     const obsParameters = document.getElementById("obsData")
-    console.log("Parameters",obsParameters)
-    console.log("Parameters",obsParameters.PW.value)
-    console.log("Parameters",obsParameters.Debug.checked)
     let commandString = '';
     if(window.navigator.platform.startsWith("Mac")){
         commandString = 'open -n -a "';
@@ -174,7 +167,7 @@ function obsLaunchCommand(event){
     // const elementName = changedElement.name;
     // const newValue = changedElement.value;
 
-    // console.log(`Element ${elementName} changed to: ${newValue}`);
+    // console.debug(`Element ${elementName} changed to: ${newValue}`);
     document.getElementById('obsOpenCommand').value = commandString
 }
 
@@ -201,7 +194,6 @@ function openOBS() {
     let slideHREF = window.location.href;
     // "path":"${slideHREF}",
     let inputArray = JSON.stringify(`{"obsName":"${document.getElementById("obsName").value}","profileName":"${document.getElementById("profileName").value}","collectionName":"${document.getElementById("collectionName").value}","ip":"${document.getElementById("IP").value}","port":"${document.getElementById("Port").value}","password":"${document.getElementById("PW").value}"}`)
-    console.log(inputArray)
     if (document.getElementById("Debug").checked) {
         window.open(`shortcuts://run-shortcut?name=INPUT-Open_OBS_Profile-Collection-WebSocket-DEBUG&input=text&text=${inputArray}`, "_self");
     } else {
@@ -210,14 +202,13 @@ function openOBS() {
 }
 
 obsWss.on("Identified", async (data) => {
-    console.log("OBS WebSocket successfully identified", data);
+    // console.debug("OBS WebSocket successfully identified", data);
 
     document.getElementById("WSconnectButton").style.background = "#00ff00";
 
     //send websocket server connection details to OBS browser sources
     const wssDetails = JSON.parse(window.localStorage.getItem('wssDetails'))
-    console.log(wssDetails);
-
+ 
     await obsWss.call("CallVendorRequest", {
         vendorName: "obs-browser",
         requestType: "emit_event",
@@ -238,7 +229,7 @@ obsWss.on("Identified", async (data) => {
 });
 
 function sendToOBS(msgParam, eventName, eventDetailName) {
-    //console.log("sending message:", JSON.stringify(msgParam));
+    //console.debug("sending message:", JSON.stringify(msgParam));
     const webSocketMessage = JSON.stringify(msgParam);
     //send results to OBS Browser Source
     obsWss.call("CallVendorRequest", {

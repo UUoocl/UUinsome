@@ -1,0 +1,66 @@
+{
+    "id": "f106709a-a190-4b5f-9623-4ff0ce011577",
+    "authorName": "Gemini",
+    "created": 1672531200000,
+    "layout": {
+        "portsIn": [
+            {
+                "type": 2,
+                "name": "obsConnection",
+                "objType": "obsConnection"
+            }
+        ],
+        "portsOut": [
+            {
+                "type": 1,
+                "name": "Changed"
+            },
+            {
+                "type": 5,
+                "name": "Input UUID"
+            },
+            {
+                "type": 5,
+                "name": "Old Input Name"
+            },
+            {
+                "type": 5,
+                "name": "New Input Name"
+            }
+        ]
+    },
+    "summary": "Triggered when the name of an input has changed",
+    "docs": {
+        "ports": [
+            {
+                "name": "obsConnection",
+                "text": "The OBS Connection object (optional, defaults to global obs)"
+            },
+            {
+                "name": "Changed",
+                "text": "Triggered when the name changes"
+            },
+            {
+                "name": "Input UUID",
+                "text": "UUID of the input"
+            },
+            {
+                "name": "Old Input Name",
+                "text": "Old name of the input"
+            },
+            {
+                "name": "New Input Name",
+                "text": "New name of the input"
+            }
+        ]
+    },
+    "dependencies": [
+        {
+            "type": "npm",
+            "src": "obs-websocket-js"
+        }
+    ],
+    "coreLibs": [
+        "standalone_electron"
+    ]
+}

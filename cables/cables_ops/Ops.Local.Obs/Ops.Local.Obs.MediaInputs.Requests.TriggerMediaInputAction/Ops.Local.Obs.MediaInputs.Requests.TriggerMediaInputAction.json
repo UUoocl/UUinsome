@@ -1,0 +1,74 @@
+{
+    "id": "96427585-30a7-4454-bcc2-c9e18256eca2",
+    "authorName": "Gemini",
+    "created": 1673260800000,
+    "layout": {
+        "portsIn": [
+            {
+                "type": 2,
+                "name": "obsConnection",
+                "objType": "obsConnection"
+            },
+            {
+                "type": 1,
+                "name": "Call"
+            },
+            {
+                "type": 5,
+                "name": "Input Name"
+            },
+            {
+                "type": 5,
+                "name": "Input UUID"
+            },
+            {
+                "type": 5,
+                "name": "Media Action"
+            }
+        ],
+        "portsOut": [
+            {
+                "type": 1,
+                "name": "Finished"
+            }
+        ]
+    },
+    "summary": "Triggers an action on a media input",
+    "docs": {
+        "ports": [
+            {
+                "name": "obsConnection",
+                "text": "The OBS Connection object (optional, defaults to global obs)"
+            },
+            {
+                "name": "Call",
+                "text": "Trigger to call the request"
+            },
+            {
+                "name": "Input Name",
+                "text": "Name of the media input"
+            },
+            {
+                "name": "Input UUID",
+                "text": "UUID of the media input"
+            },
+            {
+                "name": "Media Action",
+                "text": "Action to trigger (e.g. OBS_WEBSOCKET_MEDIA_INPUT_ACTION_PLAY, PAUSE, STOP, RESTART, NEXT, PREVIOUS)"
+            },
+            {
+                "name": "Finished",
+                "text": "Triggered when the request is complete"
+            }
+        ]
+    },
+    "dependencies": [
+        {
+            "type": "npm",
+            "src": "obs-websocket-js"
+        }
+    ],
+    "coreLibs": [
+        "standalone_electron"
+    ]
+}

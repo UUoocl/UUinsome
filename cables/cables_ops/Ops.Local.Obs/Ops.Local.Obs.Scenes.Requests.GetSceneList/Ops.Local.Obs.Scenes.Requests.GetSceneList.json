@@ -1,0 +1,90 @@
+{
+    "id": "8bc95b2d-b9ee-45b0-ac95-0f48b37b3246",
+    "authorName": "Gemini",
+    "created": 1673260800000,
+    "layout": {
+        "portsIn": [
+            {
+                "type": 2,
+                "name": "obsConnection",
+                "objType": "obsConnection"
+            },
+            {
+                "type": 1,
+                "name": "Call"
+            }
+        ],
+        "portsOut": [
+            {
+                "type": 1,
+                "name": "Finished"
+            },
+            {
+                "type": 5,
+                "name": "Current Program Scene Name"
+            },
+            {
+                "type": 5,
+                "name": "Current Program Scene UUID"
+            },
+            {
+                "type": 5,
+                "name": "Current Preview Scene Name"
+            },
+            {
+                "type": 5,
+                "name": "Current Preview Scene UUID"
+            },
+            {
+                "type": 3,
+                "name": "Scenes"
+            }
+        ]
+    },
+    "summary": "Gets an array of all scenes in OBS",
+    "docs": {
+        "ports": [
+            {
+                "name": "obsConnection",
+                "text": "The OBS Connection object (optional, defaults to global obs)"
+            },
+            {
+                "name": "Call",
+                "text": "Trigger to call the request"
+            },
+            {
+                "name": "Finished",
+                "text": "Triggered when the request is finished"
+            },
+            {
+                "name": "Current Program Scene Name",
+                "text": "Current program scene name"
+            },
+            {
+                "name": "Current Program Scene UUID",
+                "text": "Current program scene UUID"
+            },
+            {
+                "name": "Current Preview Scene Name",
+                "text": "Current preview scene name (null if not in studio mode)"
+            },
+            {
+                "name": "Current Preview Scene UUID",
+                "text": "Current preview scene UUID (null if not in studio mode)"
+            },
+            {
+                "name": "Scenes",
+                "text": "Array of scene objects"
+            }
+        ]
+    },
+    "dependencies": [
+        {
+            "type": "npm",
+            "src": "obs-websocket-js"
+        }
+    ],
+    "coreLibs": [
+        "standalone_electron"
+    ]
+}

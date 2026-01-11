@@ -1,0 +1,82 @@
+{
+    "id": "2c40d46a-497b-4e99-99ff-2d3a1bf8bea4",
+    "authorName": "Gemini",
+    "created": 1673260800000,
+    "layout": {
+        "portsIn": [
+            {
+                "type": 2,
+                "name": "obsConnection",
+                "objType": "obsConnection"
+            },
+            {
+                "type": 1,
+                "name": "Call"
+            },
+            {
+                "type": 5,
+                "name": "Source Name"
+            },
+            {
+                "type": 5,
+                "name": "Source UUID"
+            },
+            {
+                "type": 5,
+                "name": "Filter Name"
+            },
+            {
+                "type": 5,
+                "name": "New Filter Name"
+            }
+        ],
+        "portsOut": [
+            {
+                "type": 1,
+                "name": "Finished"
+            }
+        ]
+    },
+    "summary": "Sets the name of a source filter (rename)",
+    "docs": {
+        "ports": [
+            {
+                "name": "obsConnection",
+                "text": "The OBS Connection object (optional, defaults to global obs)"
+            },
+            {
+                "name": "Call",
+                "text": "Trigger to call the request"
+            },
+            {
+                "name": "Source Name",
+                "text": "Name of the source"
+            },
+            {
+                "name": "Source UUID",
+                "text": "UUID of the source"
+            },
+            {
+                "name": "Filter Name",
+                "text": "Current name of the filter"
+            },
+            {
+                "name": "New Filter Name",
+                "text": "New name for the filter"
+            },
+            {
+                "name": "Finished",
+                "text": "Triggered when the request is complete"
+            }
+        ]
+    },
+    "dependencies": [
+        {
+            "type": "npm",
+            "src": "obs-websocket-js"
+        }
+    ],
+    "coreLibs": [
+        "standalone_electron"
+    ]
+}

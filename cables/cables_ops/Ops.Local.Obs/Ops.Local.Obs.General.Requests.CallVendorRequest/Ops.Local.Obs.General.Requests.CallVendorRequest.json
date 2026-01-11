@@ -1,0 +1,98 @@
+{
+    "id": "df4e9d84-0a0a-4f45-83c5-ed0de5108bc3",
+    "authorName": "Gemini",
+    "created": 1673260800000,
+    "layout": {
+        "portsIn": [
+            {
+                "type": 2,
+                "name": "obsConnection",
+                "objType": "obsConnection"
+            },
+            {
+                "type": 1,
+                "name": "Call"
+            },
+            {
+                "type": 5,
+                "name": "Vendor Name"
+            },
+            {
+                "type": 5,
+                "name": "Request Type"
+            },
+            {
+                "type": 2,
+                "name": "Request Data"
+            }
+        ],
+        "portsOut": [
+            {
+                "type": 1,
+                "name": "Finished"
+            },
+            {
+                "type": 5,
+                "name": "Vendor Name Out"
+            },
+            {
+                "type": 5,
+                "name": "Request Type Out"
+            },
+            {
+                "type": 2,
+                "name": "Response Data"
+            }
+        ]
+    },
+    "summary": "Calls a vendor-specific request",
+    "docs": {
+        "ports": [
+            {
+                "name": "obsConnection",
+                "text": "The OBS Connection object (optional, defaults to global obs)"
+            },
+            {
+                "name": "Call",
+                "text": "Trigger to call the vendor request"
+            },
+            {
+                "name": "Vendor Name",
+                "text": "Name of the vendor"
+            },
+            {
+                "name": "Request Type",
+                "text": "Vendor-provided request typedef"
+            },
+            {
+                "name": "Request Data",
+                "text": "Vendor-provided request data object"
+            },
+            {
+                "name": "Finished",
+                "text": "Triggered when the request is finished"
+            },
+            {
+                "name": "Vendor Name Out",
+                "text": "Echoed name of the vendor"
+            },
+            {
+                "name": "Request Type Out",
+                "text": "Echoed vendor-provided request typedef"
+            },
+            {
+                "name": "Response Data",
+                "text": "Vendor-provided response data object"
+            }
+        ]
+    },
+    "dependencies": [
+        {
+            "type": "npm",
+            "src": "obs-websocket-js"
+        }
+    ],
+    "coreLibs": [
+        "standalone_electron"
+    ]
+}

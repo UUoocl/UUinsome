@@ -65,7 +65,6 @@
         let selectedRowNumber = 0;
         
         window.addEventListener("DOMContentLoaded", (event) => {
-            console.log("studio iframe page is fully loaded");
             //get OBS details from parent
             getOBSdata();
             getSlidesData();
@@ -91,25 +90,18 @@
                 return;
             }
             
-            console.log(event)
             let data = JSON.parse(event.data);
-            console.log(data)
-
+            
             //select row on slide change
             if (data.namespace === "speakerview" && data.message === "change-row") {
-                console.log("chnage row", data)
                 let stateString;
                 let rowData = undefined;
                 
                 stateString = `${data.state.indexh},${data.state.indexv}`;
                 
-                console.log("go to row ", stateString, typeof stateString)
                 
                 let row = table.searchData("slideState", "=", stateString);
                 let rowComponent = table.searchRows("slideState", "=", stateString);
-                console.log("found row", row[0])
-                console.log(rowComponent)
-                console.log(rowComponent[0].getPosition())
                 table.deselectRow();
                 table.selectRow(table.getRowFromPosition(rowComponent[0].getPosition()));
                 selectedRowNumber = rowComponent[0].getPosition()
@@ -119,12 +111,9 @@
                 if (data.state.hasOwnProperty("indexf") && data.state.indexf > -1) {
                     stateString = `${data.state.indexh},${data.state.indexv},${data.state.indexf}`;
                     let children = rowComponent[0].getTreeChildren()
-                    console.log(children)
                     const fragmentRow = children.filter(row => row._row.data.slideState === stateString)
-                    console.log("fragment row", fragmentRow)
                     table.selectRow(table.getRowFromPosition(fragmentRow[0].getPosition()));
                     selectedRowNumber = fragmentRow[0].getPosition()
-                    console.log("fragment get row", table.getSelectedRows())
                     rowData = table.getSelectedRows()[1].getData();
                 } else {
                     rowData = rowComponent[0].getData();
@@ -137,18 +126,16 @@
         
             //slide data from speakerView
             if(data.namespace === "speakerview" && data.message === "slides-data-response"){
-                console.log("slide data response arrived")
+                // console.debug("slide data response arrived")
                 slidesArray = data.slidesData    
-                console.log(slidesArray)
                 //loadTable();
                 getOBSdata();
             }  
             
             //obs data from speakerView
             if(data.namespace === "speakerview" && data.message === "obs-data-response"){
-                console.log("obs data response arrived")
+                //console.debug("obs data response arrived")
                 dropDownOptions = { ... data.obsData }   
-                console.log(JSON.stringify(dropDownOptions))
                 loadTable();
             }  
         
@@ -165,7 +152,6 @@
         //button functions            
         function updateSlideName() {
             slideDeckId = document.getElementById("slideDeckId").value;
-            console.log("SlideID", slideDeckId)
         }
 
         function loadSavedTable() {
@@ -176,8 +162,6 @@
 
     function filterRowData(rowData){
         //slide navigation
-        console.log("send this", rowData);
-
         const filteredRowData = {}
         // Filter the object to only keys with values
         filteredRowData.row = Object.fromEntries(
@@ -187,7 +171,6 @@
         filteredRowData.eventName = "rowSelected";
        // filteredRowData.state = slideState;
         
-        console.log("filtered", filteredRowData)
         sendMessageToParent( filteredRowData, window.location.origin)
     }
     

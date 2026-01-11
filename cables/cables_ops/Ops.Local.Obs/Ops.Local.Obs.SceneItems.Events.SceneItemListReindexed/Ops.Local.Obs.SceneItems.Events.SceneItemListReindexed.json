@@ -1,0 +1,66 @@
+{
+    "id": "5f2f2da7-d265-439a-9aaa-2a4828396467",
+    "authorName": "Gemini",
+    "created": 1672531200000,
+    "layout": {
+        "portsIn": [
+            {
+                "type": 2,
+                "name": "obsConnection",
+                "objType": "obsConnection"
+            }
+        ],
+        "portsOut": [
+            {
+                "type": 1,
+                "name": "Reindexed"
+            },
+            {
+                "type": 5,
+                "name": "Scene Name"
+            },
+            {
+                "type": 5,
+                "name": "Scene UUID"
+            },
+            {
+                "type": 3,
+                "name": "Scene Items"
+            }
+        ]
+    },
+    "summary": "Triggered when a scene's item list has been reindexed",
+    "docs": {
+        "ports": [
+            {
+                "name": "obsConnection",
+                "text": "The OBS Connection object (optional, defaults to global obs)"
+            },
+            {
+                "name": "Reindexed",
+                "text": "Triggered when the items are reindexed"
+            },
+            {
+                "name": "Scene Name",
+                "text": "Name of the scene"
+            },
+            {
+                "name": "Scene UUID",
+                "text": "UUID of the scene"
+            },
+            {
+                "name": "Scene Items",
+                "text": "Array of scene item objects"
+            }
+        ]
+    },
+    "dependencies": [
+        {
+            "type": "npm",
+            "src": "obs-websocket-js"
+        }
+    ],
+    "coreLibs": [
+        "standalone_electron"
+    ]
+}

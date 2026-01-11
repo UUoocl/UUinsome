@@ -1,0 +1,90 @@
+{
+    "id": "b25d0811-3883-45bb-b132-eaf54e2d5a11",
+    "authorName": "Gemini",
+    "created": 1673260800000,
+    "layout": {
+        "portsIn": [
+            {
+                "type": 2,
+                "name": "obsConnection",
+                "objType": "obsConnection"
+            },
+            {
+                "type": 1,
+                "name": "Call"
+            },
+            {
+                "type": 5,
+                "name": "Source Name"
+            },
+            {
+                "type": 5,
+                "name": "Source UUID"
+            },
+            {
+                "type": 5,
+                "name": "Filter Name"
+            },
+            {
+                "type": 5,
+                "name": "Filter Kind"
+            },
+            {
+                "type": 2,
+                "name": "Filter Settings"
+            }
+        ],
+        "portsOut": [
+            {
+                "type": 1,
+                "name": "Finished"
+            }
+        ]
+    },
+    "summary": "Creates a new filter and adds it to a source",
+    "docs": {
+        "ports": [
+            {
+                "name": "obsConnection",
+                "text": "The OBS Connection object (optional, defaults to global obs)"
+            },
+            {
+                "name": "Call",
+                "text": "Trigger to call the request"
+            },
+            {
+                "name": "Source Name",
+                "text": "Name of the source to add the filter to"
+            },
+            {
+                "name": "Source UUID",
+                "text": "UUID of the source to add the filter to"
+            },
+            {
+                "name": "Filter Name",
+                "text": "Name of the new filter to create"
+            },
+            {
+                "name": "Filter Kind",
+                "text": "The kind of filter to create"
+            },
+            {
+                "name": "Filter Settings",
+                "text": "Optional settings object for the filter"
+            },
+            {
+                "name": "Finished",
+                "text": "Triggered when the request is complete"
+            }
+        ]
+    },
+    "dependencies": [
+        {
+            "type": "npm",
+            "src": "obs-websocket-js"
+        }
+    ],
+    "coreLibs": [
+        "standalone_electron"
+    ]
+}

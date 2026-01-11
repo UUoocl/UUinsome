@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Astro Bee Overlay</title>
+    <style>
+        body { margin: 0; padding: 0; overflow: hidden; background: transparent; }
+        canvas { display: block; background: transparent; }
+    </style>
+</head>
+<body>
+    <script>
+        let mousePosX = window.innerWidth / 2;
+        let mousePosY = window.innerHeight / 2;
+        let displayXmin = 0, displayXmax = 1920;
+        let displayYmin = 0, displayYmax = 1080;
+
+        const mouseChannel = new BroadcastChannel('mouse_move');
+        const clickChannel = new BroadcastChannel('mouse_click');
+        const keyboardChannel = new BroadcastChannel('keyboard_event');
+        const desktopBoundsChannel = new BroadcastChannel('desktop_bounds');
+
+        function remap(n, start1, stop1, start2, stop2) {
+            return (n - start1) / (stop1 - start1) * (stop2 - start2) + start2;
+        }
+
+        desktopBoundsChannel.onmessage = (event) => {
+            if (event.data && typeof event.data.minX !== 'undefined') {
+                displayXmin = event.data.minX;
+                displayXmax = event.data.maxX;
+                displayYmin = event.data.minY;
+                displayYmax = event.data.maxY;
+            }
+        };
+        desktopBoundsChannel.postMessage('request_bounds');
+
+        mouseChannel.onmessage = (event) => {
+            const { x, y } = event.data;
+            mousePosX = Math.round(remap(x, displayXmin, displayXmax, 0, window.innerWidth));
+            mousePosY = Math.round(remap(y, displayYmin, displayYmax, 0, window.innerHeight));
+        };
+
+        clickChannel.onmessage = (event) => {
+            if (event.data.pressed) {
+                if (typeof triggerClickEffect === 'function') {
+                    triggerClickEffect();
+                }
+            }
+        };
+
+        keyboardChannel.onmessage = (event) => {
+            const key = event.data.key;
+            if (key === '+' || key === '=') {
+                if (typeof updateZoom === 'function') updateZoom(20);
+            } else if (key === '-') {
+                if (typeof updateZoom === 'function') updateZoom(-20);
+            }
+        };
+    </script>
+    <!-- Using the verified path to p5.min.js -->
+    <script src="../lib/p5.min.js"></script>
+    <script src="./sketch/astroBee_Sketch.js"></script>
+</body>
+</html>

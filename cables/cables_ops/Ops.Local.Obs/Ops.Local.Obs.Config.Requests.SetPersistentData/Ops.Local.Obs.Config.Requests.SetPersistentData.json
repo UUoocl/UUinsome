@@ -1,0 +1,74 @@
+{
+    "id": "d4c5e79e-575b-4a2b-b8bf-8d9c8e3d5154",
+    "authorName": "Gemini",
+    "created": 1673260800000,
+    "layout": {
+        "portsIn": [
+            {
+                "type": 2,
+                "name": "obsConnection",
+                "objType": "obsConnection"
+            },
+            {
+                "type": 1,
+                "name": "Call"
+            },
+            {
+                "type": 5,
+                "name": "Realm"
+            },
+            {
+                "type": 5,
+                "name": "Slot Name"
+            },
+            {
+                "type": 2,
+                "name": "Slot Value"
+            }
+        ],
+        "portsOut": [
+            {
+                "type": 1,
+                "name": "Finished"
+            }
+        ]
+    },
+    "summary": "Sets the value of a 'slot' from the selected persistent data realm",
+    "docs": {
+        "ports": [
+            {
+                "name": "obsConnection",
+                "text": "The OBS Connection object (optional, defaults to global obs)"
+            },
+            {
+                "name": "Call",
+                "text": "Trigger to call the request"
+            },
+            {
+                "name": "Realm",
+                "text": "The data realm to select (OBS_WEBSOCKET_DATA_REALM_GLOBAL or OBS_WEBSOCKET_DATA_REALM_PROFILE)"
+            },
+            {
+                "name": "Slot Name",
+                "text": "The name of the slot to apply data to"
+            },
+            {
+                "name": "Slot Value",
+                "text": "The value to apply to the slot"
+            },
+            {
+                "name": "Finished",
+                "text": "Triggered when the request is complete"
+            }
+        ]
+    },
+    "dependencies": [
+        {
+            "type": "npm",
+            "src": "obs-websocket-js"
+        }
+    ],
+    "coreLibs": [
+        "standalone_electron"
+    ]
+}

@@ -1,0 +1,111 @@
+{
+    "id": "d27a6d06-1842-469e-90a2-3ba65d1b8a24",
+    "created": 1768062020242,
+    "license": "MIT",
+    "dependencies": [
+        {
+            "src": "obs-websocket-js",
+            "type": "npm"
+        }
+    ],
+    "layout": {
+        "portsIn": [
+            {
+                "type": 5,
+                "name": "IP"
+            },
+            {
+                "type": 0,
+                "name": "Port",
+                "subType": "number"
+            },
+            {
+                "type": 5,
+                "name": "password"
+            },
+            {
+                "type": 0,
+                "name": "connect",
+                "subType": "boolean"
+            },
+            {
+                "type": 0,
+                "name": "Sub General",
+                "group": "Event Subscriptions",
+                "subType": "boolean"
+            },
+            {
+                "type": 0,
+                "name": "Sub Config",
+                "group": "Event Subscriptions",
+                "subType": "boolean"
+            },
+            {
+                "type": 0,
+                "name": "Sub Scenes Events",
+                "group": "Event Subscriptions",
+                "subType": "boolean"
+            },
+            {
+                "type": 0,
+                "name": "Sub Inputs",
+                "group": "Event Subscriptions",
+                "subType": "boolean"
+            },
+            {
+                "type": 0,
+                "name": "Sub Transitions",
+                "group": "Event Subscriptions",
+                "subType": "boolean"
+            },
+            {
+                "type": 0,
+                "name": "Sub Filters",
+                "group": "Event Subscriptions",
+                "subType": "boolean"
+            },
+            {
+                "type": 0,
+                "name": "Sub Outputs",
+                "group": "Event Subscriptions",
+                "subType": "boolean"
+            },
+            {
+                "type": 0,
+                "name": "Sub SceneItems",
+                "group": "Event Subscriptions",
+                "subType": "boolean"
+            },
+            {
+                "type": 0,
+                "name": "Sub MediaInputs",
+                "group": "Event Subscriptions",
+                "subType": "boolean"
+            },
+            {
+                "type": 0,
+                "name": "Sub Vendors",
+                "group": "Event Subscriptions",
+                "subType": "boolean"
+            },
+            {
+                "type": 0,
+                "name": "Sub Ui",
+                "group": "Event Subscriptions",
+                "subType": "boolean"
+            }
+        ],
+        "portsOut": [
+            {
+                "type": 0,
+                "name": "connected",
+                "subType": "boolean"
+            },
+            {
+                "type": 2,
+                "name": "obsConnection",
+                "objType": "obsConnection"
+            }
+        ]
+    }
+}

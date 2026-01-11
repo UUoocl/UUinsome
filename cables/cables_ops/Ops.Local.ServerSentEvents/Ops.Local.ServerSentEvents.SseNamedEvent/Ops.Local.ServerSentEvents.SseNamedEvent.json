@@ -1,0 +1,57 @@
+{
+     "id": "d27a6d06-1842-469f-90a2-3ba65d1b8a24",
+    "authorName": "Gemini",
+    "created": 1736524800000,
+    "layout": {
+        "portsIn": [
+            {
+                "type": 2,
+                "name": "SSE Object",
+                "objType": "sseConnection"
+            },
+            {
+                "type": 5,
+                "name": "Event Name"
+            }
+        ],
+        "portsOut": [
+            {
+                "type": 1,
+                "name": "Received"
+            },
+            {
+                "type": 5,
+                "name": "Data"
+            },
+            {
+                "type": 5,
+                "name": "Last Event ID"
+            }
+        ]
+    },
+    "summary": "Listen for custom named SSE events",
+    "docs": {
+        "ports": [
+            {
+                "name": "SSE Object",
+                "text": "The SSE connection object from SseReceiver"
+            },
+            {
+                "name": "Event Name",
+                "text": "The name of the custom event to listen for"
+            },
+            {
+                "name": "Received",
+                "text": "Triggered when the named event is received"
+            },
+            {
+                "name": "Data",
+                "text": "The data payload of the message"
+            },
+            {
+                "name": "Last Event ID",
+                "text": "The ID of the last event received"
+            }
+        ]
+    }
+}

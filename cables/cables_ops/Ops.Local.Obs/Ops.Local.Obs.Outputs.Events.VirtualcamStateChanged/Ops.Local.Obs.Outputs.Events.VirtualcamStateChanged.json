@@ -1,0 +1,59 @@
+{
+    "id": "7ee4dc9f-1a67-4a77-bef0-d5160f462015",
+    "authorName": "Gemini",
+    "created": 1672531200000,
+    "layout": {
+        "portsIn": [
+            {
+                "type": 2,
+                "name": "obsConnection",
+                "objType": "obsConnection"
+            }
+        ],
+        "portsOut": [
+            {
+                "type": 1,
+                "name": "Changed"
+            },
+            {
+                "type": 0,
+                "name": "Output Active",
+                "subType": "boolean"
+            },
+            {
+                "type": 5,
+                "name": "Output State"
+            }
+        ]
+    },
+    "summary": "Triggered when the state of the virtualcam output has changed",
+    "docs": {
+        "ports": [
+            {
+                "name": "obsConnection",
+                "text": "The OBS Connection object (optional, defaults to global obs)"
+            },
+            {
+                "name": "Changed",
+                "text": "Triggered when the event occurs"
+            },
+            {
+                "name": "Output Active",
+                "text": "Whether the output is active"
+            },
+            {
+                "name": "Output State",
+                "text": "The specific state of the output"
+            }
+        ]
+    },
+    "dependencies": [
+        {
+            "type": "npm",
+            "src": "obs-websocket-js"
+        }
+    ],
+    "coreLibs": [
+        "standalone_electron"
+    ]
+}

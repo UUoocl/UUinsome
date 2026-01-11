@@ -1,0 +1,67 @@
+{
+    "id": "88847716-2a54-43be-a45c-5d8f86beab53",
+    "authorName": "Gemini",
+    "created": 1672531200000,
+    "layout": {
+        "portsIn": [
+            {
+                "type": 2,
+                "name": "obsConnection",
+                "objType": "obsConnection"
+            }
+        ],
+        "portsOut": [
+            {
+                "type": 1,
+                "name": "Removed"
+            },
+            {
+                "type": 5,
+                "name": "Scene Name"
+            },
+            {
+                "type": 5,
+                "name": "Scene UUID"
+            },
+            {
+                "type": 0,
+                "name": "Is Group",
+                "subType": "boolean"
+            }
+        ]
+    },
+    "summary": "Triggered when a scene has been removed",
+    "docs": {
+        "ports": [
+            {
+                "name": "obsConnection",
+                "text": "The OBS Connection object (optional, defaults to global obs)"
+            },
+            {
+                "name": "Removed",
+                "text": "Triggered when a scene is removed"
+            },
+            {
+                "name": "Scene Name",
+                "text": "Name of the removed scene"
+            },
+            {
+                "name": "Scene UUID",
+                "text": "UUID of the removed scene"
+            },
+            {
+                "name": "Is Group",
+                "text": "Whether the scene was a group"
+            }
+        ]
+    },
+    "dependencies": [
+        {
+            "type": "npm",
+            "src": "obs-websocket-js"
+        }
+    ],
+    "coreLibs": [
+        "standalone_electron"
+    ]
+}

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Load Librarues Sequentially</title>
+</head>
+<body>
+    <script src="./lib/p5.js"></script>
+    <script src="./sketch/r1b2_ws.js"></script>
+    <script src="./js/obsidian_save_load.js"></script>
+    <script src="./js/manage_view.js"></script>
+
+    <script>
+      const urlParams = new URLSearchParams(window.location.search);
+      const channelName = urlParams.get('channel') || 'default_pose_channel';
+      const channel = new BroadcastChannel(channelName);
+
+      channel.onmessage = (event) => {
+        const data = event.data;
+        // Support multiple data formats from Broadcast Channel
+        if (data.type === 'pose') {
+          // Format from SessionCard.svelte
+          cur_data = data.payload.landmarks;
+        } else if (data.poseLandmarkerResult) {
+          // Format previously sent via OBS CustomEvent
+          cur_data = data.poseLandmarkerResult;
+        } else if (Array.isArray(data)) {
+          // Raw landmarks array
+          cur_data = data;
+        }
+      };
+    </script>
+
+
+    <main id="p5_stage"></main>
+<script id="sketchSettings">
+      let hideCanvasUI = false;
+  function getSketchSettings(filename){
+      const settings = {
+          "filename" : filename,
+          "ephemeral" : ephemeralCheckBox.checked(),
+          "ephemeral_alpha" : ephemeralAlphaSlider.value(),
+          "fps" : FPSslider.value(),
+          "inp1color" : inp1.value(),
+          "inp2color" : inp2.value(),
+          "inp3color" : inp3.value(),
+          "inp4color" : inp4.value(),
+          "inp5color" : inp5.value(),
+          "inp6color" : inp6.value(),
+          "inp7color" : inp7.value(),
+
+          "bkgdColor" : bkgdColorPicker.value()
+      }
+      return settings
+  }
+
+  function setSketchSettings(json){
+    
+    EPHEMERAL =json.ephemeral;
+    EPHEMERAL_ALPHA = json.ephemeral_alpha;
+    ephemeralCheckBox.checked(json.ephemeral);
+    ephemeralAlphaSlider.value(json.ephemeral_alpha);
+
+    FPS = json.fps,
+    
+    inp1.value(json.inp1color);
+    inp2.value(json.inp2color);
+    inp3.value(json.inp3color);
+    inp4.value(json.inp4color);
+    inp5.value(json.inp5color);
+    inp6.value(json.inp6color);
+    inp7.value(json.inp7color);
+
+    bkgdColorPicker.value(json.bkgdColor)
+    PALETTE = ["Custom", '#00000000', [
+    json.inp1color, json.inp2color, json.inp3color, json.inp4color, json.inp5color, json.inp6color, json.inp7color,
+    json.inp1color, json.inp2color, json.inp3color, json.inp4color, json.inp5color, json.inp6color, json.inp7color,
+    json.inp1color, json.inp2color, json.inp3color, json.inp4color, json.inp5color, json.inp6color, json.inp7color,
+    json.inp1color, json.inp2color, json.inp3color, json.inp4color, json.inp5color, json.inp6color, json.inp7color,
+    json.inp1color, json.inp2color, json.inp3color
+    ]]
+    PALETTES[0] = PALETTE
+
+    newPaintLines();
+    
+    if(hideCanvasUI){
+        stage.setup()
+    }
+    
+  }
+</script>
+
+</body>
+</html>

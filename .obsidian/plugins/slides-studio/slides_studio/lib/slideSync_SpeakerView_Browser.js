@@ -19,8 +19,8 @@ window.addEventListener('message', async (event) => {
         //#region messages from tabulator Iframe
         //when a row in the tabulator is selected, send the row data to the current slide iframe
         if (data.namespace === 'tabulator' && data.eventName === "rowSelected"){
-            console.log("row selected message received.", JSON.stringify(data))
-            console.log("var slide state", data.row.slideState.split(',').map(x => Number(x)))
+            console.debug("row selected message received.", JSON.stringify(data))
+            console.debug("var slide state", data.row.slideState.split(',').map(x => Number(x)))
             //post slide change to current Iframe
             currentSlide.contentWindow.postMessage(JSON.stringify({ method: 'slide', args: data.row.slideState.split(',').map(x => Number(x))}), "*");
             //send row data to OBS
@@ -46,7 +46,7 @@ window.addEventListener('message', async (event) => {
         if (data.namespace === 'reveal' &&
             ['paused','resumed','fragmentshown','fragmenthidden','slidechanged'].includes(data.eventName)) 
             {
-                console.log("Slide Changed", event)
+                // console.debug("Slide Changed", event)
                 
                 //if event 'state' doesn't equal settings 'state'
                 if(JSON.stringify(data.state) != slideState){
@@ -101,8 +101,8 @@ window.addEventListener('message', async (event) => {
         //#region messages from tabulator Iframe
         //when a row in the tabulator is selected, send the row data to the current slide iframe
         if (data.namespace === 'tabulator' && data.eventName === "rowSelected"){
-            console.log("row selected message received.", JSON.stringify(data))
-            console.log("var slide state", data.row.slideState.split(','))
+            // console.debug("row selected message received.", JSON.stringify(data))
+            // console.debug("var slide state", data.row.slideState.split(','))
             //post slide change to current Iframe
             currentSlide.contentWindow.postMessage(JSON.stringify({ method: 'slide', args: data.row.slideState.split(',')}), slideDeckURL.origin);
             //send row data to OBS
@@ -127,7 +127,7 @@ window.addEventListener('message', async (event) => {
         //on current slide iframe  change or pause
         if (data.namespace === 'reveal' &&
             ['paused','resumed','fragmentshown','fragmenthidden','slidechanged'].includes(data.eventName)) {
-                console.log("Slide Changed", event)
+                // console.debug("Slide Changed", event)
                 
                 //if event 'state' doesn't equal settings 'state'
                 if(JSON.stringify(data.state) != slideState){
@@ -153,7 +153,6 @@ window.addEventListener('message', async (event) => {
         
         //callback from get notes request
         if( data.namespace === 'reveal' && data.eventName === 'callback' && data.method === "getSlideNotes" ){
-            console.log(data)
             //send slide notes to notes iFrame
             const notes_iframe = document.getElementById("notes-iframe");
             notes_iframe.contentWindow.postMessage(JSON.stringify({ namespace:"teleprompter", method: 'updateNotes', data: `${JSON.stringify(data.result)}` }), '*');
@@ -183,7 +182,7 @@ obsWss.on("CustomEvent", async function (event) {
     });
 
 function sendToOBS(msgParam, eventName) {
-    console.log("sending message:", JSON.stringify(msgParam));
+    // console.debug("sending message:", JSON.stringify(msgParam));
     const webSocketMessage = JSON.stringify(msgParam);
     //send results to OBS Browser Source
     obsWss.call("CallVendorRequest", {

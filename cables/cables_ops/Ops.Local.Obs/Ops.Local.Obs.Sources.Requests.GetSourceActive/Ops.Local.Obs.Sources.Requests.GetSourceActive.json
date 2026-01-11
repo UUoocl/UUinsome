@@ -1,0 +1,84 @@
+{
+    "id": "6085351c-6bb7-44c0-a6fd-adfd85086936",
+    "authorName": "Gemini",
+    "created": 1673260800000,
+    "layout": {
+        "portsIn": [
+            {
+                "type": 2,
+                "name": "obsConnection",
+                "objType": "obsConnection"
+            },
+            {
+                "type": 1,
+                "name": "Call"
+            },
+            {
+                "type": 5,
+                "name": "Source Name"
+            },
+            {
+                "type": 5,
+                "name": "Source UUID"
+            }
+        ],
+        "portsOut": [
+            {
+                "type": 1,
+                "name": "Finished"
+            },
+            {
+                "type": 0,
+                "name": "Video Active",
+                "subType": "boolean"
+            },
+            {
+                "type": 0,
+                "name": "Video Showing",
+                "subType": "boolean"
+            }
+        ]
+    },
+    "summary": "Gets the active and show state of a source",
+    "docs": {
+        "ports": [
+            {
+                "name": "obsConnection",
+                "text": "The OBS Connection object (optional, defaults to global obs)"
+            },
+            {
+                "name": "Call",
+                "text": "Trigger to call the request"
+            },
+            {
+                "name": "Source Name",
+                "text": "Name of the source"
+            },
+            {
+                "name": "Source UUID",
+                "text": "UUID of the source"
+            },
+            {
+                "name": "Finished",
+                "text": "Triggered when the request is finished"
+            },
+            {
+                "name": "Video Active",
+                "text": "Whether the source is showing in Program"
+            },
+            {
+                "name": "Video Showing",
+                "text": "Whether the source is showing in the UI (Preview, Projector, Properties)"
+            }
+        ]
+    },
+    "dependencies": [
+        {
+            "type": "npm",
+            "src": "obs-websocket-js"
+        }
+    ],
+    "coreLibs": [
+        "standalone_electron"
+    ]
+}

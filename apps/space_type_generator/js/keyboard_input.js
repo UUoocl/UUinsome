@@ -1,24 +1,26 @@
-    let hotKeyTimer;    
+    let hotKeyTimer;     
     let PRESET_SETTINGS
-    
+
     function setHotkeyText(newText){
-      PRESET_SETTINGS.text = newText;
-      try{inp.value(newText);
+      try{
+        PRESET_SETTINGS.text = newText;
+      //   inp.value(newText);
       }
-      catch{}
+      catch{
+        console.log("PRESET update")
+        PRESET_SETTINGS.text = newText;
+      }
       setSketchSettings(PRESET_SETTINGS)
     }
 
-    obsWss.on("InputSettingsChanged", async function (event) {
-      switch (event.inputName) {
-        case 'keyHotkey':
-          if (event.inputSettings.text.includes('+')) {
-            console.log(event.inputSettings.text)
-            setHotkeyText(event.inputSettings.text);
-            hotKeyTimer = 3;
-          }
-          break;
-        default:
-          break;
-        }
-    })
+    const keyboardChannel = new BroadcastChannel('keyboard_event');
+
+    keyboardChannel.onmessage = (event) => {
+      const data = event.data;
+      console.log(data)
+      if (data && data.key && data.key.includes("+")) {
+        console.log('Broadcast received:', data.key);
+        setHotkeyText(data.key);
+        hotKeyTimer = 3;
+      }
+    };

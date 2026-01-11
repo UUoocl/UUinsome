@@ -1,0 +1,108 @@
+{
+    "id": "e767e615-7e01-4d21-9735-fe94a316b756",
+    "authorName": "Gemini",
+    "created": 1673260800000,
+    "layout": {
+        "portsIn": [
+            {
+                "type": 2,
+                "name": "obsConnection",
+                "objType": "obsConnection"
+            },
+            {
+                "type": 1,
+                "name": "Call"
+            },
+            {
+                "type": 5,
+                "name": "Source Name"
+            },
+            {
+                "type": 5,
+                "name": "Source UUID"
+            },
+            {
+                "type": 5,
+                "name": "Filter Name"
+            }
+        ],
+        "portsOut": [
+            {
+                "type": 1,
+                "name": "Finished"
+            },
+            {
+                "type": 0,
+                "name": "Filter Enabled",
+                "subType": "boolean"
+            },
+            {
+                "type": 0,
+                "name": "Filter Index",
+                "subType": "number"
+            },
+            {
+                "type": 5,
+                "name": "Filter Kind"
+            },
+            {
+                "type": 2,
+                "name": "Filter Settings"
+            }
+        ]
+    },
+    "summary": "Gets the info for a specific source filter",
+    "docs": {
+        "ports": [
+            {
+                "name": "obsConnection",
+                "text": "The OBS Connection object (optional, defaults to global obs)"
+            },
+            {
+                "name": "Call",
+                "text": "Trigger to call the request"
+            },
+            {
+                "name": "Source Name",
+                "text": "Name of the source"
+            },
+            {
+                "name": "Source UUID",
+                "text": "UUID of the source"
+            },
+            {
+                "name": "Filter Name",
+                "text": "Name of the filter"
+            },
+            {
+                "name": "Finished",
+                "text": "Triggered when the request is finished"
+            },
+            {
+                "name": "Filter Enabled",
+                "text": "Whether the filter is enabled"
+            },
+            {
+                "name": "Filter Index",
+                "text": "Index of the filter in the list"
+            },
+            {
+                "name": "Filter Kind",
+                "text": "The kind of filter"
+            },
+            {
+                "name": "Filter Settings",
+                "text": "Settings object associated with the filter"
+            }
+        ]
+    },
+    "dependencies": [
+        {
+            "type": "npm",
+            "src": "obs-websocket-js"
+        }
+    ],
+    "coreLibs": [
+        "standalone_electron"
+    ]
+}

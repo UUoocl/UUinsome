@@ -1,0 +1,94 @@
+{
+    "id": "0feb2e02-5bc3-4d22-9996-139a3bd6393a",
+    "authorName": "Gemini",
+    "created": 1673260800000,
+    "layout": {
+        "portsIn": [
+            {
+                "type": 2,
+                "name": "obsConnection",
+                "objType": "obsConnection"
+            },
+            {
+                "type": 1,
+                "name": "Call"
+            },
+            {
+                "type": 5,
+                "name": "Key ID"
+            },
+            {
+                "type": 0,
+                "name": "Shift",
+                "subType": "boolean"
+            },
+            {
+                "type": 0,
+                "name": "Control",
+                "subType": "boolean"
+            },
+            {
+                "type": 0,
+                "name": "Alt",
+                "subType": "boolean"
+            },
+            {
+                "type": 0,
+                "name": "Command (Mac)",
+                "subType": "boolean"
+            }
+        ],
+        "portsOut": [
+            {
+                "type": 1,
+                "name": "Finished"
+            }
+        ]
+    },
+    "summary": "Triggers a hotkey using a sequence of keys",
+    "docs": {
+        "ports": [
+            {
+                "name": "obsConnection",
+                "text": "The OBS Connection object (optional, defaults to global obs)"
+            },
+            {
+                "name": "Call",
+                "text": "Trigger to call the request"
+            },
+            {
+                "name": "Key ID",
+                "text": "The OBS key ID to use (e.g. OBS_KEY_F1)"
+            },
+            {
+                "name": "Shift",
+                "text": "Whether Shift modifier is pressed"
+            },
+            {
+                "name": "Control",
+                "text": "Whether Control modifier is pressed"
+            },
+            {
+                "name": "Alt",
+                "text": "Whether Alt modifier is pressed"
+            },
+            {
+                "name": "Command (Mac)",
+                "text": "Whether Command (Mac) modifier is pressed"
+            },
+            {
+                "name": "Finished",
+                "text": "Triggered when the request is complete"
+            }
+        ]
+    },
+    "dependencies": [
+        {
+            "type": "npm",
+            "src": "obs-websocket-js"
+        }
+    ],
+    "coreLibs": [
+        "standalone_electron"
+    ]
+}

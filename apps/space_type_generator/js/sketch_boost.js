@@ -151,16 +151,22 @@ function setup(){
   strokeCap(ROUND);
   rectMode(CENTER);
 
-  document.getElementById("textArea").value = starterText;
-  setText();
+  //camera settings
+  p5Camera = createCamera();
+
+  if (window.PRESET_SETTINGS) {
+    setSketchSettings(window.PRESET_SETTINGS);
+  } else {
+    document.getElementById("textArea").value = starterText;
+    setText();
+  }
 
   const uiElement = select('#widget'); // replace with your HTML element's ID or class
   uiElement.mouseOver(() => enableOrbit = false);
   uiElement.mouseOut(() => enableOrbit = true);
 
-
-  //camera settings
-  p5Camera = createCamera();
+  //on p5 setup get query paramater
+  getParams();
 }
 
 function draw(){

@@ -1,0 +1,73 @@
+  <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    
+  </head>
+  <body>
+    <main>
+    </main>
+    
+    <script>
+      let viewMode, mouseBoundary;
+      let inMinX, inMaxX;
+      let inMinY, inMaxY;
+      let mousePosX = 0, mousePosY = 0;
+      let mouseOffsetX = 0;
+      let mouseOffsetY = 0; 
+      let displayWidth, displayHeight;
+      let displayXmin = 0;
+      let displayXmax = 1920;
+      let displayYmin = 0;
+      let displayYmax = 1080;
+      
+      const mouseChannel = new BroadcastChannel('mouse_move');
+      const clickChannel = new BroadcastChannel('mouse_click');
+      const desktopBoundsChannel = new BroadcastChannel('desktop_bounds');
+
+      function remap(n, start1, stop1, start2, stop2) {
+        return (n - start1) / (stop1 - start1) * (stop2 - start2) + start2;
+      }
+
+      desktopBoundsChannel.onmessage = (event) => {
+          if(event.data && typeof event.data.minX !== 'undefined') {
+             displayXmin = event.data.minX;
+             displayXmax = event.data.maxX;
+             displayYmin = event.data.minY;
+             displayYmax = event.data.maxY;
+          }
+      };
+      
+      // Request bounds
+      desktopBoundsChannel.postMessage('request_bounds');
+
+      mouseChannel.onmessage = (event) => {
+          const { x, y } = event.data;
+          mousePosX = Math.round(remap(x, displayXmin, displayXmax, 0, window.innerWidth));
+          mousePosY = Math.round(remap(y, displayYmin, displayYmax, 0, window.innerHeight));
+      };
+
+      clickChannel.onmessage = (event) => {
+          if (event.data.pressed) {
+             if (typeof mousePressed === 'function') {
+                 mousePressed(event.data.button);
+             }
+          }
+      };
+
+      window.addEventListener(`mouseBoundary`, async function (event) {
+        if (event.detail.hasOwnProperty('mouseBoundary')) {
+          mouseBoundary = event.detail.mouseBoundary;
+          inMinX = mouseBoundary.mouseBoundaryLeft; 
+          inMaxX = mouseBoundary.mouseBoundaryRight;
+          inMinY = mouseBoundary.mouseBoundaryTop
+          inMaxY = mouseBoundary.mouseBoundaryBottom;
+        }
+      })
+      
+      </script>
+    <script src="../lib/p5.min.js"></script>
+    <script src="sketch/magicWandMouse_Sketch.js"></script>
+    <script src="sketch/magicWandMouse_Class.js"></script>
+  </body>
+</html>

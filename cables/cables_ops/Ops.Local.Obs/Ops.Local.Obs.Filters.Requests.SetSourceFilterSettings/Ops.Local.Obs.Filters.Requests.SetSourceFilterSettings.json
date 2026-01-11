@@ -1,0 +1,91 @@
+{
+    "id": "e48db34b-30b9-4c2e-8a10-404f2fdabfd1",
+    "authorName": "Gemini",
+    "created": 1673260800000,
+    "layout": {
+        "portsIn": [
+            {
+                "type": 2,
+                "name": "obsConnection",
+                "objType": "obsConnection"
+            },
+            {
+                "type": 1,
+                "name": "Call"
+            },
+            {
+                "type": 5,
+                "name": "Source Name"
+            },
+            {
+                "type": 5,
+                "name": "Source UUID"
+            },
+            {
+                "type": 5,
+                "name": "Filter Name"
+            },
+            {
+                "type": 2,
+                "name": "Filter Settings"
+            },
+            {
+                "type": 0,
+                "name": "Overlay",
+                "subType": "boolean"
+            }
+        ],
+        "portsOut": [
+            {
+                "type": 1,
+                "name": "Finished"
+            }
+        ]
+    },
+    "summary": "Sets the settings of a source filter",
+    "docs": {
+        "ports": [
+            {
+                "name": "obsConnection",
+                "text": "The OBS Connection object (optional, defaults to global obs)"
+            },
+            {
+                "name": "Call",
+                "text": "Trigger to call the request"
+            },
+            {
+                "name": "Source Name",
+                "text": "Name of the source"
+            },
+            {
+                "name": "Source UUID",
+                "text": "UUID of the source"
+            },
+            {
+                "name": "Filter Name",
+                "text": "Name of the filter"
+            },
+            {
+                "name": "Filter Settings",
+                "text": "Object of settings to apply"
+            },
+            {
+                "name": "Overlay",
+                "text": "Whether to overlay over existing settings (true) or reset to defaults (false)"
+            },
+            {
+                "name": "Finished",
+                "text": "Triggered when the request is complete"
+            }
+        ]
+    },
+    "dependencies": [
+        {
+            "type": "npm",
+            "src": "obs-websocket-js"
+        }
+    ],
+    "coreLibs": [
+        "standalone_electron"
+    ]
+}

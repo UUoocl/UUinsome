@@ -1,0 +1,98 @@
+{
+    "id": "a2237027-f556-4225-b8ab-d736246ac0d7",
+    "authorName": "Gemini",
+    "created": 1673260800000,
+    "layout": {
+        "portsIn": [
+            {
+                "type": 2,
+                "name": "obsConnection",
+                "objType": "obsConnection"
+            },
+            {
+                "type": 1,
+                "name": "Call"
+            }
+        ],
+        "portsOut": [
+            {
+                "type": 1,
+                "name": "Finished"
+            },
+            {
+                "type": 5,
+                "name": "Desktop 1"
+            },
+            {
+                "type": 5,
+                "name": "Desktop 2"
+            },
+            {
+                "type": 5,
+                "name": "Mic 1"
+            },
+            {
+                "type": 5,
+                "name": "Mic 2"
+            },
+            {
+                "type": 5,
+                "name": "Mic 3"
+            },
+            {
+                "type": 5,
+                "name": "Mic 4"
+            }
+        ]
+    },
+    "summary": "Gets the names of all special inputs",
+    "docs": {
+        "ports": [
+            {
+                "name": "obsConnection",
+                "text": "The OBS Connection object (optional, defaults to global obs)"
+            },
+            {
+                "name": "Call",
+                "text": "Trigger to call the request"
+            },
+            {
+                "name": "Finished",
+                "text": "Triggered when the request is finished"
+            },
+            {
+                "name": "Desktop 1",
+                "text": "Name of the Desktop Audio input"
+            },
+            {
+                "name": "Desktop 2",
+                "text": "Name of the Desktop Audio 2 input"
+            },
+            {
+                "name": "Mic 1",
+                "text": "Name of the Mic/Auxiliary Audio input"
+            },
+            {
+                "name": "Mic 2",
+                "text": "Name of the Mic/Auxiliary Audio 2 input"
+            },
+            {
+                "name": "Mic 3",
+                "text": "Name of the Mic/Auxiliary Audio 3 input"
+            },
+            {
+                "name": "Mic 4",
+                "text": "Name of the Mic/Auxiliary Audio 4 input"
+            }
+        ]
+    },
+    "dependencies": [
+        {
+            "type": "npm",
+            "src": "obs-websocket-js"
+        }
+    ],
+    "coreLibs": [
+        "standalone_electron"
+    ]
+}

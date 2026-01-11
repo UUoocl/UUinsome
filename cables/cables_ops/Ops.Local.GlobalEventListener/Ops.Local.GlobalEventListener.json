@@ -1,0 +1,85 @@
+{
+     "id": "d27a6d06-1842-469e-90a2-3ba65d1b8a34",
+    "authorName": "Gemini",
+    "created": 1736524800000,
+    "layout": {
+        "portsIn": [
+            {
+                "type": 0,
+                "name": "Active",
+                "subType": "boolean"
+            },
+            {
+                "type": 5,
+                "name": "Event Name"
+            },
+            {
+                "type": 0,
+                "name": "Use Capture",
+                "subType": "boolean"
+            },
+            {
+                "type": 0,
+                "name": "Passive",
+                "subType": "boolean"
+            },
+            {
+                "type": 0,
+                "name": "Prevent Default",
+                "subType": "boolean"
+            },
+            {
+                "type": 0,
+                "name": "Stop Propagation",
+                "subType": "boolean"
+            }
+        ],
+        "portsOut": [
+            {
+                "type": 1,
+                "name": "Event Trigger"
+            },
+            {
+                "type": 2,
+                "name": "Event Object"
+            }
+        ]
+    },
+    "summary": "Add an event listener to globalThis (window/global)",
+    "docs": {
+        "ports": [
+            {
+                "name": "Active",
+                "text": "Enable or disable the event listener"
+            },
+            {
+                "name": "Event Name",
+                "text": "The name of the event to listen for (e.g. 'resize', 'scroll', 'mousedown', etc.)"
+            },
+            {
+                "name": "Use Capture",
+                "text": "Whether to use event capturing instead of bubbling"
+            },
+            {
+                "name": "Passive",
+                "text": "A boolean value that, if true, indicates that the function specified by listener will never call preventDefault(). If a passive listener does call preventDefault(), the user agent will do nothing other than generate a console warning."
+            },
+            {
+                "name": "Prevent Default",
+                "text": "If set the default browser action for the event will not be executed."
+            },
+            {
+                "name": "Stop Propagation",
+                "text": "Stops other elements’ event listeneres from getting called."
+            },
+            {
+                "name": "Event Trigger",
+                "text": "Triggered when the event occurs on globalThis"
+            },
+            {
+                "name": "Event Object",
+                "text": "The event object containing details about the event"
+            }
+        ]
+    }
+}

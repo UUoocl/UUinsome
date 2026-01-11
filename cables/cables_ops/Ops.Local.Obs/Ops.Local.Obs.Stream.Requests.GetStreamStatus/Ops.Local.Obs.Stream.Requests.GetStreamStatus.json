@@ -1,0 +1,121 @@
+{
+    "id": "6bdf8f47-133d-4953-81b5-d186fd63ca76",
+    "authorName": "Gemini",
+    "created": 1673260800000,
+    "layout": {
+        "portsIn": [
+            {
+                "type": 2,
+                "name": "obsConnection",
+                "objType": "obsConnection"
+            },
+            {
+                "type": 1,
+                "name": "Call"
+            }
+        ],
+        "portsOut": [
+            {
+                "type": 1,
+                "name": "Finished"
+            },
+            {
+                "type": 0,
+                "name": "Output Active",
+                "subType": "boolean"
+            },
+            {
+                "type": 0,
+                "name": "Output Reconnecting",
+                "subType": "boolean"
+            },
+            {
+                "type": 5,
+                "name": "Output Timecode"
+            },
+            {
+                "type": 0,
+                "name": "Output Duration (ms)",
+                "subType": "number"
+            },
+            {
+                "type": 0,
+                "name": "Output Congestion",
+                "subType": "number"
+            },
+            {
+                "type": 0,
+                "name": "Output Bytes",
+                "subType": "number"
+            },
+            {
+                "type": 0,
+                "name": "Output Skipped Frames",
+                "subType": "number"
+            },
+            {
+                "type": 0,
+                "name": "Output Total Frames",
+                "subType": "number"
+            }
+        ]
+    },
+    "summary": "Gets the status of the stream output",
+    "docs": {
+        "ports": [
+            {
+                "name": "obsConnection",
+                "text": "The OBS Connection object (optional, defaults to global obs)"
+            },
+            {
+                "name": "Call",
+                "text": "Trigger to call the request"
+            },
+            {
+                "name": "Finished",
+                "text": "Triggered when the request is finished"
+            },
+            {
+                "name": "Output Active",
+                "text": "Whether the output is active"
+            },
+            {
+                "name": "Output Reconnecting",
+                "text": "Whether the output is currently reconnecting"
+            },
+            {
+                "name": "Output Timecode",
+                "text": "Current formatted timecode string"
+            },
+            {
+                "name": "Output Duration (ms)",
+                "text": "Current duration in milliseconds"
+            },
+            {
+                "name": "Output Congestion",
+                "text": "Congestion of the output"
+            },
+            {
+                "name": "Output Bytes",
+                "text": "Number of bytes sent"
+            },
+            {
+                "name": "Output Skipped Frames",
+                "text": "Number of frames skipped"
+            },
+            {
+                "name": "Output Total Frames",
+                "text": "Total number of frames delivered"
+            }
+        ]
+    },
+    "dependencies": [
+        {
+            "type": "npm",
+            "src": "obs-websocket-js"
+        }
+    ],
+    "coreLibs": [
+        "standalone_electron"
+    ]
+}

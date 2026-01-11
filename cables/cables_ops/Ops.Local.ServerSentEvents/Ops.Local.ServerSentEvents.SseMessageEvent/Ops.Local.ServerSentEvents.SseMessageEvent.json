@@ -1,0 +1,49 @@
+{
+     "id": "d27a6d06-1842-469e-90a2-4ba65d1b8a24",
+    "authorName": "Gemini",
+    "created": 1736524800000,
+    "layout": {
+        "portsIn": [
+            {
+                "type": 2,
+                "name": "SSE Object",
+                "objType": "sseConnection"
+            }
+        ],
+        "portsOut": [
+            {
+                "type": 1,
+                "name": "Received"
+            },
+            {
+                "type": 5,
+                "name": "Data"
+            },
+            {
+                "type": 5,
+                "name": "Last Event ID"
+            }
+        ]
+    },
+    "summary": "Listen for generic SSE messages",
+    "docs": {
+        "ports": [
+            {
+                "name": "SSE Object",
+                "text": "The SSE connection object from SseReceiver"
+            },
+            {
+                "name": "Received",
+                "text": "Triggered when a new message is received"
+            },
+            {
+                "name": "Data",
+                "text": "The data payload of the message"
+            },
+            {
+                "name": "Last Event ID",
+                "text": "The ID of the last event received"
+            }
+        ]
+    }
+}

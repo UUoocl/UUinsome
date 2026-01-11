@@ -97,8 +97,7 @@
       };
 
       window.addEventListener('message', (event) => {
-        console.log("Teleprompter iframe", event)
-        
+       
         if(event.origin === window.location.origin){
           const parentMessage = JSON.parse(event.data)
           if(parentMessage.method === "updateNotes"){
@@ -107,12 +106,10 @@
           }
           //listen for changes and call the matching function.                                                                                                                                          
           if(parentMessage.method === "teleprompterChangeRequest"){
-            console.log("change request", parentMessage.functionName)
             TelePrompter[`${parentMessage.functionName}`](parentMessage?.value)
           }
           
           if(parentMessage.method === "togglePlay"){
-            console.log("change request", parentMessage.functionName)
             TelePrompter[`${parentMessage.functionName}`]()
           }
         

@@ -1,0 +1,58 @@
+{
+    "id": "cc2a9ab2-8e93-4070-9361-94c1fd64b484",
+    "authorName": "Gemini",
+    "created": 1672531200000,
+    "layout": {
+        "portsIn": [
+            {
+                "type": 2,
+                "name": "obsConnection",
+                "objType": "obsConnection"
+            }
+        ],
+        "portsOut": [
+            {
+                "type": 1,
+                "name": "Removed"
+            },
+            {
+                "type": 5,
+                "name": "Source Name"
+            },
+            {
+                "type": 5,
+                "name": "Filter Name"
+            }
+        ]
+    },
+    "summary": "Triggered when a filter has been removed from a source",
+    "docs": {
+        "ports": [
+            {
+                "name": "obsConnection",
+                "text": "The OBS Connection object (optional, defaults to global obs)"
+            },
+            {
+                "name": "Removed",
+                "text": "Triggered when the filter is removed"
+            },
+            {
+                "name": "Source Name",
+                "text": "Name of the source the filter was on"
+            },
+            {
+                "name": "Filter Name",
+                "text": "Name of the removed filter"
+            }
+        ]
+    },
+    "dependencies": [
+        {
+            "type": "npm",
+            "src": "obs-websocket-js"
+        }
+    ],
+    "coreLibs": [
+        "standalone_electron"
+    ]
+}

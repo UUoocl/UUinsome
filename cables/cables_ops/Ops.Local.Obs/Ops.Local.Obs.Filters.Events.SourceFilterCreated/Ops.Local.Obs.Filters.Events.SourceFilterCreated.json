@@ -1,0 +1,83 @@
+{
+    "id": "d7016b19-041b-4e0d-a9d9-033137b3c7dd",
+    "authorName": "Gemini",
+    "created": 1672531200000,
+    "layout": {
+        "portsIn": [
+            {
+                "type": 2,
+                "name": "obsConnection",
+                "objType": "obsConnection"
+            }
+        ],
+        "portsOut": [
+            {
+                "type": 1,
+                "name": "Created"
+            },
+            {
+                "type": 5,
+                "name": "Source Name"
+            },
+            {
+                "type": 5,
+                "name": "Filter Name"
+            },
+            {
+                "type": 5,
+                "name": "Filter Kind"
+            },
+            {
+                "type": 0,
+                "name": "Filter Index",
+                "subType": "number"
+            },
+            {
+                "type": 2,
+                "name": "Filter Settings"
+            }
+        ]
+    },
+    "summary": "Triggered when a filter has been added to a source",
+    "docs": {
+        "ports": [
+            {
+                "name": "obsConnection",
+                "text": "The OBS Connection object (optional, defaults to global obs)"
+            },
+            {
+                "name": "Created",
+                "text": "Triggered when the filter is created"
+            },
+            {
+                "name": "Source Name",
+                "text": "Name of the source the filter was added to"
+            },
+            {
+                "name": "Filter Name",
+                "text": "Name of the filter"
+            },
+            {
+                "name": "Filter Kind",
+                "text": "The kind of the filter"
+            },
+            {
+                "name": "Filter Index",
+                "text": "Index position of the filter"
+            },
+            {
+                "name": "Filter Settings",
+                "text": "The settings configured to the filter"
+            }
+        ]
+    },
+    "dependencies": [
+        {
+            "type": "npm",
+            "src": "obs-websocket-js"
+        }
+    ],
+    "coreLibs": [
+        "standalone_electron"
+    ]
+}

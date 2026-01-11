@@ -1,0 +1,50 @@
+{
+    "id": "ad1dd195-91fb-491f-aa98-e9bc09c05e9c",
+    "authorName": "Gemini",
+    "created": 1672531200000,
+    "layout": {
+        "portsIn": [
+            {
+                "type": 2,
+                "name": "obsConnection",
+                "objType": "obsConnection"
+            }
+        ],
+        "portsOut": [
+            {
+                "type": 1,
+                "name": "Changed"
+            },
+            {
+                "type": 2,
+                "name": "Event Data"
+            }
+        ]
+    },
+    "summary": "Triggered when a CustomEvent is emitted by BroadcastCustomEvent",
+    "docs": {
+        "ports": [
+            {
+                "name": "obsConnection",
+                "text": "The OBS Connection object (optional, defaults to global obs)"
+            },
+            {
+                "name": "Changed",
+                "text": "Triggered when a custom event occurs"
+            },
+            {
+                "name": "Event Data",
+                "text": "Custom event data object"
+            }
+        ]
+    },
+    "dependencies": [
+        {
+            "type": "npm",
+            "src": "obs-websocket-js"
+        }
+    ],
+    "coreLibs": [
+        "standalone_electron"
+    ]
+}

@@ -1,0 +1,104 @@
+{
+    "id": "3cab8e3d-da94-487a-9e3d-023c74e9bbe4",
+    "authorName": "Gemini",
+    "created": 1673260800000,
+    "layout": {
+        "portsIn": [
+            {
+                "type": 2,
+                "name": "obsConnection",
+                "objType": "obsConnection"
+            },
+            {
+                "type": 1,
+                "name": "Call"
+            }
+        ],
+        "portsOut": [
+            {
+                "type": 1,
+                "name": "Finished"
+            },
+            {
+                "type": 0,
+                "name": "Base Width",
+                "subType": "number"
+            },
+            {
+                "type": 0,
+                "name": "Base Height",
+                "subType": "number"
+            },
+            {
+                "type": 0,
+                "name": "Output Width",
+                "subType": "number"
+            },
+            {
+                "type": 0,
+                "name": "Output Height",
+                "subType": "number"
+            },
+            {
+                "type": 0,
+                "name": "FPS Numerator",
+                "subType": "number"
+            },
+            {
+                "type": 0,
+                "name": "FPS Denominator",
+                "subType": "number"
+            }
+        ]
+    },
+    "summary": "Gets current video settings",
+    "docs": {
+        "ports": [
+            {
+                "name": "obsConnection",
+                "text": "The OBS Connection object (optional, defaults to global obs)"
+            },
+            {
+                "name": "Call",
+                "text": "Trigger to call the request"
+            },
+            {
+                "name": "Finished",
+                "text": "Triggered when the request is finished"
+            },
+            {
+                "name": "Base Width",
+                "text": "Base canvas width"
+            },
+            {
+                "name": "Base Height",
+                "text": "Base canvas height"
+            },
+            {
+                "name": "Output Width",
+                "text": "Output (scaled) width"
+            },
+            {
+                "name": "Output Height",
+                "text": "Output (scaled) height"
+            },
+            {
+                "name": "FPS Numerator",
+                "text": "FPS numerator"
+            },
+            {
+                "name": "FPS Denominator",
+                "text": "FPS denominator"
+            }
+        ]
+    },
+    "dependencies": [
+        {
+            "type": "npm",
+            "src": "obs-websocket-js"
+        }
+    ],
+    "coreLibs": [
+        "standalone_electron"
+    ]
+}
