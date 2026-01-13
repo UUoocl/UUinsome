@@ -192,8 +192,11 @@
       "slides-extended:Show slide preview": false
     }
   },
-  "active": "8977e6313988a50b",
+  "active": "e5d508ec01a6f746",
   "lastOpenFiles": [
+    "cables/patches/localOBS.cables",
+    "obs_collection/UUinsome.json",
+    "obs_collection",
     "Untitled.md",
     "README.md",
     "cables/patches",
@@ -204,8 +207,6 @@
     "apps/mouse_zoom_follow/js/Settings.js",
     "apps/mouse_zoom_follow/js/OBSManager.js",
     "apps/mouse_zoom_follow/js/Monitor.js",
-    "apps/mouse_zoom_follow/css/style.css",
-    "apps/mouse_zoom_follow/zoom_follow.html",
     "cables/cables_ops/Ops.Local.ServerSentEvents/Ops.Local.ServerSentEvents.SseReceiver/node_modules/eventsource-parser/README.md",
     "cables/cables_ops/Ops.Local.ServerSentEvents/Ops.Local.ServerSentEvents.SseReceiver/node_modules/eventsource/README.md",
     "cables/cables_ops/Ops.Local.GlobalEventListener/Ops.Local.GlobalEventListener.md",
